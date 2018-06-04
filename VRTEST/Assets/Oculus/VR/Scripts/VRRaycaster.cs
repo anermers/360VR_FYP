@@ -102,6 +102,8 @@ public class VRRaycaster : MonoBehaviour
             {
                 raycastHitCallback.Invoke(laserPointer, hit);
             }
+
+
         }
     }
 }
