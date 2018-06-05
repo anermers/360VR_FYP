@@ -60,8 +60,18 @@ public class RoomHandler : MonoBehaviour
         // Set skybox texture 
         RenderSettings.skybox.SetTexture("_Tex", rooomInfoContainer[key].roomTexture);
         // Disable ui
-        //selectionCanvas.SetActive(false);
+        selectionCanvas.SetActive(false);
         debugText.text = key;
+    }
+
+    public void ShowMenu()
+    {
+        Debug.Log("ENTERED");
+        if (selectionCanvas.activeSelf)
+            return;
+
+        RenderSettings.skybox.SetTexture("_Tex", null);
+        selectionCanvas.SetActive(true);
     }
 
     private void OnApplicationQuit()

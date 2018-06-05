@@ -145,6 +145,13 @@ public class RayPointer : MonoBehaviour {
         if (interactWithNonUIObjects) {
             ProcessNonUIInteractions(selectionRay);
         }
+
+        // testing 
+        if (OVRInput.Get(OVRInput.Button.Back, activeController) || 
+            Input.GetKeyDown(KeyCode.F6))
+        {
+            RoomHandler.instance.ShowMenu();
+        }
     }
 
     void ProcessNonUIInteractions(Ray pointer) {
@@ -183,6 +190,7 @@ public class RayPointer : MonoBehaviour {
                         }
                     }
                 }
+
                 if (!OVRInput.Get(joyPadClickButton, activeController)) {
                     triggerDown = null;
                 }
