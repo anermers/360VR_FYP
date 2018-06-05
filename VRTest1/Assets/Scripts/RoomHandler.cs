@@ -1,20 +1,23 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 [System.Serializable]
 public class RoomInfo
 {
     public string name;
     public Texture roomTexture;
-    public List<GameObject> itemOfInterestList;
+    public List<GameObject> itemList;
 }
 
 public class RoomHandler : MonoBehaviour
 {
     public static RoomHandler instance = null;
     public Material skyboxMaterial;
+    public Material defaultMaterial;
     public List<RoomInfo> roomInfoList;
+    public Text debugText;
     private Dictionary<string, RoomInfo> rooomInfoContainer;
 
     private void Awake()
@@ -30,6 +33,8 @@ public class RoomHandler : MonoBehaviour
             rooomInfoContainer.Add(info.name, info);
 
         }
+
+        RenderSettings.skybox = defaultMaterial;
     }
 
     // Use this for initialization
@@ -40,15 +45,25 @@ public class RoomHandler : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	    	
+
 	}
 
     public void ChangeTexture(string key)
     {
         if (!rooomInfoContainer.ContainsKey(key))
+        {
+            debugText.text = "key not found";
+            RenderSettings.skybox.SetTexture("_Tex", null);
             return;
+        }
 
         // Set skybox texture 
-        skyboxMaterial.SetTexture("_Tex", rooomInfoContainer[key].roomTexture);
+        RenderSettings.skybox.SetTexture("_Tex", rooomInfoContainer[key].roomTexture);
+        debugText.text = key;
+    }
+
+    private void OnApplicationQuit()
+    {
+        skyboxMaterial.SetTexture("_Tex", null);
     }
 }
