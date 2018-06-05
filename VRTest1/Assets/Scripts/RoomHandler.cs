@@ -35,7 +35,7 @@ public class RoomHandler : MonoBehaviour
 
         }
 
-        RenderSettings.skybox = defaultMaterial;
+        //RenderSettings.skybox = defaultMaterial;
     }
 
     // Use this for initialization
@@ -66,6 +66,6 @@ public class RoomHandler : MonoBehaviour
 
     private void OnApplicationQuit()
     {
-        skyboxMaterial.SetTexture("_Tex", null);
+        //skyboxMaterial.SetTexture("_Tex", null);
     }
 }
