@@ -44,14 +44,13 @@ public class SkyboxTextureHandler : MonoBehaviour
     {
     }
 
-    bool ChangeTexture(string key)
+    public void ChangeTexture(string key)
     {
-        if(!textureContainer.ContainsKey(key))
-            return false;
+        if (!textureContainer.ContainsKey(key))
+            return;
 
         // Set skybox texture 
         skyboxMaterial.SetTexture("_Tex", textureContainer[key]);
-        return true;
     }
 
 

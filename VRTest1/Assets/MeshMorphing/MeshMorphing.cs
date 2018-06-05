@@ -131,5 +131,3 @@ public class MeshMorphing : MonoBehaviour
 			m_MorphedMesh.RecalculateNormals();
 	}
 }
-
-//Have any questions? Mail me: contact@crowbox.de
