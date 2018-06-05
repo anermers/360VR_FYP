@@ -14,6 +14,7 @@ public class RoomInfo
 public class RoomHandler : MonoBehaviour
 {
     public static RoomHandler instance = null;
+    public GameObject selectionCanvas;
     public Material skyboxMaterial;
     public Material defaultMaterial;
     public List<RoomInfo> roomInfoList;
@@ -45,7 +46,6 @@ public class RoomHandler : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-
 	}
 
     public void ChangeTexture(string key)
@@ -59,6 +59,8 @@ public class RoomHandler : MonoBehaviour
 
         // Set skybox texture 
         RenderSettings.skybox.SetTexture("_Tex", rooomInfoContainer[key].roomTexture);
+        // Disable ui
+        //selectionCanvas.SetActive(false);
         debugText.text = key;
     }
 
