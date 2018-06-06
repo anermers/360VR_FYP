@@ -55,15 +55,23 @@ public class RoomHandler : MonoBehaviour
 
     // Use this for initialization
     void Start () {
-		
 	}
-	
-	// Update is called once per frame
-	void Update ()
+
+    //public string SaveToString()
+    //{
+    //    return JsonUtility.ToJson(this);
+    //}
+
+    // Update is called once per frame
+    void Update ()
     {
         //if (Input.GetKeyDown(KeyCode.F10))
         //    ChangeLocation("Room01");
-
+        //if(Input.GetKeyDown(KeyCode.F10))
+        //{
+        //    string str = SaveToString();
+        //    Debug.Log(str);
+        //}
     }
 
     public void ChangeLocation(string key)
