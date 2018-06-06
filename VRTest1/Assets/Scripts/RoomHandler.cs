@@ -4,11 +4,18 @@ using UnityEngine;
 using UnityEngine.UI;
 
 [System.Serializable]
+public class ItemInfo
+{
+    public string itemName;
+    public GameObject item;
+}
+
+[System.Serializable]
 public class RoomInfo
 {
     public string name;
     public Texture roomTexture;
-    public List<GameObject> itemList;
+    public List<ItemInfo> itemList;
 }
 
 public class RoomHandler : MonoBehaviour
@@ -20,6 +27,10 @@ public class RoomHandler : MonoBehaviour
     public List<RoomInfo> roomInfoList;
     public Text debugText;
     private Dictionary<string, RoomInfo> rooomInfoContainer;
+    private string currKey = null;
+
+    public Dictionary<string, RoomInfo> RoomInfoContainer { get { return rooomInfoContainer; } }
+    public string CurrKey { get { return currKey; } }
 
     private void Awake()
     {
@@ -31,11 +42,15 @@ public class RoomHandler : MonoBehaviour
         {
             if (rooomInfoContainer.ContainsKey(info.name))
                 continue;
-            rooomInfoContainer.Add(info.name, info);
 
+            // Sets the gameobject active to false
+            foreach (ItemInfo iter in info.itemList)
+                iter.item.SetActive(false);
+
+            rooomInfoContainer.Add(info.name, info);
         }
 
-        //RenderSettings.skybox = defaultMaterial;
+        RenderSettings.skybox = defaultMaterial;
     }
 
     // Use this for initialization
@@ -46,9 +61,12 @@ public class RoomHandler : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
     {
-	}
+        //if (Input.GetKeyDown(KeyCode.F10))
+        //    ChangeLocation("Room01");
 
-    public void ChangeTexture(string key)
+    }
+
+    public void ChangeLocation(string key)
     {
         if (!rooomInfoContainer.ContainsKey(key))
         {
@@ -57,12 +75,12 @@ public class RoomHandler : MonoBehaviour
             return;
         }
 
-        // Set skybox texture 
-        RenderSettings.skybox.SetTexture("_Tex", rooomInfoContainer[key].roomTexture);
-        // Disable ui
-        selectionCanvas.SetActive(false);
-        debugText.text = key;
+        ChangeTexture(key);
+        ChangePointOfInterest(key);
+        // set the currKey after changing of texture/items
+        currKey = key;
     }
+
 
     public void ShowMenu()
     {
@@ -74,8 +92,24 @@ public class RoomHandler : MonoBehaviour
         selectionCanvas.SetActive(true);
     }
 
+    private void ChangeTexture(string key)
+    {
+        // Set skybox texture 
+        RenderSettings.skybox.SetTexture("_Tex", rooomInfoContainer[key].roomTexture);
+        // Disable ui
+        selectionCanvas.SetActive(false);
+        debugText.text = key;
+    }
+
+    private void ChangePointOfInterest(string key)
+    {
+        //enable the changed room items
+        foreach (ItemInfo iter in rooomInfoContainer[key].itemList)
+            iter.item.SetActive(true);
+    }
+
     private void OnApplicationQuit()
     {
-        //skyboxMaterial.SetTexture("_Tex", null);
+        skyboxMaterial.SetTexture("_Tex", null);
     }
 }

@@ -151,6 +151,8 @@ public class RayPointer : MonoBehaviour {
             Input.GetKeyDown(KeyCode.F6))
         {
             RoomHandler.instance.ShowMenu();
+            foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
+                iter.item.SetActive(false);
         }
     }
 
