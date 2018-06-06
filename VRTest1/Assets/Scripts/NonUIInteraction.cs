@@ -29,11 +29,10 @@ public class NonUIInteraction : MonoBehaviour {
             }
         }
 
+        //Translate Text to point of interest
         infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y + 2, t.gameObject.transform.position.z);
+        //Rotate Text to face the camera
         infoText.transform.rotation = Quaternion.LookRotation(infoText.transform.position - playerCam.transform.position);
-        //infoText.transform.LookAt(infoText.transform.position + playerCam.transform.rotation * Vector3.forward,
-        //        playerCam.transform.rotation * Vector3.up);
-        //infoText.transform.position = playerCam.WorldToViewportPoint(new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y, t.gameObject.transform.position.z));
     }
 
     public void OnHoverExit(Transform t) {
