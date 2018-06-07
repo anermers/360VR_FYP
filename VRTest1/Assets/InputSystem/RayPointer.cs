@@ -30,6 +30,7 @@ public class RayPointer : MonoBehaviour {
 
     protected Transform lastHit = null;
     protected Transform triggerDown = null;
+    public GameObject kitchenModel;
 
     void Awake () {
         if (inputModule != null) {
@@ -150,6 +151,10 @@ public class RayPointer : MonoBehaviour {
         if (OVRInput.Get(OVRInput.Button.Back, activeController) || 
             Input.GetKeyDown(KeyCode.F6))
         {
+            if(kitchenModel.activeInHierarchy)
+            kitchenModel.SetActive(false);
+
+
             RoomHandler.instance.ShowMenu();
             foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
                 iter.item.SetActive(false);
