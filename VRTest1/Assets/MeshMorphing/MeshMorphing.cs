@@ -30,8 +30,10 @@ public class MeshMorphing : MonoBehaviour
 
 	float m_LastMorph;
 
-	//Make sure both meshes use the same vertex count and indices! Modify a mesh in a 3D editing tool and manipulate only the position of the vertecies is the best way to do that.
-	//Keep in mind that changing values like normals or uvs can affect the vertex count of a mesh and your morph target might not match anymore! This is why this example only reads vertex position.
+    //Make sure both meshes use the same vertex count and indices! Modify a mesh in a 3D editing tool 
+    // and manipulate only the position of the vertecies is the best way to do that.
+    //Keep in mind that changing values like normals or uvs can affect the vertex count of a mesh 
+    // and your morph target might not match anymore! This is why this example only reads vertex position.
 	public Mesh m_MeshBase;
 	[SerializeField]
 	MorphTarget[] m_MorphTargets;
@@ -40,7 +42,6 @@ public class MeshMorphing : MonoBehaviour
 	public bool m_GenerateNormals;
 
 	//You could add more than just one morp target! Just add the meshes and additional parameters and notice the example below.
-
 	Material m_Mat;
 
 	Vector3[] m_VertsBase;

@@ -18,6 +18,17 @@ public class RoomInfo
     public List<ItemInfo> itemList;
 }
 
+public struct Point
+{
+    public string currLocation;
+    public string connectedLocation;
+
+    public string SaveToString()
+    {
+        return JsonUtility.ToJson(this);
+    }
+}
+
 public class RoomHandler : MonoBehaviour
 {
     public static RoomHandler instance = null;
@@ -57,21 +68,11 @@ public class RoomHandler : MonoBehaviour
     void Start () {
 	}
 
-    //public string SaveToString()
-    //{
-    //    return JsonUtility.ToJson(this);
-    //}
-
     // Update is called once per frame
     void Update ()
     {
         //if (Input.GetKeyDown(KeyCode.F10))
         //    ChangeLocation("Room01");
-        //if(Input.GetKeyDown(KeyCode.F10))
-        //{
-        //    string str = SaveToString();
-        //    Debug.Log(str);
-        //}
     }
 
     public void ChangeLocation(string key)
@@ -83,6 +84,9 @@ public class RoomHandler : MonoBehaviour
             return;
         }
 
+        // Disable ui
+        selectionCanvas.SetActive(false);
+        //changing of texture/go
         ChangeTexture(key);
         ChangePointOfInterest(key);
         // set the currKey after changing of texture/items
@@ -104,8 +108,6 @@ public class RoomHandler : MonoBehaviour
     {
         // Set skybox texture 
         RenderSettings.skybox.SetTexture("_Tex", rooomInfoContainer[key].roomTexture);
-        // Disable ui
-        selectionCanvas.SetActive(false);
         debugText.text = key;
     }
 
