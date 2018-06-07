@@ -18,16 +18,16 @@ public class CameraController : MonoBehaviour {
 
         transform.eulerAngles = new Vector3(pitch, yaw, 0.0f);
         
-        if(Input.GetKey(KeyCode.W))
-            transform.position += transform.forward * movementSpeed * Time.deltaTime;
-        else if(Input.GetKey(KeyCode.S))
-            transform.position -= transform.forward * movementSpeed * Time.deltaTime;
-        else if(Input.GetKey(KeyCode.A))
-            transform.position -= transform.right * movementSpeed * Time.deltaTime;
-        else if(Input.GetKey(KeyCode.D))
-            transform.position += transform.right * movementSpeed * Time.deltaTime;
+        //if(Input.GetKey(KeyCode.W))
+        //    transform.position += transform.forward * movementSpeed * Time.deltaTime;
+        //else if(Input.GetKey(KeyCode.S))
+        //    transform.position -= transform.forward * movementSpeed * Time.deltaTime;
+        //else if(Input.GetKey(KeyCode.A))
+        //    transform.position -= transform.right * movementSpeed * Time.deltaTime;
+        //else if(Input.GetKey(KeyCode.D))
+        //    transform.position += transform.right * movementSpeed * Time.deltaTime;
 
-        transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
+        //transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
     }
 
 }

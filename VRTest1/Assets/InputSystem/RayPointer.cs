@@ -31,6 +31,7 @@ public class RayPointer : MonoBehaviour {
     protected Transform lastHit = null;
     protected Transform triggerDown = null;
     public GameObject kitchenModel;
+    private Vector3 DefaultPos;
 
     void Awake () {
         if (inputModule != null) {
@@ -55,6 +56,10 @@ public class RayPointer : MonoBehaviour {
         if ((controller & OVRInput.Controller.LTrackedRemote) == OVRInput.Controller.LTrackedRemote) {
             activeController = OVRInput.Controller.LTrackedRemote;
         }
+
+        //set defaultPos
+        DefaultPos = new Vector3(0,0,0);
+        DefaultPos = transform.position;
     }
 
     void OnDestroy() {
@@ -147,18 +152,34 @@ public class RayPointer : MonoBehaviour {
             ProcessNonUIInteractions(selectionRay);
         }
 
-        // testing 
         if (OVRInput.Get(OVRInput.Button.Back, activeController) || 
             Input.GetKeyDown(KeyCode.F6))
         {
             if(kitchenModel.activeInHierarchy)
             kitchenModel.SetActive(false);
 
-
             RoomHandler.instance.ShowMenu();
             foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
                 iter.item.SetActive(false);
+
+            transform.position = DefaultPos;
         }
+
+#if UNITY_EDITOR
+        if(OVRInput.Get(OVRInput.Button.DpadUp, activeController) ||
+            Input.GetKey(KeyCode.W))
+            transform.position += transform.forward * 9.0f * Time.deltaTime;
+        else if(OVRInput.Get(OVRInput.Button.DpadDown, activeController) ||
+            Input.GetKey(KeyCode.S))
+            transform.position -= transform.forward * 9.0f * Time.deltaTime;
+        else if(OVRInput.Get(OVRInput.Button.DpadLeft, activeController) ||
+            Input.GetKey(KeyCode.A))
+            transform.position -= transform.right * 9.0f * Time.deltaTime;
+        else if(OVRInput.Get(OVRInput.Button.DpadRight, activeController) ||
+            Input.GetKey(KeyCode.D))
+            transform.position += transform.right * 9.0f * Time.deltaTime;
+        transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
+#endif
     }
 
     void ProcessNonUIInteractions(Ray pointer) {
