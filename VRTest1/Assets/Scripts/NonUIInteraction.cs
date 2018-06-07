@@ -12,6 +12,10 @@ public class NonUIInteraction : MonoBehaviour {
 
 
     public void OnHoverEnter(Transform t) {
+
+        //To get controller rotation (TO BE USED IN FUTURE)
+        //Quaternion rot = OVRInput.GetLocalControllerRotation(activeController);
+
         //if (outText != null) {
         //    oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
         //    t.gameObject.GetComponent<Renderer>().material = yellowMat;
