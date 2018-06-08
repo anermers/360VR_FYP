@@ -8,6 +8,7 @@ public class UIInteraction : MonoBehaviour {
     public UnityEngine.UI.Text outText;
     public GameObject kitchenModel;
     public GameObject menuUI;
+    public GameObject selectionRoom;
 
     public void OnButtonClicked() {
         if (kitchenModel != null)
@@ -15,6 +16,7 @@ public class UIInteraction : MonoBehaviour {
             if (EventSystem.current.currentSelectedGameObject.name == "VRKitchenButton")
             {
                 menuUI.SetActive(false);
+                selectionRoom.SetActive(false);
                 kitchenModel.SetActive(!kitchenModel.activeInHierarchy);
             }
             else

@@ -33,6 +33,8 @@ public class RoomHandler : MonoBehaviour
 {
     public static RoomHandler instance = null;
     public GameObject selectionCanvas;
+    public GameObject selectionRoom;
+    public OVRPlayerController opc;
     public Material skyboxMaterial;
     public Material defaultMaterial;
     public List<RoomInfo> roomInfoList;
@@ -71,8 +73,10 @@ public class RoomHandler : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        //if (Input.GetKeyDown(KeyCode.F10))
-        //    ChangeLocation("Room01");
+        if (Input.GetKeyDown(KeyCode.F10))
+            ChangeLocation("Room01");
+        if (Input.GetKeyDown(KeyCode.F11))
+            ShowMenu();
     }
 
     public void ChangeLocation(string key)
@@ -86,11 +90,13 @@ public class RoomHandler : MonoBehaviour
 
         // Disable ui
         selectionCanvas.SetActive(false);
+        selectionRoom.SetActive(false);
         //changing of texture/go
         ChangeTexture(key);
         ChangePointOfInterest(key);
         // set the currKey after changing of texture/items
         currKey = key;
+        opc.GravityModifier = 0;
     }
 
 
@@ -102,6 +108,8 @@ public class RoomHandler : MonoBehaviour
 
         RenderSettings.skybox.SetTexture("_Tex", null);
         selectionCanvas.SetActive(true);
+        selectionRoom.SetActive(true);
+        opc.GravityModifier = 0.7f;
     }
 
     private void ChangeTexture(string key)

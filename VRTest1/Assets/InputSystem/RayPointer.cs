@@ -30,7 +30,12 @@ public class RayPointer : MonoBehaviour {
 
     protected Transform lastHit = null;
     protected Transform triggerDown = null;
+
     public GameObject kitchenModel;
+    public GameObject testPoint;
+    public Camera CentreEyeCamera;
+    public bool isController = true;
+
     private Vector3 DefaultPos;
 
     void Awake () {
@@ -60,6 +65,9 @@ public class RayPointer : MonoBehaviour {
         //set defaultPos
         DefaultPos = new Vector3(0,0,0);
         DefaultPos = transform.position;
+
+        //set active state of point for the raycast from centre eye
+        testPoint.SetActive(!isController);
     }
 
     void OnDestroy() {
@@ -122,13 +130,26 @@ public class RayPointer : MonoBehaviour {
 
     Ray UpdateCastRayIfPossible() {
         if (trackingSpace != null && activeController != OVRInput.Controller.None) {
-            Quaternion orientation = OVRInput.GetLocalControllerRotation(activeController);
-            Vector3 localStartPoint = OVRInput.GetLocalControllerPosition(activeController);
+
+            Quaternion orientation = new Quaternion();
+            Vector3 localStartPoint = new Vector3();
+            
+            if(!isController)
+            {
+                orientation = CentreEyeCamera.transform.rotation;
+                localStartPoint = CentreEyeCamera.transform.localPosition;
+            }
+            else
+            {
+                orientation = OVRInput.GetLocalControllerRotation(activeController);
+                localStartPoint = OVRInput.GetLocalControllerPosition(activeController);
+            }
+
 
             Matrix4x4 localToWorld = trackingSpace.localToWorldMatrix;
             Vector3 worldStartPoint = localToWorld.MultiplyPoint(localStartPoint);
             Vector3 worldOrientation = localToWorld.MultiplyVector(orientation * Vector3.forward);
-            
+
             if (lineRenderer != null) {
                 lineRenderer.SetPosition(0, worldStartPoint);
                 lineRenderer.SetPosition(1, worldStartPoint + worldOrientation * rayLength);
@@ -138,8 +159,10 @@ public class RayPointer : MonoBehaviour {
                 inputModule.SelectionRay = new Ray(worldStartPoint, worldOrientation);
                 return inputModule.SelectionRay;
             }
-        }
 
+            testPoint.transform.localPosition = worldStartPoint + worldOrientation;
+        }
+      
         return new Ray();
     }
 
@@ -148,15 +171,17 @@ public class RayPointer : MonoBehaviour {
         DisableLineRendererIfNeeded();
         Ray selectionRay = UpdateCastRayIfPossible();
 
-        if (interactWithNonUIObjects) {
-            ProcessNonUIInteractions(selectionRay);
+        if (!isController)
+        {
+            // pos of point (cange to lookat)
+            //testPoint.transform.position = transform.position + transform.forward.normalized;
         }
 
-        if (OVRInput.Get(OVRInput.Button.Back, activeController) || 
-            Input.GetKeyDown(KeyCode.F6))
+        if (OVRInput.Get(OVRInput.Button.Back, activeController) ||
+        Input.GetKeyDown(KeyCode.F6))
         {
-            if(kitchenModel.activeInHierarchy)
-            kitchenModel.SetActive(false);
+            if (kitchenModel.activeInHierarchy)
+                kitchenModel.SetActive(false);
 
             RoomHandler.instance.ShowMenu();
             foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
@@ -165,21 +190,19 @@ public class RayPointer : MonoBehaviour {
             transform.position = DefaultPos;
         }
 
-#if UNITY_EDITOR
-        if(OVRInput.Get(OVRInput.Button.DpadUp, activeController) ||
-            Input.GetKey(KeyCode.W))
-            transform.position += transform.forward * 9.0f * Time.deltaTime;
-        else if(OVRInput.Get(OVRInput.Button.DpadDown, activeController) ||
-            Input.GetKey(KeyCode.S))
-            transform.position -= transform.forward * 9.0f * Time.deltaTime;
-        else if(OVRInput.Get(OVRInput.Button.DpadLeft, activeController) ||
-            Input.GetKey(KeyCode.A))
-            transform.position -= transform.right * 9.0f * Time.deltaTime;
-        else if(OVRInput.Get(OVRInput.Button.DpadRight, activeController) ||
-            Input.GetKey(KeyCode.D))
-            transform.position += transform.right * 9.0f * Time.deltaTime;
-        transform.position = new Vector3(transform.position.x, 1.5f, transform.position.z);
-#endif
+        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad)
+            || Input.GetKeyDown(KeyCode.Backspace))
+        {
+            isController = !isController;
+
+            lineRenderer.enabled = isController;
+            testPoint.SetActive(!isController);
+            Debug.Log(lineRenderer.enabled);
+        }
+
+        if (interactWithNonUIObjects) {
+            ProcessNonUIInteractions(selectionRay);
+        }
     }
 
     void ProcessNonUIInteractions(Ray pointer) {
@@ -233,3 +256,5 @@ public class RayPointer : MonoBehaviour {
         }
     }
 }
+
+// line bug

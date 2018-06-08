@@ -86,7 +86,7 @@ public class OVRPlayerController : MonoBehaviour
 	private float FallSpeed = 0.0f;
 	private OVRPose? InitialPose;
 	private float InitialYRotation = 0.0f;
-	private float MoveScaleMultiplier = 1.0f;
+	private float MoveScaleMultiplier = 6.5f; //1.0f
 	private float RotationScaleMultiplier = 1.0f;
 	private bool  SkipMouseRotation = false;
 	private bool  HaltUpdateMovement = false;
@@ -95,12 +95,12 @@ public class OVRPlayerController : MonoBehaviour
 	private float SimulationRate = 60f;
 	private float buttonRotation = 0f;
 
-	void Start()
+    void Start()
 	{
 		// Add eye-depth as a camera offset from the player controller
 		var p = CameraRig.transform.localPosition;
 		p.z = OVRManager.profile.eyeDepth;
-		CameraRig.transform.localPosition = p;
+		//CameraRig.transform.localPosition = p;
 	}
 
 	void Awake()
@@ -240,23 +240,36 @@ public class OVRPlayerController : MonoBehaviour
 
 		bool dpad_move = false;
 
-		if (OVRInput.Get(OVRInput.Button.DpadUp))
+		if (OVRInput.GetDown(OVRInput.Button.DpadUp))
 		{
 			moveForward = true;
 			dpad_move   = true;
 
 		}
 
-		if (OVRInput.Get(OVRInput.Button.DpadDown))
+		if (OVRInput.GetDown(OVRInput.Button.DpadDown))
 		{
 			moveBack  = true;
 			dpad_move = true;
 		}
+       
+        if (OVRInput.GetDown(OVRInput.Button.DpadRight))
+        {
+            moveRight = true;
+            dpad_move = true;
+        }
 
-		MoveScale = 1.0f;
+        if (OVRInput.GetDown(OVRInput.Button.DpadLeft))
+        {
+            moveLeft = true;
+            dpad_move = true;
+        }
 
-		if ( (moveForward && moveLeft) || (moveForward && moveRight) ||
-			 (moveBack && moveLeft)    || (moveBack && moveRight) )
+
+        MoveScale = 1.0f;
+
+        if ((moveForward && moveLeft) || (moveForward && moveRight) ||
+             (moveBack && moveLeft) || (moveBack && moveRight))
 			MoveScale = 0.70710678f;
 
 		// No positional movement if we are in the air
@@ -309,7 +322,13 @@ public class OVRPlayerController : MonoBehaviour
 
 #if !UNITY_ANDROID || UNITY_EDITOR
 		if (!SkipMouseRotation)
-			euler.y += Input.GetAxis("Mouse X") * rotateInfluence * 3.25f;
+        {
+            // left/right
+            euler.y += Input.GetAxis("Mouse X") * rotateInfluence * 3.25f;
+            //up/down
+            euler.x -= Input.GetAxis("Mouse Y") * rotateInfluence * 3.25f;
+        }
+	
 #endif
 
 		moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;

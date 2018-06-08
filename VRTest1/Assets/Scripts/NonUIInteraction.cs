@@ -22,8 +22,8 @@ public class NonUIInteraction : MonoBehaviour {
         //    outText.text ="hovering over: " + t.gameObject.name;
         //}      
         oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
-        t.gameObject.GetComponent<Renderer>().material = yellowMat;
-        infoText.text = "INFO";
+        //t.gameObject.GetComponent<Renderer>().material = yellowMat;
+        infoText.text = "";
         foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
         {
             if (iter.item.Equals(t.gameObject))
