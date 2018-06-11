@@ -233,37 +233,62 @@ public class OVRPlayerController : MonoBehaviour
 		if (HaltUpdateMovement)
 			return;
 
-		bool moveForward = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
+       
+        //data.AppendFormat("PrimaryTouchpad: ({0:F2}, {1:F2})\n", primaryTouchpad.x, primaryTouchpad.y);
+
+
+        bool moveForward = Input.GetKey(KeyCode.W) || Input.GetKey(KeyCode.UpArrow);
 		bool moveLeft = Input.GetKey(KeyCode.A) || Input.GetKey(KeyCode.LeftArrow);
 		bool moveRight = Input.GetKey(KeyCode.D) || Input.GetKey(KeyCode.RightArrow);
 		bool moveBack = Input.GetKey(KeyCode.S) || Input.GetKey(KeyCode.DownArrow);
 
 		bool dpad_move = false;
+        if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad))
+        {
+            Vector2 primaryTouchpad = OVRInput.Get(OVRInput.Axis2D.PrimaryTouchpad);
+            if (Mathf.Abs(primaryTouchpad.x) > Mathf.Abs(primaryTouchpad.y))
+            {
+                if (primaryTouchpad.x > 0)
+                    moveRight = true;
+                else
+                    moveLeft = true;
 
-		if (OVRInput.GetDown(OVRInput.Button.DpadUp))
-		{
-			moveForward = true;
-			dpad_move   = true;
+                dpad_move = true;
+            }
+             else if(Mathf.Abs(primaryTouchpad.y) > 0)
+            {
+                if (primaryTouchpad.y > 0)
+                    moveForward = true;
+                else
+                    moveBack = true;
 
-		}
+                dpad_move = true;
+            }
+        }
 
-		if (OVRInput.GetDown(OVRInput.Button.DpadDown))
-		{
-			moveBack  = true;
-			dpad_move = true;
-		}
+		//if (OVRInput.GetDown(OVRInput.Button.DpadUp) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger))
+		//{
+		//	moveForward = true;
+		//	dpad_move   = true;
+		//}
+
+		//if (OVRInput.GetDown(OVRInput.Button.DpadDown))
+		//{
+		//	moveBack  = true;
+		//	dpad_move = true;
+		//}
        
-        if (OVRInput.GetDown(OVRInput.Button.DpadRight))
-        {
-            moveRight = true;
-            dpad_move = true;
-        }
+  //      if (OVRInput.GetDown(OVRInput.Button.DpadRight))
+  //      {
+  //          moveRight = true;
+  //          dpad_move = true;
+  //      }
 
-        if (OVRInput.GetDown(OVRInput.Button.DpadLeft))
-        {
-            moveLeft = true;
-            dpad_move = true;
-        }
+  //      if (OVRInput.GetDown(OVRInput.Button.DpadLeft))
+  //      {
+  //          moveLeft = true;
+  //          dpad_move = true;
+  //      }
 
 
         MoveScale = 1.0f;
