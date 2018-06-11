@@ -160,7 +160,8 @@ public class RayPointer : MonoBehaviour {
                 return inputModule.SelectionRay;
             }
 
-            testPoint.transform.localPosition = worldStartPoint + worldOrientation;
+            if(!isController)
+                testPoint.transform.localPosition = worldStartPoint + worldOrientation * 2f;
         }
       
         return new Ray();
@@ -173,7 +174,6 @@ public class RayPointer : MonoBehaviour {
 
         if (!isController)
         {
-            // pos of point (cange to lookat)
             //testPoint.transform.position = transform.position + transform.forward.normalized;
         }
 
@@ -184,18 +184,19 @@ public class RayPointer : MonoBehaviour {
                 kitchenModel.SetActive(false);
 
             RoomHandler.instance.ShowMenu();
-            foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
-                iter.item.SetActive(false);
+            if(RoomHandler.instance.CurrKey != null)
+            {
+                foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
+                    iter.item.SetActive(false);
+            }
 
             transform.position = DefaultPos;
         }
 
-        if (OVRInput.GetDown(OVRInput.Button.PrimaryTouchpad)
-            || Input.GetKeyDown(KeyCode.Backspace))
+        if (Input.GetKeyDown(KeyCode.Backspace))
         {
             isController = !isController;
-
-            lineRenderer.enabled = isController;
+            //lineRenderer.enabled = isController;
             testPoint.SetActive(!isController);
             Debug.Log(lineRenderer.enabled);
         }

@@ -136,6 +136,7 @@
     <Compile Include="Assets\OVR\Scripts\Util\OVRScreenFade.cs" />
     <Compile Include="Assets\OVR\Scripts\Util\OVRWaitCursor.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\DebugScript.cs" />
     <Compile Include="Assets\Scripts\NonUIInteraction.cs" />
     <Compile Include="Assets\Scripts\RoomHandler.cs" />
     <Compile Include="Assets\Scripts\SkyboxTextureHandler.cs" />
