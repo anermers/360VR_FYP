@@ -6,6 +6,7 @@ public class NonUIInteraction : MonoBehaviour {
     public UnityEngine.UI.Text outText;
     //public UnityEngine.UI.Text infoText;
     public GameObject playerCam;
+    public GameObject playerController;
     public TextMesh infoText;
     protected Material oldHoverMat;
     public Material yellowMat;
@@ -32,7 +33,6 @@ public class NonUIInteraction : MonoBehaviour {
                 break;
             }
         }
-
         //Translate Text to point of interest
         infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y + 2, t.gameObject.transform.position.z);
         //Rotate Text to face the camera
@@ -48,8 +48,13 @@ public class NonUIInteraction : MonoBehaviour {
     }
 
     public void OnSelected(Transform t) {
-        if (outText != null) {
-            outText.text = "clicked on: " + t.gameObject.name;
-        }
+        //if (outText != null) {
+        //    outText.text = "clicked on: " + t.gameObject.name;
+        //}
+      
+        t.gameObject.GetComponent<Renderer>().material = yellowMat;
+        //t.gameObject.transform.position = new Vector3(5, 5, 5);
+        t.gameObject.transform.parent = playerController.transform;
+        //t.parent = playerController.transform;
     }
 }
