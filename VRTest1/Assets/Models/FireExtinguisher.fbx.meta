@@ -1,0 +1,174 @@
+fileFormatVersion: 2
+guid: f7eafdc84937abb40b595819a82ae116
+timeCreated: 1528794124
+licenseType: Free
+ModelImporter:
+  serializedVersion: 19
+  fileIDToRecycleName:
+    100000: Ctrl_01
+    100002: Ctrl_010
+    100004: Ctrl_011
+    100006: Ctrl_012
+    100008: Ctrl_013
+    100010: Ctrl_014
+    100012: Ctrl_015
+    100014: Ctrl_016
+    100016: Ctrl_02
+    100018: Ctrl_03
+    100020: Ctrl_04
+    100022: Ctrl_05
+    100024: Ctrl_06
+    100026: Ctrl_07
+    100028: Ctrl_08
+    100030: Ctrl_09
+    100032: //RootNode
+    100034: Handle
+    100036: joint1
+    100038: joint10
+    100040: joint11
+    100042: joint12
+    100044: joint13
+    100046: joint14
+    100048: joint15
+    100050: joint16
+    100052: joint17
+    100054: joint3
+    100056: joint4
+    100058: joint5
+    100060: joint6
+    100062: joint7
+    100064: joint8
+    100066: joint9
+    100068: Lever
+    100070: pCylinder1
+    100072: pCylinder2
+    100074: pCylinder3
+    100076: pCylinder4
+    400000: Ctrl_01
+    400002: Ctrl_010
+    400004: Ctrl_011
+    400006: Ctrl_012
+    400008: Ctrl_013
+    400010: Ctrl_014
+    400012: Ctrl_015
+    400014: Ctrl_016
+    400016: Ctrl_02
+    400018: Ctrl_03
+    400020: Ctrl_04
+    400022: Ctrl_05
+    400024: Ctrl_06
+    400026: Ctrl_07
+    400028: Ctrl_08
+    400030: Ctrl_09
+    400032: //RootNode
+    400034: Handle
+    400036: joint1
+    400038: joint10
+    400040: joint11
+    400042: joint12
+    400044: joint13
+    400046: joint14
+    400048: joint15
+    400050: joint16
+    400052: joint17
+    400054: joint3
+    400056: joint4
+    400058: joint5
+    400060: joint6
+    400062: joint7
+    400064: joint8
+    400066: joint9
+    400068: Lever
+    400070: pCylinder1
+    400072: pCylinder2
+    400074: pCylinder3
+    400076: pCylinder4
+    2300000: Handle
+    2300002: Lever
+    2300004: pCylinder1
+    2300006: pCylinder2
+    2300008: pCylinder3
+    3300000: Handle
+    3300002: Lever
+    3300004: pCylinder1
+    3300006: pCylinder2
+    3300008: pCylinder3
+    4300000: pCylinder1
+    4300002: pCylinder2
+    4300004: Handle
+    4300006: Lever
+    4300008: pCylinder3
+    4300010: pCylinder4
+    7400000: Take 001
+    9500000: //RootNode
+    13700000: pCylinder4
+  materials:
+    importMaterials: 1
+    materialName: 0
+    materialSearch: 1
+  animations:
+    legacyGenerateAnimations: 4
+    bakeSimulation: 0
+    resampleCurves: 1
+    optimizeGameObjects: 0
+    motionNodeName: 
+    rigImportErrors: 
+    rigImportWarnings: 
+    animationImportErrors: 
+    animationImportWarnings: 
+    animationRetargetingWarnings: 
+    animationDoRetargetingWarnings: 0
+    animationCompression: 1
+    animationRotationError: 0.5
+    animationPositionError: 0.5
+    animationScaleError: 0.5
+    animationWrapMode: 0
+    extraExposedTransformPaths: []
+    clipAnimations: []
+    isReadable: 1
+  meshes:
+    lODScreenPercentages: []
+    globalScale: 1
+    meshCompression: 0
+    addColliders: 0
+    importBlendShapes: 1
+    swapUVChannels: 0
+    generateSecondaryUV: 0
+    useFileUnits: 1
+    optimizeMeshForGPU: 1
+    keepQuads: 0
+    weldVertices: 1
+    secondaryUVAngleDistortion: 8
+    secondaryUVAreaDistortion: 15.000001
+    secondaryUVHardAngle: 88
+    secondaryUVPackMargin: 4
+    useFileScale: 1
+  tangentSpace:
+    normalSmoothAngle: 60
+    normalImportMode: 0
+    tangentImportMode: 3
+  importAnimation: 1
+  copyAvatar: 0
+  humanDescription:
+    serializedVersion: 2
+    human: []
+    skeleton: []
+    armTwist: 0.5
+    foreArmTwist: 0.5
+    upperLegTwist: 0.5
+    legTwist: 0.5
+    armStretch: 0.05
+    legStretch: 0.05
+    feetSpacing: 0
+    rootMotionBoneName: 
+    rootMotionBoneRotation: {x: 0, y: 0, z: 0, w: 1}
+    hasTranslationDoF: 0
+    hasExtraRoot: 0
+    skeletonHasParents: 1
+  lastHumanDescriptionAvatarSource: {instanceID: 0}
+  animationType: 2
+  humanoidOversampling: 1
+  additionalBone: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
