@@ -129,7 +129,7 @@ public class RayPointer : MonoBehaviour {
     }
 
     Ray UpdateCastRayIfPossible() {
-        if (trackingSpace != null && activeController != OVRInput.Controller.None) {
+        if (trackingSpace != null /*&& activeController != OVRInput.Controller.None*/) {
 
             Quaternion orientation = new Quaternion();
             Vector3 localStartPoint = new Vector3();
@@ -207,6 +207,7 @@ public class RayPointer : MonoBehaviour {
     }
 
     void ProcessNonUIInteractions(Ray pointer) {
+
         RaycastHit hit; // Was anything hit?
         if (Physics.Raycast(pointer, out hit, rayLength, ~nonUIExcludeLayers)) {
 
@@ -233,7 +234,7 @@ public class RayPointer : MonoBehaviour {
             // pressed AND released while hovering over the object.
             if (activeController != OVRInput.Controller.None) {
                 if (OVRInput.GetDown(joyPadClickButton, activeController)) {
-                    triggerDown = lastHit;
+                         triggerDown = lastHit;
                 }
                 else if (OVRInput.GetUp(joyPadClickButton, activeController)) {
                     if (triggerDown != null && triggerDown == lastHit) {
