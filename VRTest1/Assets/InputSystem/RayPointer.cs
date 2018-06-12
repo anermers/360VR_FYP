@@ -36,6 +36,7 @@ public class RayPointer : MonoBehaviour {
     public Camera CentreEyeCamera;
     public bool isController = true;
 
+
     private Vector3 DefaultPos;
 
     void Awake () {
@@ -161,7 +162,7 @@ public class RayPointer : MonoBehaviour {
             }
 
             if(!isController)
-                testPoint.transform.localPosition = worldStartPoint + worldOrientation * 2f;
+                testPoint.transform.localPosition = worldStartPoint + worldOrientation;
         }
       
         return new Ray();
@@ -258,5 +259,3 @@ public class RayPointer : MonoBehaviour {
         }
     }
 }
-
-// line bug

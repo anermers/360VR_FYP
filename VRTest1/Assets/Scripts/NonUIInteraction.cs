@@ -20,28 +20,29 @@ public class NonUIInteraction : MonoBehaviour {
         //To get controller rotation (TO BE USED IN FUTURE)
         //Quaternion rot = OVRInput.GetLocalControllerRotation(activeController);
 
-        //if (outText != null) {
-        //    oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
-        //    t.gameObject.GetComponent<Renderer>().material = yellowMat;
-        //    outText.text ="hovering over: " + t.gameObject.name;
-        //}      
-        
+    
 
         if (t.gameObject.GetComponent<Renderer>() != null)
         {
             oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
             t.gameObject.GetComponent<Renderer>().material = yellowMat;
-        }
+        }       
+        oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
+        t.gameObject.GetComponent<Renderer>().material = yellowMat;
         infoText.text = "";
-        foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
+
+        if(RoomHandler.instance.CurrKey != null)
         {
-            if (iter.item.Equals(t.gameObject))
+            foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
             {
-                infoText.text = iter.itemName;
-                break;
+                if (iter.item.Equals(t.gameObject))
+                {
+                    infoText.text = iter.itemName;
+                    break;
+                }
             }
         }
-        //Translate Text to point of interest
+
         infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y + 2, t.gameObject.transform.position.z);
         //Rotate Text to face the camera
         infoText.transform.rotation = Quaternion.LookRotation(infoText.transform.position - playerCam.transform.position);
@@ -49,7 +50,7 @@ public class NonUIInteraction : MonoBehaviour {
     }
 
     public void OnHoverExit(Transform t) {
-        infoText.text = "";
+        infoText.text = oldHoverMat.name;
         t.gameObject.GetComponent<Renderer>().material = oldHoverMat;
     }
 

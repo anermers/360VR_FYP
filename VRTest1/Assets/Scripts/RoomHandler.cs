@@ -73,10 +73,10 @@ public class RoomHandler : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
-        if (Input.GetKeyDown(KeyCode.F10))
-            ChangeLocation("Room01");
-        if (Input.GetKeyDown(KeyCode.F11))
-            ShowMenu();
+        //if (Input.GetKeyDown(KeyCode.F10))
+        //    ChangeLocation("Room01");
+        //if (Input.GetKeyDown(KeyCode.F11))
+        //    ShowMenu();
     }
 
     public void ChangeLocation(string key)
