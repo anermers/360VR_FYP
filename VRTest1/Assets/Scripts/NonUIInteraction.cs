@@ -20,18 +20,24 @@ public class NonUIInteraction : MonoBehaviour {
         //    oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
         //    t.gameObject.GetComponent<Renderer>().material = yellowMat;
         //    outText.text ="hovering over: " + t.gameObject.name;
-        //}      
+        //}
+        
         oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
-        //t.gameObject.GetComponent<Renderer>().material = yellowMat;
+        t.gameObject.GetComponent<Renderer>().material = yellowMat;
         infoText.text = "";
-        foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
+
+        if(RoomHandler.instance.CurrKey != null)
         {
-            if (iter.item.Equals(t.gameObject))
+            foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
             {
-                infoText.text = iter.itemName;
-                break;
+                if (iter.item.Equals(t.gameObject))
+                {
+                    infoText.text = iter.itemName;
+                    break;
+                }
             }
         }
+
 
         //Translate Text to point of interest
         infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y + 2, t.gameObject.transform.position.z);
@@ -40,7 +46,7 @@ public class NonUIInteraction : MonoBehaviour {
     }
 
     public void OnHoverExit(Transform t) {
-        infoText.text = "";
+        infoText.text = oldHoverMat.name;
         t.gameObject.GetComponent<Renderer>().material = oldHoverMat;
         //if (outText != null) {
         //    outText.text = "end over: " + t.gameObject.name;
