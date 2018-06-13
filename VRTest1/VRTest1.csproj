@@ -133,6 +133,11 @@
     <Compile Include="Assets\Scripts\DebugScript.cs" />
     <Compile Include="Assets\Scripts\NonUIInteraction.cs" />
     <Compile Include="Assets\Scripts\RoomHandler.cs" />
+    <Compile Include="Assets\Scripts\Scenario\ScenarioBase.cs" />
+    <Compile Include="Assets\Scripts\Scenario\ScenarioBurn.cs" />
+    <Compile Include="Assets\Scripts\Scenario\ScenarioCut.cs" />
+    <Compile Include="Assets\Scripts\Scenario\ScenarioFire.cs" />
+    <Compile Include="Assets\Scripts\Scenario\ScenarioHandler.cs" />
     <Compile Include="Assets\Scripts\SkyboxTextureHandler.cs" />
     <Compile Include="Assets\Scripts\UIInteraction.cs" />
   </ItemGroup>
@@ -152,6 +157,10 @@
     <None Include="Assets\OVR\Resources\Unlit Transparent Color.shader" />
     <None Include="Assets\OVR\Shaders\OVRColorRampAlpha.shader" />
     <None Include="Assets\OVR\Shaders\Unlit Crosshair.shader" />
+    <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />
+    <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAlpha.shader" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <Target Name="GenerateTargetFrameworkMonikerAttribute" />

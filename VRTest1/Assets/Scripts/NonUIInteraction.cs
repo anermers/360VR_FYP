@@ -57,6 +57,8 @@ public class NonUIInteraction : MonoBehaviour {
         //    outText.text = "clicked on: " + t.gameObject.name;
         //}
       
+        // here we do a check if selected object is the object that we want to interact with
+
         t.gameObject.GetComponent<Renderer>().material = yellowMat;
         //t.gameObject.transform.position = new Vector3(5, 5, 5);
         t.gameObject.transform.parent = playerController.transform;
