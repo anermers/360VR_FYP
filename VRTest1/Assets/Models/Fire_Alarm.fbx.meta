@@ -1,73 +1,45 @@
 fileFormatVersion: 2
-guid: 1e1d7c46e50e6864ba7d842fe6228254
-timeCreated: 1528162208
+guid: 8be8148bf6977f04bad6187521097828
+timeCreated: 1528790403
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
   fileIDToRecycleName:
-    100000: pCube103
-    100002: pCube104
-    100004: pCube122
-    100006: polySurface78
-    100008: polySurface79
-    100010: polySurface80
-    100012: polySurface81
-    100014: polySurface82
-    100016: pPlane1
-    100018: pPlane10
-    100020: pPlane2
-    100022: pPlane3
-    100024: pPlane7
-    100026: pPlane8
-    100028: pPlane9
-    100030: //RootNode
-    100032: transform164
-    100034: transform165
-    100036: transform166
-    100038: transform167
-    100040: transform168
-    100042: transform169
-    100044: transform170
-    100046: transform171
-    100048: transform172
-    100050: transform173
-    100052: transform174
-    100054: transform175
-    100056: transform176
-    100058: transform177
-    400000: pCube103
-    400002: pCube104
-    400004: pCube122
-    400006: polySurface78
-    400008: polySurface79
-    400010: polySurface80
-    400012: polySurface81
-    400014: polySurface82
-    400016: pPlane1
-    400018: pPlane10
-    400020: pPlane2
-    400022: pPlane3
-    400024: pPlane7
-    400026: pPlane8
-    400028: pPlane9
-    400030: //RootNode
-    400032: transform164
-    400034: transform165
-    400036: transform166
-    400038: transform167
-    400040: transform168
-    400042: transform169
-    400044: transform170
-    400046: transform171
-    400048: transform172
-    400050: transform173
-    400052: transform174
-    400054: transform175
-    400056: transform176
-    400058: transform177
-    2300000: pCube122
-    3300000: pCube122
-    4300000: pCube122
+    100000: //RootNode
+    100002: pCube1
+    100004: pCube2
+    100006: pCube3
+    100008: pCylinder1
+    100010: pCylinder2
+    100012: polySurface1
+    100014: polySurface2
+    100016: transform1
+    100018: transform2
+    100020: transform3
+    400000: //RootNode
+    400002: pCube1
+    400004: pCube2
+    400006: pCube3
+    400008: pCylinder1
+    400010: pCylinder2
+    400012: polySurface1
+    400014: polySurface2
+    400016: transform1
+    400018: transform2
+    400020: transform3
+    2300000: pCylinder1
+    2300002: pCylinder2
+    2300004: polySurface1
+    2300006: polySurface2
+    3300000: pCylinder1
+    3300002: pCylinder2
+    3300004: polySurface1
+    3300006: polySurface2
+    4300000: pCylinder1
+    4300002: pCylinder2
+    4300004: polySurface1
+    4300006: polySurface2
+    7400000: Take 001
     9500000: //RootNode
   materials:
     importMaterials: 1

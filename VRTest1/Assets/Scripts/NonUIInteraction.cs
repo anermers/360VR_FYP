@@ -10,6 +10,9 @@ public class NonUIInteraction : MonoBehaviour {
     public TextMesh infoText;
     protected Material oldHoverMat;
     public Material yellowMat;
+    private GameObject temp;
+
+    public static bool objectSelected = false;
 
 
     public void OnHoverEnter(Transform t) {
@@ -17,12 +20,13 @@ public class NonUIInteraction : MonoBehaviour {
         //To get controller rotation (TO BE USED IN FUTURE)
         //Quaternion rot = OVRInput.GetLocalControllerRotation(activeController);
 
-        //if (outText != null) {
-        //    oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
-        //    t.gameObject.GetComponent<Renderer>().material = yellowMat;
-        //    outText.text ="hovering over: " + t.gameObject.name;
-        //}
-        
+    
+
+        if (t.gameObject.GetComponent<Renderer>() != null)
+        {
+            oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
+            t.gameObject.GetComponent<Renderer>().material = yellowMat;
+        }       
         oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
         t.gameObject.GetComponent<Renderer>().material = yellowMat;
         infoText.text = "";
@@ -42,26 +46,33 @@ public class NonUIInteraction : MonoBehaviour {
         infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y + 2, t.gameObject.transform.position.z);
         //Rotate Text to face the camera
         infoText.transform.rotation = Quaternion.LookRotation(infoText.transform.position - playerCam.transform.position);
+        infoText.text = objectSelected.ToString();
     }
 
     public void OnHoverExit(Transform t) {
         infoText.text = oldHoverMat.name;
         t.gameObject.GetComponent<Renderer>().material = oldHoverMat;
-        //if (outText != null) {
-        //    outText.text = "end over: " + t.gameObject.name;
-        //}
     }
 
     public void OnSelected(Transform t) {
-        //if (outText != null) {
-        //    outText.text = "clicked on: " + t.gameObject.name;
-        //}
-      
-        // here we do a check if selected object is the object that we want to interact with
+    if(t.gameObject.tag == "PickUp")
+        {                     
+            if(!objectSelected)
+            {
+                    objectSelected = true;
+                    t.gameObject.GetComponent<Renderer>().material = yellowMat;       
+                    t.gameObject.transform.parent = playerController.transform;
+                    t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+            }
+            else
+            {
+                objectSelected = false;
+                t.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+                t.gameObject.transform.parent = null;
+            }
+        }
 
-        t.gameObject.GetComponent<Renderer>().material = yellowMat;
-        //t.gameObject.transform.position = new Vector3(5, 5, 5);
-        t.gameObject.transform.parent = playerController.transform;
-        //t.parent = playerController.transform;
+        if (t.gameObject.GetComponent<Animator>() != null)
+            t.gameObject.GetComponent<Animator>().SetBool("Play", true);
     }
 }
