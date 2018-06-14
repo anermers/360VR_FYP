@@ -257,5 +257,40 @@ public class RayPointer : MonoBehaviour {
             }
             lastHit = null;
         }
+
+#if UNITY_EDITOR
+        if (activeController == OVRInput.Controller.None)
+        {
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                triggerDown = lastHit;
+            }
+            else if (Input.GetKeyUp(KeyCode.L))
+            {
+                if (triggerDown != null && triggerDown == lastHit)
+                {
+                    if (onNonUISelected != null)
+                    {
+                        onNonUISelected.Invoke(triggerDown);
+                    }
+                }
+            }
+
+            if (!Input.GetKey(KeyCode.L))
+            {
+                triggerDown = null;
+            }
+        }
+        // Nothing was hit, handle exit callback
+        else if (lastHit != null) {
+            if (onHoverExit != null) {
+                onHoverExit.Invoke(lastHit);
+            }
+            lastHit = null;
+        }
+
+#endif
+
+
     }
 }

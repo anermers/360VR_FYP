@@ -10,6 +10,8 @@ public class NonUIInteraction : MonoBehaviour {
     public TextMesh infoText;
     protected Material oldHoverMat;
     public Material yellowMat;
+    public Material redMat;
+    public Material pinkMat;
     private GameObject temp;
 
     public static bool objectSelected = false;
@@ -20,17 +22,12 @@ public class NonUIInteraction : MonoBehaviour {
         //To get controller rotation (TO BE USED IN FUTURE)
         //Quaternion rot = OVRInput.GetLocalControllerRotation(activeController);
 
-    
-
         if (t.gameObject.GetComponent<Renderer>() != null)
         {
             oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
             t.gameObject.GetComponent<Renderer>().material = yellowMat;
         }       
-        oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
-        t.gameObject.GetComponent<Renderer>().material = yellowMat;
         infoText.text = "";
-
         if(RoomHandler.instance.CurrKey != null)
         {
             foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
@@ -50,19 +47,24 @@ public class NonUIInteraction : MonoBehaviour {
     }
 
     public void OnHoverExit(Transform t) {
-        infoText.text = oldHoverMat.name;
-        t.gameObject.GetComponent<Renderer>().material = oldHoverMat;
+
+        if (t.gameObject.GetComponent<Renderer>() != null)
+        {
+            //oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
+            t.gameObject.GetComponent<Renderer>().material = oldHoverMat;
+        }
     }
 
     public void OnSelected(Transform t) {
-    if(t.gameObject.tag == "PickUp")
-        {                     
-            if(!objectSelected)
+        Debug.Log("asdad");
+        if (t.gameObject.tag == "PickUp")
+        {
+            if (!objectSelected)
             {
-                    objectSelected = true;
-                    t.gameObject.GetComponent<Renderer>().material = yellowMat;       
-                    t.gameObject.transform.parent = playerController.transform;
-                    t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                objectSelected = true;
+                t.gameObject.GetComponent<Renderer>().material = yellowMat;
+                t.gameObject.transform.parent = playerController.transform;
+                t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
             else
             {
@@ -74,5 +76,17 @@ public class NonUIInteraction : MonoBehaviour {
 
         if (t.gameObject.GetComponent<Animator>() != null)
             t.gameObject.GetComponent<Animator>().SetBool("Play", true);
+
+        //foreach (GameObject go in ScenarioHandler.instance.interactableGO)
+        //{
+        //    if (t.gameObject.Equals(go))
+        //    { 
+        //        if (t.gameObject.GetComponent<Renderer>() != null)
+        //            t.gameObject.GetComponent<Renderer>().material = redMat;
+        //        //send a message back
+
+        //        break;
+        //    }
+        //}
     }
 }

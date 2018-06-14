@@ -8,9 +8,11 @@ public class ScenarioBase : MonoBehaviour {
     protected bool isEventCompleted;
     // bool check if entire scenario has been completed
     protected bool isScenarioDone;
+    // bool check if interact with object....
+    protected bool isInteracted;
 
-    public bool IsEventCompleted { get { return isEventCompleted; } set { isEventCompleted = value; } }
-
+    //public bool IsEventCompleted { get { return isEventCompleted; } set { isEventCompleted = value; } }
+    public bool IsInteracted { get { return isInteracted; } set { isInteracted = value; } }
     protected virtual bool SwitchState(int index)
     {
         Debug.Log("Switch State");
@@ -20,5 +22,10 @@ public class ScenarioBase : MonoBehaviour {
     protected virtual void OnEnterState()
     {
         Debug.Log("Entering State");
+    }
+
+    protected virtual void SetCurrentInteractable()
+    {
+        Debug.Log("Set interactables");
     }
 }
