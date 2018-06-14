@@ -21,7 +21,6 @@ public class NonUIInteraction : MonoBehaviour {
 
         //To get controller rotation (TO BE USED IN FUTURE)
         //Quaternion rot = OVRInput.GetLocalControllerRotation(activeController);
-
         if (t.gameObject.GetComponent<Renderer>() != null)
         {
             oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
@@ -39,7 +38,6 @@ public class NonUIInteraction : MonoBehaviour {
                 }
             }
         }
-
         infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y + 2, t.gameObject.transform.position.z);
         //Rotate Text to face the camera
         infoText.transform.rotation = Quaternion.LookRotation(infoText.transform.position - playerCam.transform.position);
@@ -50,7 +48,7 @@ public class NonUIInteraction : MonoBehaviour {
 
         if (t.gameObject.GetComponent<Renderer>() != null)
         {
-            //oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
+            infoText.text = oldHoverMat.name;
             t.gameObject.GetComponent<Renderer>().material = oldHoverMat;
         }
     }
