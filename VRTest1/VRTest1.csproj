@@ -133,6 +133,7 @@
     <Compile Include="Assets\Scripts\DebugScript.cs" />
     <Compile Include="Assets\Scripts\NonUIInteraction.cs" />
     <Compile Include="Assets\Scripts\RoomHandler.cs" />
+    <Compile Include="Assets\Scripts\Scenario\CollisionChecker.cs" />
     <Compile Include="Assets\Scripts\Scenario\ScenarioBase.cs" />
     <Compile Include="Assets\Scripts\Scenario\ScenarioBurn.cs" />
     <Compile Include="Assets\Scripts\Scenario\ScenarioCut.cs" />
