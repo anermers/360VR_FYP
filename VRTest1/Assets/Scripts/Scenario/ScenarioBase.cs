@@ -10,8 +10,11 @@ public class ScenarioBase : MonoBehaviour {
     protected bool isScenarioDone;
     // bool check if interact with object....
     protected bool isInteracted;
+    // GameObject that is interacted
+    [HideInInspector]
+    public GameObject InteractedGO;
 
-    //public bool IsEventCompleted { get { return isEventCompleted; } set { isEventCompleted = value; } }
+    public bool IsEventCompleted { get { return isEventCompleted; } set { isEventCompleted = value; } }
     public bool IsInteracted { get { return isInteracted; } set { isInteracted = value; } }
     protected virtual bool SwitchState(int index)
     {

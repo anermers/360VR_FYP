@@ -18,12 +18,14 @@ public class ScenarioFire : ScenarioBase
         STATE_FIRE_START = 0,
         STATE_OFF_GAS,
         STATE_OFF_MAIN_GAS,
-        STATE_FIRE_BLANKET,
+        STATE_GET_FIRE_BLANKET,
+        STATE_USE_FIRE_BLANKET,
         STATE_PULL_ALARM,
         STATE_EVACUATE,
         STATE_TOTAL
     }
 
+    public GameObject fireBlanket;
     public List<SFInfo> sfInfoList;
 
     STATE_SF currState;
@@ -32,7 +34,7 @@ public class ScenarioFire : ScenarioBase
     int instructionIndex;
 
     Dictionary<STATE_SF, SFInfo> sfInfoContainer; 
-
+    
 	// Use this for initialization
 	void Start () {
         //set the 1st state
@@ -50,14 +52,28 @@ public class ScenarioFire : ScenarioBase
         isInteracted = false;
         isScenarioDone = false;
         instructionIndex = 0;
-        int rand = Random.Range(0, 1);
+        int rand = Random.Range(0, 2);
         if (rand == 0)
             isBigFire = true;
+
+#if UNITY_EDITOR
+        isBigFire = false;
+#endif
+
+        if (isBigFire)
+            Debug.Log("bf");
+        else
+            Debug.Log("sf");
     }
 	
 	// Update is called once per frame
 	void Update ()
     {
+        if(isScenarioDone)
+        {
+            Debug.Log("Scenario Completed");
+        }
+
         if(prevState != currState)
         {
             Debug.Log("StateChanged");
@@ -87,15 +103,28 @@ public class ScenarioFire : ScenarioBase
                     if(isBigFire)
                         SwitchState((int)STATE_SF.STATE_PULL_ALARM);
                     else
-                        SwitchState((int)STATE_SF.STATE_FIRE_BLANKET);
+                        SwitchState((int)STATE_SF.STATE_GET_FIRE_BLANKET);
                 }
                 break;
-            case STATE_SF.STATE_FIRE_BLANKET:
+            case STATE_SF.STATE_GET_FIRE_BLANKET:
 
                 if(isInteracted)
                 {
-                    //Spawn fire blanket
-                    //Bring to fire
+                    fireBlanket.SetActive(true);
+
+                    if (InteractedGO == fireBlanket)
+                        isEventCompleted = true;
+                }
+
+                if (isEventCompleted)
+                    SwitchState((int)STATE_SF.STATE_USE_FIRE_BLANKET);
+                break;
+            case STATE_SF.STATE_USE_FIRE_BLANKET:
+
+                if (InteractedGO != fireBlanket)
+                {
+                    Debug.Log("Pick up the fire blanket");
+                    return;
                 }
 
                 if (isEventCompleted)

@@ -15,10 +15,13 @@ public class ScenarioHandler : MonoBehaviour {
     public List<GameObject> interactableGO;
 
     bool isScenarioActivated;
-    string currScenario; 
+    string currScenario;
 
-	// Use this for initialization
-	void Awake () {
+    public Dictionary<string, ScenarioBase> ScenarioContainer { get { return scenarioContainer; } }
+    public string CurrScenario { get { return currScenario; } }
+
+    // Use this for initialization
+    void Awake () {
         if (!instance)
             instance = this;
 
@@ -75,16 +78,16 @@ public class ScenarioHandler : MonoBehaviour {
         isScenarioActivated = true;
     }
 
-    public void OnSelected(Transform t)
-    {
-        foreach(GameObject go in interactableGO)
-        {
-            if (t.gameObject.Equals(go))
-            {
-                Debug.Log("correct item selected");
-                scenarioContainer[currScenario].IsInteracted = true;
-                break;
-            }
-        }
-    }
+    //public void OnSelected(Transform t)
+    //{
+    //    foreach(GameObject go in interactableGO)
+    //    {
+    //        if (t.gameObject.Equals(go))
+    //        {
+    //            Debug.Log("correct item selected");
+    //            scenarioContainer[currScenario].IsInteracted = true;
+    //            break;
+    //        }
+    //    }
+    //}
 }

@@ -13,9 +13,9 @@ public class NonUIInteraction : MonoBehaviour {
     public Material redMat;
     public Material pinkMat;
     private GameObject temp;
+    private bool isInteractable;
 
     public static bool objectSelected = false;
-
 
     public void OnHoverEnter(Transform t) {
 
@@ -55,6 +55,7 @@ public class NonUIInteraction : MonoBehaviour {
 
     public void OnSelected(Transform t) {
         Debug.Log("asdad");
+        isInteractable = false;
         if (t.gameObject.tag == "PickUp")
         {
             if (!objectSelected)
@@ -75,16 +76,20 @@ public class NonUIInteraction : MonoBehaviour {
         if (t.gameObject.GetComponent<Animator>() != null)
             t.gameObject.GetComponent<Animator>().SetBool("Play", true);
 
-        //foreach (GameObject go in ScenarioHandler.instance.interactableGO)
-        //{
-        //    if (t.gameObject.Equals(go))
-        //    { 
-        //        if (t.gameObject.GetComponent<Renderer>() != null)
-        //            t.gameObject.GetComponent<Renderer>().material = redMat;
-        //        //send a message back
+        foreach (GameObject go in ScenarioHandler.instance.interactableGO)
+        {
+            if (t.gameObject.Equals(go))
+            {
+                Debug.Log("correct item selected");
+                if (t.gameObject.GetComponent<Renderer>() != null)
+                    t.gameObject.GetComponent<Renderer>().material = redMat;
+                //send a message back
+                ScenarioHandler.instance.ScenarioContainer[ScenarioHandler.instance.CurrScenario].IsInteracted = true;
+                ScenarioHandler.instance.ScenarioContainer[ScenarioHandler.instance.CurrScenario].InteractedGO = go;
+                isInteractable = true;
+                break;
+            }
+        }
 
-        //        break;
-        //    }
-        //}
     }
 }
