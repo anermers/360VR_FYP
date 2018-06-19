@@ -31,7 +31,7 @@ public class ScenarioCut : ScenarioBase {
 
     public List<SCInfo> scInfoList;
 
-    STATE_SC currState;
+    public STATE_SC currState;
     STATE_SC prevState;
     int instructionIndex;
 
@@ -48,9 +48,6 @@ public class ScenarioCut : ScenarioBase {
                 scInfoContainer.Add(info.state, info);
             }
         }
-
-
-        //tempCollider.SetActive(false);
         currState = STATE_SC.STATE_CUT_START;
         prevState = currState;
         isEventCompleted = false;
@@ -113,12 +110,18 @@ public class ScenarioCut : ScenarioBase {
                 break;
             case STATE_SC.STATE_PURIFIED_WATER:
                 //Get purified water and apply on traineeChef
+                if (isEventCompleted)
+                    SwitchState((int)STATE_SC.STATE_APPLY_GAUZE);
                 break;
             case STATE_SC.STATE_APPLY_GAUZE:
                 //Get gauze and apply on traineeChef
+                if (isEventCompleted)
+                    SwitchState((int)STATE_SC.STATE_APPLY_BANDANGE);
                 break;
             case STATE_SC.STATE_APPLY_BANDANGE:
                 //Get bandage and apply on traineeChef
+                if (isEventCompleted)
+                    isScenarioDone = true;
                 break;
         }
     }
@@ -145,9 +148,19 @@ public class ScenarioCut : ScenarioBase {
 
     protected override void SetCurrentInteractable()
     {
+        foreach (GameObject go in scInfoContainer[prevState].interactables)
+        {
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().eraseRenderer = true;
+        }
+
         ScenarioHandler.instance.interactableGO.Clear();
         foreach (GameObject go in scInfoContainer[currState].interactables)
+        {
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().eraseRenderer = false;
             ScenarioHandler.instance.interactableGO.Add(go);
+        }
     }
 
 }

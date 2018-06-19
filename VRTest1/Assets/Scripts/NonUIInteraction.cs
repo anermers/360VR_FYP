@@ -63,12 +63,12 @@ public class NonUIInteraction : MonoBehaviour {
     }
 
     public void OnSelected(Transform t) {
-        Debug.Log("asdad");
         isInteractable = false;
         if (t.gameObject.tag == "PickUp")
         {
             if (!objectSelected)
             {
+                Debug.Log(t.gameObject.name);
                 objectSelected = true;
                 if(t.gameObject.GetComponent<Renderer>()!=null)
                 t.gameObject.GetComponent<Renderer>().material = yellowMat;
