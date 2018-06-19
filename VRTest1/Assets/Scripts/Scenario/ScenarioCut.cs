@@ -15,14 +15,19 @@ public class ScenarioCut : ScenarioBase {
         STATE_CUT_START = 0,
         STATE_WASH_HANDS,
         STATE_GET_MEDKIT,
+        STATE_GET_MEDKIT_TO_LOCAL,
+        STATE_OPEN_MEDKIT,
         STATE_PURIFIED_WATER,
         STATE_APPLY_GAUZE,
         STATE_APPLY_BANDANGE,
         STATE_TOTAL
     };
     public GameObject traineeChef;
+    public GameObject MedKit;
     public Transform placeMedKitLocation;
     public Transform sinkTransform;
+
+    public bool medKitAtLocal;
 
     public List<SCInfo> scInfoList;
 
@@ -73,22 +78,28 @@ public class ScenarioCut : ScenarioBase {
                 break;
             case STATE_SC.STATE_WASH_HANDS:
                 // traineeChef goes to the sink and plays washing hands animation
-                traineeChef.transform.LookAt(sinkTransform);
+                //traineeChef.transform.LookAt(sinkTransform);
 
-                if (Vector3.Distance(traineeChef.transform.position, sinkTransform.position) > 1)
-                    traineeChef.transform.Translate(Vector3.forward * 1 * Time.deltaTime);
-                else
-                {
-                    //rotate towards sink
-                    //play wash hands animation
+                //if (Vector3.Distance(traineeChef.transform.position, sinkTransform.position) > 1)
+                //    traineeChef.transform.Translate(Vector3.forward * 1 * Time.deltaTime);
+                //else
+                //{
+                //    //rotate towards sink
+                //    //play wash hands animation
+                //}
                     SwitchState((int)STATE_SC.STATE_GET_MEDKIT);
-                }
                 break;
             case STATE_SC.STATE_GET_MEDKIT:
                 //Player finds the medkit and brings in to a certain location
-
-                //Once medkit is at location, play animation on click
-                    break;
+                isEventCompleted = isInteracted;
+                if (isEventCompleted)
+                    SwitchState((int)STATE_SC.STATE_GET_MEDKIT_TO_LOCAL);
+                break;
+            case STATE_SC.STATE_GET_MEDKIT_TO_LOCAL:
+                //Player brings the medkit to a certain location
+                if(isEventCompleted)
+                    SwitchState((int)STATE_SC.STATE_PURIFIED_WATER);
+                break;
             case STATE_SC.STATE_PURIFIED_WATER:
                 //Get purified water and apply on traineeChef
                 break;
