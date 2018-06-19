@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
+using cakeslice;
 
 [System.Serializable]
 public struct SFInfo
@@ -93,11 +94,12 @@ public class ScenarioFire : ScenarioBase
                 {
                     // If render exist and outline component does not exist
                     if (go.GetComponent<Renderer>() != null &&
-                        go.GetComponent<cakeslice.Outline>() == null)
+                        go.GetComponent<Outline>() == null)
                     {
-                        go.AddComponent<cakeslice.Outline>();
-                        go.GetComponent<cakeslice.Outline>().color = 0;
-                        go.GetComponent<cakeslice.Outline>().eraseRenderer = true;
+                        go.AddComponent<Outline>();
+                        go.GetComponent<Outline>().color = 0;
+                        go.GetComponent<Outline>().eraseRenderer = false;
+                        go.GetComponent<Outline>().enabled = false;
                     }
                 }
                 // Adds to the dictionary
@@ -208,15 +210,15 @@ public class ScenarioFire : ScenarioBase
     {
         foreach (GameObject go in sfInfoContainer[prevState].interactables)
         {
-            if (go.GetComponent<cakeslice.Outline>())
-                go.GetComponent<cakeslice.Outline>().eraseRenderer = true;
+            if (go.GetComponent<Outline>())
+                go.GetComponent<Outline>().enabled = false;
         }
 
         ScenarioHandler.instance.interactableGO.Clear();
         foreach (GameObject go in sfInfoContainer[currState].interactables)
         {
-            if (go.GetComponent<cakeslice.Outline>())
-                go.GetComponent<cakeslice.Outline>().eraseRenderer = false;
+            if (go.GetComponent<Outline>())
+                go.GetComponent<Outline>().enabled = true;
             ScenarioHandler.instance.interactableGO.Add(go);
         }
     }

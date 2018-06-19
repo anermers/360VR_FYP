@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using cakeslice;
 
 public class NonUIInteraction : MonoBehaviour {
     public UnityEngine.UI.Text outText;
@@ -24,14 +25,14 @@ public class NonUIInteraction : MonoBehaviour {
         if (t.gameObject.GetComponent<Renderer>() != null)
         {
             oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
-            if (t.gameObject.GetComponent<cakeslice.Outline>() == null)
+            if (t.gameObject.GetComponent<Outline>() == null)
             {
-                t.gameObject.AddComponent<cakeslice.Outline>();
-                t.gameObject.GetComponent<cakeslice.Outline>().color = 1;
-                t.gameObject.GetComponent<cakeslice.Outline>().eraseRenderer = false;
+                t.gameObject.AddComponent<Outline>();
+                t.gameObject.GetComponent<Outline>().color = 1;
+                t.gameObject.GetComponent<Outline>().eraseRenderer = false;
             }
 
-            t.gameObject.GetComponent<cakeslice.Outline>().enabled = true;
+            t.gameObject.GetComponent<Outline>().enabled = true;
             //t.gameObject.GetComponent<Renderer>().material = yellowMat;
         }       
         infoText.text = "";
@@ -58,7 +59,7 @@ public class NonUIInteraction : MonoBehaviour {
         {
             infoText.text = oldHoverMat.name;
             t.gameObject.GetComponent<Renderer>().material = oldHoverMat;
-            t.gameObject.GetComponent<cakeslice.Outline>().enabled = false;
+            t.gameObject.GetComponent<Outline>().enabled = false;
         }
     }
 
