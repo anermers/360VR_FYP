@@ -24,14 +24,14 @@ public class ScenarioCut : ScenarioBase {
     };
     public GameObject traineeChef;
     public GameObject MedKit;
-    public Transform placeMedKitLocation;
+    public GameObject tempCollider;
     public Transform sinkTransform;
 
     public bool medKitAtLocal;
 
     public List<SCInfo> scInfoList;
 
-    STATE_SC currState;
+    public STATE_SC currState;
     STATE_SC prevState;
     int instructionIndex;
 
@@ -64,7 +64,7 @@ public class ScenarioCut : ScenarioBase {
             isEventCompleted = false;
             isInteracted = false;
             SetCurrentInteractable();
-            //SetInstruction();
+            SetInstruction();
             prevState = currState;
             //reset index for instructions
             instructionIndex = 0;
@@ -98,16 +98,30 @@ public class ScenarioCut : ScenarioBase {
             case STATE_SC.STATE_GET_MEDKIT_TO_LOCAL:
                 //Player brings the medkit to a certain location
                 if(isEventCompleted)
+                {
+                    foreach (Transform child in MedKit.transform)
+                    {
+                        child.gameObject.AddComponent<Rigidbody>();
+                        Debug.Log("RigidAdded");
+                    }
+                    tempCollider.SetActive(true);
                     SwitchState((int)STATE_SC.STATE_PURIFIED_WATER);
+                }
                 break;
             case STATE_SC.STATE_PURIFIED_WATER:
                 //Get purified water and apply on traineeChef
+                if (isEventCompleted)
+                    SwitchState((int)STATE_SC.STATE_APPLY_GAUZE);
                 break;
             case STATE_SC.STATE_APPLY_GAUZE:
                 //Get gauze and apply on traineeChef
+                if (isEventCompleted)
+                    SwitchState((int)STATE_SC.STATE_APPLY_BANDANGE);
                 break;
             case STATE_SC.STATE_APPLY_BANDANGE:
                 //Get bandage and apply on traineeChef
+                if (isEventCompleted)
+                    isScenarioDone = true;
                 break;
         }
     }
@@ -134,9 +148,19 @@ public class ScenarioCut : ScenarioBase {
 
     protected override void SetCurrentInteractable()
     {
+        foreach (GameObject go in scInfoContainer[prevState].interactables)
+        {
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().eraseRenderer = true;
+        }
+
         ScenarioHandler.instance.interactableGO.Clear();
         foreach (GameObject go in scInfoContainer[currState].interactables)
+        {
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().eraseRenderer = false;
             ScenarioHandler.instance.interactableGO.Add(go);
+        }
     }
 
 }
