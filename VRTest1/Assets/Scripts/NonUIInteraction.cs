@@ -12,7 +12,7 @@ public class NonUIInteraction : MonoBehaviour {
     public Material yellowMat;
     public Material redMat;
     public Material pinkMat;
-    private GameObject temp;
+    public GameObject snap;
     private bool isInteractable;
 
     public static bool objectSelected = false;
@@ -61,7 +61,10 @@ public class NonUIInteraction : MonoBehaviour {
             if (!objectSelected)
             {
                 objectSelected = true;
+                if(t.gameObject.GetComponent<Renderer>()!=null)
                 t.gameObject.GetComponent<Renderer>().material = yellowMat;
+
+                //t.gameObject.transform.position = snap.transform.position;
                 t.gameObject.transform.parent = playerController.transform;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
             }
@@ -72,9 +75,6 @@ public class NonUIInteraction : MonoBehaviour {
                 t.gameObject.transform.parent = null;
             }
         }
-
-        if (t.gameObject.GetComponent<Animator>() != null)
-            t.gameObject.GetComponent<Animator>().SetBool("Play", true);
 
         foreach (GameObject go in ScenarioHandler.instance.interactableGO)
         {

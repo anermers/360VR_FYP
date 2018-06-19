@@ -24,7 +24,7 @@ public class ScenarioCut : ScenarioBase {
     };
     public GameObject traineeChef;
     public GameObject MedKit;
-    public Transform placeMedKitLocation;
+    public GameObject tempCollider;
     public Transform sinkTransform;
 
     public bool medKitAtLocal;
@@ -48,6 +48,9 @@ public class ScenarioCut : ScenarioBase {
                 scInfoContainer.Add(info.state, info);
             }
         }
+
+
+        //tempCollider.SetActive(false);
         currState = STATE_SC.STATE_CUT_START;
         prevState = currState;
         isEventCompleted = false;
@@ -64,7 +67,7 @@ public class ScenarioCut : ScenarioBase {
             isEventCompleted = false;
             isInteracted = false;
             SetCurrentInteractable();
-            //SetInstruction();
+            SetInstruction();
             prevState = currState;
             //reset index for instructions
             instructionIndex = 0;
@@ -98,7 +101,15 @@ public class ScenarioCut : ScenarioBase {
             case STATE_SC.STATE_GET_MEDKIT_TO_LOCAL:
                 //Player brings the medkit to a certain location
                 if(isEventCompleted)
+                {
+                    foreach (Transform child in MedKit.transform)
+                    {
+                        child.gameObject.AddComponent<Rigidbody>();
+                        Debug.Log("RigidAdded");
+                    }
+                    tempCollider.SetActive(true);
                     SwitchState((int)STATE_SC.STATE_PURIFIED_WATER);
+                }
                 break;
             case STATE_SC.STATE_PURIFIED_WATER:
                 //Get purified water and apply on traineeChef

@@ -16,7 +16,7 @@ public class CollisionChecker : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
-        if(ScenarioHandler.instance.CurrScenario == "sf")
+        if (ScenarioHandler.instance.CurrScenario == "sf")
         {
             if (other.name == "FireBlanket")
             {
@@ -24,7 +24,7 @@ public class CollisionChecker : MonoBehaviour {
                 other.tag = "Untagged";
                 other.transform.position = gameObject.transform.position;
                 other.transform.Rotate(0, 90, 90);
-                if(other.GetComponent<Animator>() != null)
+                if (other.GetComponent<Animator>() != null)
                     other.GetComponent<Animator>().SetBool("Play", true);
                 ScenarioHandler.instance.ScenarioContainer[ScenarioHandler.instance.CurrScenario].IsEventCompleted = true;
             }
@@ -34,8 +34,25 @@ public class CollisionChecker : MonoBehaviour {
                 Debug.Log("this go name:" + gameObject.name);
             }
         }
-       
 
+        else if (ScenarioHandler.instance.CurrScenario == "sc")
+        {
+            if (other.name == "MedKit")
+            {
+                Debug.Log(other.name);
+                other.transform.parent = null;
+                other.tag = "Untagged";
+                other.transform.position = gameObject.transform.position;
+                other.transform.eulerAngles = new Vector3(0, -90, 0);
+                if (other.GetComponent<Animator>() != null)
+                    other.GetComponent<Animator>().SetBool("Play", true);
+
+                other.GetComponent<Rigidbody>().useGravity = false;
+                other.GetComponent<Rigidbody>().detectCollisions = false;
+                other.GetComponent<BoxCollider>().enabled = false;
+                ScenarioHandler.instance.ScenarioContainer[ScenarioHandler.instance.CurrScenario].IsEventCompleted = true;
+            }
+        }
     }
 
 }
