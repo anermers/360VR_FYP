@@ -26,26 +26,40 @@ public class ScenarioFire : ScenarioBase
     }
 
     public GameObject fireBlanket;
+    public GameObject smallFire;
+    public GameObject largeFire;
     public List<SFInfo> sfInfoList;
 
     STATE_SF currState;
     STATE_SF prevState;
-    bool isBigFire = false;
+    bool isBigFire = true;
     int instructionIndex;
 
     Dictionary<STATE_SF, SFInfo> sfInfoContainer; 
     
 	// Use this for initialization
 	void Start () {
+
+        //sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
+        //foreach(SFInfo info in sfInfoList)
+        //{
+        //    if(!sfInfoContainer.ContainsKey(info.state))
+        //    {
+        //        foreach(GameObject go in info.interactables)
+        //        {
+        //            if (go.GetComponent<Renderer>() != null &&
+        //                go.GetComponent<cakeslice.Outline>() == null)
+        //            {
+        //                go.AddComponent<cakeslice.Outline>();
+        //                go.GetComponent<cakeslice.Outline>().eraseRenderer = true;
+        //            }
+        //        }
+        //        sfInfoContainer.Add(info.state, info);
+        //    }
+        //}
+
+        Debug.Log("sf_start");
         //set the 1st state
-        sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
-        foreach(SFInfo info in sfInfoList)
-        {
-            if(!sfInfoContainer.ContainsKey(info.state))
-            {
-                sfInfoContainer.Add(info.state, info);
-            }
-        }
         currState = STATE_SF.STATE_FIRE_START;
         prevState = currState;
         isEventCompleted = false;
@@ -54,20 +68,46 @@ public class ScenarioFire : ScenarioBase
         instructionIndex = 0;
         int rand = Random.Range(0, 2);
         if (rand == 0)
-            isBigFire = true;
+            isBigFire = false;
 
 #if UNITY_EDITOR
         isBigFire = false;
 #endif
 
-        if (isBigFire)
-            Debug.Log("bf");
-        else
-            Debug.Log("sf");
+        smallFire.SetActive(!isBigFire);
+        largeFire.SetActive(isBigFire);
+
+
     }
-	
-	// Update is called once per frame
-	void Update ()
+
+    public override void Init()
+    {
+        Debug.Log("ScenarioFire - Init");
+        sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
+        foreach (SFInfo info in sfInfoList)
+        {
+            if (!sfInfoContainer.ContainsKey(info.state))
+            {
+                // Adds outline component to each GO in the scenario
+                foreach (GameObject go in info.interactables)
+                {
+                    // If render exist and outline component does not exist
+                    if (go.GetComponent<Renderer>() != null &&
+                        go.GetComponent<cakeslice.Outline>() == null)
+                    {
+                        go.AddComponent<cakeslice.Outline>();
+                        go.GetComponent<cakeslice.Outline>().color = 0;
+                        go.GetComponent<cakeslice.Outline>().eraseRenderer = true;
+                    }
+                }
+                // Adds to the dictionary
+                sfInfoContainer.Add(info.state, info);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update ()
     {
         if(isScenarioDone)
         {
@@ -88,7 +128,7 @@ public class ScenarioFire : ScenarioBase
 
         switch(currState)
         {
-            case STATE_SF.STATE_FIRE_START:
+            case STATE_SF.STATE_FIRE_START: // Buffer state
                 SwitchState((int)STATE_SF.STATE_OFF_GAS);
                 break;
             case STATE_SF.STATE_OFF_GAS:
@@ -166,9 +206,23 @@ public class ScenarioFire : ScenarioBase
 
     protected override void SetCurrentInteractable()
     {
+        foreach (GameObject go in sfInfoContainer[prevState].interactables)
+        {
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().eraseRenderer = true;
+        }
+
         ScenarioHandler.instance.interactableGO.Clear();
         foreach (GameObject go in sfInfoContainer[currState].interactables)
+        {
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().eraseRenderer = false;
             ScenarioHandler.instance.interactableGO.Add(go);
+        }
     }
+
+    //IEnumerator FireExtinguish()
+    //{
+    //}
 }
 

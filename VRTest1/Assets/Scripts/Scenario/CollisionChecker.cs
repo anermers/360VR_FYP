@@ -16,17 +16,26 @@ public class CollisionChecker : MonoBehaviour {
 
     private void OnTriggerEnter(Collider other)
     {
+<<<<<<< HEAD
         if (ScenarioHandler.instance.CurrScenario == "sf")
+=======
+        if(ScenarioHandler.instance.CurrScenario.name == "sf")
+>>>>>>> 965d1bd4186e00ba8482b70962ed6bc67611f373
         {
             if (other.name == "FireBlanket")
             {
                 other.transform.parent = null;
                 other.tag = "Untagged";
                 other.transform.position = gameObject.transform.position;
+<<<<<<< HEAD
                 other.transform.Rotate(0, 90, 90);
                 if (other.GetComponent<Animator>() != null)
+=======
+                other.transform.eulerAngles = new Vector3(0, 90, 90);
+                if(other.GetComponent<Animator>() != null)
+>>>>>>> 965d1bd4186e00ba8482b70962ed6bc67611f373
                     other.GetComponent<Animator>().SetBool("Play", true);
-                ScenarioHandler.instance.ScenarioContainer[ScenarioHandler.instance.CurrScenario].IsEventCompleted = true;
+                ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
             }
             else
             {

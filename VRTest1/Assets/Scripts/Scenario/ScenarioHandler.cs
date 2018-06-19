@@ -15,22 +15,27 @@ public class ScenarioHandler : MonoBehaviour {
     public List<GameObject> interactableGO;
 
     bool isScenarioActivated;
-    string currScenario;
+    //string currScenario;
+    ScenarioBase currScenario;
 
     public Dictionary<string, ScenarioBase> ScenarioContainer { get { return scenarioContainer; } }
-    public string CurrScenario { get { return currScenario; } }
+    //public string CurrScenario { get { return currScenario; } }
+    public ScenarioBase CurrScenario { get { return currScenario; } }
 
     // Use this for initialization
     void Awake () {
         if (!instance)
             instance = this;
 
-        currScenario = "";
+        currScenario = null;
         interactableGO = new List<GameObject>();
         isScenarioActivated = false;
         scenarioContainer = new Dictionary<string, ScenarioBase>();
         foreach(ScenarioBase sb in scenarioList)
         {
+            // Init scenario
+            sb.Init();
+
             // Deactivate scenarios on start up
             if (sb.gameObject.activeSelf)
                 sb.gameObject.SetActive(false);
@@ -41,15 +46,21 @@ public class ScenarioHandler : MonoBehaviour {
 
 
         isScenarioActivated = true;
+<<<<<<< HEAD
         currScenario = "sc";
         scenarioContainer["sc"].gameObject.SetActive(true);
+=======
+        currScenario = scenarioContainer["sf"];
+        scenarioContainer["sf"].gameObject.SetActive(true);
+>>>>>>> 965d1bd4186e00ba8482b70962ed6bc67611f373
     }
 	
 	// Update is called once per frame
 	void Update () {
-		
-        
+        if(Input.GetKeyDown(KeyCode.J))
+        {
 
+        }
 	}
 
     public void SelectScenarioType(string name)
@@ -62,7 +73,7 @@ public class ScenarioHandler : MonoBehaviour {
         }
 
         scenarioContainer[name].gameObject.SetActive(true);
-        currScenario = name;
+        currScenario = scenarioContainer[name];
         isScenarioActivated = true;
     }
 
@@ -74,7 +85,7 @@ public class ScenarioHandler : MonoBehaviour {
 
         int index = Random.Range(0, scenarioList.Count - 1);
         scenarioList[index].gameObject.SetActive(true);
-        currScenario = scenarioList[index].name;
+        currScenario = scenarioList[index];
         isScenarioActivated = true;
     }
 
