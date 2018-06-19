@@ -36,8 +36,10 @@ public class RayPointer : MonoBehaviour {
     public Camera CentreEyeCamera;
     public bool isController = true;
 
+    public Vector3 wPoint;
 
     private Vector3 DefaultPos;
+    private LineRenderer lineReference;
 
     void Awake () {
         if (inputModule != null) {
@@ -69,6 +71,8 @@ public class RayPointer : MonoBehaviour {
 
         //set active state of point for the raycast from centre eye
         testPoint.SetActive(!isController);
+
+        lineReference = lineRenderer;
     }
 
     void OnDestroy() {
@@ -124,7 +128,7 @@ public class RayPointer : MonoBehaviour {
     }
 
     void DisableLineRendererIfNeeded() {
-        if (lineRenderer != null) {
+        if (lineRenderer != null && isController) {
             lineRenderer.enabled = trackingSpace != null && activeController != OVRInput.Controller.None;
         }
     }
@@ -150,6 +154,7 @@ public class RayPointer : MonoBehaviour {
             Matrix4x4 localToWorld = trackingSpace.localToWorldMatrix;
             Vector3 worldStartPoint = localToWorld.MultiplyPoint(localStartPoint);
             Vector3 worldOrientation = localToWorld.MultiplyVector(orientation * Vector3.forward);
+            wPoint = worldOrientation;
 
             if (lineRenderer != null) {
                 lineRenderer.SetPosition(0, worldStartPoint);
@@ -174,9 +179,7 @@ public class RayPointer : MonoBehaviour {
         Ray selectionRay = UpdateCastRayIfPossible();
 
         if (!isController)
-        {
-            //testPoint.transform.position = transform.position + transform.forward.normalized;
-        }
+            testPoint.transform.position = transform.position + wPoint;
 
         if (OVRInput.Get(OVRInput.Button.Back, activeController) ||
         Input.GetKeyDown(KeyCode.F6))
@@ -193,13 +196,13 @@ public class RayPointer : MonoBehaviour {
 
             transform.position = DefaultPos;
         }
-
-        if (Input.GetKeyDown(KeyCode.Backspace))
+               
+        if (OVRInput.Get(OVRInput.Button.DpadUp, activeController) ||
+            Input.GetKeyDown(KeyCode.Backspace))
         {
             isController = !isController;
-            //lineRenderer.enabled = isController;
+            lineRenderer.enabled = isController;
             testPoint.SetActive(!isController);
-            Debug.Log(lineRenderer.enabled);
         }
 
         if (interactWithNonUIObjects) {

@@ -103,8 +103,6 @@ public class RoomHandler : MonoBehaviour
     public void ShowMenu()
     {
         Debug.Log("ENTERED");
-        if (selectionCanvas.activeSelf)
-            return;
 
         RenderSettings.skybox.SetTexture("_Tex", null);
         selectionCanvas.SetActive(true);

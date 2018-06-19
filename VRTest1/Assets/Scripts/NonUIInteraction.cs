@@ -24,7 +24,15 @@ public class NonUIInteraction : MonoBehaviour {
         if (t.gameObject.GetComponent<Renderer>() != null)
         {
             oldHoverMat = t.gameObject.GetComponent<Renderer>().material;
-            t.gameObject.GetComponent<Renderer>().material = yellowMat;
+            if (t.gameObject.GetComponent<cakeslice.Outline>() == null)
+            {
+                t.gameObject.AddComponent<cakeslice.Outline>();
+                t.gameObject.GetComponent<cakeslice.Outline>().color = 1;
+                t.gameObject.GetComponent<cakeslice.Outline>().eraseRenderer = false;
+            }
+
+            t.gameObject.GetComponent<cakeslice.Outline>().enabled = true;
+            //t.gameObject.GetComponent<Renderer>().material = yellowMat;
         }       
         infoText.text = "";
         if(RoomHandler.instance.CurrKey != null)
@@ -50,6 +58,7 @@ public class NonUIInteraction : MonoBehaviour {
         {
             infoText.text = oldHoverMat.name;
             t.gameObject.GetComponent<Renderer>().material = oldHoverMat;
+            t.gameObject.GetComponent<cakeslice.Outline>().enabled = false;
         }
     }
 
@@ -84,8 +93,8 @@ public class NonUIInteraction : MonoBehaviour {
                 if (t.gameObject.GetComponent<Renderer>() != null)
                     t.gameObject.GetComponent<Renderer>().material = redMat;
                 //send a message back
-                ScenarioHandler.instance.ScenarioContainer[ScenarioHandler.instance.CurrScenario].IsInteracted = true;
-                ScenarioHandler.instance.ScenarioContainer[ScenarioHandler.instance.CurrScenario].InteractedGO = go;
+                ScenarioHandler.instance.CurrScenario.IsInteracted = true;
+                ScenarioHandler.instance.CurrScenario.InteractedGO = go;
                 isInteractable = true;
                 break;
             }

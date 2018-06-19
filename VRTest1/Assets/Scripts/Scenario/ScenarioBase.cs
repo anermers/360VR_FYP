@@ -16,6 +16,12 @@ public class ScenarioBase : MonoBehaviour {
 
     public bool IsEventCompleted { get { return isEventCompleted; } set { isEventCompleted = value; } }
     public bool IsInteracted { get { return isInteracted; } set { isInteracted = value; } }
+
+    public virtual void Init()
+    {
+        Debug.Log("Init to be called ONCE in handler");
+    }
+
     protected virtual bool SwitchState(int index)
     {
         Debug.Log("Switch State");
