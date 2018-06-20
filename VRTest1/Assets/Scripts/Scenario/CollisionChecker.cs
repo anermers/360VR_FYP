@@ -57,9 +57,10 @@ public class CollisionChecker : MonoBehaviour {
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
                 }
             }
-            else if(gameObject.name == "man")
+            else if(gameObject.name == "Chef")
             {
                 correctOBJ = false;
+                Debug.Log(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioCut>().currState);
                 switch (ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioCut>().currState)
                 {
                     case ScenarioCut.STATE_SC.STATE_PURIFIED_WATER:
@@ -75,8 +76,12 @@ public class CollisionChecker : MonoBehaviour {
                             correctOBJ = true;
                         break;
                 }
-                other.gameObject.SetActive(false);
-                ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
+
+                if (correctOBJ)
+                {
+                    other.gameObject.SetActive(false);
+                    ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
+                }
             }
         }
     }

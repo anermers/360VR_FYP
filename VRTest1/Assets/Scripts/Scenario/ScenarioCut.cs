@@ -26,9 +26,7 @@ public class ScenarioCut : ScenarioBase {
     public GameObject traineeChef;
     public GameObject MedKit;
     public GameObject tempCollider;
-    public Transform sinkTransform;
-
-    public bool medKitAtLocal;
+    public GameObject MedTriggerLocal;
 
     public List<SCInfo> scInfoList;
 
@@ -37,6 +35,9 @@ public class ScenarioCut : ScenarioBase {
     int instructionIndex;
 
     Dictionary<STATE_SC, SCInfo> scInfoContainer;
+
+    private float timer;
+    private Animator chefAnimController;
 
     // Use this for initialization
     void Start () {
@@ -55,6 +56,9 @@ public class ScenarioCut : ScenarioBase {
         isInteracted = false;
         isScenarioDone = false;
         instructionIndex = 0;
+        timer = 8.0f;
+        chefAnimController = traineeChef.GetComponent<Animator>();
+        MedTriggerLocal.SetActive(false);
     }
 	
 	// Update is called once per frame
@@ -75,20 +79,15 @@ public class ScenarioCut : ScenarioBase {
         {
             case STATE_SC.STATE_CUT_START:
                 // Start scenario
-                SwitchState((int)STATE_SC.STATE_WASH_HANDS);
-                break;
-            case STATE_SC.STATE_WASH_HANDS:
-                // traineeChef goes to the sink and plays washing hands animation
-                //traineeChef.transform.LookAt(sinkTransform);
-
-                //if (Vector3.Distance(traineeChef.transform.position, sinkTransform.position) > 1)
-                //    traineeChef.transform.Translate(Vector3.forward * 1 * Time.deltaTime);
-                //else
-                //{
-                //    //rotate towards sink
-                //    //play wash hands animation
-                //}
+                timer -= 1 * Time.deltaTime;
+                if (timer > 0)
+                    chefAnimController.SetBool("beforeCutIdle", true);
+                else
+                {
+                    chefAnimController.SetBool("getsCut", true);
+                    chefAnimController.SetBool("afterCutIdle", true);
                     SwitchState((int)STATE_SC.STATE_GET_MEDKIT);
+                }
                 break;
             case STATE_SC.STATE_GET_MEDKIT:
                 //Player finds the medkit and brings in to a certain location
@@ -98,7 +97,8 @@ public class ScenarioCut : ScenarioBase {
                 break;
             case STATE_SC.STATE_GET_MEDKIT_TO_LOCAL:
                 //Player brings the medkit to a certain location
-                if(isEventCompleted)
+                MedTriggerLocal.SetActive(true);
+                if (isEventCompleted)
                 {
                     foreach (Transform child in MedKit.transform)
                     {
@@ -106,6 +106,7 @@ public class ScenarioCut : ScenarioBase {
                         Debug.Log("RigidAdded");
                     }
                     tempCollider.SetActive(true);
+                    MedTriggerLocal.SetActive(false);
                     SwitchState((int)STATE_SC.STATE_PURIFIED_WATER);
                 }
                 break;
@@ -126,8 +127,6 @@ public class ScenarioCut : ScenarioBase {
                 break;
         }
     }
-
-
     protected override bool SwitchState(int index)
     {
         if (index < 0 || index >= (int)STATE_SC.STATE_TOTAL)
