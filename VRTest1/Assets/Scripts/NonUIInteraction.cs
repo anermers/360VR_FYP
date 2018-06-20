@@ -28,10 +28,10 @@ public class NonUIInteraction : MonoBehaviour {
             if (t.gameObject.GetComponent<Outline>() == null)
             {
                 t.gameObject.AddComponent<Outline>();
-                t.gameObject.GetComponent<Outline>().color = 1;
                 t.gameObject.GetComponent<Outline>().eraseRenderer = false;
             }
 
+            t.gameObject.GetComponent<Outline>().color = 1;
             t.gameObject.GetComponent<Outline>().enabled = true;
             //t.gameObject.GetComponent<Renderer>().material = yellowMat;
         }       
@@ -66,6 +66,23 @@ public class NonUIInteraction : MonoBehaviour {
 
     public void OnSelected(Transform t) {
         isInteractable = false;
+
+        foreach (GameObject go in ScenarioHandler.instance.interactableGO)
+        {
+            if (t.gameObject.Equals(go))
+            {
+                Debug.Log("correct item selected");
+                if (t.gameObject.GetComponent<Renderer>() != null && t.gameObject.GetComponent<Outline>() != null)
+                    t.gameObject.GetComponent<Outline>().color = 3;
+                //send a message back
+                ScenarioHandler.instance.CurrScenario.IsInteracted = true;
+                ScenarioHandler.instance.CurrScenario.InteractedGO = go;
+                isInteractable = true;
+                break;
+            }
+        }
+
+
         if (t.gameObject.tag == "PickUp")
         {
             infoText.text = "";
@@ -85,21 +102,9 @@ public class NonUIInteraction : MonoBehaviour {
                 objectSelected = false;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 t.gameObject.transform.parent = null;
-            }
-        }
 
-        foreach (GameObject go in ScenarioHandler.instance.interactableGO)
-        {
-            if (t.gameObject.Equals(go))
-            {
-                Debug.Log("correct item selected");
                 if (t.gameObject.GetComponent<Renderer>() != null && t.gameObject.GetComponent<Outline>() != null)
-                    t.gameObject.GetComponent<Outline>().color = 3;
-                //send a message back
-                ScenarioHandler.instance.CurrScenario.IsInteracted = true;
-                ScenarioHandler.instance.CurrScenario.InteractedGO = go;
-                isInteractable = true;
-                break;
+                    t.gameObject.GetComponent<Outline>().color = 2;
             }
         }
 

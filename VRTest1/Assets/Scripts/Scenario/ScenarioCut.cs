@@ -65,7 +65,7 @@ public class ScenarioCut : ScenarioBase {
 	void Update () {
         if (prevState != currState)
         {
-            Debug.Log("StateChanged");
+            Debug.Log("StateChanged: " + currState.ToString());
             isEventCompleted = false;
             isInteracted = false;
             SetCurrentInteractable();

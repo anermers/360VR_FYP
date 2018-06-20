@@ -47,8 +47,8 @@ public class ScenarioHandler : MonoBehaviour {
 
         isScenarioActivated = true;
 
-        currScenario = scenarioContainer["sc"];
-        scenarioContainer["sc"].gameObject.SetActive(true);
+        currScenario = scenarioContainer["sb"];
+        scenarioContainer["sb"].gameObject.SetActive(true);
     }
 	
 	// Update is called once per frame
