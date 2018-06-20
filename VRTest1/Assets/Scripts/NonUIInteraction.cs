@@ -47,26 +47,28 @@ public class NonUIInteraction : MonoBehaviour {
                 }
             }
         }
-        infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y + 2, t.gameObject.transform.position.z);
-        //Rotate Text to face the camera
+        infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y, t.gameObject.transform.position.z);
         infoText.transform.rotation = Quaternion.LookRotation(infoText.transform.position - playerCam.transform.position);
-        infoText.text = objectSelected.ToString();
+        //Rotate Text to face the camera
+        if (t.gameObject.tag == "PickUp")
+            infoText.text = t.gameObject.name;
     }
 
     public void OnHoverExit(Transform t) {
 
         if (t.gameObject.GetComponent<Renderer>() != null)
         {
-            infoText.text = oldHoverMat.name;
             t.gameObject.GetComponent<Renderer>().material = oldHoverMat;
             t.gameObject.GetComponent<Outline>().enabled = false;
         }
+        infoText.text = "";
     }
 
     public void OnSelected(Transform t) {
         isInteractable = false;
         if (t.gameObject.tag == "PickUp")
         {
+            infoText.text = "";
             if (!objectSelected)
             {
                 Debug.Log(t.gameObject.name);

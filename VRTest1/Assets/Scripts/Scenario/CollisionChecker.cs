@@ -76,7 +76,6 @@ public class CollisionChecker : MonoBehaviour {
                             correctOBJ = true;
                         break;
                 }
-
                 if (correctOBJ)
                 {
                     other.gameObject.SetActive(false);
