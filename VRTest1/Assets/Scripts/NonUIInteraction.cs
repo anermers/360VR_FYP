@@ -71,8 +71,8 @@ public class NonUIInteraction : MonoBehaviour {
             {
                 Debug.Log(t.gameObject.name);
                 objectSelected = true;
-                if(t.gameObject.GetComponent<Renderer>()!=null)
-                t.gameObject.GetComponent<Renderer>().material = yellowMat;
+                if(t.gameObject.GetComponent<Renderer>()!=null && t.gameObject.GetComponent<Outline>() != null)
+                    t.gameObject.GetComponent<Outline>().color = 3;
 
                 //t.gameObject.transform.position = snap.transform.position;
                 t.gameObject.transform.parent = playerController.transform;
@@ -91,8 +91,8 @@ public class NonUIInteraction : MonoBehaviour {
             if (t.gameObject.Equals(go))
             {
                 Debug.Log("correct item selected");
-                if (t.gameObject.GetComponent<Renderer>() != null)
-                    t.gameObject.GetComponent<Renderer>().material = redMat;
+                if (t.gameObject.GetComponent<Renderer>() != null && t.gameObject.GetComponent<Outline>() != null)
+                    t.gameObject.GetComponent<Outline>().color = 3;
                 //send a message back
                 ScenarioHandler.instance.CurrScenario.IsInteracted = true;
                 ScenarioHandler.instance.CurrScenario.InteractedGO = go;

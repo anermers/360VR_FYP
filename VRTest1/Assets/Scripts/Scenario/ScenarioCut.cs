@@ -1,6 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using cakeslice;
 
 [System.Serializable]
 public struct SCInfo
@@ -150,15 +151,15 @@ public class ScenarioCut : ScenarioBase {
     {
         foreach (GameObject go in scInfoContainer[prevState].interactables)
         {
-            if (go.GetComponent<cakeslice.Outline>())
-                go.GetComponent<cakeslice.Outline>().eraseRenderer = true;
+            if (go.GetComponent<Outline>())
+                go.GetComponent<Outline>().enabled = false;
         }
 
         ScenarioHandler.instance.interactableGO.Clear();
         foreach (GameObject go in scInfoContainer[currState].interactables)
         {
-            if (go.GetComponent<cakeslice.Outline>())
-                go.GetComponent<cakeslice.Outline>().eraseRenderer = false;
+            if (go.GetComponent<Outline>())
+                go.GetComponent<Outline>().enabled = true;
             ScenarioHandler.instance.interactableGO.Add(go);
         }
     }

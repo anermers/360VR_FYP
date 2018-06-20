@@ -40,25 +40,6 @@ public class ScenarioFire : ScenarioBase
     
 	// Use this for initialization
 	void Start () {
-
-        //sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
-        //foreach(SFInfo info in sfInfoList)
-        //{
-        //    if(!sfInfoContainer.ContainsKey(info.state))
-        //    {
-        //        foreach(GameObject go in info.interactables)
-        //        {
-        //            if (go.GetComponent<Renderer>() != null &&
-        //                go.GetComponent<cakeslice.Outline>() == null)
-        //            {
-        //                go.AddComponent<cakeslice.Outline>();
-        //                go.GetComponent<cakeslice.Outline>().eraseRenderer = true;
-        //            }
-        //        }
-        //        sfInfoContainer.Add(info.state, info);
-        //    }
-        //}
-
         Debug.Log("sf_start");
         //set the 1st state
         currState = STATE_SF.STATE_FIRE_START;
@@ -77,8 +58,6 @@ public class ScenarioFire : ScenarioBase
 
         smallFire.SetActive(!isBigFire);
         largeFire.SetActive(isBigFire);
-
-
     }
 
     public override void Init()
@@ -92,7 +71,7 @@ public class ScenarioFire : ScenarioBase
                 // Adds outline component to each GO in the scenario
                 foreach (GameObject go in info.interactables)
                 {
-                    // If render exist and outline component does not exist
+                    // If renderer exist and outline component does not exist
                     if (go.GetComponent<Renderer>() != null &&
                         go.GetComponent<Outline>() == null)
                     {
@@ -223,8 +202,13 @@ public class ScenarioFire : ScenarioBase
         }
     }
 
-    //IEnumerator FireExtinguish()
-    //{
-    //}
+    IEnumerator FireExtinguish()
+    {
+        yield return new WaitForSeconds(3f);
+
+        smallFire.SetActive(false);
+        largeFire.SetActive(false);
+
+    }
 }
 
