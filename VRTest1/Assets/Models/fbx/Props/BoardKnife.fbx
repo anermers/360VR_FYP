@@ -1,0 +1,889 @@
+; FBX 7.5.0 project file
+; Copyright (C) 1997-2015 Autodesk Inc. and/or its licensors.
+; All rights reserved.
+; ----------------------------------------------------
+
+FBXHeaderExtension:  {
+	FBXHeaderVersion: 1003
+	FBXVersion: 7500
+	CreationTimeStamp:  {
+		Version: 1000
+		Year: 2018
+		Month: 6
+		Day: 21
+		Hour: 10
+		Minute: 56
+		Second: 2
+		Millisecond: 688
+	}
+	Creator: "FBX SDK/FBX Plugins version 2017.0.1"
+	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
+		Type: "UserData"
+		Version: 100
+		MetaData:  {
+			Version: 100
+			Title: ""
+			Subject: ""
+			Author: ""
+			Keywords: ""
+			Revision: ""
+			Comment: ""
+		}
+		Properties70:  {
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\162015J\Desktop\new stuff\new models\KitchenProps\scenes\fbx files\finalobjs\BoardKnife.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\162015J\Desktop\new stuff\new models\KitchenProps\scenes\fbx files\finalobjs\BoardKnife.fbx"
+			P: "Original", "Compound", "", ""
+			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
+			P: "Original|ApplicationName", "KString", "", "", "Maya"
+			P: "Original|ApplicationVersion", "KString", "", "", "2017"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "21/06/2018 02:56:02.685"
+			P: "Original|FileName", "KString", "", "", "C:\Users\162015J\Desktop\new stuff\new models\KitchenProps\scenes\fbx files\finalobjs\BoardKnife.fbx"
+			P: "LastSaved", "Compound", "", ""
+			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
+			P: "LastSaved|ApplicationName", "KString", "", "", "Maya"
+			P: "LastSaved|ApplicationVersion", "KString", "", "", "2017"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "21/06/2018 02:56:02.685"
+			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\162015J\Desktop\new stuff\new models\KitchenProps\scenes\fbx files\finalobjs"
+			P: "Original|ApplicationNativeFile", "KString", "", "", "C:\Users\162015J\Desktop\new stuff\new models\KitchenProps\scenes\updated kitchen fire.ma"
+		}
+	}
+}
+GlobalSettings:  {
+	Version: 1000
+	Properties70:  {
+		P: "UpAxis", "int", "Integer", "",1
+		P: "UpAxisSign", "int", "Integer", "",1
+		P: "FrontAxis", "int", "Integer", "",2
+		P: "FrontAxisSign", "int", "Integer", "",1
+		P: "CoordAxis", "int", "Integer", "",0
+		P: "CoordAxisSign", "int", "Integer", "",1
+		P: "OriginalUpAxis", "int", "Integer", "",1
+		P: "OriginalUpAxisSign", "int", "Integer", "",1
+		P: "UnitScaleFactor", "double", "Number", "",1
+		P: "OriginalUnitScaleFactor", "double", "Number", "",1
+		P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
+		P: "DefaultCamera", "KString", "", "", "Producer Perspective"
+		P: "TimeMode", "enum", "", "",11
+		P: "TimeProtocol", "enum", "", "",2
+		P: "SnapOnFrameMode", "enum", "", "",0
+		P: "TimeSpanStart", "KTime", "Time", "",1924423250
+		P: "TimeSpanStop", "KTime", "Time", "",384884650000
+		P: "CustomFrameRate", "double", "Number", "",-1
+		P: "TimeMarker", "Compound", "", ""
+		P: "CurrentTimeMarker", "int", "Integer", "",-1
+	}
+}
+
+; Documents Description
+;------------------------------------------------------------------
+
+Documents:  {
+	Count: 1
+	Document: 2200106960, "", "Scene" {
+		Properties70:  {
+			P: "SourceObject", "object", "", ""
+			P: "ActiveAnimStackName", "KString", "", "", "Take 001"
+		}
+		RootNode: 0
+	}
+}
+
+; Document References
+;------------------------------------------------------------------
+
+References:  {
+}
+
+; Object definitions
+;------------------------------------------------------------------
+
+Definitions:  {
+	Version: 100
+	Count: 31
+	ObjectType: "GlobalSettings" {
+		Count: 1
+	}
+	ObjectType: "AnimationStack" {
+		Count: 1
+		PropertyTemplate: "FbxAnimStack" {
+			Properties70:  {
+				P: "Description", "KString", "", "", ""
+				P: "LocalStart", "KTime", "Time", "",0
+				P: "LocalStop", "KTime", "Time", "",0
+				P: "ReferenceStart", "KTime", "Time", "",0
+				P: "ReferenceStop", "KTime", "Time", "",0
+			}
+		}
+	}
+	ObjectType: "AnimationLayer" {
+		Count: 1
+		PropertyTemplate: "FbxAnimLayer" {
+			Properties70:  {
+				P: "Weight", "Number", "", "A",100
+				P: "Mute", "bool", "", "",0
+				P: "Solo", "bool", "", "",0
+				P: "Lock", "bool", "", "",0
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "BlendMode", "enum", "", "",0
+				P: "RotationAccumulationMode", "enum", "", "",0
+				P: "ScaleAccumulationMode", "enum", "", "",0
+				P: "BlendModeBypass", "ULongLong", "", "",0
+			}
+		}
+	}
+	ObjectType: "Geometry" {
+		Count: 2
+		PropertyTemplate: "FbxMesh" {
+			Properties70:  {
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "BBoxMin", "Vector3D", "Vector", "",0,0,0
+				P: "BBoxMax", "Vector3D", "Vector", "",0,0,0
+				P: "Primary Visibility", "bool", "", "",1
+				P: "Casts Shadows", "bool", "", "",1
+				P: "Receive Shadows", "bool", "", "",1
+			}
+		}
+	}
+	ObjectType: "Material" {
+		Count: 2
+		PropertyTemplate: "FbxSurfaceMaterial" {
+			Properties70:  {
+				P: "ShadingModel", "KString", "", "", "Unknown"
+				P: "MultiLayer", "bool", "", "",0
+			}
+		}
+	}
+	ObjectType: "Implementation" {
+		Count: 2
+		PropertyTemplate: "FbxImplementation" {
+			Properties70:  {
+				P: "ShaderLanguage", "KString", "", "", "MentalRaySL"
+				P: "ShaderLanguageVersion", "KString", "", "", ""
+				P: "RenderAPI", "KString", "", "", "MentalRay"
+				P: "RenderAPIVersion", "KString", "", "", ""
+				P: "RootBindingName", "KString", "", "", ""
+				P: "Constants", "Compound", "", ""
+			}
+		}
+	}
+	ObjectType: "BindingTable" {
+		Count: 2
+		PropertyTemplate: "FbxBindingTable" {
+			Properties70:  {
+				P: "TargetName", "KString", "", "", ""
+				P: "TargetType", "KString", "", "", ""
+				P: "CodeAbsoluteURL", "KString", "XRefUrl", "", ""
+				P: "CodeRelativeURL", "KString", "XRefUrl", "", ""
+				P: "CodeTAG", "KString", "", "", "shader"
+				P: "DescAbsoluteURL", "KString", "XRefUrl", "", ""
+				P: "DescRelativeURL", "KString", "XRefUrl", "", ""
+				P: "DescTAG", "KString", "", "", "shader"
+			}
+		}
+	}
+	ObjectType: "Texture" {
+		Count: 9
+		PropertyTemplate: "FbxFileTexture" {
+			Properties70:  {
+				P: "TextureTypeUse", "enum", "", "",0
+				P: "Texture alpha", "Number", "", "A",1
+				P: "CurrentMappingType", "enum", "", "",0
+				P: "WrapModeU", "enum", "", "",0
+				P: "WrapModeV", "enum", "", "",0
+				P: "UVSwap", "bool", "", "",0
+				P: "PremultiplyAlpha", "bool", "", "",1
+				P: "Translation", "Vector", "", "A",0,0,0
+				P: "Rotation", "Vector", "", "A",0,0,0
+				P: "Scaling", "Vector", "", "A",1,1,1
+				P: "TextureRotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TextureScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "CurrentTextureBlendMode", "enum", "", "",1
+				P: "UVSet", "KString", "", "", "default"
+				P: "UseMaterial", "bool", "", "",0
+				P: "UseMipMap", "bool", "", "",0
+			}
+		}
+	}
+	ObjectType: "Model" {
+		Count: 2
+		PropertyTemplate: "FbxNode" {
+			Properties70:  {
+				P: "QuaternionInterpolate", "enum", "", "",0
+				P: "RotationOffset", "Vector3D", "Vector", "",0,0,0
+				P: "RotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingOffset", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationActive", "bool", "", "",0
+				P: "TranslationMin", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMax", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMinX", "bool", "", "",0
+				P: "TranslationMinY", "bool", "", "",0
+				P: "TranslationMinZ", "bool", "", "",0
+				P: "TranslationMaxX", "bool", "", "",0
+				P: "TranslationMaxY", "bool", "", "",0
+				P: "TranslationMaxZ", "bool", "", "",0
+				P: "RotationOrder", "enum", "", "",0
+				P: "RotationSpaceForLimitOnly", "bool", "", "",0
+				P: "RotationStiffnessX", "double", "Number", "",0
+				P: "RotationStiffnessY", "double", "Number", "",0
+				P: "RotationStiffnessZ", "double", "Number", "",0
+				P: "AxisLen", "double", "Number", "",10
+				P: "PreRotation", "Vector3D", "Vector", "",0,0,0
+				P: "PostRotation", "Vector3D", "Vector", "",0,0,0
+				P: "RotationActive", "bool", "", "",0
+				P: "RotationMin", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMax", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMinX", "bool", "", "",0
+				P: "RotationMinY", "bool", "", "",0
+				P: "RotationMinZ", "bool", "", "",0
+				P: "RotationMaxX", "bool", "", "",0
+				P: "RotationMaxY", "bool", "", "",0
+				P: "RotationMaxZ", "bool", "", "",0
+				P: "InheritType", "enum", "", "",0
+				P: "ScalingActive", "bool", "", "",0
+				P: "ScalingMin", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingMax", "Vector3D", "Vector", "",1,1,1
+				P: "ScalingMinX", "bool", "", "",0
+				P: "ScalingMinY", "bool", "", "",0
+				P: "ScalingMinZ", "bool", "", "",0
+				P: "ScalingMaxX", "bool", "", "",0
+				P: "ScalingMaxY", "bool", "", "",0
+				P: "ScalingMaxZ", "bool", "", "",0
+				P: "GeometricTranslation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricRotation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricScaling", "Vector3D", "Vector", "",1,1,1
+				P: "MinDampRangeX", "double", "Number", "",0
+				P: "MinDampRangeY", "double", "Number", "",0
+				P: "MinDampRangeZ", "double", "Number", "",0
+				P: "MaxDampRangeX", "double", "Number", "",0
+				P: "MaxDampRangeY", "double", "Number", "",0
+				P: "MaxDampRangeZ", "double", "Number", "",0
+				P: "MinDampStrengthX", "double", "Number", "",0
+				P: "MinDampStrengthY", "double", "Number", "",0
+				P: "MinDampStrengthZ", "double", "Number", "",0
+				P: "MaxDampStrengthX", "double", "Number", "",0
+				P: "MaxDampStrengthY", "double", "Number", "",0
+				P: "MaxDampStrengthZ", "double", "Number", "",0
+				P: "PreferedAngleX", "double", "Number", "",0
+				P: "PreferedAngleY", "double", "Number", "",0
+				P: "PreferedAngleZ", "double", "Number", "",0
+				P: "LookAtProperty", "object", "", ""
+				P: "UpVectorProperty", "object", "", ""
+				P: "Show", "bool", "", "",1
+				P: "NegativePercentShapeSupport", "bool", "", "",1
+				P: "DefaultAttributeIndex", "int", "Integer", "",-1
+				P: "Freeze", "bool", "", "",0
+				P: "LODBox", "bool", "", "",0
+				P: "Lcl Translation", "Lcl Translation", "", "A",0,0,0
+				P: "Lcl Rotation", "Lcl Rotation", "", "A",0,0,0
+				P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1
+				P: "Visibility", "Visibility", "", "A",1
+				P: "Visibility Inheritance", "Visibility Inheritance", "", "",1
+			}
+		}
+	}
+	ObjectType: "Video" {
+		Count: 9
+		PropertyTemplate: "FbxVideo" {
+			Properties70:  {
+				P: "ImageSequence", "bool", "", "",0
+				P: "ImageSequenceOffset", "int", "Integer", "",0
+				P: "FrameRate", "double", "Number", "",0
+				P: "LastFrame", "int", "Integer", "",0
+				P: "Width", "int", "Integer", "",0
+				P: "Height", "int", "Integer", "",0
+				P: "Path", "KString", "XRefUrl", "", ""
+				P: "StartFrame", "int", "Integer", "",0
+				P: "StopFrame", "int", "Integer", "",0
+				P: "PlaySpeed", "double", "Number", "",0
+				P: "Offset", "KTime", "Time", "",0
+				P: "InterlaceMode", "enum", "", "",0
+				P: "FreeRunning", "bool", "", "",0
+				P: "Loop", "bool", "", "",0
+				P: "AccessMode", "enum", "", "",0
+			}
+		}
+	}
+}
+
+; Object properties
+;------------------------------------------------------------------
+
+Objects:  {
+	Geometry: 2197336272, "Geometry::", "Mesh" {
+		Vertices: *60 {
+			a: -0.5,-0.5,0.5,0.5,-0.500000536441803,0.5,-0.5,0.5,0.5,0.5,0.5,0.5,-0.5,0.5,-0.500000953674316,0.5,0.5,-0.500000953674316,-0.5,-0.5,-0.500000953674316,0.5,-0.500000536441803,-0.500000953674316,2.38504028320313,-0.192460224032402,-0.0230281427502632,2.38504028320313,-0.192460224032402,0.0230271890759468,2.38504028320313,1.61230564117432e-005,-0.0674588903784752,2.38504028320313,1.61230564117432e-005,0.0674579367041588,0.547298908233643,0.487454533576965,0.362429201602936,0.547298908233643,0.487454533576965,-0.362430155277252,0.547298908233643,-2.57411980628967,-0.123719811439514,0.547298908233643,-2.57411980628967,0.123718857765198,1.53590250015259,0.56302684545517,-0.23967607319355,1.53590250015259,-1.86140108108521,-0.0818163901567459,1.53590250015259,-1.86140108108521,0.0818154364824295,1.53590250015259,0.56302684545517,0.239675119519234
+		} 
+		PolygonVertexIndex: *72 {
+			a: 0,1,3,-3,2,3,5,-5,4,5,7,-7,6,7,1,-1,9,8,10,-12,6,0,2,-5,1,7,14,-16,7,5,13,-15,5,3,12,-14,3,1,15,-13,13,12,19,-17,14,13,16,-18,15,14,17,-19,12,15,18,-20,17,16,10,-9,18,17,8,-10,19,18,9,-12,16,19,11,-11
+		} 
+		Edges: *36 {
+			a: 0,2,6,10,3,1,7,5,11,9,15,13,25,27,16,29,17,33,18,19,41,43,34,47,30,51,26,38,57,59,46,63,50,67,54,42
+		} 
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 102
+			Name: ""
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "Direct"
+			Normals: *216 {
+				a: 2.9802315282268e-008,0,1,2.98023170586248e-008,0,1,2.98023170586248e-008,0,1,2.98023170586248e-008,0,1,0,0.999999940395355,0,0,0.999999940395355,0,0,0.999999940395355,0,0,0.999999940395355,0,5.96046341172496e-008,0,-1,5.96046341172496e-008,0,-1,5.96046341172496e-008,0,-1,5.96046305645359e-008,0,-1,-5.36441746135097e-007,-0.999999940395355,0,-5.36441746135097e-007,-0.999999940395355,0,-5.36441746135097e-007,-0.999999940395355,0,-5.36441746135097e-007,-0.999999940395355,0,0.999999940395355,-4.27790325829847e-007,0,0.999999940395355,-4.27790325829847e-007,0,0.999999940395355,-4.27790354251556e-007,0,0.999999940395355,-4.27790354251556e-007,0,-0.999999940395355,0,0,-0.999999940395355,0,0,-0.999999940395355,0,0,-0.999999940395355,0,0,-0.999740064144135,-0.0227984115481377,0,-0.999740064144135,-0.0227984115481377,0,-0.984453141689301,-0.175647467374802,0,-0.984453141689301,-0.175647467374802,0,0.97189462184906,-0.0138122672215104,-0.235010609030724,0.971894681453705,-0.0138122690841556,-0.235010609030724,0.248611941933632,-0.069366917014122,-0.96611613035202,0.126269489526749,-0.0714710727334023,-0.989417910575867,0.256372958421707,0.96657782793045,0,0.256372958421707,0.96657782793045,0,-0.0364314615726471,0.999336183071136,0,-0.0364314615726471,0.999336183071136,0,0.971894562244415,-0.0138122653588653,0.235010549426079,0.97189462184906,-0.0138122672215104,0.23501056432724,0.12626950442791,-0.0714710727334023,0.989417910575867,0.248612016439438,-0.069366917014122,0.96611613035202,-0.0364314615726471,0.999336183071136,0,-0.0364314615726471,0.999336183071136,0,0.119620509445667,0.992819726467133,0,0.119620509445667,0.992819726467133,0,0.126269489526749,-0.0714710727334023,-0.989417910575867,0.248611941933632,-0.069366917014122,-0.96611613035202,0.126425564289093,-0.0725636035203934,-0.989318490028381,0.117095552384853,-0.0720105841755867,-0.9905064702034,-0.984453141689301,-0.175647467374802,0,-0.984453141689301,-0.175647467374802,0,0.736610591411591,-0.676317095756531,0,0.736610591411591,-0.676317095756531,0,
+0.248612016439438,-0.069366917014122,0.96611613035202,0.12626950442791,-0.0714710727334023,0.989417910575867,0.117095552384853,-0.0720105841755867,0.9905064702034,0.126425564289093,-0.0725636035203934,0.989318490028381,0.117095552384853,-0.0720105841755867,-0.9905064702034,0.126425564289093,-0.0725636035203934,-0.989318490028381,0.182681754231453,-0.0757745578885078,-0.980247735977173,0.182681739330292,-0.0757745578885078,-0.980247795581818,0.736610591411591,-0.676317095756531,0,0.736610591411591,-0.676317095756531,0,0.891272008419037,-0.453468859195709,0,0.891272008419037,-0.453468859195709,0,0.126425564289093,-0.0725636035203934,0.989318490028381,0.117095552384853,-0.0720105841755867,0.9905064702034,0.182681724429131,-0.0757745578885078,0.980247795581818,0.182681739330292,-0.0757745578885078,0.980247735977173,0.119620509445667,0.992819726467133,0,0.119620509445667,0.992819726467133,0,0.552604615688324,0.833443522453308,0,0.552604615688324,0.833443522453308,0
+			} 
+			NormalsW: *72 {
+				a: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			} 
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "map1"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: *94 {
+				a: 0.393022060394287,0.975414931774139,0.153392016887665,0.82019829750061,0.42107880115509,0.986466467380524,0.427964091300964,0.970690608024597,0.255132257938385,0.616852402687073,0.16431599855423,0.608943939208984,0.416479796171188,0.614186644554138,0.437309145927429,0.632258951663971,0.12712299823761,0.281938076019287,0.171877086162567,0.471456795930862,0.928090035915375,0.20225602388382,0.843157649040222,0.202256858348846,0.721348822116852,0.20225578546524,0.636416792869568,0.202255487442017,0.188682481646538,0.749582290649414,0.268718093633652,0.246401324868202,0.416479766368866,0.253292500972748,0.416479766368866,0.277010172605515,0.40513676404953,0.248895794153214,0.414807379245758,0.277010142803192,0.514607131481171,0.921528339385986,0.84315812587738,0.921528041362762,0.636416077613831,0.92153012752533,0.721348881721497,0.921528100967407,0.414807379245758,0.614186704158783,0.425471186637878,0.981475830078125,0.14403909444809,0.608654260635376,0.107234887778759,0.317899882793427,0.141214907169342,0.471018761396408,0.443970143795013,0.302909940481186,0.451435148715973,0.286655187606812,0.406809091567993,0.248895794153214,0.269390821456909,0.246368736028671,0.92808997631073,0.921528816223145,0.514606773853302,0.202256083488464,0.843158006668091,0.117323517799377,0.721348583698273,0.11732417345047,0.147684872150421,0.820116758346558,0.0874865278601646,0.440597057342529,0.147453740239143,0.440597236156464,0.127705335617065,0.317899882793427,0.256804615259171,0.616852402687073,0.392228007316589,0.976884603500366,0.120600417256355,0.281579941511154,0.248319700360298,0.941113114356995,0.223358616232872,0.940756559371948,0.289560437202454,0.751023292541504
+			} 
+			UVIndex: *72 {
+				a: 11,21,23,12,12,23,22,13,13,22,20,34,10,33,21,11,27,40,39,38,35,11,12,36,14,46,44,45,15,31,17,43,16,30,29,17,18,32,8,19,17,29,7,6,43,17,6,41,28,9,5,26,19,8,4,24,41,6,2,42,26,5,1,37,24,4,0,25,6,7,3,2
+			} 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+		}
+	}
+	Geometry: 2197273296, "Geometry::", "Mesh" {
+		Vertices: *48 {
+			a: -0.5,0.500001907348633,0.499999761581421,0.5,0.500001907348633,0.499999761581421,-0.5,0.500001907348633,-0.500000238418579,0.5,0.500001907348633,-0.500000238418579,0.376183748245239,0.500001907348633,0.242652773857117,0.43240037560463,0.500001907348633,0.242652773857117,0.43240037560463,0.500001907348633,-0.242653250694275,0.376183748245239,0.500001907348633,-0.242653250694275,-0.5,0.823163986206055,0.499999761581421,0.5,0.823163986206055,0.499999761581421,0.43240037560463,0.823163986206055,0.242652773857117,0.376183748245239,0.823163986206055,0.242652773857117,0.5,0.823163986206055,-0.500000238418579,0.43240037560463,0.823163986206055,-0.242653250694275,-0.5,0.823163986206055,-0.500000238418579,0.376183748245239,0.823163986206055,-0.242653250694275
+		} 
+		PolygonVertexIndex: *64 {
+			a: 8,9,10,-12,9,12,13,-11,12,14,15,-14,14,8,11,-16,0,4,5,-2,1,5,6,-4,3,6,7,-3,2,7,4,-1,0,1,9,-9,5,4,11,-11,1,3,12,-10,6,5,10,-14,3,2,14,-13,7,6,13,-16,2,0,8,-15,4,7,15,-12
+		} 
+		Edges: *32 {
+			a: 19,27,31,23,16,18,17,22,21,26,25,29,35,33,0,39,1,37,2,3,41,4,47,5,6,49,8,55,9,10,12,14
+		} 
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 102
+			Name: ""
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "Direct"
+			Normals: *192 {
+				a: 0,1,0,0,0.999999940395355,0,0,1,0,0,0.999999940395355,0,0,1,0,0,1,0,0,1,0,0,1,0,0,0.999999940395355,0,0,1,0,0,0.999999940395355,0,0,1,0,0,1,0,0,1,0,0,0.999999940395355,0,0,0.999999940395355,0,0,-1,0,0,-0.999999940395355,0,0,-1,0,0,-0.999999940395355,0,0,-1,0,0,-1,0,0,-1,0,0,-1,0,0,-0.999999940395355,0,0,-1,0,0,-0.999999940395355,0,0,-1,0,0,-1,0,0,-0.999999940395355,0,0,-0.999999940395355,0,0,-1,0,0,0,1,0,0,1,0,0,1,0,0,1,0,0,-0.999999940395355,0,0,-0.999999940395355,0,0,-0.999999940395355,0,0,-0.999999940395355,1,0,0,1,0,0,1,0,0,1,0,0,-1,0,0,-1,0,0,-1,0,0,-1,0,0,0,0,-1,0,0,-1,0,0,-1,0,0,-1,0,0,0.999999940395355,0,0,0.999999940395355,0,0,0.999999940395355,0,0,0.999999940395355,-1,0,0,-1,0,0,-1,0,0,-1,0,0,1,0,0,1,0,0,1,0,0,1,0,0
+			} 
+			NormalsW: *64 {
+				a: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			} 
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "map1"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: *64 {
+				a: 0.454110592603683,0.81315803527832,0.873665571212769,0.81315803527832,0.960907101631165,0.897603392601013,0.37098416686058,0.890777826309204,0.0442718863487244,0.577238142490387,0.0442718863487244,0.626191854476929,0.766022562980652,0.785895228385925,0.560767948627472,0.785895228385925,0.873665571212769,0.210051894187927,0.454110622406006,0.210051894187927,0.873665571212769,0.210051894187927,0.96538907289505,0.127186566591263,0.0442719161510468,0.577238082885742,0.0442718863487244,0.626191735267639,0.560767948627472,0.745421886444092,0.325682431459427,0.577238202095032,0.766022562980652,0.745421886444092,0.325682461261749,0.626191735267639,0.370984196662903,0.125883638858795,0.454110592603683,0.210051894187927,0.325682461261749,0.577238142490387,0.454110592603683,0.81315815448761,0.325682491064072,0.626191735267639,0.873665571212769,0.81315815448761,0.560767948627472,0.745421826839447,0.766022562980652,0.745421826839447,0.766022562980652,0.785895109176636,0.560767948627472,0.785895228385925,0.0442718267440796,0.154632151126862,0.325682401657104,0.154632151126862,0.0442718863487244,0.154632091522217,0.325682491064072,0.154632091522217
+			} 
+			UVIndex: *64 {
+				a: 10,23,6,16,23,21,7,6,21,19,14,7,19,10,16,14,9,24,27,0,0,27,26,1,1,26,25,8,8,25,24,9,9,0,3,18,5,12,15,22,0,1,2,3,4,30,31,20,1,8,11,2,13,4,20,17,8,9,18,11,12,28,29,15
+			} 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+		}
+	}
+	Model: 2270638048, "Model::Knife1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-41.5374717727909,86.4994410693317,-24.176894983994
+			P: "Lcl Rotation", "Lcl Rotation", "", "A",-90,89.9999999999999,0
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",13.9436348683052,2.36136385477991,1.64646870595302
+			P: "currentUVSet", "KString", "", "U", "map1"
+		}
+		Shading: T
+		Culling: "CullingOff"
+	}
+	Model: 2270642688, "Model::ChoppingBoard1", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationPivot", "Vector3D", "Vector", "",0,3.94436925261076,-7.13493000214696e-006
+			P: "ScalingOffset", "Vector3D", "Vector", "",0,3.28278630583342,-6.89651142304539e-006
+			P: "ScalingPivot", "Vector3D", "Vector", "",0,0.661582946777344,-2.38418579101563e-007
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",-11.5267157489845,82.6674007050921,-32.5289173377564
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",40.1432747868816,5.96201772101941,29.926065447725
+			P: "currentUVSet", "KString", "", "U", "map1"
+		}
+		Shading: T
+		Culling: "CullingOff"
+	}
+	Material: 1939421024, "Material::Knife", "" {
+		Version: 102
+		ShadingModel: "unknown"
+		MultiLayer: 0
+		Properties70:  {
+			P: "Maya", "Compound", "", ""
+			P: "Maya|TypeId", "int", "Integer", "",1166017
+			P: "Maya|TEX_global_diffuse_cube", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_global_specular_cube", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_brdf_lut", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_texture_map_6021184", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_texture_map_5686597", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_texture_map_5887655", "Vector3D", "Vector", "",0,0,0
+		}
+	}
+	Material: 1939418304, "Material::ChoppingBoard", "" {
+		Version: 102
+		ShadingModel: "unknown"
+		MultiLayer: 0
+		Properties70:  {
+			P: "Maya", "Compound", "", ""
+			P: "Maya|TypeId", "int", "Integer", "",1166017
+			P: "Maya|TEX_global_diffuse_cube", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_global_specular_cube", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_brdf_lut", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_texture_map_5903921", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_texture_map_6161157", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_texture_map_5998682", "Vector3D", "Vector", "",0,0,0
+		}
+	}
+	Video: 1937222112, "Video::file3", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/specular_cube.dds"
+		}
+		UseMipMap: 0
+		Filename: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/specular_cube.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\midday\specular_cube.dds"
+	}
+	Video: 1937367312, "Video::file24", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/Knife_N.tga"
+		}
+		UseMipMap: 0
+		Filename: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/Knife_N.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\Knife_N.tga"
+	}
+	Video: 1937352512, "Video::file23", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/Knife_M.tga"
+		}
+		UseMipMap: 0
+		Filename: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/Knife_M.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\Knife_M.tga"
+	}
+	Video: 1937355312, "Video::file22", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/Knife_D.tga"
+		}
+		UseMipMap: 0
+		Filename: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/Knife_D.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\Knife_D.tga"
+	}
+	Video: 1937339712, "Video::file2", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/diffuse_cube.dds"
+		}
+		UseMipMap: 0
+		Filename: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/diffuse_cube.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\midday\diffuse_cube.dds"
+	}
+	Video: 1937370912, "Video::file4", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/ibl_brdf_lut.dds"
+		}
+		UseMipMap: 0
+		Filename: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/ibl_brdf_lut.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\ibl_brdf_lut.dds"
+	}
+	Video: 1937228112, "Video::file20", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ChoppingBoard_M.tga"
+		}
+		UseMipMap: 0
+		Filename: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ChoppingBoard_M.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\ChoppingBoard_M.tga"
+	}
+	Video: 1937348912, "Video::file19", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ChoppingBoard_D.tga"
+		}
+		UseMipMap: 0
+		Filename: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ChoppingBoard_D.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\ChoppingBoard_D.tga"
+	}
+	Video: 1937368512, "Video::file21", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ChoppingBoard_N.tga"
+		}
+		UseMipMap: 0
+		Filename: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ChoppingBoard_N.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\ChoppingBoard_N.tga"
+	}
+	Texture: 1901616272, "Texture::file3", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file3"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file3"
+		FileName: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/specular_cube.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\midday\specular_cube.dds"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 1901618192, "Texture::file24", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file24"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file24"
+		FileName: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/Knife_N.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\Knife_N.tga"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 1901577872, "Texture::file23", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file23"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file23"
+		FileName: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/Knife_M.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\Knife_M.tga"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 1901606192, "Texture::file22", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file22"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file22"
+		FileName: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/Knife_D.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\Knife_D.tga"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 1901595152, "Texture::file2", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file2"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file2"
+		FileName: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/diffuse_cube.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\midday\diffuse_cube.dds"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 1901593232, "Texture::file4", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file4"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file4"
+		FileName: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/ibl_brdf_lut.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\ibl_brdf_lut.dds"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 1901581712, "Texture::file20", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file20"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file20"
+		FileName: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ChoppingBoard_M.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\ChoppingBoard_M.tga"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 1901595632, "Texture::file19", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file19"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file19"
+		FileName: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ChoppingBoard_D.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\ChoppingBoard_D.tga"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 1901571152, "Texture::file21", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file21"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file21"
+		FileName: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ChoppingBoard_N.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\ChoppingBoard_N.tga"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Implementation: 2249138576, "Implementation::Knife_Implementation", "" {
+		Version: 100
+		Properties70:  {
+			P: "ShaderLanguage", "KString", "", "", "SFX"
+			P: "ShaderLanguageVersion", "KString", "", "", "28"
+			P: "RenderAPI", "KString", "", "", "SFX_PBS_SHADER"
+			P: "RootBindingName", "KString", "", "", "root"
+			P: "ShaderGraph", "Blob", "", "",6375 {
+				BinaryData: "U0ZCX1dJTiA9IHsgIC8qClZlcnNpb249MjgKR3JvdXBWZXJzaW9uPS0xLjAKQWR2YW5jZWQ9MApIZWxwSUQ9MApQYXJlbnRNYXRlcmlhbD0wCk51bWJlck9mTm9kZXM9NwojTlQ9MjAxNzYgMAoJUEM9MAoJZ3JvdXA9LTEKCUlTQz0xMwoJCVNWVD01MDIyIDMwMDIgMSAwIDAgCgkJU1ZUPTUwMjIgMzAwMiAyIDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDMgMCAwIAoJCVNWVD01MDIyIDIwMDMgNCAwIDAgCgkJU1ZUPTUwMjIgMzAwMiA1IDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDYgMCAwIAoJCVNWVD01MDIyIDIwMDMgNyAwIDAgCgkJU1ZUPTUwMjIgMzAwMiA4IDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDkgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTAgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTEgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTQgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTUgMCAwIAoJT1NDPTAKI05UPTIwMTc4IDAKCVBDPTIKCXBvc3g9MSB2PTIwMDMgLTQ5OC4zMzMKCXBvc3k9MSB2PTIwMDMgLTE4LjMzMzMKCWdyb3VwPS0xCglJU0M9MAoJT1NDPTEKCQlTVlQ9NTAyMiAzMDAxIDEgCgkJQ0M9MQoJCQlDPTEgMCAxIDIgMCAxIDAKCQkJQ1BDPTAKI05UPTIwMTc3IDAKCVBDPTQKCW5hbWU9MSB2PTUwMDAgdGV4dHVyZV9tYXBfNjAyMTE4NAoJcG9zeD0xIHY9MjAwMyAtMjMwLjAKCXBvc3k9MSB2PTIwMDMgLTM1LjAKCXRleHR1cmVwYXRoPTIgZT0xIHY9NTAwMCBDOi9Vc2Vycy8xNjIwMTVKL0Rlc2t0b3AvbmV3IHN0dWZmL25ldyBtb2RlbHMvS2l0Y2hlblByb3BzL3NvdXJjZWltYWdlcy90ZXh0dXJlcy9LbmlmZV9ELnRnYQoJZ3JvdXA9LTEKCUlTQz0yCgkJU1ZUPTUwMjIgMzAwMSAxIDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDIgMCAwIAoJT1NDPTEKCQlTVlQ9NTAyMiAzMDAzIDMgCgkJQ0M9MQoJCQlDPTIgMCAzIDAgMSAyIDAKCQkJQ1BDPTAKI05UPTIwMTc3IDAKCVBDPTQKCW5hbWU9MSB2PTUwMDAgdGV4dHVyZV9tYXBfNTY4NjU5NwoJcG9zeD0xIHY9MjAwMyAtMzI1LjAKCXBvc3k9MSB2PTIwMDMgMTMxLjY2NwoJdGV4dHVyZXBhdGg9MiBlPTEgdj01MDAwIEM6L1VzZXJzLzE2MjAxNUovRGVza3RvcC9uZXcgc3R1ZmYvbmV3IG1vZGVscy9LaXRjaGVuUHJvcHMvc291cmNlaW1hZ2VzL3RleHR1cmVzL0tuaWZlX00udGdhCglncm91cD0tMQoJSVNDPTIKCQlTVlQ9NTAyMiAzMDAxIDEgMCAwIAoJCVNWVD01MDIyIDIwMDMgMiAwIDAgCglPU0M9MQoJCVNWVD01MDIyIDMwMDMgMyAKCQlDQz0yCgkJCUM9MyAwIDMgMCA1IDYgMAoJCQlDUEM9MAoJCQlDPTMgMCAzIDAgNiA3IDAKCQkJQ1BDPTAKI05UPTIwMTc4IDAKCVBDPTIKCXBvc3g9MSB2PTIwMDMgLTU0NS4wCglwb3N5PTEgdj0yMDAzIDEzOC4zMzMKCWdyb3VwPS0xCglJU0M9MAoJT1NDPTEKCQlTVlQ9NTAyMiAzMDAxIDEgCgkJQ0M9MQoJCQlDPTQgMCAxIDMgMCAxIDAKCQkJQ1BDPTAKI05UPTIwMTc4IDAKCVBDPTIKCXBvc3g9MSB2PTIwMDMgLTU2Mi4wCglwb3N5PTEgdj0yMDAzIDMxMi4wCglncm91cD0tMQoJSVNDPTAKCU9TQz0xCgkJU1ZUPTUwMjIgMzAwMSAxIAoJCUNDPTEKCQkJQz01IDAgMSA2IDAgMSAwCgkJCUNQQz0wCiNOVD0yMDE3NyAwCglQQz01CgluYW1lPTEgdj01MDAwIHRleHR1cmVfbWFwXzU4ODc2NTUKCXBvc3g9MSB2PTIwMDMgLTM0Mi4wCglwb3N5PTEgdj0yMDAzIDMwNi4wCgl0ZXh0dXJlcGF0aD0yIGU9MSB2PTUwMDAgQzovVXNlcnMvMTYyMDE1Si9EZXNrdG9wL25ldyBzdHVmZi9uZXcgbW9kZWxzL0tpdGNoZW5Qcm9wcy9zb3VyY2VpbWFnZXMvdGV4dHVyZXMvS25pZmVfTi50Z2EKCWVuY29kaW5nPTIgZT0wIHY9NTAxMiAyCglncm91cD0tMQoJSVNDPTIKCQlTVlQ9NTAyMiAzMDAxIDEgMCAwIAoJCVNWVD01MDIyIDIwMDMgMiAwIDAgCglPU0M9MQoJCVNWVD01MDIyIDMwMDMgMyAKCQlDQz0xCgkJCUM9NiAwIDMgMCA0IDUgMAoJCQlDUEM9MAoKICovIH0gCmNvbm5lY3Rpb25zID0gWwoJeyAKCQlkZXN0aW5hdGlvbiA9IHsgCgkJCWNvbm5lY3Rvcl9pZCA9ICJhY2E2OTBjYi02MzA1LTRhMmYtYmYzZC02OTE4M2E0OTNkYjMiIAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjEiIAoJCX0gCgkJc2VsZWN0ID0gWyAKCQkJInh5eiIgCgkJCV0gCgkJc291cmNlID0geyAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmIzIiAKCQl9IAoJfSAKCXsgCgkJZGVzdGluYXRpb24gPSB7IAoJCQljb25uZWN0b3JfaWQgPSAiMWVlOWFmMWYtNjVmMi00NzM5LWFkMjgtNWVhNmEwZTY4ZmMzIiAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmIzIiAKCQl9IAoJCXNvdXJjZSA9IHsgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMiIgCgkJfSAKCX0gCgl7IAoJCWRlc3RpbmF0aW9uID0geyAKCQkJY29ubmVjdG9yX2lkID0gImIxYzg2NDA4LWFhY2ItNDQ2Ni1iNzU0LWRkY2YzN2EzYTJjOCIgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMSIgCgkJfSAKCQlzZWxlY3QgPSBbIAoJCQkieHl6IiAKCQkJXSAKCQlzb3VyY2UgPSB7IAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjciIAoJCX0g",
+ "Cgl9IAoJeyAKCQlkZXN0aW5hdGlvbiA9IHsgCgkJCWNvbm5lY3Rvcl9pZCA9ICIxZWU5YWYxZi02NWYyLTQ3MzktYWQyOC01ZWE2YTBlNjhmYzMiIAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjciIAoJCX0gCgkJc291cmNlID0geyAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI2IiAKCQl9IAoJfSAKCXsgCgkJZGVzdGluYXRpb24gPSB7IAoJCQljb25uZWN0b3JfaWQgPSAiYWQ1ZTA1MmYtZDMxNi00YTBmLThiNzktNTNjMzgyMDRkNjFiIiAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmIxIiAKCQl9IAoJCXNlbGVjdCA9IFsgCgkJCSJ4IiAKCQkJXSAKCQlzb3VyY2UgPSB7IAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjQiIAoJCX0gCgl9IAoJeyAKCQlkZXN0aW5hdGlvbiA9IHsgCgkJCWNvbm5lY3Rvcl9pZCA9ICIzNmJhNDZkMi1mNmVhLTRlNjAtYTQyOC1mZGMxN2M3NWJjNjIiIAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjEiIAoJCX0gCgkJc2VsZWN0ID0gWyAKCQkJIngiIAoJCQldIAoJCXNvdXJjZSA9IHsgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiNCIgCgkJfSAKCX0gCgl7IAoJCWRlc3RpbmF0aW9uID0geyAKCQkJY29ubmVjdG9yX2lkID0gIjFlZTlhZjFmLTY1ZjItNDczOS1hZDI4LTVlYTZhMGU2OGZjMyIgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiNCIgCgkJfSAKCQlzb3VyY2UgPSB7IAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjUiIAoJCX0gCgl9IApdCmNvbnN0YW50cyA9IFsKXQpub2RlcyA9IFsKCXsgCgkJY29udGVudF9zaXplID0gWyAKCQkJMTYwIAoJCQkwIAoJCV0gCgkJZXhwb3J0ID0geyAKCQl9IAoJCWlkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMSIgCgkJb3B0aW9ucyA9IFsgCgkJXSAKCQlwb3NpdGlvbiA9IFsgCgkJCTAgCgkJCTAgCgkJXSAKCQlzYW1wbGVycyA9IHsgCgkJfSAKCQl0aXRsZSA9ICJTdGFuZGFyZCBCYXNlIiAKCQl0eXBlID0gImNvcmUvc3RpbmdyYXlfcmVuZGVyZXIvb3V0cHV0X25vZGVzL3N0YW5kYXJkX2Jhc2UiIAoJfSAKCXsgCgkJY29udGVudF9zaXplID0gWyAKCQkJMTYwIAoJCQkwIAoJCV0gCgkJZXhwb3J0ID0geyAKCQl9IAoJCWlkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMyIgCgkJb3B0aW9ucyA9IFsgCgkJCSIxZTA2NzQ2NC0xMmQ4LTQ4MjYtOWI3Mi1jZmQ1NzY1MDAzZTMiCgkJCSJmYjNmNzA5Yi1hNTRhLTRlOTMtYWM5Zi1lOWZjNzZmYjhiY2QiCgkJCSI1ZGQ1OWIzZC0xNzYyLTRhMTQtOTkzMC03NTAwMjMwZWYzZGIiCgkJXSAKCQlwb3NpdGlvbiA9IFsgCgkJCS0yMzAgCgkJCS0zNSAKCQldIAoJCXNhbXBsZXJzID0geyAKCQkJdGV4dHVyZV9tYXAgPSB7IAoJCQkJZGlzcGxheV9uYW1lID0gIlRleHR1cmUgTWFwIDYwMjExODQiIAoJCQkJc2xvdF9uYW1lID0gInRleHR1cmVfbWFwXzYwMjExODQiIAoJCQkJdWkgPSB7IAoJCQkJCW9yZGVyID0gMTAwIAoJCQkJfSAKCQkJfSAKCQl9IAoJCXRpdGxlID0gIlRleHR1cmUgTWFwIDYwMjExODQiIAoJCXR5cGUgPSAiY29yZS9zaGFkZXJfbm9kZXMvc2FtcGxlX3RleHR1cmUiIAoJfSAKCXsgCgkJY29udGVudF9zaXplID0gWyAKCQkJMTYwIAoJCQkwIAoJCV0gCgkJZXhwb3J0ID0geyAKCQl9IAoJCWlkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMiIgCgkJb3B0aW9ucyA9IFsgCgkJXSAKCQlwb3NpdGlvbiA9IFsgCgkJCS00OTggCgkJCS0xOCAKCQldIAoJCXNhbXBsZXJzID0geyAKCQl9IAoJCXRpdGxlID0gIlRleGNvb3JkMCIgCgkJdHlwZSA9ICJjb3JlL3NoYWRlcl9ub2Rlcy90ZXh0dXJlX2Nvb3JkaW5hdGUwIiAKCX0gCgl7IAoJCWNvbnRlbnRfc2l6ZSA9IFsgCgkJCTE2MCAKCQkJMCAKCQldIAoJCWV4cG9ydCA9IHsgCgkJfSAKCQlpZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjciIAoJCW9wdGlvbnMgPSBbIAoJCQkiMWUwNjc0NjQtMTJkOC00ODI2LTliNzItY2ZkNTc2NTAwM2UzIgoJCQkiOTBlMjA4MjYtODY4OS00MmZhLThlMjQtZjQ4NGVjNjRjNWMzIgoJCQkiNWRkNTliM2QtMTc2Mi00YTE0LTk5MzAtNzUwMDIzMGVmM2RiIgoJCV0gCgkJcG9zaXRpb24gPSBbIAoJCQktMzQyIAoJCQkzMDYgCgkJXSAKCQlzYW1wbGVycyA9IHsgCgkJCXRleHR1cmVfbWFwID0geyAKCQkJCWRpc3BsYXlfbmFtZSA9ICJUZXh0dXJlIE1hcCA1ODg3NjU1IiAKCQkJCXNsb3RfbmFtZSA9ICJ0ZXh0dXJlX21hcF81ODg3NjU1IiAKCQkJCXVpID0geyAKCQkJCQlvcmRlciA9IDEwMCAKCQkJCX0gCgkJCX0gCgkJfSAKCQl0aXRsZSA9ICJUZXh0dXJlIE1hcCA1ODg3NjU1IiAKCQl0eXBlID0gImNvcmUvc2hhZGVyX25vZGVzL3NhbXBsZV90ZXh0dXJlIiAKCX0gCgl7IAoJCWNvbnRlbnRfc2l6ZSA9IFsgCgkJCTE2MCAKCQkJMCAKCQldIAoJCWV4cG9ydCA9IHsgCgkJfSAKCQlpZCA9ICJhYmJhYWJiYS1hYmJhLWFi",
+ "YmEtYWJiYS1hYmJhYWJiYWFiYjYiIAoJCW9wdGlvbnMgPSBbIAoJCV0gCgkJcG9zaXRpb24gPSBbIAoJCQktNTYyIAoJCQkzMTIgCgkJXSAKCQlzYW1wbGVycyA9IHsgCgkJfSAKCQl0aXRsZSA9ICJUZXhjb29yZDAiIAoJCXR5cGUgPSAiY29yZS9zaGFkZXJfbm9kZXMvdGV4dHVyZV9jb29yZGluYXRlMCIgCgl9IAoJeyAKCQljb250ZW50X3NpemUgPSBbIAoJCQkxNjAgCgkJCTAgCgkJXSAKCQlleHBvcnQgPSB7IAoJCX0gCgkJaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI0IiAKCQlvcHRpb25zID0gWyAKCQkJIjFlMDY3NDY0LTEyZDgtNDgyNi05YjcyLWNmZDU3NjUwMDNlMyIKCQkJImZiM2Y3MDliLWE1NGEtNGU5My1hYzlmLWU5ZmM3NmZiOGJjZCIKCQkJIjVkZDU5YjNkLTE3NjItNGExNC05OTMwLTc1MDAyMzBlZjNkYiIKCQldIAoJCXBvc2l0aW9uID0gWyAKCQkJLTMyNSAKCQkJMTMxIAoJCV0gCgkJc2FtcGxlcnMgPSB7IAoJCQl0ZXh0dXJlX21hcCA9IHsgCgkJCQlkaXNwbGF5X25hbWUgPSAiVGV4dHVyZSBNYXAgNTY4NjU5NyIgCgkJCQlzbG90X25hbWUgPSAidGV4dHVyZV9tYXBfNTY4NjU5NyIgCgkJCQl1aSA9IHsgCgkJCQkJb3JkZXIgPSAxMDAgCgkJCQl9IAoJCQl9IAoJCX0gCgkJdGl0bGUgPSAiVGV4dHVyZSBNYXAgNTY4NjU5NyIgCgkJdHlwZSA9ICJjb3JlL3NoYWRlcl9ub2Rlcy9zYW1wbGVfdGV4dHVyZSIgCgl9IAoJeyAKCQljb250ZW50X3NpemUgPSBbIAoJCQkxNjAgCgkJCTAgCgkJXSAKCQlleHBvcnQgPSB7IAoJCX0gCgkJaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI1IiAKCQlvcHRpb25zID0gWyAKCQldIAoJCXBvc2l0aW9uID0gWyAKCQkJLTU0NSAKCQkJMTM4IAoJCV0gCgkJc2FtcGxlcnMgPSB7IAoJCX0gCgkJdGl0bGUgPSAiVGV4Y29vcmQwIiAKCQl0eXBlID0gImNvcmUvc2hhZGVyX25vZGVzL3RleHR1cmVfY29vcmRpbmF0ZTAiIAoJfSAKXQp2ZXJzaW9uID0gMwoA"
+			}
+		}
+	}
+	Implementation: 2249140816, "Implementation::ChoppingBoard_Implementation", "" {
+		Version: 100
+		Properties70:  {
+			P: "ShaderLanguage", "KString", "", "", "SFX"
+			P: "ShaderLanguageVersion", "KString", "", "", "28"
+			P: "RenderAPI", "KString", "", "", "SFX_PBS_SHADER"
+			P: "RootBindingName", "KString", "", "", "root"
+			P: "ShaderGraph", "Blob", "", "",6487 {
+				BinaryData: "U0ZCX1dJTiA9IHsgIC8qClZlcnNpb249MjgKR3JvdXBWZXJzaW9uPS0xLjAKQWR2YW5jZWQ9MApIZWxwSUQ9MApQYXJlbnRNYXRlcmlhbD0wCk51bWJlck9mTm9kZXM9NwojTlQ9MjAxNzYgMAoJUEM9MAoJZ3JvdXA9LTEKCUlTQz0xMwoJCVNWVD01MDIyIDMwMDIgMSAwIDAgCgkJU1ZUPTUwMjIgMzAwMiAyIDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDMgMCAwIAoJCVNWVD01MDIyIDIwMDMgNCAwIDAgCgkJU1ZUPTUwMjIgMzAwMiA1IDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDYgMCAwIAoJCVNWVD01MDIyIDIwMDMgNyAwIDAgCgkJU1ZUPTUwMjIgMzAwMiA4IDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDkgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTAgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTEgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTQgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTUgMCAwIAoJT1NDPTAKI05UPTIwMTc4IDAKCVBDPTIKCXBvc3g9MSB2PTIwMDMgLTU2MC4wCglwb3N5PTEgdj0yMDAzIC0yMC4wCglncm91cD0tMQoJSVNDPTAKCU9TQz0xCgkJU1ZUPTUwMjIgMzAwMSAxIAoJCUNDPTEKCQkJQz0xIDAgMSAyIDAgMSAwCgkJCUNQQz0wCiNOVD0yMDE3NyAwCglQQz01CgluYW1lPTEgdj01MDAwIHRleHR1cmVfbWFwXzU5MDM5MjEKCXBvc3g9MSB2PTIwMDMgLTM0MC4wCglwb3N5PTEgdj0yMDAzIC0yMy4zMzMzCglwcmV2aWV3c3dhdGNoPTEgdj0yMDAyIDEKCXRleHR1cmVwYXRoPTIgZT0xIHY9NTAwMCBDOi9Vc2Vycy8xNjIwMTVKL0Rlc2t0b3AvbmV3IHN0dWZmL25ldyBtb2RlbHMvS2l0Y2hlblByb3BzL3NvdXJjZWltYWdlcy90ZXh0dXJlcy9DaG9wcGluZ0JvYXJkX0QudGdhCglncm91cD0tMQoJSVNDPTIKCQlTVlQ9NTAyMiAzMDAxIDEgMCAwIAoJCVNWVD01MDIyIDIwMDMgMiAwIDAgCglPU0M9MQoJCVNWVD01MDIyIDMwMDMgMyAKCQlDQz0xCgkJCUM9MiAwIDMgMCAxIDIgMAoJCQlDUEM9MAojTlQ9MjAxNzggMAoJUEM9MgoJcG9zeD0xIHY9MjAwMyAtNTYxLjY2NwoJcG9zeT0xIHY9MjAwMyAxNzMuMzMzCglncm91cD0tMQoJSVNDPTAKCU9TQz0xCgkJU1ZUPTUwMjIgMzAwMSAxIAoJCUNDPTEKCQkJQz0zIDAgMSA0IDAgMSAwCgkJCUNQQz0wCiNOVD0yMDE3NyAwCglQQz01CgluYW1lPTEgdj01MDAwIHRleHR1cmVfbWFwXzYxNjExNTcKCXBvc3g9MSB2PTIwMDMgLTM0OC4zMzMKCXBvc3k9MSB2PTIwMDMgMTY4LjMzMwoJcHJldmlld3N3YXRjaD0xIHY9MjAwMiAxCgl0ZXh0dXJlcGF0aD0yIGU9MSB2PTUwMDAgQzovVXNlcnMvMTYyMDE1Si9EZXNrdG9wL25ldyBzdHVmZi9uZXcgbW9kZWxzL0tpdGNoZW5Qcm9wcy9zb3VyY2VpbWFnZXMvdGV4dHVyZXMvQ2hvcHBpbmdCb2FyZF9NLnRnYQoJZ3JvdXA9LTEKCUlTQz0yCgkJU1ZUPTUwMjIgMzAwMSAxIDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDIgMCAwIAoJT1NDPTEKCQlTVlQ9NTAyMiAzMDAzIDMgCgkJQ0M9MgoJCQlDPTQgMCAzIDAgNSA2IDAKCQkJQ1BDPTAKCQkJQz00IDAgMyAwIDYgNyAwCgkJCUNQQz0wCiNOVD0yMDE3OCAwCglQQz0yCglwb3N4PTEgdj0yMDAzIC01ODMuMzMzCglwb3N5PTEgdj0yMDAzIDM1OC4zMzMKCWdyb3VwPS0xCglJU0M9MAoJT1NDPTEKCQlTVlQ9NTAyMiAzMDAxIDEgCgkJQ0M9MQoJCQlDPTUgMCAxIDYgMCAxIDAKCQkJQ1BDPTAKI05UPTIwMTc3IDAKCVBDPTYKCW5hbWU9MSB2PTUwMDAgdGV4dHVyZV9tYXBfNTk5ODY4MgoJcG9zeD0xIHY9MjAwMyAtMzUxLjY2NwoJcG9zeT0xIHY9MjAwMyA0MDguMzMzCglwcmV2aWV3c3dhdGNoPTEgdj0yMDAyIDEKCXRleHR1cmVwYXRoPTIgZT0xIHY9NTAwMCBDOi9Vc2Vycy8xNjIwMTVKL0Rlc2t0b3AvbmV3IHN0dWZmL25ldyBtb2RlbHMvS2l0Y2hlblByb3BzL3NvdXJjZWltYWdlcy90ZXh0dXJlcy9DaG9wcGluZ0JvYXJkX04udGdhCgllbmNvZGluZz0yIGU9MCB2PTUwMTIgMgoJZ3JvdXA9LTEKCUlTQz0yCgkJU1ZUPTUwMjIgMzAwMSAxIDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDIgMCAwIAoJT1NDPTEKCQlTVlQ9NTAyMiAzMDAzIDMgCgkJQ0M9MQoJCQlDPTYgMCAzIDAgNCA1IDAKCQkJQ1BDPTAKCiAqLyB9IApjb25uZWN0aW9ucyA9IFsKCXsgCgkJZGVzdGluYXRpb24gPSB7IAoJCQljb25uZWN0b3JfaWQgPSAiYWNhNjkwY2ItNjMwNS00YTJmLWJmM2QtNjkxODNhNDkzZGIzIiAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmIxIiAKCQl9IAoJCXNlbGVjdCA9IFsgCgkJCSJ4eXoiIAoJCQldIAoJCXNvdXJjZSA9IHsgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMyIgCgkJfSAKCX0gCgl7IAoJCWRlc3RpbmF0aW9uID0geyAKCQkJY29ubmVjdG9yX2lkID0gIjFlZTlhZjFmLTY1ZjItNDczOS1hZDI4LTVlYTZhMGU2OGZjMyIgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMyIgCgkJfSAKCQlzb3VyY2UgPSB7IAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjIiIAoJCX0gCgl9IAoJeyAKCQlkZXN0aW5hdGlvbiA9IHsgCgkJCWNvbm5lY3Rvcl9pZCA9ICJiMWM4NjQwOC1hYWNiLTQ0NjYtYjc1NC1kZGNmMzdhM2EyYzgiIAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjEi",
+ "IAoJCX0gCgkJc2VsZWN0ID0gWyAKCQkJInh5eiIgCgkJCV0gCgkJc291cmNlID0geyAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI3IiAKCQl9IAoJfSAKCXsgCgkJZGVzdGluYXRpb24gPSB7IAoJCQljb25uZWN0b3JfaWQgPSAiMWVlOWFmMWYtNjVmMi00NzM5LWFkMjgtNWVhNmEwZTY4ZmMzIiAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI3IiAKCQl9IAoJCXNvdXJjZSA9IHsgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiNiIgCgkJfSAKCX0gCgl7IAoJCWRlc3RpbmF0aW9uID0geyAKCQkJY29ubmVjdG9yX2lkID0gImFkNWUwNTJmLWQzMTYtNGEwZi04Yjc5LTUzYzM4MjA0ZDYxYiIgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMSIgCgkJfSAKCQlzZWxlY3QgPSBbIAoJCQkieCIgCgkJCV0gCgkJc291cmNlID0geyAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI1IiAKCQl9IAoJfSAKCXsgCgkJZGVzdGluYXRpb24gPSB7IAoJCQljb25uZWN0b3JfaWQgPSAiMzZiYTQ2ZDItZjZlYS00ZTYwLWE0MjgtZmRjMTdjNzViYzYyIiAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmIxIiAKCQl9IAoJCXNlbGVjdCA9IFsgCgkJCSJ4IiAKCQkJXSAKCQlzb3VyY2UgPSB7IAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjUiIAoJCX0gCgl9IAoJeyAKCQlkZXN0aW5hdGlvbiA9IHsgCgkJCWNvbm5lY3Rvcl9pZCA9ICIxZWU5YWYxZi02NWYyLTQ3MzktYWQyOC01ZWE2YTBlNjhmYzMiIAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjUiIAoJCX0gCgkJc291cmNlID0geyAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI0IiAKCQl9IAoJfSAKXQpjb25zdGFudHMgPSBbCl0Kbm9kZXMgPSBbCgl7IAoJCWNvbnRlbnRfc2l6ZSA9IFsgCgkJCTE2MCAKCQkJMCAKCQldIAoJCWV4cG9ydCA9IHsgCgkJfSAKCQlpZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjEiIAoJCW9wdGlvbnMgPSBbIAoJCV0gCgkJcG9zaXRpb24gPSBbIAoJCQkwIAoJCQkwIAoJCV0gCgkJc2FtcGxlcnMgPSB7IAoJCX0gCgkJdGl0bGUgPSAiU3RhbmRhcmQgQmFzZSIgCgkJdHlwZSA9ICJjb3JlL3N0aW5ncmF5X3JlbmRlcmVyL291dHB1dF9ub2Rlcy9zdGFuZGFyZF9iYXNlIiAKCX0gCgl7IAoJCWNvbnRlbnRfc2l6ZSA9IFsgCgkJCTE2MCAKCQkJMCAKCQldIAoJCWV4cG9ydCA9IHsgCgkJfSAKCQlpZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjMiIAoJCW9wdGlvbnMgPSBbIAoJCQkiMWUwNjc0NjQtMTJkOC00ODI2LTliNzItY2ZkNTc2NTAwM2UzIgoJCQkiZmIzZjcwOWItYTU0YS00ZTkzLWFjOWYtZTlmYzc2ZmI4YmNkIgoJCQkiNWRkNTliM2QtMTc2Mi00YTE0LTk5MzAtNzUwMDIzMGVmM2RiIgoJCV0gCgkJcG9zaXRpb24gPSBbIAoJCQktMzQwIAoJCQktMjMgCgkJXSAKCQlzYW1wbGVycyA9IHsgCgkJCXRleHR1cmVfbWFwID0geyAKCQkJCWRpc3BsYXlfbmFtZSA9ICJUZXh0dXJlIE1hcCA1OTAzOTIxIiAKCQkJCXNsb3RfbmFtZSA9ICJ0ZXh0dXJlX21hcF81OTAzOTIxIiAKCQkJCXVpID0geyAKCQkJCQlvcmRlciA9IDEwMCAKCQkJCX0gCgkJCX0gCgkJfSAKCQl0aXRsZSA9ICJUZXh0dXJlIE1hcCA1OTAzOTIxIiAKCQl0eXBlID0gImNvcmUvc2hhZGVyX25vZGVzL3NhbXBsZV90ZXh0dXJlIiAKCX0gCgl7IAoJCWNvbnRlbnRfc2l6ZSA9IFsgCgkJCTE2MCAKCQkJMCAKCQldIAoJCWV4cG9ydCA9IHsgCgkJfSAKCQlpZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjIiIAoJCW9wdGlvbnMgPSBbIAoJCV0gCgkJcG9zaXRpb24gPSBbIAoJCQktNTYwIAoJCQktMjAgCgkJXSAKCQlzYW1wbGVycyA9IHsgCgkJfSAKCQl0aXRsZSA9ICJUZXhjb29yZDAiIAoJCXR5cGUgPSAiY29yZS9zaGFkZXJfbm9kZXMvdGV4dHVyZV9jb29yZGluYXRlMCIgCgl9IAoJeyAKCQljb250ZW50X3NpemUgPSBbIAoJCQkxNjAgCgkJCTAgCgkJXSAKCQlleHBvcnQgPSB7IAoJCX0gCgkJaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI3IiAKCQlvcHRpb25zID0gWyAKCQkJIjFlMDY3NDY0LTEyZDgtNDgyNi05YjcyLWNmZDU3NjUwMDNlMyIKCQkJIjkwZTIwODI2LTg2ODktNDJmYS04ZTI0LWY0ODRlYzY0YzVjMyIKCQkJIjVkZDU5YjNkLTE3NjItNGExNC05OTMwLTc1MDAyMzBlZjNkYiIKCQldIAoJCXBvc2l0aW9uID0gWyAKCQkJLTM1MSAKCQkJNDA4IAoJCV0gCgkJc2FtcGxlcnMgPSB7IAoJCQl0ZXh0dXJlX21hcCA9IHsgCgkJCQlkaXNwbGF5X25hbWUgPSAiVGV4dHVyZSBNYXAgNTk5ODY4MiIgCgkJCQlzbG90X25hbWUgPSAidGV4dHVyZV9tYXBfNTk5ODY4MiIgCgkJCQl1aSA9IHsgCgkJCQkJb3JkZXIgPSAxMDAgCgkJCQl9IAoJCQl9IAoJCX0gCgkJdGl0bGUgPSAiVGV4dHVyZSBNYXAgNTk5ODY4MiIgCgkJdHlwZSA9ICJjb3JlL3NoYWRlcl9u",
+ "b2Rlcy9zYW1wbGVfdGV4dHVyZSIgCgl9IAoJeyAKCQljb250ZW50X3NpemUgPSBbIAoJCQkxNjAgCgkJCTAgCgkJXSAKCQlleHBvcnQgPSB7IAoJCX0gCgkJaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI2IiAKCQlvcHRpb25zID0gWyAKCQldIAoJCXBvc2l0aW9uID0gWyAKCQkJLTU4MyAKCQkJMzU4IAoJCV0gCgkJc2FtcGxlcnMgPSB7IAoJCX0gCgkJdGl0bGUgPSAiVGV4Y29vcmQwIiAKCQl0eXBlID0gImNvcmUvc2hhZGVyX25vZGVzL3RleHR1cmVfY29vcmRpbmF0ZTAiIAoJfSAKCXsgCgkJY29udGVudF9zaXplID0gWyAKCQkJMTYwIAoJCQkwIAoJCV0gCgkJZXhwb3J0ID0geyAKCQl9IAoJCWlkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiNSIgCgkJb3B0aW9ucyA9IFsgCgkJCSIxZTA2NzQ2NC0xMmQ4LTQ4MjYtOWI3Mi1jZmQ1NzY1MDAzZTMiCgkJCSJmYjNmNzA5Yi1hNTRhLTRlOTMtYWM5Zi1lOWZjNzZmYjhiY2QiCgkJCSI1ZGQ1OWIzZC0xNzYyLTRhMTQtOTkzMC03NTAwMjMwZWYzZGIiCgkJXSAKCQlwb3NpdGlvbiA9IFsgCgkJCS0zNDggCgkJCTE2OCAKCQldIAoJCXNhbXBsZXJzID0geyAKCQkJdGV4dHVyZV9tYXAgPSB7IAoJCQkJZGlzcGxheV9uYW1lID0gIlRleHR1cmUgTWFwIDYxNjExNTciIAoJCQkJc2xvdF9uYW1lID0gInRleHR1cmVfbWFwXzYxNjExNTciIAoJCQkJdWkgPSB7IAoJCQkJCW9yZGVyID0gMTAwIAoJCQkJfSAKCQkJfSAKCQl9IAoJCXRpdGxlID0gIlRleHR1cmUgTWFwIDYxNjExNTciIAoJCXR5cGUgPSAiY29yZS9zaGFkZXJfbm9kZXMvc2FtcGxlX3RleHR1cmUiIAoJfSAKCXsgCgkJY29udGVudF9zaXplID0gWyAKCQkJMTYwIAoJCQkwIAoJCV0gCgkJZXhwb3J0ID0geyAKCQl9IAoJCWlkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiNCIgCgkJb3B0aW9ucyA9IFsgCgkJXSAKCQlwb3NpdGlvbiA9IFsgCgkJCS01NjEgCgkJCTE3MyAKCQldIAoJCXNhbXBsZXJzID0geyAKCQl9IAoJCXRpdGxlID0gIlRleGNvb3JkMCIgCgkJdHlwZSA9ICJjb3JlL3NoYWRlcl9ub2Rlcy90ZXh0dXJlX2Nvb3JkaW5hdGUwIiAKCX0gCl0KdmVyc2lvbiA9IDMKAA=="
+			}
+		}
+	}
+	BindingTable: 2212318368, "BindingTable::root 21", "" {
+		Version: 100
+		Properties70:  {
+			P: "TargetName", "KString", "", "", "root"
+			P: "TargetType", "KString", "", "", "shader"
+		}
+		Entry: "Maya|TEX_global_specular_cube", "FbxPropertyEntry", "TEX_global_specular_cube", "FbxSemanticEntry"
+		Entry: "Maya|TEX_texture_map_5887655", "FbxPropertyEntry", "TEX_texture_map_5887655", "FbxSemanticEntry"
+		Entry: "Maya|TEX_texture_map_5686597", "FbxPropertyEntry", "TEX_texture_map_5686597", "FbxSemanticEntry"
+		Entry: "Maya|TEX_texture_map_6021184", "FbxPropertyEntry", "TEX_texture_map_6021184", "FbxSemanticEntry"
+		Entry: "Maya|TEX_global_diffuse_cube", "FbxPropertyEntry", "TEX_global_diffuse_cube", "FbxSemanticEntry"
+		Entry: "Maya|TEX_brdf_lut", "FbxPropertyEntry", "TEX_brdf_lut", "FbxSemanticEntry"
+	}
+	BindingTable: 2212338240, "BindingTable::root 22", "" {
+		Version: 100
+		Properties70:  {
+			P: "TargetName", "KString", "", "", "root"
+			P: "TargetType", "KString", "", "", "shader"
+		}
+		Entry: "Maya|TEX_texture_map_6161157", "FbxPropertyEntry", "TEX_texture_map_6161157", "FbxSemanticEntry"
+		Entry: "Maya|TEX_texture_map_5903921", "FbxPropertyEntry", "TEX_texture_map_5903921", "FbxSemanticEntry"
+		Entry: "Maya|TEX_global_specular_cube", "FbxPropertyEntry", "TEX_global_specular_cube", "FbxSemanticEntry"
+		Entry: "Maya|TEX_global_diffuse_cube", "FbxPropertyEntry", "TEX_global_diffuse_cube", "FbxSemanticEntry"
+		Entry: "Maya|TEX_brdf_lut", "FbxPropertyEntry", "TEX_brdf_lut", "FbxSemanticEntry"
+		Entry: "Maya|TEX_texture_map_5998682", "FbxPropertyEntry", "TEX_texture_map_5998682", "FbxSemanticEntry"
+	}
+	AnimationStack: 2247503776, "AnimStack::Take 001", "" {
+		Properties70:  {
+			P: "LocalStart", "KTime", "Time", "",1924423250
+			P: "LocalStop", "KTime", "Time", "",230930790000
+			P: "ReferenceStart", "KTime", "Time", "",1924423250
+			P: "ReferenceStop", "KTime", "Time", "",230930790000
+		}
+	}
+	AnimationLayer: 2211010960, "AnimLayer::BaseLayer", "" {
+	}
+}
+
+; Object connections
+;------------------------------------------------------------------
+
+Connections:  {
+	
+	;Model::Knife1, Model::RootNode
+	C: "OO",2270638048,0
+	
+	;Model::ChoppingBoard1, Model::RootNode
+	C: "OO",2270642688,0
+	
+	;AnimLayer::BaseLayer, AnimStack::Take 001
+	C: "OO",2211010960,2247503776
+	
+	;Texture::file2, Material::Knife
+	C: "OP",1901595152,1939421024, "Maya|TEX_global_diffuse_cube"
+	
+	;Texture::file3, Material::Knife
+	C: "OP",1901616272,1939421024, "Maya|TEX_global_specular_cube"
+	
+	;Texture::file4, Material::Knife
+	C: "OP",1901593232,1939421024, "Maya|TEX_brdf_lut"
+	
+	;Texture::file22, Material::Knife
+	C: "OP",1901606192,1939421024, "Maya|TEX_texture_map_6021184"
+	
+	;Texture::file23, Material::Knife
+	C: "OP",1901577872,1939421024, "Maya|TEX_texture_map_5686597"
+	
+	;Texture::file24, Material::Knife
+	C: "OP",1901618192,1939421024, "Maya|TEX_texture_map_5887655"
+	
+	;Material::Knife, Implementation::Knife_Implementation
+	C: "OO",1939421024,2249138576
+	
+	;BindingTable::root 21, Implementation::Knife_Implementation
+	C: "OO",2212318368,2249138576
+	
+	;Video::file3, Texture::file3
+	C: "OO",1937222112,1901616272
+	
+	;Video::file24, Texture::file24
+	C: "OO",1937367312,1901618192
+	
+	;Video::file23, Texture::file23
+	C: "OO",1937352512,1901577872
+	
+	;Video::file22, Texture::file22
+	C: "OO",1937355312,1901606192
+	
+	;Video::file2, Texture::file2
+	C: "OO",1937339712,1901595152
+	
+	;Video::file4, Texture::file4
+	C: "OO",1937370912,1901593232
+	
+	;Geometry::, Model::Knife1
+	C: "OO",2197336272,2270638048
+	
+	;Material::Knife, Model::Knife1
+	C: "OO",1939421024,2270638048
+	
+	;Texture::file2, Material::ChoppingBoard
+	C: "OP",1901595152,1939418304, "Maya|TEX_global_diffuse_cube"
+	
+	;Texture::file3, Material::ChoppingBoard
+	C: "OP",1901616272,1939418304, "Maya|TEX_global_specular_cube"
+	
+	;Texture::file4, Material::ChoppingBoard
+	C: "OP",1901593232,1939418304, "Maya|TEX_brdf_lut"
+	
+	;Texture::file19, Material::ChoppingBoard
+	C: "OP",1901595632,1939418304, "Maya|TEX_texture_map_5903921"
+	
+	;Texture::file20, Material::ChoppingBoard
+	C: "OP",1901581712,1939418304, "Maya|TEX_texture_map_6161157"
+	
+	;Texture::file21, Material::ChoppingBoard
+	C: "OP",1901571152,1939418304, "Maya|TEX_texture_map_5998682"
+	
+	;Material::ChoppingBoard, Implementation::ChoppingBoard_Implementation
+	C: "OO",1939418304,2249140816
+	
+	;BindingTable::root 22, Implementation::ChoppingBoard_Implementation
+	C: "OO",2212338240,2249140816
+	
+	;Video::file20, Texture::file20
+	C: "OO",1937228112,1901581712
+	
+	;Video::file19, Texture::file19
+	C: "OO",1937348912,1901595632
+	
+	;Video::file21, Texture::file21
+	C: "OO",1937368512,1901571152
+	
+	;Geometry::, Model::ChoppingBoard1
+	C: "OO",2197273296,2270642688
+	
+	;Material::ChoppingBoard, Model::ChoppingBoard1
+	C: "OO",1939418304,2270642688
+}
+;Takes section
+;----------------------------------------------------
+
+Takes:  {
+	Current: "Take 001"
+	Take: "Take 001" {
+		FileName: "Take_001.tak"
+		LocalTime: 1924423250,230930790000
+		ReferenceTime: 1924423250,230930790000
+	}
+}

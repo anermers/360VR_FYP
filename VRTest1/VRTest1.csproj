@@ -140,6 +140,7 @@
     <Compile Include="Assets\Scripts\DebugScript.cs" />
     <Compile Include="Assets\Scripts\NonUIInteraction.cs" />
     <Compile Include="Assets\Scripts\RoomHandler.cs" />
+    <Compile Include="Assets\Scripts\RunAway.cs" />
     <Compile Include="Assets\Scripts\Scenario\CollisionChecker.cs" />
     <Compile Include="Assets\Scripts\Scenario\ScenarioBase.cs" />
     <Compile Include="Assets\Scripts\Scenario\ScenarioBurn.cs" />
@@ -151,6 +152,7 @@
     <Compile Include="Assets\Scripts\UIInteraction.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Models\objtextures.txt" />
     <None Include="Assets\OVR\Editor\AndroidManifest.OVRSubmission.xml" />
     <None Include="Assets\OVR\Plugins\placeholder.txt" />
     <None Include="Assets\OVR\Resources\Cubemap Blit.shader" />

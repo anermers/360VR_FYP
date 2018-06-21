@@ -42,14 +42,14 @@ public class ScenarioCut : ScenarioBase {
     // Use this for initialization
     void Start () {
         //set the 1st state
-        scInfoContainer = new Dictionary<STATE_SC, SCInfo>();
-        foreach (SCInfo info in scInfoList)
-        {
-            if (!scInfoContainer.ContainsKey(info.state))
-            {
-                scInfoContainer.Add(info.state, info);
-            }
-        }
+        //scInfoContainer = new Dictionary<STATE_SC, SCInfo>();
+        //foreach (SCInfo info in scInfoList)
+        //{
+        //    if (!scInfoContainer.ContainsKey(info.state))
+        //    {
+        //        scInfoContainer.Add(info.state, info);
+        //    }
+        //}
         currState = STATE_SC.STATE_CUT_START;
         prevState = currState;
         isEventCompleted = false;
@@ -59,10 +59,48 @@ public class ScenarioCut : ScenarioBase {
         timer = 8.0f;
         chefAnimController = traineeChef.GetComponent<Animator>();
         MedTriggerLocal.SetActive(false);
+
+        if (traineeChef.GetComponent<RunAway>() != null)
+            traineeChef.GetComponent<RunAway>().enabled = false;
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+    public override void Init()
+    {
+        Debug.Log("ScenarioCut - Init");
+        scInfoContainer = new Dictionary<STATE_SC, SCInfo>();
+        foreach (SCInfo info in scInfoList)
+        {
+            if (!scInfoContainer.ContainsKey(info.state))
+            {
+                // Adds outline component to each GO in the scenario
+                foreach (GameObject go in info.interactables)
+                {
+                    // If renderer exist and outline component does not exist
+                    if (go.GetComponent<Renderer>() != null &&
+                        go.GetComponent<Outline>() == null)
+                    {
+                        go.AddComponent<Outline>();
+                        go.GetComponent<Outline>().color = 0;
+                        go.GetComponent<Outline>().eraseRenderer = false;
+                        go.GetComponent<Outline>().enabled = false;
+                    }
+                }
+                // Adds to the dictionary
+                scInfoContainer.Add(info.state, info);
+            }
+        }
+    }
+
+    // Update is called once per frame
+    void Update () {
+
+        if (isScenarioDone)
+        {
+            Debug.Log("Scenario Completed");
+            ScenarioHandler.instance.instruction.text = "Scenario Completed - bck btn to quit";
+            //ScenarioHandler.instance.ScenarioQuit();
+        }
+
         if (prevState != currState)
         {
             Debug.Log("StateChanged: " + currState.ToString());

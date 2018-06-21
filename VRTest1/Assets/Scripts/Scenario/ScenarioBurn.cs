@@ -51,15 +51,33 @@ public class ScenarioBurn : ScenarioBase
         timer = 8.0f;
         chefAnimController = traineeChef.GetComponent<Animator>();
         MedTriggerLocal.SetActive(false);
+
+        if (traineeChef.GetComponent<RunAway>() != null)
+            traineeChef.GetComponent<RunAway>().enabled = false;
     }
 
     public override void Init()
     {
+        Debug.Log("ScenarioBurn - Init");
         sbInfoContainer = new Dictionary<STATE_SB, SBInfo>();
         foreach (SBInfo info in sbInfoList)
         {
             if (!sbInfoContainer.ContainsKey(info.state))
             {
+                // Adds outline component to each GO in the scenario
+                foreach (GameObject go in info.interactables)
+                {
+                    // If renderer exist and outline component does not exist
+                    if (go.GetComponent<Renderer>() != null &&
+                        go.GetComponent<Outline>() == null)
+                    {
+                        go.AddComponent<Outline>();
+                        go.GetComponent<Outline>().color = 0;
+                        go.GetComponent<Outline>().eraseRenderer = false;
+                        go.GetComponent<Outline>().enabled = false;
+                    }
+                }
+                // Adds to the dictionary
                 sbInfoContainer.Add(info.state, info);
             }
         }
@@ -67,7 +85,15 @@ public class ScenarioBurn : ScenarioBase
 
     // Update is called once per frame
     private void Update () {
-		if(prevState != currState)
+
+        if (isScenarioDone)
+        {
+            Debug.Log("Scenario Completed");
+            ScenarioHandler.instance.instruction.text = "Scenario Completed - bck btn to quit";
+            //ScenarioHandler.instance.ScenarioQuit();
+        }
+
+        if (prevState != currState)
         {
             Debug.Log("StateChanged: " + currState.ToString());
             isEventCompleted = false;

@@ -139,6 +139,7 @@
     <Compile Include="Assets\OVR\Scripts\Editor\OVRManagerEditor.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Models\objtextures.txt" />
     <None Include="Assets\OVR\Editor\AndroidManifest.OVRSubmission.xml" />
     <None Include="Assets\OVR\Plugins\placeholder.txt" />
     <None Include="Assets\OVR\Resources\Cubemap Blit.shader" />

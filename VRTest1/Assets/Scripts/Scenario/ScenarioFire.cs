@@ -26,6 +26,7 @@ public class ScenarioFire : ScenarioBase
         STATE_TOTAL
     }
 
+    public GameObject traineeChef;
     public GameObject fireBlanket;
     public GameObject smallFire;
     public GameObject largeFire;
@@ -36,10 +37,13 @@ public class ScenarioFire : ScenarioBase
     bool isBigFire = true;
     int instructionIndex;
 
-    Dictionary<STATE_SF, SFInfo> sfInfoContainer; 
-    
-	// Use this for initialization
-	void Start () {
+    Dictionary<STATE_SF, SFInfo> sfInfoContainer;
+
+    private float timer;
+    private Animator chefAnimController;
+
+    // Use this for initialization
+    void Start () {
         Debug.Log("sf_start");
         //set the 1st state
         currState = STATE_SF.STATE_FIRE_START;
@@ -48,9 +52,13 @@ public class ScenarioFire : ScenarioBase
         isInteracted = false;
         isScenarioDone = false;
         instructionIndex = 0;
+        chefAnimController = traineeChef.GetComponent<Animator>();
         int rand = Random.Range(0, 2);
         if (rand == 0)
             isBigFire = false;
+
+        if (traineeChef.GetComponent<RunAway>() != null)
+            traineeChef.GetComponent<RunAway>().enabled = true;
 
 #if UNITY_EDITOR
         isBigFire = false;
@@ -93,6 +101,8 @@ public class ScenarioFire : ScenarioBase
         if(isScenarioDone)
         {
             Debug.Log("Scenario Completed");
+            ScenarioHandler.instance.instruction.text = "Scenario Completed - bck btn to quit";
+            //ScenarioHandler.instance.ScenarioQuit();
         }
 
         if(prevState != currState)
@@ -110,6 +120,7 @@ public class ScenarioFire : ScenarioBase
         switch(currState)
         {
             case STATE_SF.STATE_FIRE_START: // Buffer state
+                chefAnimController.SetBool("running", true);
                 SwitchState((int)STATE_SF.STATE_OFF_GAS);
                 break;
             case STATE_SF.STATE_OFF_GAS:

@@ -1,0 +1,21 @@
+A=Alpha/Opacity
+
+Equipment
+-Equipment_A/D/M/N
+-ChoppingBoard_D/M/N
+
+BerriesCont
+-Berries_D/N
+-TrpsCont (assign this texture for diffuse + metallic + alpha/opacity)
+
+TrayFood
+-TrayMetal_D/M/N
+-Vegetables_D/M/N (all except the planes (VegeAlph1-3) share same map)
+-SpreadVege_A/D
+
+CombinedTable
+-CombinedTable_D/M/N
+
+BoardKnife
+-ChoppingBoard_D/M/N
+-Knife_D/M/N

@@ -194,6 +194,7 @@ public class RayPointer : MonoBehaviour {
                     iter.item.SetActive(false);
             }
 
+            ScenarioHandler.instance.ScenarioQuit();
             transform.position = DefaultPos;
         }
                

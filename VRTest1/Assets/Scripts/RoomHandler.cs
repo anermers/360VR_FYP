@@ -103,12 +103,13 @@ public class RoomHandler : MonoBehaviour
     public void ShowMenu()
     {
         Debug.Log("ENTERED");
-
         RenderSettings.skybox.SetTexture("_Tex", null);
-        selectionCanvas.SetActive(true);
-        selectionRoom.SetActive(true);
+        selectionCanvas.SetActive(!selectionCanvas.activeSelf);
+        selectionRoom.SetActive(!selectionRoom.activeSelf);
+        //active the kitchen here or something
         opc.GravityModifier = 0.7f;
     }
+
 
     private void ChangeTexture(string key)
     {

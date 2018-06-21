@@ -44,11 +44,10 @@ public class ScenarioHandler : MonoBehaviour {
                 scenarioContainer.Add(sb.name, sb);
         }
 
-
-        isScenarioActivated = true;
-
+        //testing    
         currScenario = scenarioContainer["sb"];
         scenarioContainer["sb"].gameObject.SetActive(true);
+        isScenarioActivated = true;
     }
 	
 	// Update is called once per frame
@@ -64,6 +63,7 @@ public class ScenarioHandler : MonoBehaviour {
             return;
         }
 
+        RoomHandler.instance.ShowMenu();
         scenarioContainer[name].gameObject.SetActive(true);
         currScenario = scenarioContainer[name];
         isScenarioActivated = true;
@@ -75,22 +75,17 @@ public class ScenarioHandler : MonoBehaviour {
             || isScenarioActivated)
             return;
 
+
+        RoomHandler.instance.ShowMenu();
         int index = Random.Range(0, scenarioList.Count - 1);
         scenarioList[index].gameObject.SetActive(true);
         currScenario = scenarioList[index];
         isScenarioActivated = true;
     }
 
-    //public void OnSelected(Transform t)
-    //{
-    //    foreach(GameObject go in interactableGO)
-    //    {
-    //        if (t.gameObject.Equals(go))
-    //        {
-    //            Debug.Log("correct item selected");
-    //            scenarioContainer[currScenario].IsInteracted = true;
-    //            break;
-    //        }
-    //    }
-    //}
+    public void ScenarioQuit()
+    {
+        currScenario.gameObject.SetActive(false);
+        isScenarioActivated = false;
+    }
 }
