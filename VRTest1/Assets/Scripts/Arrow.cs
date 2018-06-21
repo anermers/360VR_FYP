@@ -38,8 +38,5 @@ public class Arrow : MonoBehaviour
             //set the object's Y to the new calculated Y
             transform.position = new Vector3(transform.position.x, newY * height + 2.5f, transform.position.z);
         }
-        else
-            //Set false if there is no target
-            gameObject.SetActive(false);
     }
 }

@@ -41,24 +41,7 @@ public class ScenarioBurn : ScenarioBase
     private Animator chefAnimController;
 
     // Use this for initialization
-    private void Start () {
-        currState = STATE_SB.STATE_BURN_START;
-        prevState = currState;
-        isEventCompleted = false;
-        isInteracted = false;
-        isScenarioDone = false;
-        instructionIndex = 0;
-        timer = 8.0f;
-        chefAnimController = traineeChef.GetComponent<Animator>();
-        MedTriggerLocal.SetActive(false);
-
-        if (traineeChef.GetComponent<RunAway>() != null)
-            traineeChef.GetComponent<RunAway>().enabled = false;
-    }
-
-    public override void Init()
-    {
-        Debug.Log("ScenarioBurn - Init");
+    public void Start () {
         sbInfoContainer = new Dictionary<STATE_SB, SBInfo>();
         foreach (SBInfo info in sbInfoList)
         {
@@ -81,6 +64,25 @@ public class ScenarioBurn : ScenarioBase
                 sbInfoContainer.Add(info.state, info);
             }
         }
+
+        Init();
+    }
+
+    public override void Init()
+    {
+        Debug.Log("ScenarioBurn - Init");
+        currState = STATE_SB.STATE_BURN_START;
+        prevState = currState;
+        isEventCompleted = false;
+        isInteracted = false;
+        isScenarioDone = false;
+        instructionIndex = 0;
+        timer = 8.0f;
+        chefAnimController = traineeChef.GetComponent<Animator>();
+        MedTriggerLocal.SetActive(false);
+        if (traineeChef.GetComponent<RunAway>() != null)
+            traineeChef.GetComponent<RunAway>().enabled = false;
+
     }
 
     // Update is called once per frame

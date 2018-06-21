@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
+using UnityEngine.SceneManagement;
 
 public class RayPointer : MonoBehaviour {
     [System.Serializable]
@@ -184,20 +185,30 @@ public class RayPointer : MonoBehaviour {
         if (OVRInput.Get(OVRInput.Button.Back, activeController) ||
         Input.GetKeyDown(KeyCode.F6))
         {
-            if (kitchenModel.activeInHierarchy)
-                kitchenModel.SetActive(false);
+            //if (kitchenModel.activeInHierarchy)
+            //    kitchenModel.SetActive(false);
 
-            RoomHandler.instance.ShowMenu();
-            if(RoomHandler.instance.CurrKey != null)
-            {
-                foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
-                    iter.item.SetActive(false);
-            }
+            //RoomHandler.instance.ShowMenu();
+            //if(RoomHandler.instance.CurrKey != null)
+            //{
+            //    foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
+            //        iter.item.SetActive(false);
+            //}
 
-            ScenarioHandler.instance.ScenarioQuit();
-            transform.position = DefaultPos;
+            //ScenarioHandler.instance.ScenarioQuit();
+            //transform.position = DefaultPos;
+
+            //reload the curr scene agn (wow magic)
+            Scene currScene =  SceneManager.GetActiveScene();
+            SceneManager.LoadScene(currScene.name);
         }
                
+        if(Input.GetKeyDown(KeyCode.F11))
+        {
+            ScenarioHandler.instance.SelectScenarioType("sc");
+            //RoomHandler.instance.ShowMenu();
+        }
+
         if (OVRInput.Get(OVRInput.Button.DpadUp, activeController) ||
             Input.GetKeyDown(KeyCode.Backspace))
         {

@@ -43,34 +43,9 @@ public class ScenarioFire : ScenarioBase
     private Animator chefAnimController;
 
     // Use this for initialization
-    void Start () {
+    public void Start () {
         Debug.Log("sf_start");
-        //set the 1st state
-        currState = STATE_SF.STATE_FIRE_START;
-        prevState = currState;
-        isEventCompleted = false;
-        isInteracted = false;
-        isScenarioDone = false;
-        instructionIndex = 0;
-        chefAnimController = traineeChef.GetComponent<Animator>();
-        int rand = Random.Range(0, 2);
-        if (rand == 0)
-            isBigFire = false;
 
-        if (traineeChef.GetComponent<RunAway>() != null)
-            traineeChef.GetComponent<RunAway>().enabled = true;
-
-#if UNITY_EDITOR
-        isBigFire = false;
-#endif
-
-        smallFire.SetActive(!isBigFire);
-        largeFire.SetActive(isBigFire);
-    }
-
-    public override void Init()
-    {
-        Debug.Log("ScenarioFire - Init");
         sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
         foreach (SFInfo info in sfInfoList)
         {
@@ -93,6 +68,34 @@ public class ScenarioFire : ScenarioBase
                 sfInfoContainer.Add(info.state, info);
             }
         }
+        Init();
+    }
+
+    public override void Init()
+    {
+        Debug.Log("ScenarioFire - Init");
+
+        currState = STATE_SF.STATE_FIRE_START;
+        prevState = currState;
+        isEventCompleted = false;
+        isInteracted = false;
+        isScenarioDone = false;
+        instructionIndex = 0;
+        chefAnimController = traineeChef.GetComponent<Animator>();
+        int rand = Random.Range(0, 2);
+        if (rand == 0)
+            isBigFire = false;
+
+        if (traineeChef.GetComponent<RunAway>() != null)
+            traineeChef.GetComponent<RunAway>().enabled = true;
+
+#if UNITY_EDITOR
+        isBigFire = false;
+#endif
+
+        smallFire.SetActive(!isBigFire);
+        largeFire.SetActive(isBigFire);
+     
     }
 
     // Update is called once per frame

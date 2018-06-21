@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 using cakeslice;
 
+//reset all pickable obj back to their location
+
 [System.Serializable]
 public struct SCInfo
 {
@@ -40,33 +42,8 @@ public class ScenarioCut : ScenarioBase {
     private Animator chefAnimController;
 
     // Use this for initialization
-    void Start () {
-        //set the 1st state
-        //scInfoContainer = new Dictionary<STATE_SC, SCInfo>();
-        //foreach (SCInfo info in scInfoList)
-        //{
-        //    if (!scInfoContainer.ContainsKey(info.state))
-        //    {
-        //        scInfoContainer.Add(info.state, info);
-        //    }
-        //}
-        currState = STATE_SC.STATE_CUT_START;
-        prevState = currState;
-        isEventCompleted = false;
-        isInteracted = false;
-        isScenarioDone = false;
-        instructionIndex = 0;
-        timer = 5.0f;
-        chefAnimController = traineeChef.GetComponent<Animator>();
-        MedTriggerLocal.SetActive(false);
-
-        if (traineeChef.GetComponent<RunAway>() != null)
-            traineeChef.GetComponent<RunAway>().enabled = false;
-    }
-
-    public override void Init()
-    {
-        Debug.Log("ScenarioCut - Init");
+    public void Start () {
+        Debug.Log("sc start");
         scInfoContainer = new Dictionary<STATE_SC, SCInfo>();
         foreach (SCInfo info in scInfoList)
         {
@@ -89,6 +66,27 @@ public class ScenarioCut : ScenarioBase {
                 scInfoContainer.Add(info.state, info);
             }
         }
+
+        Init();
+    }
+
+    public override void Init()
+    {
+        Debug.Log("ScenarioCut - Init");
+
+        currState = STATE_SC.STATE_CUT_START;
+        prevState = currState;
+        isEventCompleted = false;
+        isInteracted = false;
+        isScenarioDone = false;
+        instructionIndex = 0;
+        timer = 5.0f;
+        chefAnimController = traineeChef.GetComponent<Animator>();
+        MedTriggerLocal.SetActive(false);
+
+        if (traineeChef.GetComponent<RunAway>() != null)
+            traineeChef.GetComponent<RunAway>().enabled = false;
+        
     }
 
     // Update is called once per frame

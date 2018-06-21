@@ -34,6 +34,8 @@ public class RoomHandler : MonoBehaviour
     public static RoomHandler instance = null;
     public GameObject selectionCanvas;
     public GameObject selectionRoom;
+    public GameObject kitchen;
+    public GameObject instructionsText;
     public OVRPlayerController opc;
     public Material skyboxMaterial;
     public Material defaultMaterial;
@@ -73,6 +75,17 @@ public class RoomHandler : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        //if the menu is active
+        if (selectionCanvas.activeSelf)
+        {
+            opc.GravityModifier = 0;
+            instructionsText.SetActive(false);
+        }
+        else
+        {
+            opc.GravityModifier = 0.7f;
+            instructionsText.SetActive(true);
+        }
         //if (Input.GetKeyDown(KeyCode.F10))
         //    ChangeLocation("Room01");
         //if (Input.GetKeyDown(KeyCode.F11))
@@ -106,6 +119,7 @@ public class RoomHandler : MonoBehaviour
         RenderSettings.skybox.SetTexture("_Tex", null);
         selectionCanvas.SetActive(!selectionCanvas.activeSelf);
         selectionRoom.SetActive(!selectionRoom.activeSelf);
+        kitchen.SetActive(!kitchen.activeSelf);
         //active the kitchen here or something
         opc.GravityModifier = 0.7f;
     }

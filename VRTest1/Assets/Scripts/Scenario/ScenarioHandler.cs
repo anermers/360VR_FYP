@@ -34,7 +34,7 @@ public class ScenarioHandler : MonoBehaviour {
         foreach(ScenarioBase sb in scenarioList)
         {
             // Init scenario
-            sb.Init();
+            //sb.Init();
 
             // Deactivate scenarios on start up
             if (sb.gameObject.activeSelf)
@@ -45,9 +45,9 @@ public class ScenarioHandler : MonoBehaviour {
         }
 
         //testing    
-        currScenario = scenarioContainer["sb"];
-        scenarioContainer["sb"].gameObject.SetActive(true);
-        isScenarioActivated = true;
+        //currScenario = scenarioContainer["sb"];
+        //scenarioContainer["sb"].gameObject.SetActive(true);
+        //isScenarioActivated = true;
     }
 	
 	// Update is called once per frame
@@ -66,6 +66,7 @@ public class ScenarioHandler : MonoBehaviour {
         RoomHandler.instance.ShowMenu();
         scenarioContainer[name].gameObject.SetActive(true);
         currScenario = scenarioContainer[name];
+        currScenario.Init();
         isScenarioActivated = true;
     }
 
@@ -80,11 +81,13 @@ public class ScenarioHandler : MonoBehaviour {
         int index = Random.Range(0, scenarioList.Count - 1);
         scenarioList[index].gameObject.SetActive(true);
         currScenario = scenarioList[index];
+        currScenario.Init();
         isScenarioActivated = true;
     }
 
     public void ScenarioQuit()
     {
+        instruction.text = "";
         currScenario.gameObject.SetActive(false);
         isScenarioActivated = false;
     }
