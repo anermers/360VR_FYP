@@ -56,7 +56,7 @@ public class ScenarioCut : ScenarioBase {
         isInteracted = false;
         isScenarioDone = false;
         instructionIndex = 0;
-        timer = 8.0f;
+        timer = 5.0f;
         chefAnimController = traineeChef.GetComponent<Animator>();
         MedTriggerLocal.SetActive(false);
 
@@ -130,14 +130,17 @@ public class ScenarioCut : ScenarioBase {
             case STATE_SC.STATE_GET_MEDKIT:
                 //Player finds the medkit and brings in to a certain location
                 isEventCompleted = isInteracted;
+                Arrow.instance.objectToSnap = MedKit;
                 if (isEventCompleted)
                     SwitchState((int)STATE_SC.STATE_GET_MEDKIT_TO_LOCAL);
                 break;
             case STATE_SC.STATE_GET_MEDKIT_TO_LOCAL:
                 //Player brings the medkit to a certain location
+                Arrow.instance.objectToSnap = MedTriggerLocal;
                 MedTriggerLocal.SetActive(true);
                 if (isEventCompleted)
                 {
+                    Arrow.instance.objectToSnap = null;
                     foreach (Transform child in MedKit.transform)
                     {
                         child.gameObject.AddComponent<Rigidbody>();
