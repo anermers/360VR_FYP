@@ -32,11 +32,12 @@ public class RayPointer : MonoBehaviour {
     protected Transform lastHit = null;
     protected Transform triggerDown = null;
 
+    [Header("Other modifiers")]
     public GameObject kitchenModel;
     public GameObject testPoint;
+    public GameObject instructionMenu;
     public Camera CentreEyeCamera;
     public bool isController = true;
-
     public Vector3 wPoint;
 
     private Vector3 DefaultPos;
@@ -220,9 +221,17 @@ public class RayPointer : MonoBehaviour {
                 testPoint.SetActive(!isController);
         }
 
+        if(OVRInput.Get(OVRInput.Button.DpadDown, activeController) || 
+            Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            if(kitchenModel.activeSelf)
+                instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
+        }
+
         if (interactWithNonUIObjects) {
             ProcessNonUIInteractions(selectionRay);
         }
+
     }
 
     void ProcessNonUIInteractions(Ray pointer) {

@@ -48,6 +48,7 @@ public class RoomHandler : MonoBehaviour
     public string CurrKey { get { return currKey; } }
 
     public Text dText;
+    float dt;
 
 
     private void Awake()
@@ -78,6 +79,9 @@ public class RoomHandler : MonoBehaviour
     // Update is called once per frame
     void Update ()
     {
+        dt += (Time.unscaledDeltaTime - dt) * 0.1f;
+        //Debug.Log(1.0f / dt);
+        dText.text = (1.0f / dt).ToString();
         //if the menu is active
         if (selectionCanvas.activeSelf)
         {
