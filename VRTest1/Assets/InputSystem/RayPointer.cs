@@ -71,7 +71,8 @@ public class RayPointer : MonoBehaviour {
         DefaultPos = transform.position;
 
         //set active state of point for the raycast from centre eye
-        testPoint.SetActive(!isController);
+        if(testPoint != null)
+            testPoint.SetActive(!isController);
 
         lineReference = lineRenderer;
     }
@@ -167,7 +168,7 @@ public class RayPointer : MonoBehaviour {
                 return inputModule.SelectionRay;
             }
 
-            if(!isController)
+            if(!isController && testPoint != null)
                 testPoint.transform.localPosition = worldStartPoint + worldOrientation;
         }
       
@@ -179,7 +180,7 @@ public class RayPointer : MonoBehaviour {
         DisableLineRendererIfNeeded();
         Ray selectionRay = UpdateCastRayIfPossible();
 
-        if (!isController)
+        if (!isController && testPoint != null)
             testPoint.transform.position = transform.position + wPoint;
 
         if (OVRInput.Get(OVRInput.Button.Back, activeController) ||
@@ -202,19 +203,21 @@ public class RayPointer : MonoBehaviour {
             Scene currScene =  SceneManager.GetActiveScene();
             SceneManager.LoadScene(currScene.name);
         }
-               
+
+#if UNITY_EDITOR
         if(Input.GetKeyDown(KeyCode.F11))
-        {
-            ScenarioHandler.instance.SelectScenarioType("sc");
-            //RoomHandler.instance.ShowMenu();
-        }
+            ScenarioHandler.instance.SelectScenarioType("sf");
+        if(Input.GetKeyDown(KeyCode.F12))
+            ScenarioHandler.instance.RandomScenarioType();
+#endif
 
         if (OVRInput.Get(OVRInput.Button.DpadUp, activeController) ||
             Input.GetKeyDown(KeyCode.Backspace))
         {
             isController = !isController;
             lineRenderer.enabled = isController;
-            testPoint.SetActive(!isController);
+            if (testPoint != null)
+                testPoint.SetActive(!isController);
         }
 
         if (interactWithNonUIObjects) {
@@ -309,3 +312,13 @@ public class RayPointer : MonoBehaviour {
 
     }
 }
+
+
+/*
+ * pointer to point in direction of the obj ti interact
+ * reduce text info size
+ * enable/disable the instruction (swipe the touch-pad)
+ *  > pop up a menu showing the next objective instructions (if look too far away from the menu, it snaps 
+ *  back to front of user) cards infront of the user
+ *  Stuff in medkit falls through ground
+ */

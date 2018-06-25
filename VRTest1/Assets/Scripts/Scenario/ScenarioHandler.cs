@@ -63,10 +63,10 @@ public class ScenarioHandler : MonoBehaviour {
             return;
         }
 
-        RoomHandler.instance.ShowMenu();
         scenarioContainer[name].gameObject.SetActive(true);
         currScenario = scenarioContainer[name];
         currScenario.Init();
+        RoomHandler.instance.ShowMenu();
         isScenarioActivated = true;
     }
 

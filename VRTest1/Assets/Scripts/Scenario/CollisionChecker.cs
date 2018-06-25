@@ -15,12 +15,14 @@ public class CollisionChecker : MonoBehaviour {
     }
 
     private void OnTriggerEnter(Collider other)
-    { 
+    {
+        if (ScenarioHandler.instance.CurrScenario == null)
+            return;
+
         // SCENARIO_FIRE
         if(ScenarioHandler.instance.CurrScenario.name == "sf")
-
         {
-            if (other.name == "FireBlanket")
+            if (other.name == "FireBlanket" && gameObject.name == "FIreTriggerbox")
             {
                 other.transform.parent = null;
                 other.tag = "Untagged";

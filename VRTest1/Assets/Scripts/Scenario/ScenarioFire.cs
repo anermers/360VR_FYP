@@ -163,7 +163,12 @@ public class ScenarioFire : ScenarioBase
                 }
 
                 if (isEventCompleted)
+                {
+                    smallFire.SetActive(false);
+                    largeFire.SetActive(false);
                     isScenarioDone = true;
+                }
+
                 break;
             case STATE_SF.STATE_PULL_ALARM:
                 isEventCompleted = isInteracted;
@@ -213,6 +218,8 @@ public class ScenarioFire : ScenarioBase
             if (go.GetComponent<Outline>())
                 go.GetComponent<Outline>().enabled = true;
             ScenarioHandler.instance.interactableGO.Add(go);
+
+            Arrow.instance.objectToSnap = go;
         }
     }
 

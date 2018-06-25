@@ -5,6 +5,7 @@ using UnityEngine;
 public class RunAway : MonoBehaviour {
 
     public GameObject target;
+    public float runSpeed = 2.3f;
 
 	// Use this for initialization
 	void Start () {
@@ -16,7 +17,7 @@ public class RunAway : MonoBehaviour {
         {
             transform.LookAt(target.transform);
             transform.Rotate(0, 90, 0);
-            transform.position -= transform.right * Time.deltaTime;
+            transform.position -= transform.right * runSpeed * Time.deltaTime;
             transform.position = new Vector3(transform.position.x, 0, transform.position.z);
         }
 	}

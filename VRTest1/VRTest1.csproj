@@ -139,6 +139,8 @@
     <Compile Include="Assets\Scripts\Arrow.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\DebugScript.cs" />
+    <Compile Include="Assets\Scripts\InstructionMenu.cs" />
+    <Compile Include="Assets\Scripts\MenuHandler.cs" />
     <Compile Include="Assets\Scripts\NonUIInteraction.cs" />
     <Compile Include="Assets\Scripts\RoomHandler.cs" />
     <Compile Include="Assets\Scripts\RunAway.cs" />
@@ -149,6 +151,7 @@
     <Compile Include="Assets\Scripts\Scenario\ScenarioFire.cs" />
     <Compile Include="Assets\Scripts\Scenario\ScenarioHandler.cs" />
     <Compile Include="Assets\Scripts\SkyboxTextureHandler.cs" />
+    <Compile Include="Assets\Scripts\StartScreenHandler.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
     <Compile Include="Assets\Scripts\UIInteraction.cs" />
   </ItemGroup>

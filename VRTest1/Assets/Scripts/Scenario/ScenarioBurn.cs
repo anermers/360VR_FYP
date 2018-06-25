@@ -127,14 +127,17 @@ public class ScenarioBurn : ScenarioBase
             case STATE_SB.STATE_GET_MEDKIT:
                 //Player finds the medkit and brings in to a certain location
                 isEventCompleted = isInteracted;
+                Arrow.instance.objectToSnap = MedKit;
                 if (isEventCompleted)
                     SwitchState((int)STATE_SB.STATE_GET_MEDKIT_TO_LOCAL);
                 break;
             case STATE_SB.STATE_GET_MEDKIT_TO_LOCAL:
                 //Player brings the medkit to a certain location
+                Arrow.instance.objectToSnap = MedTriggerLocal;
                 MedTriggerLocal.SetActive(true);
                 if (isEventCompleted)
                 {
+                    Arrow.instance.objectToSnap = null;
                     foreach (Transform child in MedKit.transform)
                     {
                         child.gameObject.AddComponent<Rigidbody>();

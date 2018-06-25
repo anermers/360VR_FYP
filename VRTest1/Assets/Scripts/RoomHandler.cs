@@ -47,6 +47,9 @@ public class RoomHandler : MonoBehaviour
     public Dictionary<string, RoomInfo> RoomInfoContainer { get { return rooomInfoContainer; } }
     public string CurrKey { get { return currKey; } }
 
+    public Text dText;
+
+
     private void Awake()
     {
         if (!instance)
@@ -121,6 +124,8 @@ public class RoomHandler : MonoBehaviour
         selectionRoom.SetActive(!selectionRoom.activeSelf);
         kitchen.SetActive(!kitchen.activeSelf);
         //active the kitchen here or something
+        if(kitchen.activeSelf)
+            dText.text = "active";
         opc.GravityModifier = 0.7f;
     }
 
