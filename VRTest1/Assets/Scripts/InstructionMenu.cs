@@ -39,7 +39,4 @@ public class InstructionMenu : MonoBehaviour {
         player.GetComponent<OVRPlayerController>().GravityModifier = 0.7f;
         gameObject.SetActive(!gameObject.activeSelf);
     }
-
-
-
 }
