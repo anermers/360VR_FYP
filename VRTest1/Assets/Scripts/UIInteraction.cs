@@ -19,8 +19,8 @@ public class UIInteraction : MonoBehaviour {
                 selectionRoom.SetActive(false);
                 kitchenModel.SetActive(!kitchenModel.activeInHierarchy);
             }
-            else
-                kitchenModel.SetActive(false);
+            //else
+            //    kitchenModel.SetActive(false);
 
         else if (outText != null) {
             outText.text = "UI Button clicked";

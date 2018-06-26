@@ -29,6 +29,7 @@ public class ScenarioCut : ScenarioBase {
     public GameObject MedKit;
     public GameObject tempCollider;
     public GameObject MedTriggerLocal;
+    public GameObject medKitCanvas;
 
     public List<SCInfo> scInfoList;
 
@@ -89,6 +90,7 @@ public class ScenarioCut : ScenarioBase {
         timer = 5.0f;
         chefAnimController = traineeChef.GetComponent<Animator>();
         MedTriggerLocal.SetActive(false);
+        medKitCanvas.SetActive(false);
 
         if (traineeChef.GetComponent<RunAway>() != null)
             traineeChef.GetComponent<RunAway>().enabled = false;
@@ -151,6 +153,7 @@ public class ScenarioCut : ScenarioBase {
                     }
                     tempCollider.SetActive(true);
                     MedTriggerLocal.SetActive(false);
+                    medKitCanvas.SetActive(true);
                     SwitchState((int)STATE_SC.STATE_PURIFIED_WATER);
                 }
                 break;
