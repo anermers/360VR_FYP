@@ -27,7 +27,7 @@ public class CollisionChecker : MonoBehaviour {
                 other.transform.parent = null;
                 other.tag = "Untagged";
                 other.transform.position = gameObject.transform.position;
-                other.transform.eulerAngles = new Vector3(0, 90, 90);
+                other.transform.eulerAngles = new Vector3(0, 0, 360);
                 if(other.GetComponent<Animator>() != null)
                     other.GetComponent<Animator>().SetBool("Play", true);
                 ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;

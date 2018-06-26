@@ -45,10 +45,14 @@ public class ScenarioFire : ScenarioBase
     // Use this for initialization
     public void Start () {
         Debug.Log("sf_start");
-
         sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
+        allInstructions = new List<string>();
         foreach (SFInfo info in sfInfoList)
         {
+            // adds the instructions to allinstruction list
+            if (info.instructions.Count > 0)
+                allInstructions.Add(info.instructions[0]);
+
             if (!sfInfoContainer.ContainsKey(info.state))
             {
                 // Adds outline component to each GO in the scenario
@@ -68,7 +72,13 @@ public class ScenarioFire : ScenarioBase
                 sfInfoContainer.Add(info.state, info);
             }
         }
+        Debug.Log("COUNT: " + AllInstructions.Count);
         Init();
+        if(isBigFire)
+        {
+            
+        }
+        ScenarioHandler.instance.instructionScreen.PopulateInsutructionMenu();
     }
 
     public override void Init()
@@ -95,7 +105,6 @@ public class ScenarioFire : ScenarioBase
 
         smallFire.SetActive(!isBigFire);
         largeFire.SetActive(isBigFire);
-     
     }
 
     // Update is called once per frame
@@ -164,6 +173,7 @@ public class ScenarioFire : ScenarioBase
 
                 if (isEventCompleted)
                 {
+                    fireBlanket.GetComponent<Animator>().SetBool("openFireBlanket", true);
                     smallFire.SetActive(false);
                     largeFire.SetActive(false);
                     isScenarioDone = true;

@@ -81,6 +81,7 @@ public class RoomHandler : MonoBehaviour
     {
         dt += (Time.unscaledDeltaTime - dt) * 0.1f;
         //Debug.Log(1.0f / dt);
+        if(dText != null)
         dText.text = (1.0f / dt).ToString();
         //if the menu is active
         if (selectionCanvas.activeSelf)
@@ -128,7 +129,7 @@ public class RoomHandler : MonoBehaviour
         selectionRoom.SetActive(!selectionRoom.activeSelf);
         kitchen.SetActive(!kitchen.activeSelf);
         //active the kitchen here or something
-        if(kitchen.activeSelf)
+        if(kitchen.activeSelf && dText != null)
             dText.text = "active";
         opc.GravityModifier = 0.7f;
     }

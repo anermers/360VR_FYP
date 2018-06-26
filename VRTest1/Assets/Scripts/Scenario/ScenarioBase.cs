@@ -10,12 +10,16 @@ public class ScenarioBase : MonoBehaviour {
     protected bool isScenarioDone;
     // bool check if interact with object....
     protected bool isInteracted;
+    // list of all the instructions
+    protected List<string> allInstructions;
+
     // GameObject that is interacted
     [HideInInspector]
     public GameObject InteractedGO;
-
+   
     public bool IsEventCompleted { get { return isEventCompleted; } set { isEventCompleted = value; } }
     public bool IsInteracted { get { return isInteracted; } set { isInteracted = value; } }
+    public List<string> AllInstructions { get { return allInstructions; } }
 
     public virtual void Init()
     {

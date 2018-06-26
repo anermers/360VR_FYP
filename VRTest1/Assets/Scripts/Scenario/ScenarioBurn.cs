@@ -43,8 +43,13 @@ public class ScenarioBurn : ScenarioBase
     // Use this for initialization
     public void Start () {
         sbInfoContainer = new Dictionary<STATE_SB, SBInfo>();
+        allInstructions = new List<string>();
         foreach (SBInfo info in sbInfoList)
         {
+            // adds the instructions to allinstruction list
+            if (info.instructions.Count > 0)
+                allInstructions.Add(info.instructions[0]);
+
             if (!sbInfoContainer.ContainsKey(info.state))
             {
                 // Adds outline component to each GO in the scenario
@@ -66,6 +71,7 @@ public class ScenarioBurn : ScenarioBase
         }
 
         Init();
+        ScenarioHandler.instance.instructionScreen.PopulateInsutructionMenu();
     }
 
     public override void Init()
@@ -82,7 +88,6 @@ public class ScenarioBurn : ScenarioBase
         MedTriggerLocal.SetActive(false);
         if (traineeChef.GetComponent<RunAway>() != null)
             traineeChef.GetComponent<RunAway>().enabled = false;
-
     }
 
     // Update is called once per frame

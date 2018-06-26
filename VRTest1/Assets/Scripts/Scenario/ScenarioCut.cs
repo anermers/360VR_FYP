@@ -44,9 +44,14 @@ public class ScenarioCut : ScenarioBase {
     // Use this for initialization
     public void Start () {
         Debug.Log("sc start");
+        allInstructions = new List<string>();
         scInfoContainer = new Dictionary<STATE_SC, SCInfo>();
         foreach (SCInfo info in scInfoList)
         {
+            // adds the instructions to allinstruction list
+            if (info.instructions.Count > 0)
+                allInstructions.Add(info.instructions[0]);
+
             if (!scInfoContainer.ContainsKey(info.state))
             {
                 // Adds outline component to each GO in the scenario
@@ -66,8 +71,9 @@ public class ScenarioCut : ScenarioBase {
                 scInfoContainer.Add(info.state, info);
             }
         }
-
+       
         Init();
+        ScenarioHandler.instance.instructionScreen.PopulateInsutructionMenu();
     }
 
     public override void Init()
@@ -86,7 +92,6 @@ public class ScenarioCut : ScenarioBase {
 
         if (traineeChef.GetComponent<RunAway>() != null)
             traineeChef.GetComponent<RunAway>().enabled = false;
-        
     }
 
     // Update is called once per frame

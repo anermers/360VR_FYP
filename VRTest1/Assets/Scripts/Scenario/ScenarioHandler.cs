@@ -9,6 +9,7 @@ public class ScenarioHandler : MonoBehaviour {
 
     public List<ScenarioBase> scenarioList;
     public Text instruction;
+    public InstructionMenu instructionScreen;
 
     Dictionary<string, ScenarioBase> scenarioContainer;
     [HideInInspector]
@@ -67,6 +68,7 @@ public class ScenarioHandler : MonoBehaviour {
         currScenario = scenarioContainer[name];
         currScenario.Init();
         RoomHandler.instance.ShowMenu();
+        //instructionScreen.PopulateInsutructionMenu();
         isScenarioActivated = true;
     }
 
@@ -82,6 +84,7 @@ public class ScenarioHandler : MonoBehaviour {
         scenarioList[index].gameObject.SetActive(true);
         currScenario = scenarioList[index];
         currScenario.Init();
+        //instructionScreen.PopulateInsutructionMenu();
         isScenarioActivated = true;
     }
 
@@ -91,4 +94,5 @@ public class ScenarioHandler : MonoBehaviour {
         currScenario.gameObject.SetActive(false);
         isScenarioActivated = false;
     }
+
 }

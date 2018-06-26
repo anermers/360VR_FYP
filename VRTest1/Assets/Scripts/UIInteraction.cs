@@ -32,4 +32,5 @@ public class UIInteraction : MonoBehaviour {
             outText.text = "UI Slider value: " + value;
         }
     }
+
 }
