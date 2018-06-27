@@ -81,8 +81,6 @@ public class NonUIInteraction : MonoBehaviour {
                 break;
             }
         }
-
-
         if (t.gameObject.tag == "PickUp")
         {
             infoText.text = "";
@@ -96,15 +94,18 @@ public class NonUIInteraction : MonoBehaviour {
                 //t.gameObject.transform.position = snap.transform.position;
                 t.gameObject.transform.parent = playerController.transform;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+               
             }
             else
             {
+              
                 objectSelected = false;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 t.gameObject.transform.parent = null;
 
                 if (t.gameObject.GetComponent<Renderer>() != null && t.gameObject.GetComponent<Outline>() != null)
                     t.gameObject.GetComponent<Outline>().color = 2;
+                MedKitUI.Spawn = true;
             }
         }
 

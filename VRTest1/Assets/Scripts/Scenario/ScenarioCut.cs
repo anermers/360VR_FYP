@@ -146,11 +146,11 @@ public class ScenarioCut : ScenarioBase {
                 if (isEventCompleted)
                 {
                     Arrow.instance.objectToSnap = null;
-                    foreach (Transform child in MedKit.transform)
-                    {
-                        child.gameObject.AddComponent<Rigidbody>();
-                        Debug.Log("RigidAdded");
-                    }
+                    //foreach (Transform child in MedKit.transform)
+                    //{
+                    //    child.gameObject.AddComponent<Rigidbody>();
+                    //    Debug.Log("RigidAdded");
+                    //}
                     tempCollider.SetActive(true);
                     MedTriggerLocal.SetActive(false);
                     medKitCanvas.SetActive(true);
