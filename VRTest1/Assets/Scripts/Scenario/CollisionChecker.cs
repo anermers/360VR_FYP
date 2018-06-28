@@ -32,6 +32,10 @@ public class CollisionChecker : MonoBehaviour {
                     other.GetComponent<Animator>().SetBool("Play", true);
                 ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
             }
+            else if(gameObject.name == "Evac" && other.name == "Chef")
+            {
+                other.gameObject.SetActive(false);
+            }
             else
             {
                 Debug.Log("other name:" + other.name);
