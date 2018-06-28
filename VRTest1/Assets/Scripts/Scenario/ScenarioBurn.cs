@@ -148,11 +148,11 @@ public class ScenarioBurn : ScenarioBase
                 {
                     MedTriggerLocal.SetActive(true);
                     Arrow.instance.objectToSnap = null;
-                    foreach (Transform child in MedKit.transform)
-                    {
-                        child.gameObject.AddComponent<Rigidbody>();
-                        Debug.Log("RigidAdded");
-                    }
+                    //foreach (Transform child in MedKit.transform)
+                    //{
+                    //    child.gameObject.AddComponent<Rigidbody>();
+                    //    Debug.Log("RigidAdded");
+                    //}
                     tempCollider.SetActive(true);
                     MedTriggerLocal.SetActive(false);
                     SwitchState((int)STATE_SB.STATE_PURIFIED_WATER);
