@@ -19,13 +19,16 @@ public class MedKitUI : MonoBehaviour {
     public GameObject temp;
     public Text objectName;
     public Text descriptionText;
-
-
+    public static bool Spawn = false;
     private int selection;
+
+
+    private List<GameObject> spawnedObjects;
     // Use this for initialization
     void Start () {
-        selection = 0;
-        //inventory = new List<ObjectInfo>();
+        selection = 50;
+        Spawn = false;
+        spawnedObjects = new List<GameObject>();
         for (int i = 0; i < inventory.Count; ++i)
         {
             if(inventory[i].Object !=null)
@@ -35,49 +38,31 @@ public class MedKitUI : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
-        if (Input.GetKey(KeyCode.M))
+        if (Input.GetKeyDown(KeyCode.M))
         {
-            inventory[selection].Object.GetComponent<Rigidbody>().isKinematic = true;
-            SetToOriginalTransform();
-            SnapToPreview();
-            SetName();
-            SetDescription();
+            SetObject(1);
         }
         if (Input.GetKey(KeyCode.N))
         {
-            Destroy(temp);
-            temp = null;
-        }
-    }
+            SetObject(2);
+        }       
 
+        if(Spawn)
+            SpawnObject();   
+    }
     //On click function
     public void SetObject(int _selection)
     {
         if (selection != _selection)
         {
-            if(temp!=null)
-            {
-                Destroy(temp);
-                temp = new GameObject();
-            }
-            SetToOriginalTransform();
+            foreach (GameObject iter in spawnedObjects)
+                Destroy(iter);
+
             selection = _selection;
-            inventory[selection].Object.GetComponent<Rigidbody>().isKinematic = true;
-            SnapToPreview();
+            SpawnObject();
             SetName();
             SetDescription();
         }
-    }
-
-    void SnapToPreview()
-    {
-        temp = Instantiate(inventory[selection].Object, previewPosition.transform.position, Quaternion.identity);
-        //inventory[selection].Object.transform.position = previewPosition.transform.position;
-    }
-
-    void SetToOriginalTransform()
-    {
-        inventory[selection].Object.transform.position = inventory[selection].originalTransform.position;
     }
     void SetName()
     {
@@ -86,5 +71,18 @@ public class MedKitUI : MonoBehaviour {
     void SetDescription()
     {
         descriptionText.text = inventory[selection].description;
+    }
+
+    //Spawns an instatiated version of the object
+    void SpawnObject()
+    {
+        NonUIInteraction.objectSelected = false;
+        temp = Instantiate(inventory[selection].Object, previewPosition.transform.position, Quaternion.identity);
+        temp.tag = "PickUp";
+        temp.AddComponent<BoxCollider>();
+        temp.AddComponent<Rigidbody>();
+        temp.GetComponent<Rigidbody>().isKinematic = true;
+        Spawn = false;
+        spawnedObjects.Add(temp);
     }
 }

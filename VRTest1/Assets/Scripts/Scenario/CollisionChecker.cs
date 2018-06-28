@@ -67,21 +67,22 @@ public class CollisionChecker : MonoBehaviour {
                 switch (ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioCut>().currState)
                 {
                     case ScenarioCut.STATE_SC.STATE_PURIFIED_WATER:
-                        if (other.name == "Acriflavine Solution")
+                        if (other.name == "Acriflavine Solution(Clone)")
                             correctOBJ = true;
                         break;
                     case ScenarioCut.STATE_SC.STATE_APPLY_GAUZE:
-                        if (other.name == "Gauze")
+                        if (other.name == "Gauze(Clone)")
                             correctOBJ = true;
                         break;
                     case ScenarioCut.STATE_SC.STATE_APPLY_BANDANGE:
-                        if (other.name == "OmniPlast")
+                        if (other.name == "OmniPlast(Clone)")
                             correctOBJ = true;
                         break;
                 }
                 if (correctOBJ)
                 {
                     other.gameObject.SetActive(false);
+                    MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
                 }
             }
@@ -94,6 +95,7 @@ public class CollisionChecker : MonoBehaviour {
             {
                 if (other.name == "MedKit")
                 {
+                    NonUIInteraction.objectSelected = false;
                     Debug.Log(other.name);
                     other.transform.parent = null;
                     other.tag = "Untagged";
@@ -115,11 +117,11 @@ public class CollisionChecker : MonoBehaviour {
                 switch (ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState)
                 {
                     case ScenarioBurn.STATE_SB.STATE_PURIFIED_WATER:
-                        if (other.name == "Acriflavine Solution")
+                        if (other.name == "Acriflavine Solution(Clone)")
                             correctOBJ = true;
                         break;
                     case ScenarioBurn.STATE_SB.STATE_APPLY_BANDANGE:
-                        if (other.name == "OmniPlast")
+                        if (other.name == "OmniPlast(Clone)")
                             correctOBJ = true;
                         break;
                 }
@@ -127,6 +129,7 @@ public class CollisionChecker : MonoBehaviour {
                 if (correctOBJ)
                 {
                     other.gameObject.SetActive(false);
+                    MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
                 }
             }
