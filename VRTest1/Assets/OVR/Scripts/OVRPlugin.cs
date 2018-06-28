@@ -954,8 +954,10 @@ internal static class OVRPlugin
 					return inputFocus == Bool.True;
 				else
 				{
-					Debug.LogWarning("ovrp_GetAppHasInputFocus return " + result);
-					return false;
+#if UNITY_EDITOR
+                   // Debug.LogWarning("ovrp_GetAppHasInputFocus return " + result);
+#endif
+                    return false;
 				}
 			}
 

@@ -14,7 +14,6 @@ public class NonUIInteraction : MonoBehaviour {
     public Material redMat;
     public Material pinkMat;
     public GameObject snap;
-    private bool isInteractable;
 
     public static bool objectSelected = false;
 
@@ -65,7 +64,6 @@ public class NonUIInteraction : MonoBehaviour {
     }
 
     public void OnSelected(Transform t) {
-        isInteractable = false;
 
         foreach (GameObject go in ScenarioHandler.instance.interactableGO)
         {
@@ -77,7 +75,6 @@ public class NonUIInteraction : MonoBehaviour {
                 //send a message back
                 ScenarioHandler.instance.CurrScenario.IsInteracted = true;
                 ScenarioHandler.instance.CurrScenario.InteractedGO = go;
-                isInteractable = true;
                 break;
             }
         }

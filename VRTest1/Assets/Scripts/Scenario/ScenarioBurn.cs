@@ -69,9 +69,8 @@ public class ScenarioBurn : ScenarioBase
                 sbInfoContainer.Add(info.state, info);
             }
         }
-
-        Init();
         ScenarioHandler.instance.instructionScreen.PopulateInsutructionMenu();
+        Init();
     }
 
     public override void Init()
