@@ -29,6 +29,7 @@ public class ScenarioBurn : ScenarioBase
     public GameObject MedKit;
     public GameObject tempCollider;
     public GameObject MedTriggerLocal;
+    public GameObject medKitCanvas;
 
     public List<SBInfo> sbInfoList;
 
@@ -88,6 +89,7 @@ public class ScenarioBurn : ScenarioBase
         timer = 8.0f;
         chefAnimController = traineeChef.GetComponent<Animator>();
         MedTriggerLocal.SetActive(false);
+        medKitCanvas.SetActive(false);
         if (traineeChef.GetComponent<RunAway>() != null)
             traineeChef.GetComponent<RunAway>().enabled = false;
     }
@@ -144,6 +146,7 @@ public class ScenarioBurn : ScenarioBase
                 MedTriggerLocal.SetActive(true);
                 if (isEventCompleted)
                 {
+                    MedTriggerLocal.SetActive(true);
                     Arrow.instance.objectToSnap = null;
                     foreach (Transform child in MedKit.transform)
                     {
