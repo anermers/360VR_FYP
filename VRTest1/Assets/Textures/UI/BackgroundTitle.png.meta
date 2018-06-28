@@ -1,9 +1,10 @@
 fileFormatVersion: 2
 guid: af90e38ee2085d145ae5f660a3b52b8e
-timeCreated: 1530093679
+timeCreated: 1530154422
 licenseType: Free
 TextureImporter:
-  fileIDToRecycleName: {}
+  fileIDToRecycleName:
+    21300000: BackgroundTitle_0
   serializedVersion: 4
   mipmaps:
     mipMapMode: 0
@@ -34,13 +35,13 @@ TextureImporter:
   nPOTScale: 0
   lightmap: 0
   compressionQuality: 50
-  spriteMode: 1
+  spriteMode: 2
   spriteExtrude: 1
   spriteMeshType: 0
-  alignment: 0
-  spritePivot: {x: 0.5, y: 0.5}
-  spriteBorder: {x: 40, y: 39, z: 44, w: 40}
-  spritePixelsToUnits: 100
+  alignment: 9
+  spritePivot: {x: 0.5022401, y: 0.49551967}
+  spriteBorder: {x: 64, y: 68, z: 64, w: 66}
+  spritePixelsToUnits: 800
   alphaUsage: 1
   alphaIsTransparency: 1
   spriteTessellationDetail: -1
@@ -92,7 +93,20 @@ TextureImporter:
     overridden: 0
   spriteSheet:
     serializedVersion: 2
-    sprites: []
+    sprites:
+    - serializedVersion: 2
+      name: BackgroundTitle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 147
+        height: 147
+      alignment: 9
+      pivot: {x: 0.5201613, y: 0.5067204}
+      border: {x: 49, y: 50, z: 47, w: 46}
+      outline: []
+      tessellationDetail: 0
     outline: []
   spritePackingTag: 
   userData: 
