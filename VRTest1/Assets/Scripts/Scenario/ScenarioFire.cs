@@ -7,6 +7,7 @@ using cakeslice;
 [System.Serializable]
 public struct SFInfo
 {
+    public ScenarioFire.TYPE_FIRE type;
     public ScenarioFire.STATE_SF state;
     public List<GameObject> interactables;
     public List<string> instructions;
@@ -26,6 +27,13 @@ public class ScenarioFire : ScenarioBase
         STATE_TOTAL
     }
 
+    public enum TYPE_FIRE
+    {
+        BOTH_FIRE,
+        SMALL_FIRE,
+        LARGE_FIRE,
+    }
+
     public GameObject traineeChef;
     public GameObject fireBlanket;
     public GameObject smallFire;
@@ -36,22 +44,44 @@ public class ScenarioFire : ScenarioBase
     STATE_SF prevState;
     bool isBigFire = true;
     int instructionIndex;
-
     Dictionary<STATE_SF, SFInfo> sfInfoContainer;
 
     private float timer;
     private Animator chefAnimController;
 
+    private List<string> smallInstructionList;
+    private List<string> largeInstructionList;
+
     // Use this for initialization
     public void Start () {
         Debug.Log("sf_start");
+
         sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
         allInstructions = new List<string>();
+        smallInstructionList = new List<string>();
+        largeInstructionList = new List<string>();
+
         foreach (SFInfo info in sfInfoList)
         {
             // adds the instructions to allinstruction list
             if (info.instructions.Count > 0)
-                allInstructions.Add(info.instructions[0]);
+            {
+                //allInstructions.Add(info.instructions[0]);
+                switch(info.type)
+                {
+                    case TYPE_FIRE.BOTH_FIRE:
+                        smallInstructionList.Add(info.instructions[0]);
+                        largeInstructionList.Add(info.instructions[0]);
+                        break;
+                    case TYPE_FIRE.LARGE_FIRE:
+                        largeInstructionList.Add(info.instructions[0]);
+                        break;
+                    case TYPE_FIRE.SMALL_FIRE:
+                        smallInstructionList.Add(info.instructions[0]);
+                        break;
+                }
+            }
+
 
             if (!sfInfoContainer.ContainsKey(info.state))
             {
@@ -74,10 +104,6 @@ public class ScenarioFire : ScenarioBase
         }
         Debug.Log("COUNT: " + AllInstructions.Count);
         Init();
-        if(isBigFire)
-        {
-            
-        }
         ScenarioHandler.instance.instructionScreen.PopulateInsutructionMenu();
     }
 
@@ -90,11 +116,17 @@ public class ScenarioFire : ScenarioBase
         isEventCompleted = false;
         isInteracted = false;
         isScenarioDone = false;
+        step = -1;
         instructionIndex = 0;
         chefAnimController = traineeChef.GetComponent<Animator>();
         int rand = Random.Range(0, 2);
         if (rand == 0)
+        {
+            allInstructions = smallInstructionList;
             isBigFire = false;
+        }
+        else
+            allInstructions = largeInstructionList;
 
         if (traineeChef.GetComponent<RunAway>() != null)
             traineeChef.GetComponent<RunAway>().enabled = true;
@@ -127,6 +159,8 @@ public class ScenarioFire : ScenarioBase
             prevState = currState;
             //reset index for instructions
             instructionIndex = 0;
+            ++step;
+            Debug.Log(step);
         }
 
         switch(currState)

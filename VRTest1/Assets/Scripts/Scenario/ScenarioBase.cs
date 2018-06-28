@@ -16,7 +16,10 @@ public class ScenarioBase : MonoBehaviour {
     // GameObject that is interacted
     [HideInInspector]
     public GameObject InteractedGO;
-   
+    // use to determine which step the user is at 
+    [HideInInspector]
+    public int step;
+
     public bool IsEventCompleted { get { return isEventCompleted; } set { isEventCompleted = value; } }
     public bool IsInteracted { get { return isInteracted; } set { isInteracted = value; } }
     public List<string> AllInstructions { get { return allInstructions; } }

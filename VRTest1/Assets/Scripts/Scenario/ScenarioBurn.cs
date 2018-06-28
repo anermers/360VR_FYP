@@ -55,6 +55,9 @@ public class ScenarioBurn : ScenarioBase
                 // Adds outline component to each GO in the scenario
                 foreach (GameObject go in info.interactables)
                 {
+                    if (go == null)
+                        continue;
+
                     // If renderer exist and outline component does not exist
                     if (go.GetComponent<Renderer>() != null &&
                         go.GetComponent<Outline>() == null)
@@ -69,9 +72,8 @@ public class ScenarioBurn : ScenarioBase
                 sbInfoContainer.Add(info.state, info);
             }
         }
-
-        Init();
         ScenarioHandler.instance.instructionScreen.PopulateInsutructionMenu();
+        Init();
     }
 
     public override void Init()
@@ -190,6 +192,9 @@ public class ScenarioBurn : ScenarioBase
     {
         foreach (GameObject go in sbInfoContainer[prevState].interactables)
         {
+            if (go == null)
+                continue;
+
             if (go.GetComponent<Outline>())
                 go.GetComponent<Outline>().enabled = false;
         }
@@ -197,6 +202,9 @@ public class ScenarioBurn : ScenarioBase
         ScenarioHandler.instance.interactableGO.Clear();
         foreach (GameObject go in sbInfoContainer[currState].interactables)
         {
+            if (go == null)
+                continue;
+
             if (go.GetComponent<Outline>())
                 go.GetComponent<Outline>().enabled = true;
             ScenarioHandler.instance.interactableGO.Add(go);

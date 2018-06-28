@@ -72,9 +72,8 @@ public class ScenarioCut : ScenarioBase {
                 scInfoContainer.Add(info.state, info);
             }
         }
-       
-        Init();
         ScenarioHandler.instance.instructionScreen.PopulateInsutructionMenu();
+        Init();
     }
 
     public override void Init()

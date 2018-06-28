@@ -19,11 +19,6 @@ public class InstructionMenu : MonoBehaviour {
     private bool isSelected = false;
     private Transform prevSelectedObj = null;
 
-    // Use this for initialization
-    void Start () {
-      
-    }
-
     // Update is called once per frame
     void Update () {
         if(isMenuEnabled)
@@ -31,7 +26,6 @@ public class InstructionMenu : MonoBehaviour {
             // check if instruction is within the camera view
             Vector3 screenPoint = uiCamera.GetComponent<Camera>().WorldToViewportPoint(transform.position);
             bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 /*&& screenPoint.y > 0 && screenPoint.y < 1*/;
-            //Debug.Log(player.transform.forward);
 
             //if not in view 
             if (!onScreen)
@@ -40,6 +34,8 @@ public class InstructionMenu : MonoBehaviour {
                 gameObject.transform.position = uiCamera.transform.forward * 2f + uiCamera.transform.position;
                 gameObject.transform.rotation = Quaternion.LookRotation(gameObject.transform.position - player.transform.position);
             }
+
+            //layoutPanel.transform.GetChild(ScenarioHandler.instance.CurrScenario.step).GetComponent<Text>().color = Color.green;
         }
     }
 
@@ -56,7 +52,7 @@ public class InstructionMenu : MonoBehaviour {
         foreach (string instruction in instructions)
         {
             GameObject baseText = Instantiate(textPrefab);
-            baseText.transform.SetParent(layoutPanel.transform, false);//Setting button parent
+            baseText.transform.SetParent(layoutPanel.transform, false);
             EventTrigger trigger = baseText.GetComponent<EventTrigger>();
             trigger.triggers[0].callback.AddListener(delegate { OnPointerEnter(baseText.transform); });
             trigger.triggers[1].callback.AddListener(delegate { OnPointerExit(baseText.transform); });
