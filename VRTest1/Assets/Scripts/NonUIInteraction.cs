@@ -88,7 +88,7 @@ public class NonUIInteraction : MonoBehaviour {
                 if(t.gameObject.GetComponent<Renderer>()!=null && t.gameObject.GetComponent<Outline>() != null)
                     t.gameObject.GetComponent<Outline>().color = 3;
 
-                //t.gameObject.transform.position = snap.transform.position;
+                t.gameObject.transform.position = snap.transform.position;
                 t.gameObject.transform.parent = playerController.transform;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                
