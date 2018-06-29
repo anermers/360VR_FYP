@@ -20,6 +20,7 @@ public class ScenarioBase : MonoBehaviour {
     [HideInInspector]
     public int step;
 
+    public bool IsScenarioDone { get { return isScenarioDone; } }
     public bool IsEventCompleted { get { return isEventCompleted; } set { isEventCompleted = value; } }
     public bool IsInteracted { get { return isInteracted; } set { isInteracted = value; } }
     public List<string> AllInstructions { get { return allInstructions; } }

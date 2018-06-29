@@ -95,4 +95,13 @@ public class ScenarioHandler : MonoBehaviour {
         isScenarioActivated = false;
     }
 
+    public void ScenarioFireSelect(bool bigFire)
+    {
+        scenarioContainer["sf"].gameObject.SetActive(true);
+        currScenario = scenarioContainer["sf"];
+        currScenario.GetComponent<ScenarioFire>().IsBigFire = bigFire;
+        currScenario.Init();
+        RoomHandler.instance.ShowMenu();
+        isScenarioActivated = true;
+    }
 }

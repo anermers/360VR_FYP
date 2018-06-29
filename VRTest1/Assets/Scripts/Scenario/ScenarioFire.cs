@@ -52,6 +52,8 @@ public class ScenarioFire : ScenarioBase
     private List<string> smallInstructionList;
     private List<string> largeInstructionList;
 
+    public bool IsBigFire { get { return isBigFire; } set { isBigFire = value; } }
+
     // Use this for initialization
     public void Start () {
         Debug.Log("sf_start");
@@ -119,21 +121,27 @@ public class ScenarioFire : ScenarioBase
         step = -1;
         instructionIndex = 0;
         chefAnimController = traineeChef.GetComponent<Animator>();
-        int rand = Random.Range(0, 2);
-        if (rand == 0)
-        {
+
+        if(!isBigFire)
             allInstructions = smallInstructionList;
-            isBigFire = false;
-        }
         else
             allInstructions = largeInstructionList;
+
+        //int rand = Random.Range(0, 2);
+        //if (rand == 0)
+        //{
+        //    allInstructions = smallInstructionList;
+        //    isBigFire = false;
+        //}
+        //else
+        //    allInstructions = largeInstructionList;
 
         if (traineeChef.GetComponent<RunAway>() != null)
             traineeChef.GetComponent<RunAway>().enabled = true;
 
-#if UNITY_EDITOR
-        isBigFire = false;
-#endif
+//#if UNITY_EDITOR
+//        isBigFire = false;
+//#endif
 
         smallFire.SetActive(!isBigFire);
         largeFire.SetActive(isBigFire);
@@ -144,7 +152,7 @@ public class ScenarioFire : ScenarioBase
     {
         if(isScenarioDone)
         {
-            Debug.Log("Scenario Completed");
+            //Debug.Log("Scenario Completed");
             ScenarioHandler.instance.instruction.text = "Scenario Completed - bck btn to quit";
             //ScenarioHandler.instance.ScenarioQuit();
         }
@@ -160,7 +168,7 @@ public class ScenarioFire : ScenarioBase
             //reset index for instructions
             instructionIndex = 0;
             ++step;
-            Debug.Log(step);
+            //Debug.Log(step);
         }
 
         switch(currState)

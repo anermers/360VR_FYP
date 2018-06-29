@@ -8,6 +8,7 @@ public class StartScreenHandler : MonoBehaviour {
     public GameObject loadScreen;
     public GameObject spiningThing;
     public GameObject clickText;
+    public GameObject uiCamera;
 
     //adjust this to change speed
     public float speed = 3f;
@@ -25,6 +26,10 @@ public class StartScreenHandler : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+
+        //gameObject.transform.position = uiCamera.transform.forward * 100f + uiCamera.transform.position;
+        //gameObject.transform.rotation = Quaternion.LookRotation(gameObject.transform.position - uiCamera.transform.position);
+
         if (loadScreen.activeSelf)
         {
             spiningThing.transform.Rotate(Vector3.forward * 100.0f * Time.deltaTime);

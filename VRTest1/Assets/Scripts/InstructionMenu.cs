@@ -13,6 +13,7 @@ public class InstructionMenu : MonoBehaviour {
     [Header("Other Misc.")]
     public GameObject uiCamera;
     public GameObject player;
+    public GameObject completedScreen;
 
     public bool isMenuEnabled = false;
 
@@ -21,6 +22,7 @@ public class InstructionMenu : MonoBehaviour {
 
     // Update is called once per frame
     void Update () {
+
         if(isMenuEnabled)
         {
             // check if instruction is within the camera view
@@ -35,7 +37,7 @@ public class InstructionMenu : MonoBehaviour {
                 gameObject.transform.rotation = Quaternion.LookRotation(gameObject.transform.position - player.transform.position);
             }
 
-            //layoutPanel.transform.GetChild(ScenarioHandler.instance.CurrScenario.step).GetComponent<Text>().color = Color.green;
+            layoutPanel.transform.GetChild(ScenarioHandler.instance.CurrScenario.step).GetComponent<Text>().color = Color.green;
         }
     }
 
@@ -96,6 +98,17 @@ public class InstructionMenu : MonoBehaviour {
             textObj.color = Color.yellow;
             isSelected = true;
             prevSelectedObj = t;
+        }
+    }
+
+    public void DispayWinScreen()
+    {
+        if (ScenarioHandler.instance.CurrScenario.IsScenarioDone)
+        {
+            isMenuEnabled = true;
+            gameObject.SetActive(true);
+            layoutPanel.SetActive(false);
+            completedScreen.SetActive(true);
         }
     }
 }

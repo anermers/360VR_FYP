@@ -26,7 +26,7 @@ public class MedKitUI : MonoBehaviour {
     private List<GameObject> spawnedObjects;
     // Use this for initialization
     void Start () {
-        selection = 50;
+        selection = 0;
         Spawn = false;
         spawnedObjects = new List<GameObject>();
         for (int i = 0; i < inventory.Count; ++i)

@@ -30,7 +30,6 @@ public class ScenarioBurn : ScenarioBase
     public GameObject tempCollider;
     public GameObject MedTriggerLocal;
     public GameObject medKitCanvas;
-
     public List<SBInfo> sbInfoList;
 
     public STATE_SB currState;
@@ -86,6 +85,7 @@ public class ScenarioBurn : ScenarioBase
         isInteracted = false;
         isScenarioDone = false;
         instructionIndex = 0;
+        step = -1;
         timer = 8.0f;
         chefAnimController = traineeChef.GetComponent<Animator>();
         MedTriggerLocal.SetActive(false);
@@ -114,10 +114,12 @@ public class ScenarioBurn : ScenarioBase
             prevState = currState;
             //reset index for instructions
             instructionIndex = 0;
+            ++step;
+            //Debug.Log(step);
         }
 
-        switch(currState)
-        {
+        switch (currState)
+        { 
             case STATE_SB.STATE_BURN_START:
                 // Start scenario
                 timer -= 1 * Time.deltaTime;
@@ -146,13 +148,9 @@ public class ScenarioBurn : ScenarioBase
                 MedTriggerLocal.SetActive(true);
                 if (isEventCompleted)
                 {
+                    medKitCanvas.SetActive(true);
                     MedTriggerLocal.SetActive(true);
                     Arrow.instance.objectToSnap = null;
-                    foreach (Transform child in MedKit.transform)
-                    {
-                        child.gameObject.AddComponent<Rigidbody>();
-                        Debug.Log("RigidAdded");
-                    }
                     tempCollider.SetActive(true);
                     MedTriggerLocal.SetActive(false);
                     SwitchState((int)STATE_SB.STATE_PURIFIED_WATER);

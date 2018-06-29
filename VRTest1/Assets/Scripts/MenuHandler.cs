@@ -6,15 +6,28 @@ using UnityEngine.UI;
 public class MenuHandler : MonoBehaviour {
 
     public Text debugTxt;
+    public GameObject instructionScreen;
 
-	// Use this for initialization
-	void Start () {
-		
-	}
+	void Update () {
+        if (ScenarioHandler.instance.CurrScenario == null)
+            return;
+
+        if(ScenarioHandler.instance.CurrScenario.IsScenarioDone)
+        {
+            instructionScreen.SetActive(true);
+            instructionScreen.GetComponent<InstructionMenu>().DispayWinScreen();
+        }
+
+    }
 
     public void OnClickSelectScenario(string key)
     {
         ScenarioHandler.instance.SelectScenarioType(key);
+    }
+
+    public void OnClickFireScenario(bool bigFire)
+    {
+        ScenarioHandler.instance.ScenarioFireSelect(bigFire);
     }
 
     public void OnClickRandomScenario()

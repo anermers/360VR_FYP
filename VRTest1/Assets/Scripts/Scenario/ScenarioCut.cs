@@ -86,6 +86,7 @@ public class ScenarioCut : ScenarioBase {
         isInteracted = false;
         isScenarioDone = false;
         instructionIndex = 0;
+        step = -1;
         timer = 5.0f;
         chefAnimController = traineeChef.GetComponent<Animator>();
         MedTriggerLocal.SetActive(false);
@@ -115,9 +116,11 @@ public class ScenarioCut : ScenarioBase {
             prevState = currState;
             //reset index for instructions
             instructionIndex = 0;
+            ++step;
+            //Debug.Log(step);
         }
 
-        switch(currState)
+        switch (currState)
         {
             case STATE_SC.STATE_CUT_START:
                 // Start scenario
@@ -145,11 +148,6 @@ public class ScenarioCut : ScenarioBase {
                 if (isEventCompleted)
                 {
                     Arrow.instance.objectToSnap = null;
-                    //foreach (Transform child in MedKit.transform)
-                    //{
-                    //    child.gameObject.AddComponent<Rigidbody>();
-                    //    Debug.Log("RigidAdded");
-                    //}
                     tempCollider.SetActive(true);
                     MedTriggerLocal.SetActive(false);
                     medKitCanvas.SetActive(true);

@@ -87,12 +87,12 @@ public class RoomHandler : MonoBehaviour
         if (selectionCanvas.activeSelf)
         {
             opc.GravityModifier = 0;
-            instructionsText.SetActive(false);
+            //instructionsText.SetActive(false);
         }
         else
         {
             opc.GravityModifier = 0.7f;
-            instructionsText.SetActive(true);
+            //instructionsText.SetActive(true);
         }
         //if (Input.GetKeyDown(KeyCode.F10))
         //    ChangeLocation("Room01");
