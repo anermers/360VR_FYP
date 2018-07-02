@@ -141,6 +141,7 @@
     <Compile Include="Assets\Scripts\DebugScript.cs" />
     <Compile Include="Assets\Scripts\DespawnPickUp.cs" />
     <Compile Include="Assets\Scripts\GetBurn.cs" />
+    <Compile Include="Assets\Scripts\GetCut.cs" />
     <Compile Include="Assets\Scripts\InstructionMenu.cs" />
     <Compile Include="Assets\Scripts\MedKitUI.cs" />
     <Compile Include="Assets\Scripts\MenuHandler.cs" />

@@ -92,8 +92,8 @@ public class ScenarioCut : ScenarioBase {
         MedTriggerLocal.SetActive(false);
         medKitCanvas.SetActive(false);
 
-        if (traineeChef.GetComponent<RunAway>() != null)
-            traineeChef.GetComponent<RunAway>().enabled = false;
+        if (traineeChef.GetComponent<GetCut>() != null)
+            traineeChef.GetComponent<GetCut>().enabled = true;
     }
 
     // Update is called once per frame
