@@ -22,17 +22,20 @@ public class MenuHandler : MonoBehaviour {
 
     public void OnClickSelectScenario(string key)
     {
-        ScenarioHandler.instance.SelectScenarioType(key);
+        if (!MainMenuCamera.isMoving)
+            ScenarioHandler.instance.SelectScenarioType(key);
     }
 
     public void OnClickFireScenario(bool bigFire)
     {
-        ScenarioHandler.instance.ScenarioFireSelect(bigFire);
+        if (!MainMenuCamera.isMoving)
+            ScenarioHandler.instance.ScenarioFireSelect(bigFire);
     }
 
     public void OnClickRandomScenario()
     {
-        ScenarioHandler.instance.RandomScenarioType();
+        if (!MainMenuCamera.isMoving)
+            ScenarioHandler.instance.RandomScenarioType();
     }
 
     public void OnPointerEnter(Transform t)
