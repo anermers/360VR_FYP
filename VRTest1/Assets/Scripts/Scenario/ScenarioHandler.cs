@@ -23,6 +23,9 @@ public class ScenarioHandler : MonoBehaviour {
     //public string CurrScenario { get { return currScenario; } }
     public ScenarioBase CurrScenario { get { return currScenario; } }
 
+    public GameObject playerCamera;
+    public GameObject scenarioStartPos;
+
     // Use this for initialization
     void Awake () {
         if (!instance)
@@ -70,6 +73,7 @@ public class ScenarioHandler : MonoBehaviour {
         RoomHandler.instance.ShowMenu();
         //instructionScreen.PopulateInsutructionMenu();
         isScenarioActivated = true;
+        PlayerToStartPos();
     }
 
     public void RandomScenarioType()
@@ -86,6 +90,7 @@ public class ScenarioHandler : MonoBehaviour {
         currScenario.Init();
         //instructionScreen.PopulateInsutructionMenu();
         isScenarioActivated = true;
+        PlayerToStartPos();
     }
 
     public void ScenarioQuit()
@@ -103,5 +108,11 @@ public class ScenarioHandler : MonoBehaviour {
         currScenario.Init();
         RoomHandler.instance.ShowMenu();
         isScenarioActivated = true;
+        PlayerToStartPos();
+    }
+
+    private void PlayerToStartPos()
+    {
+        playerCamera.transform.position = scenarioStartPos.transform.position;
     }
 }
