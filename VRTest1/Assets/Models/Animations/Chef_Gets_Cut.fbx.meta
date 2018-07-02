@@ -216,7 +216,7 @@ ModelImporter:
     400206: R_WristCTRL
     400208: R_WristGRP
     4300000: ChefCharacter
-    7400000: Take 001
+    7400000: Gets Cut
     9500000: //RootNode
     13700000: ChefCharacter
   materials:
@@ -241,7 +241,245 @@ ModelImporter:
     animationScaleError: 0.5
     animationWrapMode: 0
     extraExposedTransformPaths: []
-    clipAnimations: []
+    clipAnimations:
+    - serializedVersion: 16
+      name: Gets Cut
+      takeName: Take 001
+      firstFrame: 1
+      lastFrame: 59
+      wrapMode: 0
+      orientationOffsetY: 0
+      level: 0
+      cycleOffset: 0
+      loop: 0
+      hasAdditiveReferencePose: 0
+      loopTime: 0
+      loopBlend: 0
+      loopBlendOrientation: 0
+      loopBlendPositionY: 0
+      loopBlendPositionXZ: 0
+      keepOriginalOrientation: 0
+      keepOriginalPositionY: 1
+      keepOriginalPositionXZ: 0
+      heightFromFeet: 0
+      mirror: 0
+      bodyMask: 01000000010000000100000001000000010000000100000001000000010000000100000001000000010000000100000001000000
+      curves: []
+      events: []
+      transformMask:
+      - path: 
+        weight: 1
+      - path: ChefCharacter
+        weight: 1
+      - path: EthanSkeleton
+        weight: 1
+      - path: EthanSkeleton/EthanHips
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanLeftUpLeg
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanLeftUpLeg/EthanLeftLeg
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanLeftUpLeg/EthanLeftLeg/EthanLeftFoot
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanLeftUpLeg/EthanLeftLeg/EthanLeftFoot/EthanLeftToe1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanLeftUpLeg/EthanLeftLeg/EthanLeftFoot/EthanLeftToe1/EthanLeftToe2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanRightUpLeg
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanRightUpLeg/EthanRightLeg
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanRightUpLeg/EthanRightLeg/EthanRightFoot
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanRightUpLeg/EthanRightLeg/EthanRightFoot/EthanRightToe1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanRightUpLeg/EthanRightLeg/EthanRightFoot/EthanRightToe1/EthanRightToe2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanHead1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanHead1/EthanLeftCorner
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanHead1/EthanLeftUpperLip
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanHead1/EthanRightCorner
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanHead1/EthanRightUpperLip
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanHead1/EthanUpperLip
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanJaw
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanJaw/EthanLeftLowerLip
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanJaw/EthanLowerLip
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanJaw/EthanRightLowerLip
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanLeftBlink
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanLeftBrow
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanLeftEye
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanRightBlink
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanRightBrow
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanHead/EthanRightEye
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandIndex1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandIndex1/EthanLeftHandIndex2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandIndex1/EthanLeftHandIndex2/EthanLeftHandIndex3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandIndex1/EthanLeftHandIndex2/EthanLeftHandIndex3/EthanLeftHandIndex4
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandMiddle1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandMiddle1/EthanLeftHandMiddle2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandMiddle1/EthanLeftHandMiddle2/EthanLeftHandMiddle3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandMiddle1/EthanLeftHandMiddle2/EthanLeftHandMiddle3/EthanLeftHandMiddle4
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandPinky1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandPinky1/EthanLeftHandPinky2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandPinky1/EthanLeftHandPinky2/EthanLeftHandPinky3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandPinky1/EthanLeftHandPinky2/EthanLeftHandPinky3/EthanLeftHandPinky4
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandRing1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandRing1/EthanLeftHandRing2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandRing1/EthanLeftHandRing2/EthanLeftHandRing3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandRing1/EthanLeftHandRing2/EthanLeftHandRing3/EthanLeftHandRing4
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandThumb1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandThumb1/EthanLeftHandThumb2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandThumb1/EthanLeftHandThumb2/EthanLeftHandThumb3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanLeftShoulder/EthanLeftArm/EthanLeftForeArm/EthanLeftHand/EthanLeftHandThumb1/EthanLeftHandThumb2/EthanLeftHandThumb3/EthanLeftHandThumb4
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandIndex1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandIndex1/EthanRightHandIndex2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandIndex1/EthanRightHandIndex2/EthanRightHandIndex3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandIndex1/EthanRightHandIndex2/EthanRightHandIndex3/EthanRightHandIndex4
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandMiddle1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandMiddle1/EthanRightHandMiddle2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandMiddle1/EthanRightHandMiddle2/EthanRightHandMiddle3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandMiddle1/EthanRightHandMiddle2/EthanRightHandMiddle3/EthanRightHandMiddle4
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandPinky1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandPinky1/EthanRightHandPinky2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandPinky1/EthanRightHandPinky2/EthanRightHandPinky3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandPinky1/EthanRightHandPinky2/EthanRightHandPinky3/EthanRightHandPinky4
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandRing1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandRing1/EthanRightHandRing2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandRing1/EthanRightHandRing2/EthanRightHandRing3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandRing1/EthanRightHandRing2/EthanRightHandRing3/EthanRightHandRing4
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandThumb1
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandThumb1/EthanRightHandThumb2
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandThumb1/EthanRightHandThumb2/EthanRightHandThumb3
+        weight: 1
+      - path: EthanSkeleton/EthanHips/EthanSpine/EthanSpine1/EthanSpine2/EthanNeck/EthanRightShoulder/EthanRightArm/EthanRightForeArm/EthanRightHand/EthanRightHandThumb1/EthanRightHandThumb2/EthanRightHandThumb3/EthanRightHandThumb4
+        weight: 1
+      - path: JawCTRL
+        weight: 1
+      - path: L_CornerLipCTRL
+        weight: 1
+      - path: L_EyebrowCTRL
+        weight: 1
+      - path: L_EyelidCTRL
+        weight: 1
+      - path: L_LowerLipCTRL
+        weight: 1
+      - path: L_UpperLipCTRL
+        weight: 1
+      - path: L_WristCTRLGrp
+        weight: 1
+      - path: L_WristCTRLGrp/L_WristCTRL
+        weight: 1
+      - path: L_WristCTRLGrp/L_WristCTRL/L_HandCTRL
+        weight: 1
+      - path: M_HipCTRL
+        weight: 1
+      - path: M_HipCTRL/M_ShoulderCTRL
+        weight: 1
+      - path: M_HipCTRL/M_ShoulderCTRL/M_HeadCTRL
+        weight: 1
+      - path: M_LowerLipCTRL
+        weight: 1
+      - path: M_UpperLipCTRL
+        weight: 1
+      - path: R_CornerLipCTRL
+        weight: 1
+      - path: R_EyebrowCTRL
+        weight: 1
+      - path: R_EyelidCTRL
+        weight: 1
+      - path: R_LowerLipCTRL
+        weight: 1
+      - path: R_UpperLipCTRL
+        weight: 1
+      - path: R_WristGRP
+        weight: 1
+      - path: R_WristGRP/R_WristCTRL
+        weight: 1
+      - path: R_WristGRP/R_WristCTRL/R_HandCTRL
+        weight: 1
+      maskType: 3
+      maskSource: {instanceID: 0}
+      additiveReferencePoseFrame: 0
     isReadable: 1
   meshes:
     lODScreenPercentages: []

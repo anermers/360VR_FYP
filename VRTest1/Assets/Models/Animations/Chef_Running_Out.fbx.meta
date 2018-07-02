@@ -214,7 +214,7 @@ ModelImporter:
     400204: R_UpperLipCTRL
     400206: R_WristCTRL
     4300000: ChefCharacter
-    7400000: Take 001
+    7400000: Running
     9500000: //RootNode
     13700000: ChefCharacter
   materials:
@@ -241,7 +241,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: Running
       takeName: Take 001
       firstFrame: 1
       lastFrame: 19

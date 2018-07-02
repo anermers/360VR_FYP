@@ -208,7 +208,7 @@ public class RayPointer : MonoBehaviour {
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F11))
             //ScenarioHandler.instance.ScenarioFireSelect(true);
-            ScenarioHandler.instance.SelectScenarioType("sb");
+            ScenarioHandler.instance.SelectScenarioType("sc");
         if (Input.GetKeyDown(KeyCode.F12))
             ScenarioHandler.instance.RandomScenarioType();
 #endif

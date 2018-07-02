@@ -216,7 +216,7 @@ ModelImporter:
     400206: R_WristCTRL
     400208: R_WristGRP
     4300000: ChefCharacter
-    7400000: Take 001
+    7400000: After Cut Idle
     9500000: //RootNode
     13700000: ChefCharacter
   materials:
@@ -243,7 +243,7 @@ ModelImporter:
     extraExposedTransformPaths: []
     clipAnimations:
     - serializedVersion: 16
-      name: Take 001
+      name: After Cut Idle
       takeName: Take 001
       firstFrame: 1
       lastFrame: 60
