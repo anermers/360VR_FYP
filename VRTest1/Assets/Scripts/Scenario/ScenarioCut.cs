@@ -45,6 +45,7 @@ public class ScenarioCut : ScenarioBase {
     // Use this for initialization
     public void Start () {
         Debug.Log("sc start");
+        traineeChef.transform.position = chefSpawnPoint.position;
         allInstructions = new List<string>();
         scInfoContainer = new Dictionary<STATE_SC, SCInfo>();
         foreach (SCInfo info in scInfoList)

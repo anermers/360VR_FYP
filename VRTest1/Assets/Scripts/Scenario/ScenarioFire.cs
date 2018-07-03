@@ -58,6 +58,8 @@ public class ScenarioFire : ScenarioBase
     public void Start () {
         Debug.Log("sf_start");
 
+        traineeChef.transform.position = chefSpawnPoint.position;
+
         sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
         allInstructions = new List<string>();
         smallInstructionList = new List<string>();

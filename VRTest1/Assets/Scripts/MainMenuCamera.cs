@@ -14,7 +14,7 @@ public class MainMenuCamera : MonoBehaviour
     void Start()
     {
         speed = 1;
-        isMoving = false;
+        isMoving = true;
         choosen = false;
         point = null;
         //ChooseScenario("");
@@ -24,7 +24,7 @@ public class MainMenuCamera : MonoBehaviour
     {
         if (point != null)
         {
-            if (Vector3.Distance(transform.position, point.transform.position) >= 0.5f)
+            if (Vector3.Distance(transform.position, point.transform.position) >= 1)
             {
                 transform.position += (point.transform.position - transform.position) * speed * Time.deltaTime;
                 GetComponent<OVRPlayerController>().enabled = false;
@@ -32,11 +32,12 @@ public class MainMenuCamera : MonoBehaviour
             }
             else
             {
-                GetComponent<OVRPlayerController>().enabled = true;
                 point = null;
                 isMoving = false;
             }
         }
+        else
+            GetComponent<OVRPlayerController>().enabled = true;
     }
     public void ChooseScenario(string _choice)
     {

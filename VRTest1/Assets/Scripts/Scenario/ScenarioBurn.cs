@@ -42,6 +42,8 @@ public class ScenarioBurn : ScenarioBase
 
     // Use this for initialization
     public void Start () {
+
+        traineeChef.transform.position = chefSpawnPoint.position;
         sbInfoContainer = new Dictionary<STATE_SB, SBInfo>();
         allInstructions = new List<string>();
         foreach (SBInfo info in sbInfoList)
