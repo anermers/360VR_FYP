@@ -48,6 +48,8 @@ public class ScenarioCut : ScenarioBase {
         traineeChef.transform.position = chefSpawnPoint.position;
         allInstructions = new List<string>();
         scInfoContainer = new Dictionary<STATE_SC, SCInfo>();
+        chefAnimController = traineeChef.GetComponent<Animator>();
+        chefAnimController.SetBool("placeDishIdle", false);
         foreach (SCInfo info in scInfoList)
         {
             // adds the instructions to allinstruction list
@@ -80,7 +82,6 @@ public class ScenarioCut : ScenarioBase {
     public override void Init()
     {
         Debug.Log("ScenarioCut - Init");
-
         currState = STATE_SC.STATE_CUT_START;
         prevState = currState;
         isEventCompleted = false;
@@ -89,7 +90,6 @@ public class ScenarioCut : ScenarioBase {
         instructionIndex = 0;
         step = -1;
         timer = 5.0f;
-        chefAnimController = traineeChef.GetComponent<Animator>();
         MedTriggerLocal.SetActive(false);
         medKitCanvas.SetActive(false);
 

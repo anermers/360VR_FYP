@@ -4,19 +4,21 @@ using UnityEngine;
 
 public class StartUp : MonoBehaviour {
 
-    public Transform rightHand;
-    public Transform dishObj;
+    //public Transform rightHand;
+    //public Transform dishObj;
+    public Transform playerCamera;
     public Transform intialSpawn;
+    public Transform selectionPoint;
         
-    private Animator chefAnim;
+    public Animator chefAnim;
+
+    public GameObject menuCanvas;
 
     // Use this for initialization
 	void Start () {
-        // Set animator
-        chefAnim = GetComponent<Animator>();
         // Set the pos of the chef to the satrt point
-        transform.position = intialSpawn.position;
-
+        chefAnim.gameObject.transform.position = intialSpawn.position;
+        menuCanvas.SetActive(false);
         //dishObj.position = rightHand.position;
         //dishObj.parent = rightHand;
         chefAnim.SetBool("placeDish", true);
@@ -26,18 +28,18 @@ public class StartUp : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 
-
+        if(chefAnim.GetCurrentAnimatorStateInfo(0).IsName("PlaceDishIdle"))
+        {
             // get key input
             if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) ||
             Input.GetKey(KeyCode.F12))
-        {
-            this.enabled = false;
+            {
+                menuCanvas.SetActive(true);
+                chefAnim.SetBool("placeDish", false);
+                playerCamera.position = selectionPoint.position;
+                gameObject.SetActive(false);
+                this.enabled = false;
+            }
         }
-
-    }
-
-    void DropDish()
-    {
-
     }
 }

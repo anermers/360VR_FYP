@@ -64,7 +64,8 @@ public class ScenarioFire : ScenarioBase
         allInstructions = new List<string>();
         smallInstructionList = new List<string>();
         largeInstructionList = new List<string>();
-
+        chefAnimController = traineeChef.GetComponent<Animator>();
+        chefAnimController.SetBool("placeDishIdle", false);
         foreach (SFInfo info in sfInfoList)
         {
             // adds the instructions to allinstruction list
@@ -114,7 +115,6 @@ public class ScenarioFire : ScenarioBase
     public override void Init()
     {
         Debug.Log("ScenarioFire - Init");
-
         currState = STATE_SF.STATE_FIRE_START;
         prevState = currState;
         isEventCompleted = false;
@@ -122,7 +122,6 @@ public class ScenarioFire : ScenarioBase
         isScenarioDone = false;
         step = -1;
         instructionIndex = 0;
-        chefAnimController = traineeChef.GetComponent<Animator>();
 
         if(!isBigFire)
             allInstructions = smallInstructionList;

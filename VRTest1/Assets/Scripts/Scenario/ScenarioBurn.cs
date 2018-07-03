@@ -46,6 +46,8 @@ public class ScenarioBurn : ScenarioBase
         traineeChef.transform.position = chefSpawnPoint.position;
         sbInfoContainer = new Dictionary<STATE_SB, SBInfo>();
         allInstructions = new List<string>();
+        chefAnimController = traineeChef.GetComponent<Animator>();
+        chefAnimController.SetBool("placeDishIdle", false);
         foreach (SBInfo info in sbInfoList)
         {
             // adds the instructions to allinstruction list
@@ -89,7 +91,6 @@ public class ScenarioBurn : ScenarioBase
         instructionIndex = 0;
         step = -1;
         timer = 8.0f;
-        chefAnimController = traineeChef.GetComponent<Animator>();
         MedTriggerLocal.SetActive(false);
         medKitCanvas.SetActive(false);
 
