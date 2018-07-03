@@ -88,7 +88,7 @@ public class ScenarioCut : ScenarioBase {
         isInteracted = false;
         isScenarioDone = false;
         instructionIndex = 0;
-        step = -1;
+        step = 0;
         timer = 5.0f;
         MedTriggerLocal.SetActive(false);
         medKitCanvas.SetActive(false);

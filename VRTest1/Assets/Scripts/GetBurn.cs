@@ -24,7 +24,12 @@ public class GetBurn : MonoBehaviour {
         if(isMoveBack)
         {
             if (transform.localPosition.z < 0.3f)
+            {
                 transform.position += new Vector3(0, 0, 1) * 0.8f * Time.deltaTime;
+                BoxCollider box = GetComponent<BoxCollider>();
+                box.center = new Vector3(box.center.x, box.center.y, -0.85f);
+            }
+
             else
                 this.enabled = false;
         }

@@ -9,15 +9,33 @@ public class StartUp : MonoBehaviour {
     public Transform playerCamera;
     public Transform intialSpawn;
     public Transform selectionPoint;
-        
+    public Transform startUpPoint;
+
     public Animator chefAnim;
 
     public GameObject menuCanvas;
 
+    private static StartUp instance = null;
+
+    private void Awake()
+    {
+        DontDestroyOnLoad(this);
+
+        if (instance == null)
+        {
+            instance = this;
+        }
+        else
+        {
+            DestroyObject(gameObject);
+
+        }
+    }
     // Use this for initialization
-	void Start () {
+    void Start () {
         // Set the pos of the chef to the satrt point
         chefAnim.gameObject.transform.position = intialSpawn.position;
+        playerCamera.position = startUpPoint.position;
         menuCanvas.SetActive(false);
         //dishObj.position = rightHand.position;
         //dishObj.parent = rightHand;

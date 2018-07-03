@@ -89,7 +89,7 @@ public class ScenarioBurn : ScenarioBase
         isInteracted = false;
         isScenarioDone = false;
         instructionIndex = 0;
-        step = -1;
+        step = 0;
         timer = 8.0f;
         MedTriggerLocal.SetActive(false);
         medKitCanvas.SetActive(false);

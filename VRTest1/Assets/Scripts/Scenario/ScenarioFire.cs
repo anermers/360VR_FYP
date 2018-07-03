@@ -120,7 +120,7 @@ public class ScenarioFire : ScenarioBase
         isEventCompleted = false;
         isInteracted = false;
         isScenarioDone = false;
-        step = -1;
+        step = 0;
         instructionIndex = 0;
 
         if(!isBigFire)

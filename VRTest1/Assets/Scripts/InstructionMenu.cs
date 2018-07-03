@@ -37,7 +37,8 @@ public class InstructionMenu : MonoBehaviour {
                 gameObject.transform.rotation = Quaternion.LookRotation(gameObject.transform.position - player.transform.position);
             }
 
-            layoutPanel.transform.GetChild(ScenarioHandler.instance.CurrScenario.step).GetComponent<Text>().color = Color.green;
+            for(int i = 0; i <= ScenarioHandler.instance.CurrScenario.step; ++i)
+                layoutPanel.transform.GetChild(i).GetComponent<Text>().color = Color.green;
         }
     }
 

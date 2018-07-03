@@ -208,7 +208,7 @@ public class RayPointer : MonoBehaviour {
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F11))
             //ScenarioHandler.instance.ScenarioFireSelect(true);
-            ScenarioHandler.instance.SelectScenarioType("sc");
+            ScenarioHandler.instance.SelectScenarioType("sb");
         //if (Input.GetKeyDown(KeyCode.F12))
         //    ScenarioHandler.instance.RandomScenarioType();
 #endif
@@ -225,7 +225,7 @@ public class RayPointer : MonoBehaviour {
         if(OVRInput.Get(OVRInput.Button.DpadDown, activeController) || 
             Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            if(kitchenModel.activeSelf)
+            if(ScenarioHandler.instance.CurrScenario != null)
                 instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
         }
 
