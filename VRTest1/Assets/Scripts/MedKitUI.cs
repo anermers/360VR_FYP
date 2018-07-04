@@ -8,8 +8,6 @@ public class ObjectInfo
 {
     public GameObject Object;
     public string description;
-
-    public Transform originalTransform;
 }
 
 public class MedKitUI : MonoBehaviour {
@@ -29,11 +27,6 @@ public class MedKitUI : MonoBehaviour {
         selection = 0;
         Spawn = false;
         spawnedObjects = new List<GameObject>();
-        for (int i = 0; i < inventory.Count; ++i)
-        {
-            if(inventory[i].Object !=null)
-                inventory[i].originalTransform = inventory[i].Object.transform;    
-        }
 	}
 	
 	// Update is called once per frame

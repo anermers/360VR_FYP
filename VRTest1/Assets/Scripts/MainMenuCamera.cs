@@ -36,7 +36,7 @@ public class MainMenuCamera : MonoBehaviour
                 isMoving = false;
             }
         }
-        else
+        if(!isMoving)
             GetComponent<OVRPlayerController>().enabled = true;
     }
     public void ChooseScenario(string _choice)
