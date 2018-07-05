@@ -9,6 +9,7 @@ public struct SBInfo
     public ScenarioBurn.STATE_SB state;
     public List<GameObject> interactables;
     public List<string> instructions;
+    public string description;
 }
 
 public class ScenarioBurn : ScenarioBase
@@ -47,7 +48,10 @@ public class ScenarioBurn : ScenarioBase
         sbInfoContainer = new Dictionary<STATE_SB, SBInfo>();
         allInstructions = new List<string>();
         chefAnimController = traineeChef.GetComponent<Animator>();
+        // Set curr playing animation to false to transition to the next animation
         chefAnimController.SetBool("placeDishIdle", false);
+
+        // Populating of dict.
         foreach (SBInfo info in sbInfoList)
         {
             // adds the instructions to allinstruction list
@@ -83,17 +87,23 @@ public class ScenarioBurn : ScenarioBase
     public override void Init()
     {
         Debug.Log("ScenarioBurn - Init");
+        //set the curr state
         currState = STATE_SB.STATE_BURN_START;
         prevState = currState;
+        //setting of booleans
         isEventCompleted = false;
         isInteracted = false;
         isScenarioDone = false;
+        //setting of other variables
         instructionIndex = 0;
+        // starting index of curr instruction to follow
         step = 0;
         timer = 8.0f;
+        // settign of active for gameObject
         MedTriggerLocal.SetActive(false);
         medKitCanvas.SetActive(false);
 
+        // Enabling of related scripts
         if (traineeChef.GetComponent<GetBurn>() != null)
             traineeChef.GetComponent<GetBurn>().enabled = true;
     }
@@ -104,7 +114,7 @@ public class ScenarioBurn : ScenarioBase
         if (isScenarioDone)
         {
             Debug.Log("Scenario Completed");
-            ScenarioHandler.instance.instruction.text = "Scenario Completed - bck btn to quit";
+            ScenarioHandler.instance.description.text = "Scenario Completed - bck btn to quit";
             //ScenarioHandler.instance.ScenarioQuit();
         }
 
@@ -187,10 +197,11 @@ public class ScenarioBurn : ScenarioBase
 
     void SetInstruction()
     {
-        if (ScenarioHandler.instance.instruction == null
-            || sbInfoContainer[currState].instructions.Count <= 0)
+        if (ScenarioHandler.instance.description == null
+              || sbInfoContainer[currState].description == null)
             return;
-        ScenarioHandler.instance.instruction.text = sbInfoContainer[currState].instructions[instructionIndex];
+
+        ScenarioHandler.instance.description.text = sbInfoContainer[currState].description;
     }
 
     protected override void SetCurrentInteractable()

@@ -11,6 +11,7 @@ public struct SCInfo
     public ScenarioCut.STATE_SC state;
     public List<GameObject> interactables;
     public List<string> instructions;
+    public string description;
 }
 public class ScenarioCut : ScenarioBase {
     public enum STATE_SC
@@ -103,7 +104,7 @@ public class ScenarioCut : ScenarioBase {
         if (isScenarioDone)
         {
             Debug.Log("Scenario Completed");
-            ScenarioHandler.instance.instruction.text = "Scenario Completed - bck btn to quit";
+            ScenarioHandler.instance.description.text = "Scenario Completed - bck btn to quit";
             //ScenarioHandler.instance.ScenarioQuit();
         }
 
@@ -185,10 +186,10 @@ public class ScenarioCut : ScenarioBase {
 
     void SetInstruction()
     {
-        if (ScenarioHandler.instance.instruction == null
-            || scInfoContainer[currState].instructions.Count <= 0)
+        if (ScenarioHandler.instance.description == null
+             || scInfoContainer[currState].description == null)
             return;
-        ScenarioHandler.instance.instruction.text = scInfoContainer[currState].instructions[instructionIndex];
+        ScenarioHandler.instance.description.text = scInfoContainer[currState].description;
     }
 
     protected override void SetCurrentInteractable()

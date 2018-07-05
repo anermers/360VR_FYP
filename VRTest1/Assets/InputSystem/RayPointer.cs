@@ -207,8 +207,8 @@ public class RayPointer : MonoBehaviour {
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F11))
-            //ScenarioHandler.instance.ScenarioFireSelect(true);
-            ScenarioHandler.instance.SelectScenarioType("sb");
+            ScenarioHandler.instance.ScenarioFireSelect(true);
+            //ScenarioHandler.instance.SelectScenarioType("sc");
         //if (Input.GetKeyDown(KeyCode.F12))
         //    ScenarioHandler.instance.RandomScenarioType();
 #endif
@@ -322,13 +322,3 @@ public class RayPointer : MonoBehaviour {
 
     }
 }
-
-
-/*
- * pointer to point in direction of the obj ti interact
- * reduce text info size
- * enable/disable the instruction (swipe the touch-pad)
- *  > pop up a menu showing the next objective instructions (if look too far away from the menu, it snaps 
- *  back to front of user) cards infront of the user
- *  Stuff in medkit falls through ground
- */

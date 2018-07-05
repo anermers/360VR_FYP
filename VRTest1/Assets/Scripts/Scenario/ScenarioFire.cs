@@ -11,6 +11,7 @@ public struct SFInfo
     public ScenarioFire.STATE_SF state;
     public List<GameObject> interactables;
     public List<string> instructions;
+    public string description;
 }
 
 public class ScenarioFire : ScenarioBase
@@ -154,7 +155,7 @@ public class ScenarioFire : ScenarioBase
         if(isScenarioDone)
         {
             //Debug.Log("Scenario Completed");
-            ScenarioHandler.instance.instruction.text = "Scenario Completed - bck btn to quit";
+            ScenarioHandler.instance.description.text = "Scenario Completed - bck btn to quit";
             //ScenarioHandler.instance.ScenarioQuit();
         }
 
@@ -241,10 +242,16 @@ public class ScenarioFire : ScenarioBase
 
     void SetInstruction()
     {
-        if (ScenarioHandler.instance.instruction == null
-            || sfInfoContainer[currState].instructions.Count <= 0)
+        if (ScenarioHandler.instance.description == null
+            || sfInfoContainer[currState].description == null)
             return;
-        ScenarioHandler.instance.instruction.text = sfInfoContainer[currState].instructions[instructionIndex];
+        ScenarioHandler.instance.description.text = sfInfoContainer[currState].description;
+        //GameObject go = Instantiate(sfInfoContainer[currState].interactables[0]);
+        //go.transform.position = ScenarioHandler.instance.displayGO.transform.position;
+        //go.transform.eulerAngles = new Vector3(0,180,0);
+        //go.transform.localScale = ScenarioHandler.instance.displayGO.transform.localScale;
+        //go.transform.parent = ScenarioHandler.instance.displayGO.transform;
+        //ScenarioHandler.instance.displayGO = go;
     }
 
     protected override bool SwitchState(int index)

@@ -126,11 +126,6 @@ public class RoomHandler : MonoBehaviour
         Debug.Log("ENTERED");
         RenderSettings.skybox.SetTexture("_Tex", null);
         selectionCanvas.SetActive(!selectionCanvas.activeSelf);
-       // selectionRoom.SetActive(!selectionRoom.activeSelf);
-       // kitchen.SetActive(!kitchen.activeSelf);
-        //active the kitchen here or something
-        if(kitchen.activeSelf && dText != null)
-            dText.text = "active";
         opc.GravityModifier = 0.7f;
     }
 

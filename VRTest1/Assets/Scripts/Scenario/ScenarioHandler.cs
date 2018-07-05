@@ -8,8 +8,10 @@ public class ScenarioHandler : MonoBehaviour {
     public static ScenarioHandler instance = null;
 
     public List<ScenarioBase> scenarioList;
-    public Text instruction;
+    public Text description;
+    public GameObject displayGO;
     public InstructionMenu instructionScreen;
+    public cakeslice.OutlineEffect olEffect;
 
     Dictionary<string, ScenarioBase> scenarioContainer;
     [HideInInspector]
@@ -20,7 +22,6 @@ public class ScenarioHandler : MonoBehaviour {
     ScenarioBase currScenario;
 
     public Dictionary<string, ScenarioBase> ScenarioContainer { get { return scenarioContainer; } }
-    //public string CurrScenario { get { return currScenario; } }
     public ScenarioBase CurrScenario { get { return currScenario; } }
 
     public GameObject playerCamera;
@@ -35,11 +36,9 @@ public class ScenarioHandler : MonoBehaviour {
         interactableGO = new List<GameObject>();
         isScenarioActivated = false;
         scenarioContainer = new Dictionary<string, ScenarioBase>();
-        foreach(ScenarioBase sb in scenarioList)
+        olEffect.enabled = false;
+        foreach (ScenarioBase sb in scenarioList)
         {
-            // Init scenario
-            //sb.Init();
-
             // Deactivate scenarios on start up
             if (sb.gameObject.activeSelf)
                 sb.gameObject.SetActive(false);
@@ -48,7 +47,7 @@ public class ScenarioHandler : MonoBehaviour {
                 scenarioContainer.Add(sb.name, sb);
         }
 
-        ////testing    
+        //testing    
         //currScenario = scenarioContainer["sc"];
         //scenarioContainer["sc"].gameObject.SetActive(true);
         //isScenarioActivated = true;
@@ -71,9 +70,11 @@ public class ScenarioHandler : MonoBehaviour {
         currScenario = scenarioContainer[name];
         currScenario.Init();
         RoomHandler.instance.ShowMenu();
+
         //instructionScreen.PopulateInsutructionMenu();
         isScenarioActivated = true;
         PlayerToStartPos();
+        olEffect.enabled = true;
     }
 
     public void RandomScenarioType()
@@ -91,11 +92,12 @@ public class ScenarioHandler : MonoBehaviour {
         //instructionScreen.PopulateInsutructionMenu();
         isScenarioActivated = true;
         PlayerToStartPos();
+        olEffect.enabled = true;
     }
 
     public void ScenarioQuit()
     {
-        instruction.text = "";
+        description.text = "";
         currScenario.gameObject.SetActive(false);
         isScenarioActivated = false;
     }
@@ -109,6 +111,7 @@ public class ScenarioHandler : MonoBehaviour {
         RoomHandler.instance.ShowMenu();
         isScenarioActivated = true;
         PlayerToStartPos();
+        olEffect.enabled = true;
     }
 
     private void PlayerToStartPos()

@@ -10,10 +10,13 @@ public class InstructionMenu : MonoBehaviour {
     [Header("Populate layout")]
     public GameObject textPrefab;
     public GameObject layoutPanel;
+    public GameObject imgPanel;
+    public Image previewImg;
     [Header("Other Misc.")]
     public GameObject uiCamera;
     public GameObject player;
     public GameObject completedScreen;
+    public List<Texture> imgList;
 
     public bool isMenuEnabled = false;
 
@@ -37,8 +40,11 @@ public class InstructionMenu : MonoBehaviour {
                 gameObject.transform.rotation = Quaternion.LookRotation(gameObject.transform.position - player.transform.position);
             }
 
-            for(int i = 0; i <= ScenarioHandler.instance.CurrScenario.step; ++i)
-                layoutPanel.transform.GetChild(i).GetComponent<Text>().color = Color.green;
+            if(!ScenarioHandler.instance.CurrScenario.IsScenarioDone)
+            {
+                for (int i = 0; i <= ScenarioHandler.instance.CurrScenario.step; ++i)
+                    layoutPanel.transform.GetChild(i).GetComponent<Text>().color = Color.green;
+            }   
         }
     }
 
@@ -110,6 +116,11 @@ public class InstructionMenu : MonoBehaviour {
             gameObject.SetActive(true);
             layoutPanel.SetActive(false);
             completedScreen.SetActive(true);
+            imgPanel.SetActive(false);
         }
+    }
+
+    public void FillImage(int index)
+    {
     }
 }
