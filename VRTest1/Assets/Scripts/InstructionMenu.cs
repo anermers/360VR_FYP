@@ -30,7 +30,7 @@ public class InstructionMenu : MonoBehaviour {
         {
             // check if instruction is within the camera view
             Vector3 screenPoint = uiCamera.GetComponent<Camera>().WorldToViewportPoint(transform.position);
-            bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 /*&& screenPoint.y > 0 && screenPoint.y < 1*/;
+            bool onScreen = screenPoint.z > 0 && screenPoint.x > 0 && screenPoint.x < 1 && screenPoint.z < 2;
 
             //if not in view 
             if (!onScreen)
@@ -50,6 +50,8 @@ public class InstructionMenu : MonoBehaviour {
 
     public void DisplayInstructionMenu()
     {
+        if (player == null)
+            Debug.Log("NULL");
         player.GetComponent<OVRPlayerController>().GravityModifier = 0.7f;
         gameObject.SetActive(!gameObject.activeSelf);
     }

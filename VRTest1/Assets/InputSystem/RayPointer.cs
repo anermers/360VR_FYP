@@ -207,20 +207,20 @@ public class RayPointer : MonoBehaviour {
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F11))
-            ScenarioHandler.instance.ScenarioFireSelect(true);
-            //ScenarioHandler.instance.SelectScenarioType("sc");
+            ScenarioHandler.instance.ScenarioFireSelect(false);
+            //ScenarioHandler.instance.SelectScenarioType("sf");
         //if (Input.GetKeyDown(KeyCode.F12))
         //    ScenarioHandler.instance.RandomScenarioType();
 #endif
 
-        if (OVRInput.Get(OVRInput.Button.DpadUp, activeController) ||
-            Input.GetKeyDown(KeyCode.Backspace))
-        {
-            isController = !isController;
-            lineRenderer.enabled = isController;
-            if (testPoint != null)
-                testPoint.SetActive(!isController);
-        }
+        //if (OVRInput.Get(OVRInput.Button.DpadUp, activeController) ||
+        //    Input.GetKeyDown(KeyCode.Backspace))
+        //{
+        //    isController = !isController;
+        //    lineRenderer.enabled = isController;
+        //    if (testPoint != null)
+        //        testPoint.SetActive(!isController);
+        //}
 
         if(OVRInput.Get(OVRInput.Button.DpadDown, activeController) || 
             Input.GetKeyDown(KeyCode.LeftAlt))
