@@ -39,6 +39,7 @@ public class ScenarioFire : ScenarioBase
     public GameObject fireBlanket;
     public GameObject smallFire;
     public GameObject largeFire;
+    public Animator doorAnim;
     public List<SFInfo> sfInfoList;
 
     STATE_SF currState;
@@ -121,7 +122,7 @@ public class ScenarioFire : ScenarioBase
         isEventCompleted = false;
         isInteracted = false;
         isScenarioDone = false;
-        step = 0;
+        step = -1;
         instructionIndex = 0;
 
         if(!isBigFire)
@@ -176,6 +177,7 @@ public class ScenarioFire : ScenarioBase
         switch(currState)
         {
             case STATE_SF.STATE_FIRE_START: // Buffer state
+                doorAnim.SetBool("isOpen", true);
                 chefAnimController.SetBool("running", true);
                 SwitchState((int)STATE_SF.STATE_OFF_GAS);
                 break;
