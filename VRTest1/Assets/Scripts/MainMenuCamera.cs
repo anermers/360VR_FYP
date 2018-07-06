@@ -23,13 +23,13 @@ public class MainMenuCamera : MonoBehaviour
     void Update()
     {
         if (Input.GetKey(KeyCode.V))
-            ChooseScenario("Fire");
+            ChooseScenario("Bfire");
 
         if (point != null)
         {
             if (Vector3.Distance(transform.position, point.transform.position) >= 1)
             {
-                transform.position += (point.transform.position - transform.position) * speed * Time.deltaTime;
+                point.transform.parent.position += (transform.position - point.transform.position) * speed * Time.deltaTime;
                 GetComponent<OVRPlayerController>().enabled = false;
                 isMoving = true;
             }
