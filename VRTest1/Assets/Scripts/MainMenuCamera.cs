@@ -22,6 +22,9 @@ public class MainMenuCamera : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        if (Input.GetKey(KeyCode.V))
+            ChooseScenario("Fire");
+
         if (point != null)
         {
             if (Vector3.Distance(transform.position, point.transform.position) >= 1)

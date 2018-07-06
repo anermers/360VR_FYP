@@ -13,19 +13,19 @@ public class ScenarioHandler : MonoBehaviour {
     public InstructionMenu instructionScreen;
     public cakeslice.OutlineEffect olEffect;
 
-    Dictionary<string, ScenarioBase> scenarioContainer;
     [HideInInspector]
     public List<GameObject> interactableGO;
 
+    public GameObject playerCamera;
+    public GameObject scenarioStartPos;
+
+    Dictionary<string, ScenarioBase> scenarioContainer;
     bool isScenarioActivated;
     //string currScenario;
     ScenarioBase currScenario;
 
     public Dictionary<string, ScenarioBase> ScenarioContainer { get { return scenarioContainer; } }
     public ScenarioBase CurrScenario { get { return currScenario; } }
-
-    public GameObject playerCamera;
-    public GameObject scenarioStartPos;
 
     // Use this for initialization
     void Awake () {
@@ -52,10 +52,7 @@ public class ScenarioHandler : MonoBehaviour {
         //scenarioContainer["sc"].gameObject.SetActive(true);
         //isScenarioActivated = true;
     }
-	
-	// Update is called once per frame
-	void Update () {
-	}
+
 
     public void SelectScenarioType(string name)
     {

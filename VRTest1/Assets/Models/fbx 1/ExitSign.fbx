@@ -1,0 +1,590 @@
+; FBX 7.5.0 project file
+; Copyright (C) 1997-2015 Autodesk Inc. and/or its licensors.
+; All rights reserved.
+; ----------------------------------------------------
+
+FBXHeaderExtension:  {
+	FBXHeaderVersion: 1003
+	FBXVersion: 7500
+	CreationTimeStamp:  {
+		Version: 1000
+		Year: 2018
+		Month: 7
+		Day: 6
+		Hour: 11
+		Minute: 35
+		Second: 48
+		Millisecond: 359
+	}
+	Creator: "FBX SDK/FBX Plugins version 2017.0.1"
+	SceneInfo: "SceneInfo::GlobalInfo", "UserData" {
+		Type: "UserData"
+		Version: 100
+		MetaData:  {
+			Version: 100
+			Title: ""
+			Subject: ""
+			Author: ""
+			Keywords: ""
+			Revision: ""
+			Comment: ""
+		}
+		Properties70:  {
+			P: "DocumentUrl", "KString", "Url", "", "C:\Users\162015J\Desktop\new stuff\new models\KitchenProps\scenes\fbx files\finalobjs\ExitSign.fbx"
+			P: "SrcDocumentUrl", "KString", "Url", "", "C:\Users\162015J\Desktop\new stuff\new models\KitchenProps\scenes\fbx files\finalobjs\ExitSign.fbx"
+			P: "Original", "Compound", "", ""
+			P: "Original|ApplicationVendor", "KString", "", "", "Autodesk"
+			P: "Original|ApplicationName", "KString", "", "", "Maya"
+			P: "Original|ApplicationVersion", "KString", "", "", "2017"
+			P: "Original|DateTime_GMT", "DateTime", "", "", "06/07/2018 03:35:48.356"
+			P: "Original|FileName", "KString", "", "", "C:\Users\162015J\Desktop\new stuff\new models\KitchenProps\scenes\fbx files\finalobjs\ExitSign.fbx"
+			P: "LastSaved", "Compound", "", ""
+			P: "LastSaved|ApplicationVendor", "KString", "", "", "Autodesk"
+			P: "LastSaved|ApplicationName", "KString", "", "", "Maya"
+			P: "LastSaved|ApplicationVersion", "KString", "", "", "2017"
+			P: "LastSaved|DateTime_GMT", "DateTime", "", "", "06/07/2018 03:35:48.356"
+			P: "Original|ApplicationActiveProject", "KString", "", "", "C:\Users\162015J\Desktop\new stuff\new models\KitchenProps\scenes\fbx files\finalobjs"
+		}
+	}
+}
+GlobalSettings:  {
+	Version: 1000
+	Properties70:  {
+		P: "UpAxis", "int", "Integer", "",1
+		P: "UpAxisSign", "int", "Integer", "",1
+		P: "FrontAxis", "int", "Integer", "",2
+		P: "FrontAxisSign", "int", "Integer", "",1
+		P: "CoordAxis", "int", "Integer", "",0
+		P: "CoordAxisSign", "int", "Integer", "",1
+		P: "OriginalUpAxis", "int", "Integer", "",1
+		P: "OriginalUpAxisSign", "int", "Integer", "",1
+		P: "UnitScaleFactor", "double", "Number", "",1
+		P: "OriginalUnitScaleFactor", "double", "Number", "",1
+		P: "AmbientColor", "ColorRGB", "Color", "",0,0,0
+		P: "DefaultCamera", "KString", "", "", "Producer Perspective"
+		P: "TimeMode", "enum", "", "",11
+		P: "TimeProtocol", "enum", "", "",2
+		P: "SnapOnFrameMode", "enum", "", "",0
+		P: "TimeSpanStart", "KTime", "Time", "",1924423250
+		P: "TimeSpanStop", "KTime", "Time", "",384884650000
+		P: "CustomFrameRate", "double", "Number", "",-1
+		P: "TimeMarker", "Compound", "", ""
+		P: "CurrentTimeMarker", "int", "Integer", "",-1
+	}
+}
+
+; Documents Description
+;------------------------------------------------------------------
+
+Documents:  {
+	Count: 1
+	Document: 2270541520, "", "Scene" {
+		Properties70:  {
+			P: "SourceObject", "object", "", ""
+			P: "ActiveAnimStackName", "KString", "", "", "Take 001"
+		}
+		RootNode: 0
+	}
+}
+
+; Document References
+;------------------------------------------------------------------
+
+References:  {
+}
+
+; Object definitions
+;------------------------------------------------------------------
+
+Definitions:  {
+	Version: 100
+	Count: 16
+	ObjectType: "GlobalSettings" {
+		Count: 1
+	}
+	ObjectType: "AnimationStack" {
+		Count: 1
+		PropertyTemplate: "FbxAnimStack" {
+			Properties70:  {
+				P: "Description", "KString", "", "", ""
+				P: "LocalStart", "KTime", "Time", "",0
+				P: "LocalStop", "KTime", "Time", "",0
+				P: "ReferenceStart", "KTime", "Time", "",0
+				P: "ReferenceStop", "KTime", "Time", "",0
+			}
+		}
+	}
+	ObjectType: "AnimationLayer" {
+		Count: 1
+		PropertyTemplate: "FbxAnimLayer" {
+			Properties70:  {
+				P: "Weight", "Number", "", "A",100
+				P: "Mute", "bool", "", "",0
+				P: "Solo", "bool", "", "",0
+				P: "Lock", "bool", "", "",0
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "BlendMode", "enum", "", "",0
+				P: "RotationAccumulationMode", "enum", "", "",0
+				P: "ScaleAccumulationMode", "enum", "", "",0
+				P: "BlendModeBypass", "ULongLong", "", "",0
+			}
+		}
+	}
+	ObjectType: "Geometry" {
+		Count: 1
+		PropertyTemplate: "FbxMesh" {
+			Properties70:  {
+				P: "Color", "ColorRGB", "Color", "",0.8,0.8,0.8
+				P: "BBoxMin", "Vector3D", "Vector", "",0,0,0
+				P: "BBoxMax", "Vector3D", "Vector", "",0,0,0
+				P: "Primary Visibility", "bool", "", "",1
+				P: "Casts Shadows", "bool", "", "",1
+				P: "Receive Shadows", "bool", "", "",1
+			}
+		}
+	}
+	ObjectType: "Material" {
+		Count: 1
+		PropertyTemplate: "FbxSurfaceMaterial" {
+			Properties70:  {
+				P: "ShadingModel", "KString", "", "", "Unknown"
+				P: "MultiLayer", "bool", "", "",0
+			}
+		}
+	}
+	ObjectType: "Implementation" {
+		Count: 1
+		PropertyTemplate: "FbxImplementation" {
+			Properties70:  {
+				P: "ShaderLanguage", "KString", "", "", "MentalRaySL"
+				P: "ShaderLanguageVersion", "KString", "", "", ""
+				P: "RenderAPI", "KString", "", "", "MentalRay"
+				P: "RenderAPIVersion", "KString", "", "", ""
+				P: "RootBindingName", "KString", "", "", ""
+				P: "Constants", "Compound", "", ""
+			}
+		}
+	}
+	ObjectType: "BindingTable" {
+		Count: 1
+		PropertyTemplate: "FbxBindingTable" {
+			Properties70:  {
+				P: "TargetName", "KString", "", "", ""
+				P: "TargetType", "KString", "", "", ""
+				P: "CodeAbsoluteURL", "KString", "XRefUrl", "", ""
+				P: "CodeRelativeURL", "KString", "XRefUrl", "", ""
+				P: "CodeTAG", "KString", "", "", "shader"
+				P: "DescAbsoluteURL", "KString", "XRefUrl", "", ""
+				P: "DescRelativeURL", "KString", "XRefUrl", "", ""
+				P: "DescTAG", "KString", "", "", "shader"
+			}
+		}
+	}
+	ObjectType: "Texture" {
+		Count: 4
+		PropertyTemplate: "FbxFileTexture" {
+			Properties70:  {
+				P: "TextureTypeUse", "enum", "", "",0
+				P: "Texture alpha", "Number", "", "A",1
+				P: "CurrentMappingType", "enum", "", "",0
+				P: "WrapModeU", "enum", "", "",0
+				P: "WrapModeV", "enum", "", "",0
+				P: "UVSwap", "bool", "", "",0
+				P: "PremultiplyAlpha", "bool", "", "",1
+				P: "Translation", "Vector", "", "A",0,0,0
+				P: "Rotation", "Vector", "", "A",0,0,0
+				P: "Scaling", "Vector", "", "A",1,1,1
+				P: "TextureRotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TextureScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "CurrentTextureBlendMode", "enum", "", "",1
+				P: "UVSet", "KString", "", "", "default"
+				P: "UseMaterial", "bool", "", "",0
+				P: "UseMipMap", "bool", "", "",0
+			}
+		}
+	}
+	ObjectType: "Model" {
+		Count: 1
+		PropertyTemplate: "FbxNode" {
+			Properties70:  {
+				P: "QuaternionInterpolate", "enum", "", "",0
+				P: "RotationOffset", "Vector3D", "Vector", "",0,0,0
+				P: "RotationPivot", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingOffset", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingPivot", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationActive", "bool", "", "",0
+				P: "TranslationMin", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMax", "Vector3D", "Vector", "",0,0,0
+				P: "TranslationMinX", "bool", "", "",0
+				P: "TranslationMinY", "bool", "", "",0
+				P: "TranslationMinZ", "bool", "", "",0
+				P: "TranslationMaxX", "bool", "", "",0
+				P: "TranslationMaxY", "bool", "", "",0
+				P: "TranslationMaxZ", "bool", "", "",0
+				P: "RotationOrder", "enum", "", "",0
+				P: "RotationSpaceForLimitOnly", "bool", "", "",0
+				P: "RotationStiffnessX", "double", "Number", "",0
+				P: "RotationStiffnessY", "double", "Number", "",0
+				P: "RotationStiffnessZ", "double", "Number", "",0
+				P: "AxisLen", "double", "Number", "",10
+				P: "PreRotation", "Vector3D", "Vector", "",0,0,0
+				P: "PostRotation", "Vector3D", "Vector", "",0,0,0
+				P: "RotationActive", "bool", "", "",0
+				P: "RotationMin", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMax", "Vector3D", "Vector", "",0,0,0
+				P: "RotationMinX", "bool", "", "",0
+				P: "RotationMinY", "bool", "", "",0
+				P: "RotationMinZ", "bool", "", "",0
+				P: "RotationMaxX", "bool", "", "",0
+				P: "RotationMaxY", "bool", "", "",0
+				P: "RotationMaxZ", "bool", "", "",0
+				P: "InheritType", "enum", "", "",0
+				P: "ScalingActive", "bool", "", "",0
+				P: "ScalingMin", "Vector3D", "Vector", "",0,0,0
+				P: "ScalingMax", "Vector3D", "Vector", "",1,1,1
+				P: "ScalingMinX", "bool", "", "",0
+				P: "ScalingMinY", "bool", "", "",0
+				P: "ScalingMinZ", "bool", "", "",0
+				P: "ScalingMaxX", "bool", "", "",0
+				P: "ScalingMaxY", "bool", "", "",0
+				P: "ScalingMaxZ", "bool", "", "",0
+				P: "GeometricTranslation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricRotation", "Vector3D", "Vector", "",0,0,0
+				P: "GeometricScaling", "Vector3D", "Vector", "",1,1,1
+				P: "MinDampRangeX", "double", "Number", "",0
+				P: "MinDampRangeY", "double", "Number", "",0
+				P: "MinDampRangeZ", "double", "Number", "",0
+				P: "MaxDampRangeX", "double", "Number", "",0
+				P: "MaxDampRangeY", "double", "Number", "",0
+				P: "MaxDampRangeZ", "double", "Number", "",0
+				P: "MinDampStrengthX", "double", "Number", "",0
+				P: "MinDampStrengthY", "double", "Number", "",0
+				P: "MinDampStrengthZ", "double", "Number", "",0
+				P: "MaxDampStrengthX", "double", "Number", "",0
+				P: "MaxDampStrengthY", "double", "Number", "",0
+				P: "MaxDampStrengthZ", "double", "Number", "",0
+				P: "PreferedAngleX", "double", "Number", "",0
+				P: "PreferedAngleY", "double", "Number", "",0
+				P: "PreferedAngleZ", "double", "Number", "",0
+				P: "LookAtProperty", "object", "", ""
+				P: "UpVectorProperty", "object", "", ""
+				P: "Show", "bool", "", "",1
+				P: "NegativePercentShapeSupport", "bool", "", "",1
+				P: "DefaultAttributeIndex", "int", "Integer", "",-1
+				P: "Freeze", "bool", "", "",0
+				P: "LODBox", "bool", "", "",0
+				P: "Lcl Translation", "Lcl Translation", "", "A",0,0,0
+				P: "Lcl Rotation", "Lcl Rotation", "", "A",0,0,0
+				P: "Lcl Scaling", "Lcl Scaling", "", "A",1,1,1
+				P: "Visibility", "Visibility", "", "A",1
+				P: "Visibility Inheritance", "Visibility Inheritance", "", "",1
+			}
+		}
+	}
+	ObjectType: "Video" {
+		Count: 4
+		PropertyTemplate: "FbxVideo" {
+			Properties70:  {
+				P: "ImageSequence", "bool", "", "",0
+				P: "ImageSequenceOffset", "int", "Integer", "",0
+				P: "FrameRate", "double", "Number", "",0
+				P: "LastFrame", "int", "Integer", "",0
+				P: "Width", "int", "Integer", "",0
+				P: "Height", "int", "Integer", "",0
+				P: "Path", "KString", "XRefUrl", "", ""
+				P: "StartFrame", "int", "Integer", "",0
+				P: "StopFrame", "int", "Integer", "",0
+				P: "PlaySpeed", "double", "Number", "",0
+				P: "Offset", "KTime", "Time", "",0
+				P: "InterlaceMode", "enum", "", "",0
+				P: "FreeRunning", "bool", "", "",0
+				P: "Loop", "bool", "", "",0
+				P: "AccessMode", "enum", "", "",0
+			}
+		}
+	}
+}
+
+; Object properties
+;------------------------------------------------------------------
+
+Objects:  {
+	Geometry: 2271842544, "Geometry::", "Mesh" {
+		Vertices: *48 {
+			a: -0.0332512259483337,-0.499999523162842,0.5,0.5,-0.499999523162842,0.5,-0.0332512259483337,0.5,0.5,0.5,0.5,0.5,-0.0332512259483337,0.5,-0.499999761581421,0.5,0.5,-0.499999761581421,-0.0332512259483337,-0.499999523162842,-0.499999761581421,0.5,-0.499999523162842,-0.499999761581421,-0.905752062797546,0.535013973712921,0.621537923812866,0.5,0.535013973712921,0.621537923812866,0.5,0.535013973712921,-0.621537685394287,-0.905752062797546,0.535013973712921,-0.621537685394287,-0.905752062797546,0.876430571079254,0.621537923812866,0.5,0.876430571079254,0.621537923812866,0.5,0.876430571079254,-0.621537685394287,-0.905752062797546,0.876430571079254,-0.621537685394287
+		} 
+		PolygonVertexIndex: *56 {
+			a: 0,1,3,-3,12,13,14,-16,4,5,7,-7,6,7,1,-1,1,7,5,-4,6,0,2,-5,2,3,9,-9,3,5,10,-10,5,4,11,-11,4,2,8,-12,8,9,13,-13,9,10,14,-14,10,11,15,-15,11,8,12,-16
+		} 
+		Edges: *28 {
+			a: 0,2,8,10,3,1,22,18,11,9,15,13,27,25,26,29,30,33,34,38,43,41,4,45,5,49,6,7
+		} 
+		GeometryVersion: 124
+		LayerElementNormal: 0 {
+			Version: 102
+			Name: ""
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "Direct"
+			Normals: *168 {
+				a: 0,0,1,0,0,1,0,-0.203400254249573,0.979095578193665,0,-0.351948499679565,0.93601930141449,0,1,0,0,1,0,0,1,0,0,1,0,0,-0.351948499679565,-0.93601930141449,0,-0.203400254249573,-0.979095578193665,0,0,-1,0,0,-1,0,-0.99999988079071,0,0,-0.99999988079071,0,0,-0.99999988079071,0,0,-0.99999988079071,0,1,0,0,1,0,0,1,0,0,1,0,0,-1,0,0,-1,0,0,-0.699697017669678,-0.714439690113068,0,-0.699697017669678,-0.714439690113068,0,0,-0.351948499679565,0.93601930141449,0,-0.203400254249573,0.979095578193665,0,-0.223491504788399,0.974705815315247,0,-0.0223500616848469,0.999750137329102,1,0,0,1,0,0,1,0,0,1,0,0,0,-0.203400254249573,-0.979095578193665,0,-0.351948499679565,-0.93601930141449,0,-0.0223500616848469,-0.999750137329102,0,-0.223491504788399,-0.974705815315247,-0.699697017669678,-0.714439690113068,0,-0.699697017669678,-0.714439690113068,0,-0.458352744579315,-0.888770341873169,0,-0.458352744579315,-0.888770341873169,0,0,-0.0223500616848469,0.999750137329102,0,-0.223491504788399,0.974705815315247,0,0,1,0,0,1,1,0,0,1,0,0,1.00000011920929,0,0,1.00000011920929,0,0,0,-0.223491504788399,-0.974705815315247,0,-0.0223500616848469,-0.999750137329102,0,0,-1,0,0,-1,-0.458352744579315,-0.888770341873169,0,-0.458352744579315,-0.888770341873169,0,-1.00000011920929,0,0,-1.00000011920929,0,0
+			} 
+			NormalsW: *56 {
+				a: 1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1,1
+			} 
+		}
+		LayerElementUV: 0 {
+			Version: 101
+			Name: "map1"
+			MappingInformationType: "ByPolygonVertex"
+			ReferenceInformationType: "IndexToDirect"
+			UV: *64 {
+				a: 0.740512132644653,0.597580552101135,0.276408076286316,0.597040772438049,0.760705888271332,0.179549813270569,0.399430990219116,0.114111393690109,0.732357442378998,0.179549723863602,0.370967864990234,0.120198830962181,0.662086665630341,0.179549723863602,0.370967984199524,0.179549813270569,0.27511391043663,0.652111113071442,0.739218354225159,0.652651250362396,0.272348582744598,0.206794276833534,0.645164132118225,0.338801980018616,0.662087023258209,0.29207780957222,0.300697147846222,0.24133962392807,0.37096780538559,0.24133962392807,0.662087082862854,0.24133962392807,0.742939114570618,0.35781592130661,0.0538243874907494,0.596501111984253,0.961802124977112,0.653191208839417,0.272687017917633,0.89187628030777,0.278834313154221,0.356711506843567,0.0529796108603477,0.651571452617645,0.962647080421448,0.598121047019959,0.736791372299194,0.892980873584747,0.732357621192932,0.24133962392807,0.662087023258209,0.120198875665665,0.300697267055511,0.179549798369408,0.37096780538559,0.29207780957222,0.760705888271332,0.206794276833534,0.633623540401459,0.114112138748169,0.272348552942276,0.179549723863602,0.387890338897705,0.338801980018616
+			} 
+			UVIndex: *56 {
+				a: 9,0,22,18,14,7,6,15,21,17,1,8,8,1,0,9,0,1,20,16,8,9,23,19,10,30,26,13,3,29,25,5,2,28,24,4,11,31,27,12,13,26,7,14,5,25,6,7,4,24,15,6,12,27,14,15
+			} 
+		}
+		LayerElementMaterial: 0 {
+			Version: 101
+			Name: ""
+			MappingInformationType: "AllSame"
+			ReferenceInformationType: "IndexToDirect"
+			Materials: *1 {
+				a: 0
+			} 
+		}
+		Layer: 0 {
+			Version: 100
+			LayerElement:  {
+				Type: "LayerElementNormal"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementMaterial"
+				TypedIndex: 0
+			}
+			LayerElement:  {
+				Type: "LayerElementUV"
+				TypedIndex: 0
+			}
+		}
+	}
+	Model: 2279570128, "Model::pCube194", "Mesh" {
+		Version: 232
+		Properties70:  {
+			P: "RotationActive", "bool", "", "",1
+			P: "InheritType", "enum", "", "",1
+			P: "ScalingMax", "Vector3D", "Vector", "",0,0,0
+			P: "DefaultAttributeIndex", "int", "Integer", "",0
+			P: "Lcl Translation", "Lcl Translation", "", "A",561.47033846934,265.761390314601,157.477172531582
+			P: "Lcl Scaling", "Lcl Scaling", "", "A",10.9031541962207,49.7630760813298,114.079844181383
+			P: "currentUVSet", "KString", "", "U", "map1"
+		}
+		Shading: T
+		Culling: "CullingOff"
+	}
+	Material: 1975467392, "Material::ExitSign", "" {
+		Version: 102
+		ShadingModel: "unknown"
+		MultiLayer: 0
+		Properties70:  {
+			P: "Maya", "Compound", "", ""
+			P: "Maya|TypeId", "int", "Integer", "",1166017
+			P: "Maya|TEX_global_diffuse_cube", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_global_specular_cube", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_brdf_lut", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_texture_map_6122872", "Vector3D", "Vector", "",0,0,0
+			P: "Maya|TEX_texture_map_5364017", "Vector3D", "Vector", "",0,0,0
+		}
+	}
+	Video: 2236614720, "Video::file144", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ExitSign_D.tga"
+		}
+		UseMipMap: 0
+		Filename: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ExitSign_D.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\ExitSign_D.tga"
+	}
+	Video: 2236523120, "Video::file3", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/specular_cube.dds"
+		}
+		UseMipMap: 0
+		Filename: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/specular_cube.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\midday\specular_cube.dds"
+	}
+	Video: 2236522720, "Video::file2", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/diffuse_cube.dds"
+		}
+		UseMipMap: 0
+		Filename: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/diffuse_cube.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\midday\diffuse_cube.dds"
+	}
+	Video: 2236609120, "Video::file4", "Clip" {
+		Type: "Clip"
+		Properties70:  {
+			P: "Path", "KString", "XRefUrl", "", "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/ibl_brdf_lut.dds"
+		}
+		UseMipMap: 0
+		Filename: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/ibl_brdf_lut.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\ibl_brdf_lut.dds"
+	}
+	Texture: 2308077232, "Texture::file144", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file144"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file144"
+		FileName: "C:/Users/162015J/Desktop/new stuff/new models/KitchenProps/sourceimages/textures/ExitSign_D.tga"
+		RelativeFilename: "..\..\..\sourceimages\textures\ExitSign_D.tga"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 2308096432, "Texture::file3", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file3"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file3"
+		FileName: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/specular_cube.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\midday\specular_cube.dds"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 2308076272, "Texture::file2", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file2"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file2"
+		FileName: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/midday/diffuse_cube.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\midday\diffuse_cube.dds"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Texture: 2308083952, "Texture::file4", "" {
+		Type: "TextureVideoClip"
+		Version: 202
+		TextureName: "Texture::file4"
+		Properties70:  {
+			P: "UseMaterial", "bool", "", "",1
+		}
+		Media: "Video::file4"
+		FileName: "C:/Program Files/Autodesk/Maya2017/presets/ShaderFX/Images/PBS/ibl_brdf_lut.dds"
+		RelativeFilename: "..\..\..\..\..\..\..\..\..\Program Files\Autodesk\Maya2017\presets\ShaderFX\Images\PBS\ibl_brdf_lut.dds"
+		ModelUVTranslation: 0,0
+		ModelUVScaling: 1,1
+		Texture_Alpha_Source: "None"
+		Cropping: 0,0,0,0
+	}
+	Implementation: 1976211296, "Implementation::ExitSign_Implementation", "" {
+		Version: 100
+		Properties70:  {
+			P: "ShaderLanguage", "KString", "", "", "SFX"
+			P: "ShaderLanguageVersion", "KString", "", "", "28"
+			P: "RenderAPI", "KString", "", "", "SFX_PBS_SHADER"
+			P: "RootBindingName", "KString", "", "", "root"
+			P: "ShaderGraph", "Blob", "", "",4256 {
+				BinaryData: "U0ZCX1dJTiA9IHsgIC8qClZlcnNpb249MjgKR3JvdXBWZXJzaW9uPS0xLjAKQWR2YW5jZWQ9MApIZWxwSUQ9MApQYXJlbnRNYXRlcmlhbD0wCk51bWJlck9mTm9kZXM9NQojTlQ9MjAxNzYgMAoJUEM9MgoJcG9zeD0xIHY9MjAwMyA2MjUuMAoJcG9zeT0xIHY9MjAwMyAzODAuMAoJZ3JvdXA9LTEKCUlTQz0xMwoJCVNWVD01MDIyIDMwMDIgMSAwIDAgCgkJU1ZUPTUwMjIgMzAwMiAyIDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDMgMCAwIAoJCVNWVD01MDIyIDIwMDMgNCAwIDAgCgkJU1ZUPTUwMjIgMzAwMiA1IDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDYgMCAwIAoJCVNWVD01MDIyIDIwMDMgNyAwIDAgCgkJU1ZUPTUwMjIgMzAwMiA4IDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDkgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTAgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTEgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTQgMCAwIAoJCVNWVD01MDIyIDIwMDMgMTUgMCAwIAoJT1NDPTAKI05UPTIwMTc4IDAKCVBDPTIKCXBvc3g9MSB2PTIwMDMgMTAyLjUKCXBvc3k9MSB2PTIwMDMgMzU4Ljc1Cglncm91cD0tMQoJSVNDPTAKCU9TQz0xCgkJU1ZUPTUwMjIgMzAwMSAxIAoJCUNDPTEKCQkJQz0xIDAgMSAyIDAgMSAwCgkJCUNQQz0wCiNOVD0yMDE3NyAwCglQQz01CgluYW1lPTEgdj01MDAwIHRleHR1cmVfbWFwXzYxMjI4NzIKCXBvc3g9MSB2PTIwMDMgMzUyLjUKCXBvc3k9MSB2PTIwMDMgMzgyLjUKCXByZXZpZXdzd2F0Y2g9MSB2PTIwMDIgMQoJdGV4dHVyZXBhdGg9MiBlPTEgdj01MDAwIEM6L1VzZXJzLzE2MjAxNUovRGVza3RvcC9uZXcgc3R1ZmYvbmV3IG1vZGVscy9LaXRjaGVuUHJvcHMvc291cmNlaW1hZ2VzL3RleHR1cmVzL0V4aXRTaWduX0QudGdhCglncm91cD0tMQoJSVNDPTIKCQlTVlQ9NTAyMiAzMDAxIDEgMCAwIAoJCVNWVD01MDIyIDIwMDMgMiAwIDAgCglPU0M9MQoJCVNWVD01MDIyIDMwMDMgMyAKCQlDQz0xCgkJCUM9MiAwIDMgMCAxIDIgMAoJCQlDUEM9MAojTlQ9MjAxNzcgMAoJUEM9MwoJbmFtZT0xIHY9NTAwMCB0ZXh0dXJlX21hcF81MzY0MDE3Cglwb3N4PTEgdj0yMDAzIDM1OC43NQoJcG9zeT0xIHY9MjAwMyA1MjcuNQoJZ3JvdXA9LTEKCUlTQz0yCgkJU1ZUPTUwMjIgMzAwMSAxIDAgMCAKCQlTVlQ9NTAyMiAyMDAzIDIgMCAwIAoJT1NDPTEKCQlTVlQ9NTAyMiAzMDAzIDMgCgkJQ0M9MQoJCQlDPTMgMCAzIDAgNyA4IDAKCQkJQ1BDPTAKI05UPTIwMTc4IDAKCVBDPTIKCXBvc3g9MSB2PTIwMDMgMTM3LjUKCXBvc3k9MSB2PTIwMDMgNTQ2LjI1Cglncm91cD0tMQoJSVNDPTAKCU9TQz0xCgkJU1ZUPTUwMjIgMzAwMSAxIAoJCUNDPTEKCQkJQz00IDAgMSAzIDAgMSAwCgkJCUNQQz0wCgogKi8gfSAKY29ubmVjdGlvbnMgPSBbCgl7IAoJCWRlc3RpbmF0aW9uID0geyAKCQkJY29ubmVjdG9yX2lkID0gImFjYTY5MGNiLTYzMDUtNGEyZi1iZjNkLTY5MTgzYTQ5M2RiMyIgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMSIgCgkJfSAKCQlzZWxlY3QgPSBbIAoJCQkieHl6IiAKCQkJXSAKCQlzb3VyY2UgPSB7IAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjMiIAoJCX0gCgl9IAoJeyAKCQlkZXN0aW5hdGlvbiA9IHsgCgkJCWNvbm5lY3Rvcl9pZCA9ICIxZWU5YWYxZi02NWYyLTQ3MzktYWQyOC01ZWE2YTBlNjhmYzMiIAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjMiIAoJCX0gCgkJc291cmNlID0geyAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmIyIiAKCQl9IAoJfSAKCXsgCgkJZGVzdGluYXRpb24gPSB7IAoJCQljb25uZWN0b3JfaWQgPSAiMTE2NGE1ZWYtNDU2My00Nzk1LWIzYjUtNDI4MjVkNmRmMDM3IiAKCQkJaW5zdGFuY2VfaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmIxIiAKCQl9IAoJCXNlbGVjdCA9IFsgCgkJCSJ4eXoiIAoJCQldIAoJCXNvdXJjZSA9IHsgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiNCIgCgkJfSAKCX0gCgl7IAoJCWRlc3RpbmF0aW9uID0geyAKCQkJY29ubmVjdG9yX2lkID0gIjFlZTlhZjFmLTY1ZjItNDczOS1hZDI4LTVlYTZhMGU2OGZjMyIgCgkJCWluc3RhbmNlX2lkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiNCIgCgkJfSAKCQlzb3VyY2UgPSB7IAoJCQlpbnN0YW5jZV9pZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjUiIAoJCX0gCgl9IApdCmNvbnN0YW50cyA9IFsKXQpub2RlcyA9IFsKCXsgCgkJY29udGVudF9zaXplID0gWyAKCQkJMTYwIAoJCQkwIAoJCV0gCgkJZXhwb3J0ID0geyAKCQl9IAoJCWlkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMSIgCgkJb3B0aW9ucyA9IFsgCgkJXSAKCQlwb3NpdGlvbiA9IFsgCgkJCTYyNSAKCQkJMzgwIAoJCV0gCgkJc2FtcGxlcnMgPSB7IAoJCX0gCgkJdGl0bGUgPSAiU3RhbmRhcmQgQmFzZSIgCgkJdHlwZSA9ICJjb3JlL3N0aW5ncmF5X3JlbmRlcmVyL291dHB1dF9ub2Rlcy9zdGFuZGFyZF9iYXNlIiAKCX0gCgl7IAoJCWNvbnRlbnRfc2l6ZSA9IFsgCgkJCTE2MCAKCQkJMCAKCQldIAoJCWV4cG9ydCA9",
+ "IHsgCgkJfSAKCQlpZCA9ICJhYmJhYWJiYS1hYmJhLWFiYmEtYWJiYS1hYmJhYWJiYWFiYjMiIAoJCW9wdGlvbnMgPSBbIAoJCQkiMWUwNjc0NjQtMTJkOC00ODI2LTliNzItY2ZkNTc2NTAwM2UzIgoJCQkiZmIzZjcwOWItYTU0YS00ZTkzLWFjOWYtZTlmYzc2ZmI4YmNkIgoJCQkiNWRkNTliM2QtMTc2Mi00YTE0LTk5MzAtNzUwMDIzMGVmM2RiIgoJCV0gCgkJcG9zaXRpb24gPSBbIAoJCQkzNTIgCgkJCTM4MiAKCQldIAoJCXNhbXBsZXJzID0geyAKCQkJdGV4dHVyZV9tYXAgPSB7IAoJCQkJZGlzcGxheV9uYW1lID0gIlRleHR1cmUgTWFwIDYxMjI4NzIiIAoJCQkJc2xvdF9uYW1lID0gInRleHR1cmVfbWFwXzYxMjI4NzIiIAoJCQkJdWkgPSB7IAoJCQkJCW9yZGVyID0gMTAwIAoJCQkJfSAKCQkJfSAKCQl9IAoJCXRpdGxlID0gIlRleHR1cmUgTWFwIDYxMjI4NzIiIAoJCXR5cGUgPSAiY29yZS9zaGFkZXJfbm9kZXMvc2FtcGxlX3RleHR1cmUiIAoJfSAKCXsgCgkJY29udGVudF9zaXplID0gWyAKCQkJMTYwIAoJCQkwIAoJCV0gCgkJZXhwb3J0ID0geyAKCQl9IAoJCWlkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiMiIgCgkJb3B0aW9ucyA9IFsgCgkJXSAKCQlwb3NpdGlvbiA9IFsgCgkJCTEwMiAKCQkJMzU4IAoJCV0gCgkJc2FtcGxlcnMgPSB7IAoJCX0gCgkJdGl0bGUgPSAiVGV4Y29vcmQwIiAKCQl0eXBlID0gImNvcmUvc2hhZGVyX25vZGVzL3RleHR1cmVfY29vcmRpbmF0ZTAiIAoJfSAKCXsgCgkJY29udGVudF9zaXplID0gWyAKCQkJMTYwIAoJCQkwIAoJCV0gCgkJZXhwb3J0ID0geyAKCQl9IAoJCWlkID0gImFiYmFhYmJhLWFiYmEtYWJiYS1hYmJhLWFiYmFhYmJhYWJiNCIgCgkJb3B0aW9ucyA9IFsgCgkJCSIxZTA2NzQ2NC0xMmQ4LTQ4MjYtOWI3Mi1jZmQ1NzY1MDAzZTMiCgkJCSJmYjNmNzA5Yi1hNTRhLTRlOTMtYWM5Zi1lOWZjNzZmYjhiY2QiCgkJCSI1ZGQ1OWIzZC0xNzYyLTRhMTQtOTkzMC03NTAwMjMwZWYzZGIiCgkJXSAKCQlwb3NpdGlvbiA9IFsgCgkJCTM1OCAKCQkJNTI3IAoJCV0gCgkJc2FtcGxlcnMgPSB7IAoJCQl0ZXh0dXJlX21hcCA9IHsgCgkJCQlkaXNwbGF5X25hbWUgPSAiVGV4dHVyZSBNYXAgNTM2NDAxNyIgCgkJCQlzbG90X25hbWUgPSAidGV4dHVyZV9tYXBfNTM2NDAxNyIgCgkJCQl1aSA9IHsgCgkJCQkJb3JkZXIgPSAxMDAgCgkJCQl9IAoJCQl9IAoJCX0gCgkJdGl0bGUgPSAiVGV4dHVyZSBNYXAgNTM2NDAxNyIgCgkJdHlwZSA9ICJjb3JlL3NoYWRlcl9ub2Rlcy9zYW1wbGVfdGV4dHVyZSIgCgl9IAoJeyAKCQljb250ZW50X3NpemUgPSBbIAoJCQkxNjAgCgkJCTAgCgkJXSAKCQlleHBvcnQgPSB7IAoJCX0gCgkJaWQgPSAiYWJiYWFiYmEtYWJiYS1hYmJhLWFiYmEtYWJiYWFiYmFhYmI1IiAKCQlvcHRpb25zID0gWyAKCQldIAoJCXBvc2l0aW9uID0gWyAKCQkJMTM3IAoJCQk1NDYgCgkJXSAKCQlzYW1wbGVycyA9IHsgCgkJfSAKCQl0aXRsZSA9ICJUZXhjb29yZDAiIAoJCXR5cGUgPSAiY29yZS9zaGFkZXJfbm9kZXMvdGV4dHVyZV9jb29yZGluYXRlMCIgCgl9IApdCnZlcnNpb24gPSAzCgA="
+			}
+		}
+	}
+	BindingTable: 659644368, "BindingTable::root 1", "" {
+		Version: 100
+		Properties70:  {
+			P: "TargetName", "KString", "", "", "root"
+			P: "TargetType", "KString", "", "", "shader"
+		}
+		Entry: "Maya|TEX_texture_map_6122872", "FbxPropertyEntry", "TEX_texture_map_6122872", "FbxSemanticEntry"
+		Entry: "Maya|TEX_texture_map_5364017", "FbxPropertyEntry", "TEX_texture_map_5364017", "FbxSemanticEntry"
+		Entry: "Maya|TEX_global_specular_cube", "FbxPropertyEntry", "TEX_global_specular_cube", "FbxSemanticEntry"
+		Entry: "Maya|TEX_global_diffuse_cube", "FbxPropertyEntry", "TEX_global_diffuse_cube", "FbxSemanticEntry"
+		Entry: "Maya|TEX_brdf_lut", "FbxPropertyEntry", "TEX_brdf_lut", "FbxSemanticEntry"
+	}
+	AnimationStack: 2313133824, "AnimStack::Take 001", "" {
+		Properties70:  {
+			P: "LocalStart", "KTime", "Time", "",1924423250
+			P: "LocalStop", "KTime", "Time", "",230930790000
+			P: "ReferenceStart", "KTime", "Time", "",1924423250
+			P: "ReferenceStop", "KTime", "Time", "",230930790000
+		}
+	}
+	AnimationLayer: 2308318912, "AnimLayer::BaseLayer", "" {
+	}
+}
+
+; Object connections
+;------------------------------------------------------------------
+
+Connections:  {
+	
+	;Model::pCube194, Model::RootNode
+	C: "OO",2279570128,0
+	
+	;AnimLayer::BaseLayer, AnimStack::Take 001
+	C: "OO",2308318912,2313133824
+	
+	;Texture::file2, Material::ExitSign
+	C: "OP",2308076272,1975467392, "Maya|TEX_global_diffuse_cube"
+	
+	;Texture::file3, Material::ExitSign
+	C: "OP",2308096432,1975467392, "Maya|TEX_global_specular_cube"
+	
+	;Texture::file4, Material::ExitSign
+	C: "OP",2308083952,1975467392, "Maya|TEX_brdf_lut"
+	
+	;Texture::file144, Material::ExitSign
+	C: "OP",2308077232,1975467392, "Maya|TEX_texture_map_6122872"
+	
+	;Material::ExitSign, Implementation::ExitSign_Implementation
+	C: "OO",1975467392,1976211296
+	
+	;BindingTable::root 1, Implementation::ExitSign_Implementation
+	C: "OO",659644368,1976211296
+	
+	;Video::file144, Texture::file144
+	C: "OO",2236614720,2308077232
+	
+	;Video::file3, Texture::file3
+	C: "OO",2236523120,2308096432
+	
+	;Video::file2, Texture::file2
+	C: "OO",2236522720,2308076272
+	
+	;Video::file4, Texture::file4
+	C: "OO",2236609120,2308083952
+	
+	;Geometry::, Model::pCube194
+	C: "OO",2271842544,2279570128
+	
+	;Material::ExitSign, Model::pCube194
+	C: "OO",1975467392,2279570128
+}
+;Takes section
+;----------------------------------------------------
+
+Takes:  {
+	Current: "Take 001"
+	Take: "Take 001" {
+		FileName: "Take_001.tak"
+		LocalTime: 1924423250,230930790000
+		ReferenceTime: 1924423250,230930790000
+	}
+}
