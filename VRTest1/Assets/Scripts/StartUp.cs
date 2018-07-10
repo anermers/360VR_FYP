@@ -28,7 +28,6 @@ public class StartUp : MonoBehaviour {
         else
         {
             DestroyObject(gameObject);
-
         }
     }
     // Use this for initialization

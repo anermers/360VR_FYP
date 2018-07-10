@@ -1,6 +1,6 @@
 fileFormatVersion: 2
-guid: 8b7d651d65b760147a2d8a6de6f02864
-timeCreated: 1530264985
+guid: d604d8e3591bc07439a4b70ace7c4c50
+timeCreated: 1530855710
 licenseType: Free
 ModelImporter:
   serializedVersion: 19
@@ -8,30 +8,30 @@ ModelImporter:
     100000: CubeCarrot
     100002: Fish4
     100004: FishRice
-    100006: Normal
-    100008: Parsleythng
-    100010: pCube69
-    100012: pCube70
-    100014: pCube71
-    100016: pCube72
-    100018: pCube73
-    100020: pCube74
-    100022: pCube75
-    100024: pCube76
-    100026: pCube77
-    100028: pCube78
-    100030: pCube79
-    100032: pCube80
-    100034: pCube81
-    100036: pCube82
-    100038: pCube83
-    100040: pCube84
-    100042: pCube85
-    100044: pCube86
-    100046: pCube87
-    100048: pCube88
-    100050: pCylinder6
-    100052: //RootNode
+    100006: Parsleythng
+    100008: pCube69
+    100010: pCube70
+    100012: pCube71
+    100014: pCube72
+    100016: pCube73
+    100018: pCube74
+    100020: pCube75
+    100022: pCube76
+    100024: pCube77
+    100026: pCube78
+    100028: pCube79
+    100030: pCube80
+    100032: pCube81
+    100034: pCube82
+    100036: pCube83
+    100038: pCube84
+    100040: pCube85
+    100042: pCube86
+    100044: pCube87
+    100046: pCube88
+    100048: pCylinder6
+    100050: //RootNode
+    100052: PlateDishFinal
     100054: pPlane41
     100056: pPlane42
     100058: pPlane43
@@ -78,30 +78,30 @@ ModelImporter:
     400000: CubeCarrot
     400002: Fish4
     400004: FishRice
-    400006: Normal
-    400008: Parsleythng
-    400010: pCube69
-    400012: pCube70
-    400014: pCube71
-    400016: pCube72
-    400018: pCube73
-    400020: pCube74
-    400022: pCube75
-    400024: pCube76
-    400026: pCube77
-    400028: pCube78
-    400030: pCube79
-    400032: pCube80
-    400034: pCube81
-    400036: pCube82
-    400038: pCube83
-    400040: pCube84
-    400042: pCube85
-    400044: pCube86
-    400046: pCube87
-    400048: pCube88
-    400050: pCylinder6
-    400052: //RootNode
+    400006: Parsleythng
+    400008: pCube69
+    400010: pCube70
+    400012: pCube71
+    400014: pCube72
+    400016: pCube73
+    400018: pCube74
+    400020: pCube75
+    400022: pCube76
+    400024: pCube77
+    400026: pCube78
+    400028: pCube79
+    400030: pCube80
+    400032: pCube81
+    400034: pCube82
+    400036: pCube83
+    400038: pCube84
+    400040: pCube85
+    400042: pCube86
+    400044: pCube87
+    400046: pCube88
+    400048: pCylinder6
+    400050: //RootNode
+    400052: PlateDishFinal
     400054: pPlane41
     400056: pPlane42
     400058: pPlane43
@@ -145,9 +145,9 @@ ModelImporter:
     400134: transform97
     400136: transform98
     400138: transform99
-    2300000: Normal
-    3300000: Normal
-    4300000: Normal
+    2300000: PlateDishFinal
+    3300000: PlateDishFinal
+    4300000: PlateDishFinal
   materials:
     importMaterials: 1
     materialName: 0
