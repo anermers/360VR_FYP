@@ -65,7 +65,7 @@ public class ScenarioHandler : MonoBehaviour {
 
         scenarioContainer[name].gameObject.SetActive(true);
         currScenario = scenarioContainer[name];
-        currScenario.Init();
+        //currScenario.Init();
         RoomHandler.instance.ShowMenu();
 
         //instructionScreen.PopulateInsutructionMenu();
@@ -85,7 +85,7 @@ public class ScenarioHandler : MonoBehaviour {
         int index = Random.Range(0, scenarioList.Count - 1);
         scenarioList[index].gameObject.SetActive(true);
         currScenario = scenarioList[index];
-        currScenario.Init();
+        //currScenario.Init();
         //instructionScreen.PopulateInsutructionMenu();
         isScenarioActivated = true;
         PlayerToStartPos();
@@ -104,7 +104,7 @@ public class ScenarioHandler : MonoBehaviour {
         scenarioContainer["sf"].gameObject.SetActive(true);
         currScenario = scenarioContainer["sf"];
         currScenario.GetComponent<ScenarioFire>().IsBigFire = bigFire;
-        currScenario.Init();
+        //currScenario.Init();
         RoomHandler.instance.ShowMenu();
         isScenarioActivated = true;
         PlayerToStartPos();

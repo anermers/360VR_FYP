@@ -37,14 +37,12 @@ public class InstructionMenu : MonoBehaviour {
             {
                 // user can move nad menu is disable
                 gameObject.transform.position = uiCamera.transform.forward * 2f + uiCamera.transform.position;
-                gameObject.transform.rotation = Quaternion.LookRotation(gameObject.transform.position - player.transform.position);
+                gameObject.transform.rotation = Quaternion.LookRotation((gameObject.transform.position - player.transform.position).normalized);
             }
 
-            if(!ScenarioHandler.instance.CurrScenario.IsScenarioDone)
-            {
-                for (int i = 0; i <= ScenarioHandler.instance.CurrScenario.step; ++i)
-                    layoutPanel.transform.GetChild(i).GetComponent<Text>().color = Color.green;
-            }   
+            gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, 0);
+            // gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
+            //// transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
         }
     }
 
@@ -122,7 +120,32 @@ public class InstructionMenu : MonoBehaviour {
         }
     }
 
-    public void FillImage(int index)
+    public string StrikeThrough(string s)
     {
+        string strikethrough = "";
+        foreach (char c in s)
+        {
+            strikethrough = strikethrough + c + '\u0336';
+        }
+        return strikethrough;
+    }
+
+    public void SwitchInstruction(int index)
+    {
+        if (index < 0)
+            return;
+
+        if (!ScenarioHandler.instance.CurrScenario.IsScenarioDone)
+        {
+            Debug.Log(index);
+            layoutPanel.transform.GetChild(index).GetComponent<Text>().color = Color.green;
+            if(index > 0)
+            {
+                layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().color = Color.white;
+                layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().text = StrikeThrough(layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().text);
+            }
+        
+
+        }
     }
 }

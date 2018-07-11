@@ -31,22 +31,25 @@ public class ScenarioCut : ScenarioBase {
     public GameObject tempCollider;
     public GameObject MedTriggerLocal;
     public GameObject medKitCanvas;
+    public GameObject progressBar;
 
     public List<SCInfo> scInfoList;
 
     public STATE_SC currState;
     STATE_SC prevState;
-    int instructionIndex;
+    //int instructionIndex;
 
     Dictionary<STATE_SC, SCInfo> scInfoContainer;
 
     private float timer;
     private Animator chefAnimController;
+    private InstructionMenu instructionMenu;
 
     // Use this for initialization
     public void Start () {
         Debug.Log("sc start");
         traineeChef.transform.position = chefSpawnPoint.position;
+        instructionMenu = ScenarioHandler.instance.instructionScreen;
         allInstructions = new List<string>();
         scInfoContainer = new Dictionary<STATE_SC, SCInfo>();
         chefAnimController = traineeChef.GetComponent<Animator>();
@@ -78,6 +81,7 @@ public class ScenarioCut : ScenarioBase {
         }
         ScenarioHandler.instance.instructionScreen.PopulateInsutructionMenu();
         Init();
+        SetInstruction();
     }
 
     public override void Init()
@@ -88,12 +92,11 @@ public class ScenarioCut : ScenarioBase {
         isEventCompleted = false;
         isInteracted = false;
         isScenarioDone = false;
-        instructionIndex = 0;
+        //instructionIndex = 0;
         step = 0;
         timer = 5.0f;
         MedTriggerLocal.SetActive(false);
         medKitCanvas.SetActive(false);
-
         if (traineeChef.GetComponent<GetCut>() != null)
             traineeChef.GetComponent<GetCut>().enabled = true;
     }
@@ -110,16 +113,15 @@ public class ScenarioCut : ScenarioBase {
 
         if (prevState != currState)
         {
-            Debug.Log("StateChanged: " + currState.ToString());
+            Debug.Log("StateChanged");
             isEventCompleted = false;
             isInteracted = false;
+            //reset index for instructions
+            //instructionIndex = 0;
+            ++step;
             SetCurrentInteractable();
             SetInstruction();
             prevState = currState;
-            //reset index for instructions
-            instructionIndex = 0;
-            ++step;
-            //Debug.Log(step);
         }
 
         switch (currState)
@@ -133,6 +135,8 @@ public class ScenarioCut : ScenarioBase {
                 {
                     chefAnimController.SetBool("getsCut", true);
                     chefAnimController.SetBool("afterCutIdle", true);
+                    progressBar.SetActive(true);
+                    progressBar.GetComponent<ProgressBar>().currValue = 0f;
                     SwitchState((int)STATE_SC.STATE_GET_MEDKIT);
                 }
                 break;
@@ -159,17 +163,26 @@ public class ScenarioCut : ScenarioBase {
             case STATE_SC.STATE_PURIFIED_WATER:
                 //Get purified water and apply on traineeChef
                 if (isEventCompleted)
+                {
+                    progressBar.GetComponent<ProgressBar>().AddProgress(35f);
                     SwitchState((int)STATE_SC.STATE_APPLY_GAUZE);
+                }
                 break;
             case STATE_SC.STATE_APPLY_GAUZE:
                 //Get gauze and apply on traineeChef
                 if (isEventCompleted)
+                {
+                    progressBar.GetComponent<ProgressBar>().AddProgress(35f);
                     SwitchState((int)STATE_SC.STATE_APPLY_BANDANGE);
+                }
                 break;
             case STATE_SC.STATE_APPLY_BANDANGE:
                 //Get bandage and apply on traineeChef
                 if (isEventCompleted)
+                {
+                    progressBar.GetComponent<ProgressBar>().AddProgress(35f);
                     isScenarioDone = true;
+                }
                 break;
         }
     }
@@ -190,6 +203,7 @@ public class ScenarioCut : ScenarioBase {
              || scInfoContainer[currState].description == null)
             return;
         ScenarioHandler.instance.description.text = scInfoContainer[currState].description;
+        instructionMenu.SwitchInstruction(step);
     }
 
     protected override void SetCurrentInteractable()

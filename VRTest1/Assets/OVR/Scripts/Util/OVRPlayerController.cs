@@ -148,11 +148,11 @@ public class OVRPlayerController : MonoBehaviour
 	void Update()
 	{
 		//Use keys to ratchet rotation
-		if (Input.GetKeyDown(KeyCode.Q))
-			buttonRotation -= RotationRatchet;
+		//if (Input.GetKeyDown(KeyCode.Q))
+		//	buttonRotation -= RotationRatchet;
 
-		if (Input.GetKeyDown(KeyCode.E))
-			buttonRotation += RotationRatchet;
+		//if (Input.GetKeyDown(KeyCode.E))
+		//	buttonRotation += RotationRatchet;
 	}
 
 	protected virtual void UpdateController()
@@ -354,10 +354,9 @@ public class OVRPlayerController : MonoBehaviour
             //up/down
             euler.x -= Input.GetAxis("Mouse Y") * rotateInfluence * 3.25f;
         }
-	
 #endif
 
-		moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
+        moveInfluence = Acceleration * 0.1f * MoveScale * MoveScaleMultiplier;
 
 #if !UNITY_ANDROID // LeftTrigger not avail on Android game pad
 		moveInfluence *= 1.0f + OVRInput.Get(OVRInput.Axis1D.PrimaryIndexTrigger);

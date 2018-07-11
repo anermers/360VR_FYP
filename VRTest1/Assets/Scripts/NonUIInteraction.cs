@@ -34,18 +34,18 @@ public class NonUIInteraction : MonoBehaviour {
             t.gameObject.GetComponent<Outline>().enabled = true;
             //t.gameObject.GetComponent<Renderer>().material = yellowMat;
         }       
-        infoText.text = "";
-        if(RoomHandler.instance.CurrKey != null)
-        {
-            foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
-            {
-                if (iter.item.Equals(t.gameObject))
-                {
-                    infoText.text = iter.itemName;
-                    break;
-                }
-            }
-        }
+        //infoText.text = "";
+        //if(RoomHandler.instance.CurrKey != null)
+        //{
+        //    foreach (ItemInfo iter in RoomHandler.instance.RoomInfoContainer[RoomHandler.instance.CurrKey].itemList)
+        //    {
+        //        if (iter.item.Equals(t.gameObject))
+        //        {
+        //            infoText.text = iter.itemName;
+        //            break;
+        //        }
+        //    }
+        //}
         infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y, t.gameObject.transform.position.z);
         infoText.transform.rotation = Quaternion.LookRotation(infoText.transform.position - playerCam.transform.position);
         //Rotate Text to face the camera

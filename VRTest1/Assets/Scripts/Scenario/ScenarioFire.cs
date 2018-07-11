@@ -42,10 +42,10 @@ public class ScenarioFire : ScenarioBase
     public Animator doorAnim;
     public List<SFInfo> sfInfoList;
 
-    STATE_SF currState;
+    public STATE_SF currState;
     STATE_SF prevState;
     bool isBigFire = true;
-    int instructionIndex;
+    //int instructionIndex;
     Dictionary<STATE_SF, SFInfo> sfInfoContainer;
 
     private float timer;
@@ -54,6 +54,8 @@ public class ScenarioFire : ScenarioBase
     private List<string> smallInstructionList;
     private List<string> largeInstructionList;
 
+    private InstructionMenu instructionMenu;
+
     public bool IsBigFire { get { return isBigFire; } set { isBigFire = value; } }
 
     // Use this for initialization
@@ -61,7 +63,7 @@ public class ScenarioFire : ScenarioBase
         Debug.Log("sf_start");
 
         traineeChef.transform.position = chefSpawnPoint.position;
-
+        instructionMenu = ScenarioHandler.instance.instructionScreen;
         sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
         allInstructions = new List<string>();
         smallInstructionList = new List<string>();
@@ -123,7 +125,7 @@ public class ScenarioFire : ScenarioBase
         isInteracted = false;
         isScenarioDone = false;
         step = -1;
-        instructionIndex = 0;
+        //instructionIndex = 0;
 
         if(!isBigFire)
             allInstructions = smallInstructionList;
@@ -165,13 +167,12 @@ public class ScenarioFire : ScenarioBase
             Debug.Log("StateChanged");
             isEventCompleted = false;
             isInteracted = false;
+            //reset index for instructions
+            //instructionIndex = 0;
+            ++step;
             SetCurrentInteractable();
             SetInstruction();
             prevState = currState;
-            //reset index for instructions
-            instructionIndex = 0;
-            ++step;
-            //Debug.Log(step);
         }
 
         switch(currState)
@@ -248,6 +249,7 @@ public class ScenarioFire : ScenarioBase
             || sfInfoContainer[currState].description == null)
             return;
         ScenarioHandler.instance.description.text = sfInfoContainer[currState].description;
+        instructionMenu.SwitchInstruction(step);
         //GameObject go = Instantiate(sfInfoContainer[currState].interactables[0]);
         //go.transform.position = ScenarioHandler.instance.displayGO.transform.position;
         //go.transform.eulerAngles = new Vector3(0,180,0);

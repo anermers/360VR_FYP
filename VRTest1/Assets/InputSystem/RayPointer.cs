@@ -34,7 +34,7 @@ public class RayPointer : MonoBehaviour {
 
     [Header("Other modifiers")]
     public GameObject kitchenModel;
-    public GameObject testPoint;
+    //public GameObject testPoint;
     public GameObject instructionMenu;
     public Camera CentreEyeCamera;
     public bool isController = true;
@@ -72,8 +72,8 @@ public class RayPointer : MonoBehaviour {
         DefaultPos = transform.position;
 
         //set active state of point for the raycast from centre eye
-        if(testPoint != null)
-            testPoint.SetActive(!isController);
+        //if(testPoint != null)
+        //    testPoint.SetActive(!isController);
 
         lineReference = lineRenderer;
     }
@@ -169,8 +169,10 @@ public class RayPointer : MonoBehaviour {
                 return inputModule.SelectionRay;
             }
 
-            if(!isController && testPoint != null)
-                testPoint.transform.localPosition = worldStartPoint + worldOrientation;
+            Vector3 screenPoint = CentreEyeCamera.WorldToScreenPoint(wPoint);
+
+            //if(!isController && testPoint != null)
+            //    testPoint.transform.localPosition = worldStartPoint + worldOrientation;
         }
       
         return new Ray();
@@ -181,8 +183,8 @@ public class RayPointer : MonoBehaviour {
         DisableLineRendererIfNeeded();
         Ray selectionRay = UpdateCastRayIfPossible();
 
-        if (!isController && testPoint != null)
-            testPoint.transform.position = transform.position + wPoint;
+        //if (!isController && testPoint != null)
+        //    testPoint.transform.position = transform.position + wPoint;
 
         if (OVRInput.Get(OVRInput.Button.Back, activeController) ||
         Input.GetKeyDown(KeyCode.F6))
@@ -207,8 +209,8 @@ public class RayPointer : MonoBehaviour {
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F11))
-            ScenarioHandler.instance.ScenarioFireSelect(false);
-            //ScenarioHandler.instance.SelectScenarioType("sb");
+            //ScenarioHandler.instance.ScenarioFireSelect(true);
+            ScenarioHandler.instance.SelectScenarioType("sc");
         //if (Input.GetKeyDown(KeyCode.F12))
         //    ScenarioHandler.instance.RandomScenarioType();
 #endif
@@ -316,9 +318,6 @@ public class RayPointer : MonoBehaviour {
             }
             lastHit = null;
         }
-
 #endif
-
-
     }
 }

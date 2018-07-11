@@ -37,10 +37,11 @@ public class CollisionChecker : MonoBehaviour {
             {
                 other.gameObject.SetActive(false);
             }
-            else
+            if(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioFire>().currState
+                == ScenarioFire.STATE_SF.STATE_EVACUATE)
             {
-                Debug.Log("other name:" + other.name);
-                Debug.Log("this go name:" + gameObject.name);
+                if (gameObject.name == "Evac" && other.tag == "Player")
+                    ScenarioHandler.instance.CurrScenario.IsInteracted = true;
             }
         }
 

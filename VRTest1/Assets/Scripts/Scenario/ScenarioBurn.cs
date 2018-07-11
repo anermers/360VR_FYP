@@ -31,20 +31,23 @@ public class ScenarioBurn : ScenarioBase
     public GameObject tempCollider;
     public GameObject MedTriggerLocal;
     public GameObject medKitCanvas;
+    public GameObject progressBar;
+
     public List<SBInfo> sbInfoList;
 
     public STATE_SB currState;
     private STATE_SB prevState;
-    private int instructionIndex;
+    //private int instructionIndex;
     private Dictionary<STATE_SB, SBInfo> sbInfoContainer;
 
     private float timer;
     private Animator chefAnimController;
+    private InstructionMenu instructionMenu;
 
     // Use this for initialization
     public void Start () {
-
         traineeChef.transform.position = chefSpawnPoint.position;
+        instructionMenu = ScenarioHandler.instance.instructionScreen;
         sbInfoContainer = new Dictionary<STATE_SB, SBInfo>();
         allInstructions = new List<string>();
         chefAnimController = traineeChef.GetComponent<Animator>();
@@ -82,6 +85,7 @@ public class ScenarioBurn : ScenarioBase
         }
         ScenarioHandler.instance.instructionScreen.PopulateInsutructionMenu();
         Init();
+        SetInstruction();
     }
 
     public override void Init()
@@ -95,14 +99,13 @@ public class ScenarioBurn : ScenarioBase
         isInteracted = false;
         isScenarioDone = false;
         //setting of other variables
-        instructionIndex = 0;
+        //instructionIndex = 0;
         // starting index of curr instruction to follow
         step = 0;
         timer = 8.0f;
         // settign of active for gameObject
         MedTriggerLocal.SetActive(false);
         medKitCanvas.SetActive(false);
-
         // Enabling of related scripts
         if (traineeChef.GetComponent<GetBurn>() != null)
             traineeChef.GetComponent<GetBurn>().enabled = true;
@@ -120,16 +123,15 @@ public class ScenarioBurn : ScenarioBase
 
         if (prevState != currState)
         {
-            Debug.Log("StateChanged: " + currState.ToString());
+            Debug.Log("StateChanged");
             isEventCompleted = false;
             isInteracted = false;
+            //reset index for instructions
+            //instructionIndex = 0;
+            ++step;
             SetCurrentInteractable();
             SetInstruction();
             prevState = currState;
-            //reset index for instructions
-            instructionIndex = 0;
-            ++step;
-            //Debug.Log(step);
         }
 
         switch (currState)
@@ -143,6 +145,8 @@ public class ScenarioBurn : ScenarioBase
                 {
                     chefAnimController.SetBool("getsBurn", true);
                     chefAnimController.SetBool("afterBurnIdle", true);
+                    progressBar.SetActive(true);
+                    progressBar.GetComponent<ProgressBar>().currValue = 0f;
                     SwitchState((int)STATE_SB.STATE_GET_MEDKIT);
                 }
                 break;
@@ -202,6 +206,7 @@ public class ScenarioBurn : ScenarioBase
             return;
 
         ScenarioHandler.instance.description.text = sbInfoContainer[currState].description;
+        instructionMenu.SwitchInstruction(step);
     }
 
     protected override void SetCurrentInteractable()

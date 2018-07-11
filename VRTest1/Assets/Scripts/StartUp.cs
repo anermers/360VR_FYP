@@ -44,8 +44,10 @@ public class StartUp : MonoBehaviour {
 	
 	// Update is called once per frame
 	void Update () {
+        if (!chefAnim.gameObject.activeSelf)
+            return;
 
-        if(chefAnim.GetCurrentAnimatorStateInfo(0).IsName("PlaceDishIdle"))
+        if (chefAnim.GetCurrentAnimatorStateInfo(0).IsName("PlaceDishIdle"))
         {
             // get key input
             if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) ||
