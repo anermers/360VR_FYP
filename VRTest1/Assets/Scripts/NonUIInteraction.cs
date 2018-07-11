@@ -15,6 +15,10 @@ public class NonUIInteraction : MonoBehaviour {
     public Material pinkMat;
     public GameObject snap;
 
+    public static GameObject
+        firstObjSelected,
+        secObjSelected;
+
     public static bool objectSelected = false;
 
     public void OnHoverEnter(Transform t) {
@@ -104,6 +108,36 @@ public class NonUIInteraction : MonoBehaviour {
                     t.gameObject.GetComponent<Outline>().color = 2;
                 MedKitUI.Spawn = true;
             }
+        }
+
+        if(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState == ScenarioBurn.STATE_SB.STATE_WASH_HANDS)
+        {
+            if(t.gameObject.tag != "PickUP")
+            {
+                if (firstObjSelected == null && secObjSelected == null)
+                    if (firstObjSelected == null)
+                        firstObjSelected = t.gameObject;                        
+                    else
+                    {
+                        if (t.gameObject != firstObjSelected)
+                            secObjSelected = t.gameObject;
+                        Arrow.instance.objectToSnap = ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().sink;
+                    }
+                else
+                    if (firstObjSelected.name != "Chef" && secObjSelected.name != "SinkEmpty")
+                        firstObjSelected = secObjSelected = null;
+                    else
+                        ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().chefToSink = true;
+            }
+            //else
+
+
+            //if(t.gameObject.name == "Chef")
+            //    firstObjSelected = t.gameObject;
+
+            //if (firstObjSelected == ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().traineeChef)
+            //    if (t.gameObject.name == "SinkEmpty")
+            //        secObjSelected = t.gameObject;
         }
 
     }

@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 [System.Serializable]
 public class ObjectInfo
@@ -19,6 +20,7 @@ public class MedKitUI : MonoBehaviour {
     public Text descriptionText;
     public static bool Spawn = false;
     private int selection;
+    private Vector3 originalScale;
 
 
     private List<GameObject> spawnedObjects;
@@ -27,7 +29,8 @@ public class MedKitUI : MonoBehaviour {
         selection = 0;
         Spawn = false;
         spawnedObjects = new List<GameObject>();
-	}
+        originalScale = new Vector3(0, 0, 0);
+    }
 	
 	// Update is called once per frame
 	void Update () {
@@ -42,20 +45,6 @@ public class MedKitUI : MonoBehaviour {
 
         if(Spawn)
             SpawnObject();   
-    }
-    //On click function
-    public void SetObject(int _selection)
-    {
-        if (selection != _selection)
-        {
-            foreach (GameObject iter in spawnedObjects)
-                Destroy(iter);
-
-            selection = _selection;
-            SpawnObject();
-            SetName();
-            SetDescription();
-        }
     }
     void SetName()
     {
@@ -77,5 +66,31 @@ public class MedKitUI : MonoBehaviour {
         temp.GetComponent<Rigidbody>().isKinematic = true;
         Spawn = false;
         spawnedObjects.Add(temp);
+    }
+    //On click functions
+    public void SetObject(int _selection)
+    {
+        if (selection != _selection)
+        {
+            foreach (GameObject iter in spawnedObjects)
+                Destroy(iter);
+
+            selection = _selection;
+            SpawnObject();
+            SetName();
+            SetDescription();
+        }
+    }
+    public void OnPointerEnter(Transform t)
+    {
+        //Debug.Log("POINTER ENTERED " + t.name);
+        originalScale = t.transform.localScale;
+        t.localScale = new Vector3(1.2f, 1.2f, 1);
+    }
+
+    public void OnPointerExit(Transform t)
+    {
+        //Debug.Log("POINTER EXITED " + t.name);
+        t.localScale = originalScale;
     }
 }
