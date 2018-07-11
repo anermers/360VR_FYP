@@ -26,12 +26,17 @@ public class ScenarioBurn : ScenarioBase
         STATE_TOTAL
     }
 
-    public GameObject traineeChef;
-    public GameObject MedKit;
-    public GameObject tempCollider;
-    public GameObject MedTriggerLocal;
-    public GameObject medKitCanvas;
+    public GameObject 
+    traineeChef,
+    MedKit,
+    tempCollider,
+    MedTriggerLocal,
+    medKitCanvas,
+    sinkLocal,
+    sink;
+
     public List<SBInfo> sbInfoList;
+    public bool chefToSink;
 
     public STATE_SB currState;
     private STATE_SB prevState;
@@ -102,6 +107,7 @@ public class ScenarioBurn : ScenarioBase
         // settign of active for gameObject
         MedTriggerLocal.SetActive(false);
         medKitCanvas.SetActive(false);
+        chefToSink = false;
 
         // Enabling of related scripts
         if (traineeChef.GetComponent<GetBurn>() != null)
@@ -143,11 +149,28 @@ public class ScenarioBurn : ScenarioBase
                 {
                     chefAnimController.SetBool("getsBurn", true);
                     chefAnimController.SetBool("afterBurnIdle", true);
-                    SwitchState((int)STATE_SB.STATE_GET_MEDKIT);
+
+                    if (AnimatorIsPlaying("After Burn Idle"))
+                        SwitchState((int)STATE_SB.STATE_WASH_HANDS);
                 }
                 break;
-            case STATE_SB.STATE_WASH_HANDS:
-                SwitchState((int)STATE_SB.STATE_GET_MEDKIT);
+            case STATE_SB.STATE_WASH_HANDS:                 
+                if(!chefToSink)
+                {
+                    if (NonUIInteraction.firstObjSelected == null)
+                        Arrow.instance.objectToSnap = ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().traineeChef;
+                    else
+                        Arrow.instance.objectToSnap = ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().sink;
+                }
+                else 
+                {
+                    traineeChef.transform.position = sinkLocal.transform.position;
+                    traineeChef.transform.LookAt(sink.transform.position);
+                    chefAnimController.SetBool("afterCutIdle", true);
+                    //play wash hand animation
+                }
+                if (isEventCompleted)
+                    SwitchState((int)STATE_SB.STATE_GET_MEDKIT);
                 break;
             case STATE_SB.STATE_GET_MEDKIT:
                 //Player finds the medkit and brings in to a certain location
@@ -225,5 +248,15 @@ public class ScenarioBurn : ScenarioBase
                 go.GetComponent<Outline>().enabled = true;
             ScenarioHandler.instance.interactableGO.Add(go);
         }
+    }
+    //Functions to check if animations has ended or whihch animation is still playing
+    bool AnimatorIsPlaying()
+    {
+        return chefAnimController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
+    }
+
+    bool AnimatorIsPlaying(string stateName)
+    {
+        return AnimatorIsPlaying() && chefAnimController.GetCurrentAnimatorStateInfo(0).IsName(stateName);
     }
 }

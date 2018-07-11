@@ -23,6 +23,7 @@ public class ScenarioCut : ScenarioBase {
         STATE_OPEN_MEDKIT,
         STATE_PURIFIED_WATER,
         STATE_APPLY_GAUZE,
+        STATE_APPLY_YELLOW_ACRI,
         STATE_APPLY_BANDANGE,
         STATE_TOTAL
     };
@@ -133,7 +134,9 @@ public class ScenarioCut : ScenarioBase {
                 {
                     chefAnimController.SetBool("getsCut", true);
                     chefAnimController.SetBool("afterCutIdle", true);
-                    SwitchState((int)STATE_SC.STATE_GET_MEDKIT);
+
+                    if (AnimatorIsPlaying("After Cut Idle"))
+                        SwitchState((int)STATE_SC.STATE_GET_MEDKIT);
                 }
                 break;
             case STATE_SC.STATE_GET_MEDKIT:
@@ -162,7 +165,12 @@ public class ScenarioCut : ScenarioBase {
                     SwitchState((int)STATE_SC.STATE_APPLY_GAUZE);
                 break;
             case STATE_SC.STATE_APPLY_GAUZE:
-                //Get gauze and apply on traineeChef
+                //Get gauze and apply pressure on traineeChef
+                if (isEventCompleted)
+                    SwitchState((int)STATE_SC.STATE_APPLY_YELLOW_ACRI);
+                break;
+            case STATE_SC.STATE_APPLY_YELLOW_ACRI:
+                //Apply yellow ACRI solution
                 if (isEventCompleted)
                     SwitchState((int)STATE_SC.STATE_APPLY_BANDANGE);
                 break;
@@ -207,6 +215,16 @@ public class ScenarioCut : ScenarioBase {
                 go.GetComponent<Outline>().enabled = true;
             ScenarioHandler.instance.interactableGO.Add(go);
         }
+    }
+    //Functions to check if animations has ended or whihch animation is still playing
+    bool AnimatorIsPlaying()
+    {
+        return chefAnimController.GetCurrentAnimatorStateInfo(0).normalizedTime < 1;
+    }
+
+    bool AnimatorIsPlaying(string stateName)
+    {
+        return AnimatorIsPlaying() && chefAnimController.GetCurrentAnimatorStateInfo(0).IsName(stateName);
     }
 
 }

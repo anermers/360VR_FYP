@@ -72,11 +72,15 @@ public class CollisionChecker : MonoBehaviour {
                 switch (ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioCut>().currState)
                 {
                     case ScenarioCut.STATE_SC.STATE_PURIFIED_WATER:
-                        if (other.name == "Acriflavine Solution(Clone)")
+                        if (other.name == "EyeWash(Clone)")
                             correctOBJ = true;
                         break;
                     case ScenarioCut.STATE_SC.STATE_APPLY_GAUZE:
                         if (other.name == "Gauze(Clone)")
+                            correctOBJ = true;
+                        break;
+                    case ScenarioCut.STATE_SC.STATE_APPLY_YELLOW_ACRI:
+                        if (other.name == "Acriflavine Solution(Clone)")
                             correctOBJ = true;
                         break;
                     case ScenarioCut.STATE_SC.STATE_APPLY_BANDANGE:
