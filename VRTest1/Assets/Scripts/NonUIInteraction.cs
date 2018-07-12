@@ -14,6 +14,7 @@ public class NonUIInteraction : MonoBehaviour {
     public Material redMat;
     public Material pinkMat;
     public GameObject snap;
+    public LineRenderer line;
 
     public static GameObject
         firstObjSelected,
@@ -57,6 +58,12 @@ public class NonUIInteraction : MonoBehaviour {
             infoText.text = t.gameObject.name;
     }
 
+    public void OnHover(Transform t)
+    {
+        if (line != null)
+            line.SetPosition(1, t.transform.position);
+    }
+
     public void OnHoverExit(Transform t) {
 
         if (t.gameObject.GetComponent<Renderer>() != null)
@@ -94,7 +101,7 @@ public class NonUIInteraction : MonoBehaviour {
                 t.gameObject.transform.position = snap.transform.position;
                 t.gameObject.transform.parent = playerController.transform;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-               
+                line.enabled = false;
             }
             else
             {
@@ -106,6 +113,7 @@ public class NonUIInteraction : MonoBehaviour {
                 if (t.gameObject.GetComponent<Renderer>() != null && t.gameObject.GetComponent<Outline>() != null)
                     t.gameObject.GetComponent<Outline>().color = 2;
                 MedKitUI.Spawn = true;
+                line.enabled = true;
             }
         }
 

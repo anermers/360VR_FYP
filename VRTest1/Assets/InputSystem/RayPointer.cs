@@ -34,11 +34,12 @@ public class RayPointer : MonoBehaviour {
 
     [Header("Other modifiers")]
     public GameObject kitchenModel;
-    //public GameObject testPoint;
+    public GameObject testPoint;
     public GameObject instructionMenu;
     public Camera CentreEyeCamera;
-    public bool isController = true;
+    public bool isController = false;
     public Vector3 wPoint;
+    private Vector3 wsPoint;
 
     private Vector3 DefaultPos;
     private LineRenderer lineReference;
@@ -87,6 +88,7 @@ public class RayPointer : MonoBehaviour {
     void RayHitSomething(Vector3 hitPosition, Vector3 hitNormal) {
         if (lineRenderer != null) {
             lineRenderer.SetPosition(1, hitPosition);
+            //testPoint.transform.position = hitPosition;
         }
     }
 
@@ -142,22 +144,25 @@ public class RayPointer : MonoBehaviour {
             Quaternion orientation = new Quaternion();
             Vector3 localStartPoint = new Vector3();
             
-            if(!isController)
-            {
-                orientation = CentreEyeCamera.transform.rotation;
-                localStartPoint = CentreEyeCamera.transform.localPosition;
-            }
-            else
-            {
-                orientation = OVRInput.GetLocalControllerRotation(activeController);
-                localStartPoint = OVRInput.GetLocalControllerPosition(activeController);
-            }
+            //if(!isController)
+            //{
+            //    orientation = CentreEyeCamera.transform.rotation;
+            //    localStartPoint = CentreEyeCamera.transform.localPosition;
+            //}
+            //else
+            //{
+            //    orientation = OVRInput.GetLocalControllerRotation(activeController);
+            //    localStartPoint = OVRInput.GetLocalControllerPosition(activeController);
+            //}
 
+            orientation = OVRInput.GetLocalControllerRotation(activeController);
+            localStartPoint = OVRInput.GetLocalControllerPosition(activeController);
 
             Matrix4x4 localToWorld = trackingSpace.localToWorldMatrix;
             Vector3 worldStartPoint = localToWorld.MultiplyPoint(localStartPoint);
             Vector3 worldOrientation = localToWorld.MultiplyVector(orientation * Vector3.forward);
             wPoint = worldOrientation;
+            wsPoint = worldStartPoint;
 
             if (lineRenderer != null) {
                 lineRenderer.SetPosition(0, worldStartPoint);
@@ -172,7 +177,8 @@ public class RayPointer : MonoBehaviour {
             //Vector3 screenPoint = CentreEyeCamera.WorldToScreenPoint(wPoint);
             //testPoint.transform.position = screenPoint;
             //if(!isController && testPoint != null)
-            //    testPoint.transform.localPosition = worldStartPoint + worldOrientation;
+            //if (testPoint != null)
+            //    testPoint.transform.position = worldStartPoint + worldOrientation;
         }
       
         return new Ray();
@@ -184,7 +190,8 @@ public class RayPointer : MonoBehaviour {
         Ray selectionRay = UpdateCastRayIfPossible();
 
         //if (!isController && testPoint != null)
-        //    testPoint.transform.position = transform.position + wPoint;
+        //if (testPoint != null)
+        //    testPoint.transform.position = wsPoint + wPoint;
 
         if (OVRInput.Get(OVRInput.Button.Back, activeController) ||
         Input.GetKeyDown(KeyCode.F6))

@@ -186,6 +186,7 @@ public class ScenarioBurn : ScenarioBase
                     traineeChef.transform.position = sinkLocal.transform.position;
                     traineeChef.transform.LookAt(sink.transform.position);
                     chefAnimController.SetBool("afterCutIdle", true);
+                    traineeChef.GetComponent<BoxCollider>().center = new Vector3(traineeChef.GetComponent<BoxCollider>().center.x, traineeChef.GetComponent<BoxCollider>().center.y, 0);
                     SwitchState((int)STATE_SB.STATE_GET_MEDKIT);
                     //play wash hand animation
                 }
