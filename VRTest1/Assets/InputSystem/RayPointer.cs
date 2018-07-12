@@ -169,8 +169,8 @@ public class RayPointer : MonoBehaviour {
                 return inputModule.SelectionRay;
             }
 
-            Vector3 screenPoint = CentreEyeCamera.WorldToScreenPoint(wPoint);
-
+            //Vector3 screenPoint = CentreEyeCamera.WorldToScreenPoint(wPoint);
+            //testPoint.transform.position = screenPoint;
             //if(!isController && testPoint != null)
             //    testPoint.transform.localPosition = worldStartPoint + worldOrientation;
         }
@@ -209,7 +209,8 @@ public class RayPointer : MonoBehaviour {
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F11))
-            ScenarioHandler.instance.SelectScenarioType("sb");
+            ScenarioHandler.instance.ScenarioFireSelect(false);
+            //ScenarioHandler.instance.SelectScenarioType("sb");
         //if (Input.GetKeyDown(KeyCode.F12))
         //    ScenarioHandler.instance.RandomScenarioType();
 #endif

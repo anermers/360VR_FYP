@@ -110,7 +110,8 @@ public class NonUIInteraction : MonoBehaviour {
             }
         }
 
-        if(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState == ScenarioBurn.STATE_SB.STATE_WASH_HANDS)
+        if (ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>() != null &&
+                ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState == ScenarioBurn.STATE_SB.STATE_WASH_HANDS)
         {
             if(t.gameObject.tag != "PickUP")
             {
