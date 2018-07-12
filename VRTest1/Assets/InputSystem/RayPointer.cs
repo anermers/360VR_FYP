@@ -133,7 +133,7 @@ public class RayPointer : MonoBehaviour {
     }
 
     void DisableLineRendererIfNeeded() {
-        if (lineRenderer != null && isController) {
+        if (lineRenderer != null) {
             lineRenderer.enabled = trackingSpace != null && activeController != OVRInput.Controller.None;
         }
     }
@@ -186,12 +186,17 @@ public class RayPointer : MonoBehaviour {
 
 	void Update () {
         DetermineActiveController();
-        DisableLineRendererIfNeeded();
+        //DisableLineRendererIfNeeded();
         Ray selectionRay = UpdateCastRayIfPossible();
 
         //if (!isController && testPoint != null)
-        //if (testPoint != null)
-        //    testPoint.transform.position = wsPoint + wPoint;
+        if (testPoint != null)
+        {
+            Debug.Log(CentreEyeCamera.WorldToScreenPoint(wsPoint + wPoint));
+            Debug.Log(wsPoint + wPoint);
+            testPoint.transform.position = wsPoint + wPoint * rayLength;
+        }
+
 
         if (OVRInput.Get(OVRInput.Button.Back, activeController) ||
         Input.GetKeyDown(KeyCode.F6))
@@ -286,6 +291,9 @@ public class RayPointer : MonoBehaviour {
                     triggerDown = null;
                 }
             }
+  
+           lineRenderer.SetPosition(1, hit.point);
+            testPoint.transform.position = hit.point;
         }
         // Nothing was hit, handle exit callback
         else if (lastHit != null) {
@@ -293,6 +301,7 @@ public class RayPointer : MonoBehaviour {
                 onHoverExit.Invoke(lastHit);
             }
             lastHit = null;
+            rayLength = 500;
         }
 
 #if UNITY_EDITOR
@@ -324,6 +333,7 @@ public class RayPointer : MonoBehaviour {
                 onHoverExit.Invoke(lastHit);
             }
             lastHit = null;
+            rayLength = 500;
         }
 #endif
     }

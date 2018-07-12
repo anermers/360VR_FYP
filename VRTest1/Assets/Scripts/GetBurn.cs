@@ -23,7 +23,7 @@ public class GetBurn : MonoBehaviour {
 
         if(isMoveBack)
         {
-            if (transform.localPosition.z < 0.3f)
+            if (transform.localPosition.z < 0.2f)
             {
                 transform.position += new Vector3(0, 0, 1) * 0.75f * Time.deltaTime;
                 BoxCollider box = GetComponent<BoxCollider>();

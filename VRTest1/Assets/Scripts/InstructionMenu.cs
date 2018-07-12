@@ -90,22 +90,22 @@ public class InstructionMenu : MonoBehaviour {
 
     public void OnPointerClick(Transform t)
     {
-        Text textObj = t.gameObject.GetComponent<Text>();
-        Debug.Log(t.name + " CLICKED");
-        if (textObj != null)
-        {
-            if(isSelected)
-            {
-                prevSelectedObj.GetComponent<Text>().fontStyle = FontStyle.Normal;
-                prevSelectedObj.GetComponent<Text>().color = Color.white;
-                isSelected = false;
-            }
+        //Text textObj = t.gameObject.GetComponent<Text>();
+        //Debug.Log(t.name + " CLICKED");
+        //if (textObj != null)
+        //{
+        //    if(isSelected)
+        //    {
+        //        prevSelectedObj.GetComponent<Text>().fontStyle = FontStyle.Normal;
+        //        prevSelectedObj.GetComponent<Text>().color = Color.white;
+        //        isSelected = false;
+        //    }
 
-            textObj.fontStyle = FontStyle.Bold;
-            textObj.color = Color.yellow;
-            isSelected = true;
-            prevSelectedObj = t;
-        }
+        //    textObj.fontStyle = FontStyle.Bold;
+        //    textObj.color = Color.yellow;
+        //    isSelected = true;
+        //    prevSelectedObj = t;
+        //}
     }
 
     public void DispayWinScreen()

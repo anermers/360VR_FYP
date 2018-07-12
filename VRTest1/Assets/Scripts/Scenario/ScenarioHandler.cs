@@ -9,6 +9,7 @@ public class ScenarioHandler : MonoBehaviour {
 
     public List<ScenarioBase> scenarioList;
     public Text description;
+    public Text Header;
     public Image displayImg;
     public InstructionMenu instructionScreen;
     public cakeslice.OutlineEffect olEffect;
@@ -65,6 +66,7 @@ public class ScenarioHandler : MonoBehaviour {
 
         scenarioContainer[name].gameObject.SetActive(true);
         currScenario = scenarioContainer[name];
+        SetHeader(currScenario.name);
         //currScenario.Init();
         RoomHandler.instance.ShowMenu();
 
@@ -85,6 +87,7 @@ public class ScenarioHandler : MonoBehaviour {
         int index = Random.Range(0, scenarioList.Count - 1);
         scenarioList[index].gameObject.SetActive(true);
         currScenario = scenarioList[index];
+        SetHeader(currScenario.name);
         //currScenario.Init();
         //instructionScreen.PopulateInsutructionMenu();
         isScenarioActivated = true;
@@ -104,7 +107,13 @@ public class ScenarioHandler : MonoBehaviour {
         scenarioContainer["sf"].gameObject.SetActive(true);
         currScenario = scenarioContainer["sf"];
         currScenario.GetComponent<ScenarioFire>().IsBigFire = bigFire;
-        //currScenario.Init();
+
+        if (bigFire)
+            Header.text = "BIG FIRE";
+        else
+            Header.text = "SMALL FIRE";
+
+            //currScenario.Init();
         RoomHandler.instance.ShowMenu();
         isScenarioActivated = true;
         PlayerToStartPos();
@@ -114,5 +123,14 @@ public class ScenarioHandler : MonoBehaviour {
     private void PlayerToStartPos()
     {
         playerCamera.transform.position = scenarioStartPos.transform.position;
+    }
+
+    //temp
+    private void SetHeader(string name)
+    {
+        if (name == "sb")
+            Header.text = "BURN";
+        else if (name == "sc")
+            Header.text = "CUT";
     }
 }
