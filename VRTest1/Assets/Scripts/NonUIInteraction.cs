@@ -87,7 +87,6 @@ public class NonUIInteraction : MonoBehaviour {
             infoText.text = "";
             if (!objectSelected)
             {
-                Debug.Log(t.gameObject.name);
                 objectSelected = true;
                 if(t.gameObject.GetComponent<Renderer>()!=null && t.gameObject.GetComponent<Outline>() != null)
                     t.gameObject.GetComponent<Outline>().color = 3;
@@ -112,32 +111,26 @@ public class NonUIInteraction : MonoBehaviour {
 
         if(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState == ScenarioBurn.STATE_SB.STATE_WASH_HANDS)
         {
-            if(t.gameObject.tag != "PickUP")
+            //if(t.gameObject.tag != "PickUP" && !objectSelected)
+            //{
+            if (firstObjSelected == null || secObjSelected == null)
             {
-                if (firstObjSelected == null && secObjSelected == null)
-                    if (firstObjSelected == null)
-                        firstObjSelected = t.gameObject;                        
-                    else
-                    {
-                        if (t.gameObject != firstObjSelected)
+                if (firstObjSelected == null)
+                {
+                    if (t.gameObject.name == "Chef")
+                        firstObjSelected = t.gameObject;
+                }
+                else if (t.gameObject != firstObjSelected)
+                        if (t.gameObject.name == "SinkEmpty")
                             secObjSelected = t.gameObject;
-                        Arrow.instance.objectToSnap = ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().sink;
-                    }
-                else
-                    if (firstObjSelected.name != "Chef" && secObjSelected.name != "SinkEmpty")
-                        firstObjSelected = secObjSelected = null;
-                    else
-                        ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().chefToSink = true;
             }
-            //else
+            else if (firstObjSelected.name != "Chef" && secObjSelected.name != "SinkEmpty")
+                firstObjSelected = secObjSelected = null;
 
-
-            //if(t.gameObject.name == "Chef")
-            //    firstObjSelected = t.gameObject;
-
-            //if (firstObjSelected == ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().traineeChef)
-            //    if (t.gameObject.name == "SinkEmpty")
-            //        secObjSelected = t.gameObject;
+            //if (firstObjSelected != null)
+            //    Debug.Log("FO: "+ firstObjSelected.name);
+            //if(secObjSelected !=null)
+            //    Debug.Log("SO: " + secObjSelected.name);
         }
 
     }
