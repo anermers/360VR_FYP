@@ -135,7 +135,11 @@ public class CollisionChecker : MonoBehaviour {
                 switch (ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState)
                 {
                     case ScenarioBurn.STATE_SB.STATE_PURIFIED_WATER:
-                        if (other.name == "Acriflavine Solution(Clone)")
+                        if (other.name == "EyeWash(Clone)")
+                            correctOBJ = true;
+                        break;
+                    case ScenarioBurn.STATE_SB.STATE_APPLY_CREAM:
+                        if (other.name == "Bacidin(Clone)")
                             correctOBJ = true;
                         break;
                     case ScenarioBurn.STATE_SB.STATE_APPLY_BANDANGE:
@@ -143,7 +147,6 @@ public class CollisionChecker : MonoBehaviour {
                             correctOBJ = true;
                         break;
                 }
-
                 if (correctOBJ)
                 {
                     other.gameObject.SetActive(false);

@@ -24,6 +24,7 @@ public class ScenarioBurn : ScenarioBase
         STATE_GET_MEDKIT_TO_LOCAL,
         STATE_OPEN_MEDKIT,
         STATE_PURIFIED_WATER,
+        STATE_APPLY_CREAM,
         STATE_APPLY_BANDANGE,
         STATE_TOTAL
     }
@@ -120,6 +121,8 @@ public class ScenarioBurn : ScenarioBase
         // Enabling of related scripts
         if (traineeChef.GetComponent<GetBurn>() != null)
             traineeChef.GetComponent<GetBurn>().enabled = true;
+
+        NonUIInteraction.firstObjSelected = NonUIInteraction.secObjSelected = null;
     }
 
     // Update is called once per frame
@@ -159,11 +162,9 @@ public class ScenarioBurn : ScenarioBase
 
                     progressBar.SetActive(true);
                     progressBar.GetComponent<ProgressBar>().currValue = 0f;
-                    //SwitchState((int)STATE_SB.STATE_GET_MEDKIT);
-
+                   
                     if (AnimatorIsPlaying("After Burn Idle"))
                         SwitchState((int)STATE_SB.STATE_WASH_HANDS);
-
                 }
                 break;
             case STATE_SB.STATE_WASH_HANDS:                 
@@ -171,18 +172,24 @@ public class ScenarioBurn : ScenarioBase
                 {
                     if (NonUIInteraction.firstObjSelected == null)
                         Arrow.instance.objectToSnap = ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().traineeChef;
-                    else
+                    else if(NonUIInteraction.firstObjSelected == traineeChef)
                         Arrow.instance.objectToSnap = ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().sink;
+
+                    if (NonUIInteraction.firstObjSelected!= null && NonUIInteraction.secObjSelected !=null)
+                    {
+                        if (NonUIInteraction.firstObjSelected.name == "Chef" && NonUIInteraction.secObjSelected.name == "SinkEmpty")
+                            chefToSink = true;
+                    }
                 }
                 else 
                 {
                     traineeChef.transform.position = sinkLocal.transform.position;
                     traineeChef.transform.LookAt(sink.transform.position);
                     chefAnimController.SetBool("afterCutIdle", true);
+                    SwitchState((int)STATE_SB.STATE_GET_MEDKIT);
                     //play wash hand animation
                 }
-                if (isEventCompleted)
-                    SwitchState((int)STATE_SB.STATE_GET_MEDKIT);
+                //if (isEventCompleted)                  
                 break;
             case STATE_SB.STATE_GET_MEDKIT:
                 //Player finds the medkit and brings in to a certain location
@@ -203,10 +210,16 @@ public class ScenarioBurn : ScenarioBase
                     tempCollider.SetActive(true);
                     MedTriggerLocal.SetActive(false);
                     SwitchState((int)STATE_SB.STATE_PURIFIED_WATER);
+                    Arrow.instance.gameObject.SetActive(false);
                 }
                 break;
             case STATE_SB.STATE_PURIFIED_WATER:
                 //Get purified water and apply on traineeChef
+                if (isEventCompleted)
+                    SwitchState((int)STATE_SB.STATE_APPLY_CREAM);
+                break;
+            case STATE_SB.STATE_APPLY_CREAM:
+                //Get cream and apply on traineeChef
                 if (isEventCompleted)
                     SwitchState((int)STATE_SB.STATE_APPLY_BANDANGE);
                 break;
@@ -216,7 +229,6 @@ public class ScenarioBurn : ScenarioBase
                     isScenarioDone = true;
                 break;
         }
-
 	}
 
     protected override bool SwitchState(int index)
