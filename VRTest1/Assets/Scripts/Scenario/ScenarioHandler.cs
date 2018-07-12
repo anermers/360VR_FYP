@@ -9,7 +9,7 @@ public class ScenarioHandler : MonoBehaviour {
 
     public List<ScenarioBase> scenarioList;
     public Text description;
-    public GameObject displayGO;
+    public Image displayImg;
     public InstructionMenu instructionScreen;
     public cakeslice.OutlineEffect olEffect;
 

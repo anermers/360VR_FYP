@@ -1,7 +1,7 @@
 ﻿using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-using cakeslice;
+using UnityEngine.UI;
 
 //reset all pickable obj back to their location
 
@@ -12,6 +12,7 @@ public struct SCInfo
     public List<GameObject> interactables;
     public List<string> instructions;
     public string description;
+    public Sprite img;
 }
 public class ScenarioCut : ScenarioBase {
     public enum STATE_SC
@@ -68,12 +69,12 @@ public class ScenarioCut : ScenarioBase {
                 {
                     // If renderer exist and outline component does not exist
                     if (go.GetComponent<Renderer>() != null &&
-                        go.GetComponent<Outline>() == null)
+                        go.GetComponent<cakeslice.Outline>() == null)
                     {
-                        go.AddComponent<Outline>();
-                        go.GetComponent<Outline>().color = 0;
-                        go.GetComponent<Outline>().eraseRenderer = false;
-                        go.GetComponent<Outline>().enabled = false;
+                        go.AddComponent<cakeslice.Outline>();
+                        go.GetComponent<cakeslice.Outline>().color = 0;
+                        go.GetComponent<cakeslice.Outline>().eraseRenderer = false;
+                        go.GetComponent<cakeslice.Outline>().enabled = false;
                     }
                 }
                 // Adds to the dictionary
@@ -213,21 +214,22 @@ public class ScenarioCut : ScenarioBase {
             return;
         ScenarioHandler.instance.description.text = scInfoContainer[currState].description;
         instructionMenu.SwitchInstruction(step);
+        ScenarioHandler.instance.displayImg.sprite = scInfoContainer[currState].img;
     }
 
     protected override void SetCurrentInteractable()
     {
         foreach (GameObject go in scInfoContainer[prevState].interactables)
         {
-            if (go.GetComponent<Outline>())
-                go.GetComponent<Outline>().enabled = false;
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().enabled = false;
         }
 
         ScenarioHandler.instance.interactableGO.Clear();
         foreach (GameObject go in scInfoContainer[currState].interactables)
         {
-            if (go.GetComponent<Outline>())
-                go.GetComponent<Outline>().enabled = true;
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().enabled = true;
             ScenarioHandler.instance.interactableGO.Add(go);
         }
     }

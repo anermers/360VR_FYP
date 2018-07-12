@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using System.Linq;
-using cakeslice;
+using UnityEngine.UI;
 
 [System.Serializable]
 public struct SFInfo
@@ -12,6 +12,7 @@ public struct SFInfo
     public List<GameObject> interactables;
     public List<string> instructions;
     public string description;
+    public Sprite img;
 }
 
 public class ScenarioFire : ScenarioBase
@@ -25,6 +26,7 @@ public class ScenarioFire : ScenarioBase
         STATE_USE_FIRE_BLANKET,
         STATE_PULL_ALARM,
         STATE_EVACUATE,
+        STATE_USE_FIRE_EXTINGUISHER,
         STATE_TOTAL
     }
 
@@ -39,7 +41,9 @@ public class ScenarioFire : ScenarioBase
     public GameObject fireBlanket;
     public GameObject smallFire;
     public GameObject largeFire;
+    public GameObject extinguisherTriggerBox;
     public Animator doorAnim;
+    public Animator extinguisherAnim;
     public List<SFInfo> sfInfoList;
 
     public STATE_SF currState;
@@ -99,12 +103,12 @@ public class ScenarioFire : ScenarioBase
                 {
                     // If renderer exist and outline component does not exist
                     if (go.GetComponent<Renderer>() != null &&
-                        go.GetComponent<Outline>() == null)
+                        go.GetComponent<cakeslice.Outline>() == null)
                     {
-                        go.AddComponent<Outline>();
-                        go.GetComponent<Outline>().color = 0;
-                        go.GetComponent<Outline>().eraseRenderer = false;
-                        go.GetComponent<Outline>().enabled = false;
+                        go.AddComponent<cakeslice.Outline>();
+                        go.GetComponent<cakeslice.Outline>().color = 0;
+                        go.GetComponent<cakeslice.Outline>().eraseRenderer = false;
+                        go.GetComponent<cakeslice.Outline>().enabled = false;
                     }
                 }
                 // Adds to the dictionary
@@ -212,18 +216,33 @@ public class ScenarioFire : ScenarioBase
                 break;
             case STATE_SF.STATE_USE_FIRE_BLANKET:
 
-                if (InteractedGO != fireBlanket)
-                {
-                    Debug.Log("Pick up the fire blanket");
-                    return;
-                }
+                //if (InteractedGO != fireBlanket)
+                //{
+                //    Debug.Log("Pick up the fire blanket");
+                //    return;
+                //}
 
                 if (isEventCompleted)
                 {
                     fireBlanket.GetComponent<Animator>().SetBool("openFireBlanket", true);
-                    smallFire.SetActive(false);
-                    largeFire.SetActive(false);
-                    isScenarioDone = true;
+                    //smallFire.SetActive(false);
+                    //largeFire.SetActive(false);
+                    //isScenarioDone = true;
+                    SwitchState((int)STATE_SF.STATE_USE_FIRE_EXTINGUISHER);
+                }
+
+                break;
+            case STATE_SF.STATE_USE_FIRE_EXTINGUISHER:
+
+                // enter trigger box and animation plays
+                // particle effect shoot out from the fe
+                // stand in the trigger box and face the fire direction for 5-10 sec b4 it ends
+                if(isInteracted)
+                {
+                    //play animation 
+                    extinguisherAnim.SetBool("isExtinguisher", true);
+                    //particles??
+                    StartCoroutine("FireExtinguish");
                 }
 
                 break;
@@ -250,6 +269,7 @@ public class ScenarioFire : ScenarioBase
             return;
         ScenarioHandler.instance.description.text = sfInfoContainer[currState].description;
         instructionMenu.SwitchInstruction(step);
+        ScenarioHandler.instance.displayImg.sprite = sfInfoContainer[currState].img;
         //GameObject go = Instantiate(sfInfoContainer[currState].interactables[0]);
         //go.transform.position = ScenarioHandler.instance.displayGO.transform.position;
         //go.transform.eulerAngles = new Vector3(0,180,0);
@@ -272,15 +292,15 @@ public class ScenarioFire : ScenarioBase
     {
         foreach (GameObject go in sfInfoContainer[prevState].interactables)
         {
-            if (go.GetComponent<Outline>())
-                go.GetComponent<Outline>().enabled = false;
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().enabled = false;
         }
 
         ScenarioHandler.instance.interactableGO.Clear();
         foreach (GameObject go in sfInfoContainer[currState].interactables)
         {
-            if (go.GetComponent<Outline>())
-                go.GetComponent<Outline>().enabled = true;
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().enabled = true;
             ScenarioHandler.instance.interactableGO.Add(go);
 
             Arrow.instance.objectToSnap = go;
@@ -289,11 +309,12 @@ public class ScenarioFire : ScenarioBase
 
     IEnumerator FireExtinguish()
     {
-        yield return new WaitForSeconds(3f);
+        yield return new WaitForSeconds(5f);
 
         smallFire.SetActive(false);
         largeFire.SetActive(false);
-
+        isEventCompleted = true;
+        isScenarioDone = true;
     }
 }
 

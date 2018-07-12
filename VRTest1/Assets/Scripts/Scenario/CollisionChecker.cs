@@ -37,10 +37,18 @@ public class CollisionChecker : MonoBehaviour {
             {
                 other.gameObject.SetActive(false);
             }
+
+
             if(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioFire>().currState
                 == ScenarioFire.STATE_SF.STATE_EVACUATE)
             {
                 if (gameObject.name == "Evac" && other.tag == "Player")
+                    ScenarioHandler.instance.CurrScenario.IsInteracted = true;
+            }
+            else if(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioFire>().currState
+                == ScenarioFire.STATE_SF.STATE_USE_FIRE_EXTINGUISHER)
+            {
+                if (gameObject.name == "feTriggerBox" && other.name == "FireExtinguisher")
                     ScenarioHandler.instance.CurrScenario.IsInteracted = true;
             }
         }

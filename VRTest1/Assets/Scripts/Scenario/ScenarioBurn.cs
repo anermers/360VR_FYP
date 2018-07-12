@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using cakeslice;
+using UnityEngine.UI;
 
 [System.Serializable]
 public struct SBInfo
@@ -10,6 +11,7 @@ public struct SBInfo
     public List<GameObject> interactables;
     public List<string> instructions;
     public string description;
+    public Sprite img;
 }
 
 public class ScenarioBurn : ScenarioBase
@@ -79,12 +81,12 @@ public class ScenarioBurn : ScenarioBase
 
                     // If renderer exist and outline component does not exist
                     if (go.GetComponent<Renderer>() != null &&
-                        go.GetComponent<Outline>() == null)
+                        go.GetComponent<cakeslice.Outline>() == null)
                     {
-                        go.AddComponent<Outline>();
-                        go.GetComponent<Outline>().color = 0;
-                        go.GetComponent<Outline>().eraseRenderer = false;
-                        go.GetComponent<Outline>().enabled = false;
+                        go.AddComponent<cakeslice.Outline>();
+                        go.GetComponent<cakeslice.Outline>().color = 0;
+                        go.GetComponent<cakeslice.Outline>().eraseRenderer = false;
+                        go.GetComponent<cakeslice.Outline>().enabled = false;
                     }
                 }
                 // Adds to the dictionary
@@ -248,6 +250,7 @@ public class ScenarioBurn : ScenarioBase
 
         ScenarioHandler.instance.description.text = sbInfoContainer[currState].description;
         instructionMenu.SwitchInstruction(step);
+        ScenarioHandler.instance.displayImg.sprite = sbInfoContainer[currState].img;
     }
 
     protected override void SetCurrentInteractable()
@@ -257,8 +260,8 @@ public class ScenarioBurn : ScenarioBase
             if (go == null)
                 continue;
 
-            if (go.GetComponent<Outline>())
-                go.GetComponent<Outline>().enabled = false;
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().enabled = false;
         }
 
         ScenarioHandler.instance.interactableGO.Clear();
@@ -267,8 +270,8 @@ public class ScenarioBurn : ScenarioBase
             if (go == null)
                 continue;
 
-            if (go.GetComponent<Outline>())
-                go.GetComponent<Outline>().enabled = true;
+            if (go.GetComponent<cakeslice.Outline>())
+                go.GetComponent<cakeslice.Outline>().enabled = true;
             ScenarioHandler.instance.interactableGO.Add(go);
         }
     }
