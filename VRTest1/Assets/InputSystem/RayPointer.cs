@@ -294,6 +294,8 @@ public class RayPointer : MonoBehaviour {
   
             lineRenderer.SetPosition(1, hit.point);
             testPoint.transform.position = hit.point;
+            //float size = (Camera.main.transform.position - hit.point).magnitude;
+            //testPoint.transform.localScale = new Vector3(size, size, 1);
         }
         // Nothing was hit, handle exit callback
         else if (lastHit != null) {
