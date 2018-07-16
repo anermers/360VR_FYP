@@ -36,7 +36,7 @@ public class MedKitUI : MonoBehaviour {
 	void Update () {
         if (Input.GetKeyDown(KeyCode.M))
         {
-            SetObject(1);
+            SetObject(5);
         }
         if (Input.GetKey(KeyCode.N))
         {
