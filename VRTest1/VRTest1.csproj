@@ -176,6 +176,7 @@
     <Compile Include="Assets\Scripts\StartScreenHandler.cs" />
     <Compile Include="Assets\Scripts\StartUp.cs" />
     <Compile Include="Assets\Scripts\TestScript.cs" />
+    <Compile Include="Assets\Scripts\TutorialHandler.cs" />
     <Compile Include="Assets\Scripts\UIInteraction.cs" />
   </ItemGroup>
   <ItemGroup>

@@ -88,7 +88,7 @@ public class RayPointer : MonoBehaviour {
     void RayHitSomething(Vector3 hitPosition, Vector3 hitNormal) {
         if (lineRenderer != null) {
             lineRenderer.SetPosition(1, hitPosition);
-            //testPoint.transform.position = hitPosition;
+            testPoint.transform.position = hitPosition;
         }
     }
 
@@ -192,9 +192,9 @@ public class RayPointer : MonoBehaviour {
         //if (!isController && testPoint != null)
         if (testPoint != null)
         {
-            Debug.Log(CentreEyeCamera.WorldToScreenPoint(wsPoint + wPoint));
-            Debug.Log(wsPoint + wPoint);
-            testPoint.transform.position = wsPoint + wPoint * rayLength;
+            //Debug.Log(CentreEyeCamera.WorldToScreenPoint(wsPoint + wPoint));
+            //Debug.Log(wsPoint + wPoint);
+            testPoint.transform.position = wsPoint + wPoint;
         }
 
 
@@ -292,7 +292,7 @@ public class RayPointer : MonoBehaviour {
                 }
             }
   
-           lineRenderer.SetPosition(1, hit.point);
+            lineRenderer.SetPosition(1, hit.point);
             testPoint.transform.position = hit.point;
         }
         // Nothing was hit, handle exit callback
@@ -301,7 +301,6 @@ public class RayPointer : MonoBehaviour {
                 onHoverExit.Invoke(lastHit);
             }
             lastHit = null;
-            rayLength = 500;
         }
 
 #if UNITY_EDITOR
@@ -333,7 +332,6 @@ public class RayPointer : MonoBehaviour {
                 onHoverExit.Invoke(lastHit);
             }
             lastHit = null;
-            rayLength = 500;
         }
 #endif
     }
