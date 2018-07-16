@@ -6,7 +6,8 @@ public class CollisionChecker : MonoBehaviour {
     private bool correctOBJ;
 	// Use this for initialization
 	void Start () {
-		
+
+      
 	}
 	
     private void OnCollisionEnter(Collision collision)
@@ -99,6 +100,7 @@ public class CollisionChecker : MonoBehaviour {
                 }
                 if (correctOBJ)
                 {
+                    GreenParticle.enable = true;
                     other.gameObject.SetActive(false);
                     MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
@@ -149,6 +151,7 @@ public class CollisionChecker : MonoBehaviour {
                 }
                 if (correctOBJ)
                 {
+                    GreenParticle.enable = true;
                     other.gameObject.SetActive(false);
                     MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
