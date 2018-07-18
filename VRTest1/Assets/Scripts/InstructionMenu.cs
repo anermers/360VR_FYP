@@ -138,14 +138,20 @@ public class InstructionMenu : MonoBehaviour {
         if (!ScenarioHandler.instance.CurrScenario.IsScenarioDone)
         {
             Debug.Log(index);
-            layoutPanel.transform.GetChild(index).GetComponent<Text>().color = Color.green;
+            layoutPanel.transform.GetChild(index).GetComponent<Text>().color = Color.cyan;
             if(index > 0)
             {
-                layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().color = Color.white;
+                layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().color = Color.cyan;
                 layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().text = StrikeThrough(layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().text);
             }
         
 
         }
+    }
+
+    public void CloseInstructionMenu()
+    {
+        isMenuEnabled = false;
+        gameObject.SetActive(false);
     }
 }

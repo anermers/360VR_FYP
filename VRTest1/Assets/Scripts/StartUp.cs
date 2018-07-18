@@ -14,8 +14,11 @@ public class StartUp : MonoBehaviour {
     public Animator chefAnim;
 
     public GameObject menuCanvas;
+    public GameObject tutorialCanvas;
 
     private static StartUp instance = null;
+
+    private bool isTutorial = false;
 
     private void Awake()
     {
@@ -51,11 +54,26 @@ public class StartUp : MonoBehaviour {
         {
             // get key input
             if (OVRInput.Get(OVRInput.Button.PrimaryTouchpad) || OVRInput.Get(OVRInput.Button.PrimaryIndexTrigger) ||
-            Input.GetKey(KeyCode.F12))
+            Input.GetKeyDown(KeyCode.F12))
             {
-                menuCanvas.SetActive(true);
+                tutorialCanvas.SetActive(true);
                 chefAnim.SetBool("placeDish", false);
                 playerCamera.position = selectionPoint.position;
+                isTutorial = true;
+            }
+        }
+      
+        if(isTutorial)
+        {
+#if UNITY_EDITOR
+            if (Input.GetKeyDown(KeyCode.L))
+            {
+                tutorialCanvas.SetActive(false);
+            }
+#endif
+            if (!tutorialCanvas.activeSelf)
+            {
+                menuCanvas.SetActive(true);
                 gameObject.SetActive(false);
                 this.enabled = false;
             }
