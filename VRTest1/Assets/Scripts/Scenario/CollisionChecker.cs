@@ -23,6 +23,7 @@ public class CollisionChecker : MonoBehaviour {
         // SCENARIO_FIRE
         if(ScenarioHandler.instance.CurrScenario.name == "sf")
         {
+            
             if (other.name == "FireBlanket" && gameObject.name == "FIreTriggerbox")
             {
                 other.transform.parent = null;
@@ -49,8 +50,9 @@ public class CollisionChecker : MonoBehaviour {
             else if(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioFire>().currState
                 == ScenarioFire.STATE_SF.STATE_USE_FIRE_EXTINGUISHER)
             {
-                if (gameObject.name == "feTriggerBox" && other.name == "FireExtinguisher")
-                    ScenarioHandler.instance.CurrScenario.IsInteracted = true;
+                Debug.Log(gameObject.name + " : " + other.name);
+                if (gameObject.name == "feTriggerbox" && other.name == "FireExtinguisher")
+                    ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
             }
         }
 

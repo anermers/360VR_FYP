@@ -9,3 +9,4 @@ public class Billboard : MonoBehaviour {
         //transform.rotation = Quaternion.LookRotation((transform.position - Camera.main.transform.position).normalized);
     }
 }
+

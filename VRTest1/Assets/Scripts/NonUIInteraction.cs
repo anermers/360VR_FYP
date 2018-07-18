@@ -99,6 +99,7 @@ public class NonUIInteraction : MonoBehaviour {
                     t.gameObject.GetComponent<Outline>().color = 3;
 
                 t.gameObject.transform.position = snap.transform.position;
+                //t.gameObject.transform.eulerAngles = new Vector3(0, 90, 0);
                 t.gameObject.transform.parent = playerController.transform;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
                 line.enabled = false;

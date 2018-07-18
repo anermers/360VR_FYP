@@ -222,7 +222,7 @@ public class RayPointer : MonoBehaviour {
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F11))
             //ScenarioHandler.instance.ScenarioFireSelect(false);
-            ScenarioHandler.instance.SelectScenarioType("sb");
+            ScenarioHandler.instance.SelectScenarioType("sc");
         //if (Input.GetKeyDown(KeyCode.F12))
         //    ScenarioHandler.instance.RandomScenarioType();
 #endif
@@ -294,14 +294,15 @@ public class RayPointer : MonoBehaviour {
   
             lineRenderer.SetPosition(1, hit.point);
             testPoint.transform.position = hit.point;
-            //float size = (Camera.main.transform.position - hit.point).magnitude;
-            //testPoint.transform.localScale = new Vector3(size, size, 1);
+            float size = (Camera.main.transform.position - hit.point).magnitude;
+            testPoint.transform.localScale = new Vector3(size, size, 1);
         }
         // Nothing was hit, handle exit callback
         else if (lastHit != null) {
             if (onHoverExit != null) {
                 onHoverExit.Invoke(lastHit);
             }
+            testPoint.transform.localScale = new Vector3(1, 1, 1);
             lastHit = null;
         }
 

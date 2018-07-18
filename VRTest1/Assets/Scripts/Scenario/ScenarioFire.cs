@@ -42,6 +42,7 @@ public class ScenarioFire : ScenarioBase
     public GameObject smallFire;
     public GameObject largeFire;
     public GameObject extinguisherTriggerBox;
+    public GameObject sprayParticle;
     public Animator doorAnim;
     public Animator extinguisherAnim;
     public List<SFInfo> sfInfoList;
@@ -237,10 +238,11 @@ public class ScenarioFire : ScenarioBase
                 // enter trigger box and animation plays
                 // particle effect shoot out from the fe
                 // stand in the trigger box and face the fire direction for 5-10 sec b4 it ends
-                if(isInteracted)
+                if (isEventCompleted)
                 {
                     //play animation 
                     extinguisherAnim.SetBool("isExtinguisher", true);
+                    sprayParticle.SetActive(true);
                     //particles??
                     StartCoroutine("FireExtinguish");
                 }
@@ -313,6 +315,7 @@ public class ScenarioFire : ScenarioBase
 
         smallFire.SetActive(false);
         largeFire.SetActive(false);
+        sprayParticle.SetActive(false);
         isEventCompleted = true;
         isScenarioDone = true;
     }
