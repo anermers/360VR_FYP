@@ -61,12 +61,19 @@ public class InstructionMenu : MonoBehaviour {
         foreach (string instruction in instructions)
         {
             GameObject baseText = Instantiate(textPrefab);
+
+            // Setting alpha of the img
+            Image image = baseText.GetComponent<Image>();
+            var tempColor = image.color;
+            tempColor.a = 0f;
+            image.color = tempColor;
+
             baseText.transform.SetParent(layoutPanel.transform, false);
-            EventTrigger trigger = baseText.GetComponent<EventTrigger>();
+            EventTrigger trigger = baseText.transform.GetChild(0).GetComponent<EventTrigger>();
             trigger.triggers[0].callback.AddListener(delegate { OnPointerEnter(baseText.transform); });
             trigger.triggers[1].callback.AddListener(delegate { OnPointerExit(baseText.transform); });
             trigger.triggers[2].callback.AddListener(delegate { OnPointerClick(baseText.transform); });
-            baseText.GetComponent<Text>().text = instruction;
+            baseText.transform.GetChild(0).GetComponent<Text>().text = instruction;
         }
     }
 
@@ -138,11 +145,12 @@ public class InstructionMenu : MonoBehaviour {
         if (!ScenarioHandler.instance.CurrScenario.IsScenarioDone)
         {
             Debug.Log(index);
-            layoutPanel.transform.GetChild(index).GetComponent<Text>().color = Color.cyan;
+            layoutPanel.transform.GetChild(index).GetComponent<Image>().color = new Color(Color.white.r, Color.white.g, Color.white.b, 1f);
+            layoutPanel.transform.GetChild(index).transform.GetChild(0).transform.GetComponent<Text>().color = Color.cyan;
             if(index > 0)
             {
-                layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().color = Color.cyan;
-                layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().text = StrikeThrough(layoutPanel.transform.GetChild(index - 1).GetComponent<Text>().text);
+                layoutPanel.transform.GetChild(index - 1).GetComponent<Image>().color = new Color(Color.white.r, Color.white.g, Color.white.b, 0f);
+                layoutPanel.transform.GetChild(index - 1).transform.GetChild(0).GetComponent<Text>().text = StrikeThrough(layoutPanel.transform.GetChild(index - 1).transform.GetChild(0).GetComponent<Text>().text);
             }
         
 

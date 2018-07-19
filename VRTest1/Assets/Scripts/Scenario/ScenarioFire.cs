@@ -238,6 +238,7 @@ public class ScenarioFire : ScenarioBase
                 // enter trigger box and animation plays
                 // particle effect shoot out from the fe
                 // stand in the trigger box and face the fire direction for 5-10 sec b4 it ends
+                //sfInfoContainer[currState].interactables[0].transform.forward = Camera.main.transform.forward;
                 if (isEventCompleted)
                 {
                     //play animation 

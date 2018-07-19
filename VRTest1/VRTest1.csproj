@@ -157,6 +157,7 @@
     <Compile Include="Assets\Scripts\NonUIInteraction.cs" />
     <Compile Include="Assets\Scripts\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\RoomHandler.cs" />
+    <Compile Include="Assets\Scripts\RotateToFront.cs" />
     <Compile Include="Assets\Scripts\RunAway.cs" />
     <Compile Include="Assets\Scripts\Scenario\CollisionChecker.cs" />
     <Compile Include="Assets\Scripts\Scenario\ScenarioBase.cs" />

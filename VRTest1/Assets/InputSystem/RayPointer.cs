@@ -38,8 +38,10 @@ public class RayPointer : MonoBehaviour {
     public GameObject instructionMenu;
     public Camera CentreEyeCamera;
     public bool isController = false;
+    [HideInInspector]
     public Vector3 wPoint;
-    private Vector3 wsPoint;
+    [HideInInspector]
+    public Vector3 wsPoint;
 
     private Vector3 DefaultPos;
     private LineRenderer lineReference;
@@ -135,6 +137,7 @@ public class RayPointer : MonoBehaviour {
     void DisableLineRendererIfNeeded() {
         if (lineRenderer != null) {
             lineRenderer.enabled = trackingSpace != null && activeController != OVRInput.Controller.None;
+            testPoint.SetActive(lineRenderer.enabled);
         }
     }
 
@@ -236,16 +239,27 @@ public class RayPointer : MonoBehaviour {
         //        testPoint.SetActive(!isController);
         //}
 
+        //bring up instruction menu
         if(OVRInput.Get(OVRInput.Button.DpadDown, activeController) || 
             Input.GetKeyDown(KeyCode.LeftAlt))
         {
             if(ScenarioHandler.instance.CurrScenario != null)
+            {
                 instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
+                if (instructionMenu.activeSelf)
+                    interactWithNonUIObjects = false;
+                else
+                    interactWithNonUIObjects = true;
+            }
+
         }
+
 
         if (interactWithNonUIObjects) {
             ProcessNonUIInteractions(selectionRay);
         }
+        else
+            testPoint.transform.localScale = new Vector3(1, 1, 1);
 
     }
 

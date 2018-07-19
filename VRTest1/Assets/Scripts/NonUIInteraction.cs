@@ -97,7 +97,12 @@ public class NonUIInteraction : MonoBehaviour {
                 objectSelected = true;
                 if(t.gameObject.GetComponent<Renderer>()!=null && t.gameObject.GetComponent<Outline>() != null)
                     t.gameObject.GetComponent<Outline>().color = 3;
-
+                if (t.gameObject.GetComponent<RotateToFront>() != null)
+                {
+                    t.gameObject.GetComponent<RotateToFront>().enabled = true;
+                    t.gameObject.GetComponent<RotateToFront>().Init();
+                }
+               
                 t.gameObject.transform.position = snap.transform.position;
                 //t.gameObject.transform.eulerAngles = new Vector3(0, 90, 0);
                 t.gameObject.transform.parent = playerController.transform;
@@ -113,6 +118,9 @@ public class NonUIInteraction : MonoBehaviour {
 
                 if (t.gameObject.GetComponent<Renderer>() != null && t.gameObject.GetComponent<Outline>() != null)
                     t.gameObject.GetComponent<Outline>().color = 2;
+                if (t.gameObject.GetComponent<RotateToFront>() != null)
+                    t.gameObject.GetComponent<RotateToFront>().enabled = false;
+
                 MedKitUI.Spawn = true;
                 line.enabled = true;
             }
