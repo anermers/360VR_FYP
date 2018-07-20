@@ -37,10 +37,11 @@ public class InstructionMenu : MonoBehaviour {
             {
                 // user can move nad menu is disable
                 gameObject.transform.position = uiCamera.transform.forward * 2f + uiCamera.transform.position;
+                gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1.5f, gameObject.transform.position.z);
                 gameObject.transform.rotation = Quaternion.LookRotation((gameObject.transform.position - player.transform.position).normalized);
             }
 
-            gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, 0);
+            //gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, 0);
             // gameObject.transform.rotation = Quaternion.Euler(0, transform.rotation.eulerAngles.y, 0);
             //// transform.eulerAngles = new Vector3(transform.eulerAngles.x, transform.eulerAngles.y, 0);
         }
@@ -64,9 +65,10 @@ public class InstructionMenu : MonoBehaviour {
 
             // Setting alpha of the img
             Image image = baseText.GetComponent<Image>();
-            var tempColor = image.color;
-            tempColor.a = 0f;
-            image.color = tempColor;
+            image.enabled = false;
+            //var tempColor = image.color;
+            //tempColor.a = 0f;
+            //image.color = tempColor;
 
             baseText.transform.SetParent(layoutPanel.transform, false);
             EventTrigger trigger = baseText.transform.GetChild(0).GetComponent<EventTrigger>();
@@ -145,11 +147,13 @@ public class InstructionMenu : MonoBehaviour {
         if (!ScenarioHandler.instance.CurrScenario.IsScenarioDone)
         {
             Debug.Log(index);
-            layoutPanel.transform.GetChild(index).GetComponent<Image>().color = new Color(Color.white.r, Color.white.g, Color.white.b, 1f);
+            //layoutPanel.transform.GetChild(index).GetComponent<Image>().color = new Color(Color.white.r, Color.white.g, Color.white.b, 1f);
+            layoutPanel.transform.GetChild(index).GetComponent<Image>().enabled = true;
             layoutPanel.transform.GetChild(index).transform.GetChild(0).transform.GetComponent<Text>().color = Color.cyan;
             if(index > 0)
             {
-                layoutPanel.transform.GetChild(index - 1).GetComponent<Image>().color = new Color(Color.white.r, Color.white.g, Color.white.b, 0f);
+                //layoutPanel.transform.GetChild(index - 1).GetComponent<Image>().color = new Color(Color.white.r, Color.white.g, Color.white.b, 0f);
+                layoutPanel.transform.GetChild(index - 1).GetComponent<Image>().enabled = false;
                 layoutPanel.transform.GetChild(index - 1).transform.GetChild(0).GetComponent<Text>().text = StrikeThrough(layoutPanel.transform.GetChild(index - 1).transform.GetChild(0).GetComponent<Text>().text);
             }
         

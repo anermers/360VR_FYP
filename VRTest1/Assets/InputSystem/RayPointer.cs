@@ -79,6 +79,7 @@ public class RayPointer : MonoBehaviour {
         //    testPoint.SetActive(!isController);
 
         lineReference = lineRenderer;
+        testPoint.SetActive(false);
     }
 
     void OnDestroy() {
@@ -137,7 +138,7 @@ public class RayPointer : MonoBehaviour {
     void DisableLineRendererIfNeeded() {
         if (lineRenderer != null) {
             lineRenderer.enabled = trackingSpace != null && activeController != OVRInput.Controller.None;
-            testPoint.SetActive(lineRenderer.enabled);
+            //testPoint.SetActive(lineRenderer.enabled);
         }
     }
 
@@ -189,11 +190,11 @@ public class RayPointer : MonoBehaviour {
 
 	void Update () {
         DetermineActiveController();
-        //DisableLineRendererIfNeeded();
+        DisableLineRendererIfNeeded();
         Ray selectionRay = UpdateCastRayIfPossible();
 
         //if (!isController && testPoint != null)
-        if (testPoint != null)
+        if (testPoint != null && testPoint.activeSelf)
         {
             //Debug.Log(CentreEyeCamera.WorldToScreenPoint(wsPoint + wPoint));
             //Debug.Log(wsPoint + wPoint);
@@ -307,6 +308,7 @@ public class RayPointer : MonoBehaviour {
             }
   
             lineRenderer.SetPosition(1, hit.point);
+            testPoint.SetActive(true);
             testPoint.transform.position = hit.point;
             float size = (Camera.main.transform.position - hit.point).magnitude;
             testPoint.transform.localScale = new Vector3(size, size, 1);
@@ -317,6 +319,7 @@ public class RayPointer : MonoBehaviour {
                 onHoverExit.Invoke(lastHit);
             }
             testPoint.transform.localScale = new Vector3(1, 1, 1);
+            testPoint.SetActive(false);
             lastHit = null;
         }
 

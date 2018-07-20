@@ -199,6 +199,8 @@
     <None Include="Assets\Particlecollection_Free samples\READ ME.txt" />
     <None Include="Assets\Resources\OutlineBufferShader.shader" />
     <None Include="Assets\Resources\OutlineShader.shader" />
+    <None Include="Assets\Shader\UIColorOverlay.shader" />
+    <None Include="Assets\Shader\UIOverlay.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\ParticleSystemsGuidelines.txt" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAdd.shader" />
     <None Include="Assets\Standard Assets\ParticleSystems\Shaders\PriorityParticleAddSoft.shader" />

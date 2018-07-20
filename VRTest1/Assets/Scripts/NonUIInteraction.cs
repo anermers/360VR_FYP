@@ -107,7 +107,7 @@ public class NonUIInteraction : MonoBehaviour {
                 //t.gameObject.transform.eulerAngles = new Vector3(0, 90, 0);
                 t.gameObject.transform.parent = playerController.transform;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                line.enabled = false;
+                //line.enabled = false;
             }
             else
             {
@@ -122,7 +122,7 @@ public class NonUIInteraction : MonoBehaviour {
                     t.gameObject.GetComponent<RotateToFront>().enabled = false;
 
                 MedKitUI.Spawn = true;
-                line.enabled = true;
+                //line.enabled = true;
             }
         }
 

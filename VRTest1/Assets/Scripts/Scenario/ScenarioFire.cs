@@ -66,7 +66,7 @@ public class ScenarioFire : ScenarioBase
     // Use this for initialization
     public void Start () {
         Debug.Log("sf_start");
-
+        extinguisherTriggerBox.SetActive(false);
         traineeChef.transform.position = chefSpawnPoint.position;
         instructionMenu = ScenarioHandler.instance.instructionScreen;
         sfInfoContainer = new Dictionary<STATE_SF, SFInfo>();
@@ -234,7 +234,7 @@ public class ScenarioFire : ScenarioBase
 
                 break;
             case STATE_SF.STATE_USE_FIRE_EXTINGUISHER:
-
+                extinguisherTriggerBox.SetActive(true);
                 // enter trigger box and animation plays
                 // particle effect shoot out from the fe
                 // stand in the trigger box and face the fire direction for 5-10 sec b4 it ends
@@ -317,6 +317,7 @@ public class ScenarioFire : ScenarioBase
         smallFire.SetActive(false);
         largeFire.SetActive(false);
         sprayParticle.SetActive(false);
+        extinguisherTriggerBox.SetActive(false);
         isEventCompleted = true;
         isScenarioDone = true;
     }
