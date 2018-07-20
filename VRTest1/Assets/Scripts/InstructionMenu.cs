@@ -36,7 +36,7 @@ public class InstructionMenu : MonoBehaviour {
             if (!onScreen)
             {
                 // user can move nad menu is disable
-                gameObject.transform.position = uiCamera.transform.forward * 2f + uiCamera.transform.position;
+                gameObject.transform.position = uiCamera.transform.forward * 1.5f + uiCamera.transform.position;
                 gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1.5f, gameObject.transform.position.z);
                 gameObject.transform.rotation = Quaternion.LookRotation((gameObject.transform.position - player.transform.position).normalized);
             }

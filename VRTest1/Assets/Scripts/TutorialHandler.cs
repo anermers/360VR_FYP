@@ -39,8 +39,8 @@ public class TutorialHandler : MonoBehaviour {
 
     private Dictionary<TUTORIAL_STAGE, TutorialInfo> tutorialContainer;
 
-	// Use this for initialization
-	void Awake ()
+    // Use this for initialization
+    void Awake()
     {
         tutorialContainer = new Dictionary<TUTORIAL_STAGE, TutorialInfo>();
         foreach (TutorialInfo info in infoList)
@@ -94,6 +94,13 @@ public class TutorialHandler : MonoBehaviour {
     public void CloseTutorial()
     {
         isTutorial = false;
+    }
+
+    public void DisplayTutorial()
+    {
+        isTutorial = true;
+        gameObject.SetActive(isTutorial);
+        currStage = 0;
     }
 
     private void SetTutorialInfo()

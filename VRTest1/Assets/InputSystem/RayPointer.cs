@@ -226,7 +226,7 @@ public class RayPointer : MonoBehaviour {
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F11))
             //ScenarioHandler.instance.ScenarioFireSelect(false);
-            ScenarioHandler.instance.SelectScenarioType("sc");
+            ScenarioHandler.instance.SelectScenarioType("sb");
         //if (Input.GetKeyDown(KeyCode.F12))
         //    ScenarioHandler.instance.RandomScenarioType();
 #endif
@@ -247,10 +247,10 @@ public class RayPointer : MonoBehaviour {
             if(ScenarioHandler.instance.CurrScenario != null)
             {
                 instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
-                if (instructionMenu.activeSelf)
-                    interactWithNonUIObjects = false;
-                else
-                    interactWithNonUIObjects = true;
+                //if (instructionMenu.activeSelf)
+                //    interactWithNonUIObjects = false;
+                //else
+                //    interactWithNonUIObjects = true;
             }
 
         }
