@@ -14,10 +14,16 @@ public class MainMenuCamera : MonoBehaviour
     void Start()
     {
         speed = 1;
-        isMoving = true;
+        isMoving = false;
         choosen = false;
         point = null;
         //ChooseScenario("");
+
+        foreach (GameObject iter in buttonsList)
+        {
+            if (iter.transform.parent.GetComponent<ButtonFloating>() == null)
+                iter.transform.parent.gameObject.AddComponent<ButtonFloating>();
+        }
     }
     // Update is called once per frame
     void Update()
@@ -25,7 +31,7 @@ public class MainMenuCamera : MonoBehaviour
         if (Input.GetKey(KeyCode.V))
             ChooseScenario("Bfire");
 
-        if (point != null)
+        if (point != null && point.name != "Tutorial")
         {
             if (Vector3.Distance(transform.position, point.transform.position) >= 1)
             {
@@ -34,7 +40,7 @@ public class MainMenuCamera : MonoBehaviour
                 isMoving = true;
             }
             else
-            {
+            {                            
                 point = null;
                 isMoving = false;
             }
@@ -52,6 +58,7 @@ public class MainMenuCamera : MonoBehaviour
                 {
                     point = iter;
                     choosen = true;
+                    iter.transform.parent.GetComponent<ButtonFloating>().enabled = false;
                 }
                 else
                     iter.transform.parent.gameObject.SetActive(false);
