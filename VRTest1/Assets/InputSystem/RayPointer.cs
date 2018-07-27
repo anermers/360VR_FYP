@@ -242,18 +242,18 @@ public class RayPointer : MonoBehaviour {
         //}
 
         //bring up instruction menu
-        if (OVRInput.Get(OVRInput.Button.DpadDown, activeController) ||
-            Input.GetKeyDown(KeyCode.LeftAlt))
-        {
-            if (ScenarioHandler.instance.CurrScenario != null)
-            {
-                instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
-                //if (instructionMenu.activeSelf)
-                //    interactWithNonUIObjects = false;
-                //else
-                //    interactWithNonUIObjects = true;
-            }
-        }
+        //if (OVRInput.Get(OVRInput.Button.DpadDown, activeController) ||
+        //    Input.GetKeyDown(KeyCode.LeftAlt))
+        //{
+        //    if (ScenarioHandler.instance.CurrScenario != null)
+        //    {
+        //        instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
+        //        //if (instructionMenu.activeSelf)
+        //        //    interactWithNonUIObjects = false;
+        //        //else
+        //        //    interactWithNonUIObjects = true;
+        //    }
+        //}
 
         if (interactWithNonUIObjects) {
             ProcessNonUIInteractions(selectionRay);

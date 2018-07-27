@@ -7,8 +7,16 @@ public class MenuHandler : MonoBehaviour {
 
     public Text debugTxt;
     public GameObject instructionScreen;
+    public GameObject menuScreen;
+    public GameObject tutorialScreen;
+    public RayPointer pointer;
 
 	void Update () {
+
+        if (!menuScreen.activeSelf && !tutorialScreen.activeSelf)
+            pointer.rayLength = 2;
+
+
         if (ScenarioHandler.instance.CurrScenario == null)
             return;
 
