@@ -57,42 +57,48 @@ public class ScenarioHandler : MonoBehaviour {
 
     public void SelectScenarioType(string name)
     {
-        if (!scenarioContainer.ContainsKey(name)
-            || isScenarioActivated)
+        if (!MainMenuCamera.isMoving)
         {
-            Debug.Log("scenario does not exist");
-            return;
+            if (!scenarioContainer.ContainsKey(name)
+                || isScenarioActivated)
+            {
+                Debug.Log("scenario does not exist");
+                return;
+            }
+
+            scenarioContainer[name].gameObject.SetActive(true);
+            currScenario = scenarioContainer[name];
+            SetHeader(currScenario.name);
+            //currScenario.Init();
+            RoomHandler.instance.ShowMenu();
+
+            //instructionScreen.PopulateInsutructionMenu();
+            isScenarioActivated = true;
+            PlayerToStartPos();
+            olEffect.enabled = true;
         }
-
-        scenarioContainer[name].gameObject.SetActive(true);
-        currScenario = scenarioContainer[name];
-        SetHeader(currScenario.name);
-        //currScenario.Init();
-        RoomHandler.instance.ShowMenu();
-
-        //instructionScreen.PopulateInsutructionMenu();
-        isScenarioActivated = true;
-        PlayerToStartPos();
-        olEffect.enabled = true;
     }
 
     public void RandomScenarioType()
     {
-        if (scenarioList.Count <= 0
+        if (!MainMenuCamera.isMoving)
+        {
+            if (scenarioList.Count <= 0
             || isScenarioActivated)
-            return;
+                return;
 
 
-        RoomHandler.instance.ShowMenu();
-        int index = Random.Range(0, scenarioList.Count - 1);
-        scenarioList[index].gameObject.SetActive(true);
-        currScenario = scenarioList[index];
-        SetHeader(currScenario.name);
-        //currScenario.Init();
-        //instructionScreen.PopulateInsutructionMenu();
-        isScenarioActivated = true;
-        PlayerToStartPos();
-        olEffect.enabled = true;
+            RoomHandler.instance.ShowMenu();
+            int index = Random.Range(0, scenarioList.Count - 1);
+            scenarioList[index].gameObject.SetActive(true);
+            currScenario = scenarioList[index];
+            SetHeader(currScenario.name);
+            //currScenario.Init();
+            //instructionScreen.PopulateInsutructionMenu();
+            isScenarioActivated = true;
+            PlayerToStartPos();
+            olEffect.enabled = true;
+        }
     }
 
     public void ScenarioQuit()
@@ -104,20 +110,23 @@ public class ScenarioHandler : MonoBehaviour {
 
     public void ScenarioFireSelect(bool bigFire)
     {
-        scenarioContainer["sf"].gameObject.SetActive(true);
-        currScenario = scenarioContainer["sf"];
-        currScenario.GetComponent<ScenarioFire>().IsBigFire = bigFire;
+        if (!MainMenuCamera.isMoving)
+        {
+            scenarioContainer["sf"].gameObject.SetActive(true);
+            currScenario = scenarioContainer["sf"];
+            currScenario.GetComponent<ScenarioFire>().IsBigFire = bigFire;
 
-        if (bigFire)
-            Header.text = "BIG FIRE";
-        else
-            Header.text = "SMALL FIRE";
+            if (bigFire)
+                Header.text = "BIG FIRE";
+            else
+                Header.text = "SMALL FIRE";
 
             //currScenario.Init();
-        RoomHandler.instance.ShowMenu();
-        isScenarioActivated = true;
-        PlayerToStartPos();
-        olEffect.enabled = true;
+            RoomHandler.instance.ShowMenu();
+            isScenarioActivated = true;
+            PlayerToStartPos();
+            olEffect.enabled = true;
+        }
     }
 
     private void PlayerToStartPos()
