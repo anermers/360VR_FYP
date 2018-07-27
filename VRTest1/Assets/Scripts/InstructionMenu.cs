@@ -17,8 +17,9 @@ public class InstructionMenu : MonoBehaviour {
     public GameObject player;
     public GameObject completedScreen;
     public List<Texture> imgList;
-
     public bool isMenuEnabled = false;
+    [HideInInspector]
+    public string currInstruction;
 
     private bool isSelected = false;
     private Transform prevSelectedObj = null;
@@ -150,7 +151,8 @@ public class InstructionMenu : MonoBehaviour {
             //layoutPanel.transform.GetChild(index).GetComponent<Image>().color = new Color(Color.white.r, Color.white.g, Color.white.b, 1f);
             layoutPanel.transform.GetChild(index).GetComponent<Image>().enabled = true;
             layoutPanel.transform.GetChild(index).transform.GetChild(0).transform.GetComponent<Text>().color = Color.cyan;
-            if(index > 0)
+            currInstruction = layoutPanel.transform.GetChild(index).transform.GetChild(0).transform.GetComponent<Text>().text;
+            if (index > 0)
             {
                 //layoutPanel.transform.GetChild(index - 1).GetComponent<Image>().color = new Color(Color.white.r, Color.white.g, Color.white.b, 0f);
                 layoutPanel.transform.GetChild(index - 1).GetComponent<Image>().enabled = false;

@@ -253,6 +253,8 @@ public class ScenarioBurn : ScenarioBase
         ScenarioHandler.instance.description.text = sbInfoContainer[currState].description;
         instructionMenu.SwitchInstruction(step);
         ScenarioHandler.instance.displayImg.sprite = sbInfoContainer[currState].img;
+        if (HintHandler.instance != null)
+            HintHandler.instance.SetHints(instructionMenu.currInstruction);
     }
 
     protected override void SetCurrentInteractable()

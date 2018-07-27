@@ -273,6 +273,8 @@ public class ScenarioFire : ScenarioBase
         ScenarioHandler.instance.description.text = sfInfoContainer[currState].description;
         instructionMenu.SwitchInstruction(step);
         ScenarioHandler.instance.displayImg.sprite = sfInfoContainer[currState].img;
+        if(HintHandler.instance != null)
+            HintHandler.instance.SetHints(instructionMenu.currInstruction);
         //GameObject go = Instantiate(sfInfoContainer[currState].interactables[0]);
         //go.transform.position = ScenarioHandler.instance.displayGO.transform.position;
         //go.transform.eulerAngles = new Vector3(0,180,0);

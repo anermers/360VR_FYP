@@ -215,6 +215,8 @@ public class ScenarioCut : ScenarioBase {
         ScenarioHandler.instance.description.text = scInfoContainer[currState].description;
         instructionMenu.SwitchInstruction(step);
         ScenarioHandler.instance.displayImg.sprite = scInfoContainer[currState].img;
+        if (HintHandler.instance != null)
+            HintHandler.instance.SetHints(instructionMenu.currInstruction);
     }
 
     protected override void SetCurrentInteractable()

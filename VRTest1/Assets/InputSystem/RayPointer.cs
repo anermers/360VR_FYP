@@ -90,6 +90,7 @@ public class RayPointer : MonoBehaviour {
 
     void RayHitSomething(Vector3 hitPosition, Vector3 hitNormal) {
         if (lineRenderer != null) {
+            testPoint.SetActive(true);
             lineRenderer.SetPosition(1, hitPosition);
             testPoint.transform.position = hitPosition;
         }
@@ -241,10 +242,10 @@ public class RayPointer : MonoBehaviour {
         //}
 
         //bring up instruction menu
-        if(OVRInput.Get(OVRInput.Button.DpadDown, activeController) || 
+        if (OVRInput.Get(OVRInput.Button.DpadDown, activeController) ||
             Input.GetKeyDown(KeyCode.LeftAlt))
         {
-            if(ScenarioHandler.instance.CurrScenario != null)
+            if (ScenarioHandler.instance.CurrScenario != null)
             {
                 instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
                 //if (instructionMenu.activeSelf)
@@ -252,16 +253,13 @@ public class RayPointer : MonoBehaviour {
                 //else
                 //    interactWithNonUIObjects = true;
             }
-
         }
-
 
         if (interactWithNonUIObjects) {
             ProcessNonUIInteractions(selectionRay);
         }
         else
             testPoint.transform.localScale = new Vector3(1, 1, 1);
-
     }
 
     void ProcessNonUIInteractions(Ray pointer) {
