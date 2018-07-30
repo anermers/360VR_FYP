@@ -4,10 +4,12 @@ using UnityEngine;
 
 public class CollisionChecker : MonoBehaviour {
     private bool correctOBJ;
+    public static int wrongCount;
 	// Use this for initialization
 	void Start () {
 
         correctOBJ  = false;
+        wrongCount = 0;
 	}
 	
     private void OnCollisionEnter(Collision collision)
@@ -106,11 +108,13 @@ public class CollisionChecker : MonoBehaviour {
                     other.gameObject.SetActive(false);
                     MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
+                    wrongCount = 0;
                 }
                 else 
                 {
                     gameObject.GetComponent<GreenParticle>().PlayRedParticle();
                     other.gameObject.SetActive(false);
+                    wrongCount++;
                 }
             }
         }
@@ -162,11 +166,13 @@ public class CollisionChecker : MonoBehaviour {
                     other.gameObject.SetActive(false);
                     MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
+                    wrongCount = 0;
                 }
                 else 
                 {
                     other.gameObject.SetActive(false);
                     gameObject.GetComponent<GreenParticle>().PlayRedParticle();
+                    wrongCount++;
                 }
             }
         }

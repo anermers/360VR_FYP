@@ -202,6 +202,12 @@ public class RayPointer : MonoBehaviour {
             testPoint.transform.position = wsPoint + wPoint;
         }
 
+        if(CollisionChecker.wrongCount >=3)
+        {
+            instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
+            CollisionChecker.wrongCount = 0;
+        }
+
 
         if (OVRInput.Get(OVRInput.Button.Back, activeController) ||
         Input.GetKeyDown(KeyCode.F6))
@@ -229,7 +235,7 @@ public class RayPointer : MonoBehaviour {
         {
             //ScenarioHandler.instance.ScenarioFireSelect(false);
             MainMenuCamera.isMoving = false;
-            ScenarioHandler.instance.SelectScenarioType("sb");
+            ScenarioHandler.instance.SelectScenarioType("sc");
         }
 #endif
 

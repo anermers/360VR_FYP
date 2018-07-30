@@ -20,7 +20,7 @@ MonoBehaviour:
   m_ShowMode: 4
   m_Title: 
   m_RootView: {fileID: 2}
-  m_MinSize: {x: 950, y: 763}
+  m_MinSize: {x: 950, y: 300}
   m_MaxSize: {x: 10000, y: 10000}
 --- !u!114 &2
 MonoBehaviour:
@@ -228,8 +228,8 @@ MonoBehaviour:
     y: 0
     width: 241
     height: 671
-  m_MinSize: {x: 200, y: 200}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 204, y: 221}
+  m_MaxSize: {x: 4004, y: 4021}
   m_ActualView: {fileID: 16}
   m_Panes:
   - {fileID: 16}
@@ -253,8 +253,8 @@ MonoBehaviour:
     y: 0
     width: 412
     height: 671
-  m_MinSize: {x: 275, y: 50}
-  m_MaxSize: {x: 4000, y: 4000}
+  m_MinSize: {x: 277, y: 71}
+  m_MaxSize: {x: 4002, y: 4021}
   m_ActualView: {fileID: 17}
   m_Panes:
   - {fileID: 17}
@@ -330,7 +330,7 @@ MonoBehaviour:
     m_VAllowExceedBaseRangeMax: 1
     m_ScaleWithWindow: 0
     m_HSlider: 0
-    m_VSlider: 1
+    m_VSlider: 0
     m_IgnoreScrollWheelUntilClicked: 0
     m_EnableMouseInput: 1
     m_EnableSliderZoom: 0
@@ -342,18 +342,18 @@ MonoBehaviour:
       y: 17
       width: 1265
       height: 355
-    m_Scale: {x: 0.5157422, y: 0.5157422}
-    m_Translation: {x: 632.5, y: 178.06863}
+    m_Scale: {x: 0.44375, y: 0.44375}
+    m_Translation: {x: 632.5, y: 177.5}
     m_MarginLeft: 0
     m_MarginRight: 0
     m_MarginTop: 0
     m_MarginBottom: 0
     m_LastShownAreaInsideMargins:
       serializedVersion: 2
-      x: -1226.388
-      y: -345.26675
-      width: 2452.776
-      height: 688.3284
+      x: -1425.3522
+      y: -400
+      width: 2850.7043
+      height: 800
     m_MinimalGUI: 1
   m_defaultScale: 1
   m_TargetTexture: {fileID: 0}
@@ -394,9 +394,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -4.3298445, y: 1.554818, z: 5.1562204}
+    m_Target: {x: -3.8586001, y: 0.49439478, z: 6.9456015}
     speed: 2
-    m_Value: {x: -4.3298445, y: 1.554818, z: 5.1562204}
+    m_Value: {x: -3.8586001, y: 0.49439478, z: 6.9456015}
   m_RenderMode: 0
   m_ValidateTrueMetals: 0
   m_SceneViewState:
@@ -419,13 +419,13 @@ MonoBehaviour:
       speed: 2
       m_Value: 0
   m_Rotation:
-    m_Target: {x: 0.10844497, y: -0.70243204, z: 0.10962467, w: 0.6948529}
+    m_Target: {x: -0.10844497, y: 0.70243204, z: -0.10962466, w: -0.6948529}
     speed: 2
-    m_Value: {x: 0.108444475, y: -0.7024289, z: 0.10962417, w: 0.6948497}
+    m_Value: {x: -0.108444475, y: 0.7024289, z: -0.10962416, w: -0.6948497}
   m_Size:
-    m_Target: 4.1682796
+    m_Target: 5.239289
     speed: 2
-    m_Value: 4.1682796
+    m_Value: 5.239289
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -508,24 +508,24 @@ MonoBehaviour:
     width: 237
     height: 650
   m_TreeViewState:
-    scrollPos: {x: 0, y: 64}
-    m_SelectedIDs: b64a0000
-    m_LastClickedID: 19126
-    m_ExpandedIDs: 24c1feffd4fbffff0000000026460000b24600003a480000924f00008a500000
+    scrollPos: {x: 0, y: 0}
+    m_SelectedIDs: 30070000
+    m_LastClickedID: 0
+    m_ExpandedIDs: d4fbffff00000000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: GreenEffect
-      m_OriginalName: GreenEffect
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 19494
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 0
       m_ClientGUIView: {fileID: 10}
     m_SearchString: 
@@ -560,7 +560,7 @@ MonoBehaviour:
     y: 92
     width: 410
     height: 650
-  m_ScrollPosition: {x: 0, y: 0}
+  m_ScrollPosition: {x: 0, y: 1560}
   m_InspectorMode: 0
   m_PreviewResizer:
     m_CachedPref: -160
@@ -594,7 +594,7 @@ MonoBehaviour:
     width: 1920
     height: 255
   m_SearchFilter:
-    m_NameFilter: 
+    m_NameFilter: ins
     m_ClassNames: []
     m_AssetLabels: []
     m_AssetBundleNames: []
@@ -604,18 +604,18 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Scripts/Scenario
+    - Assets/Scripts
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Scripts/Scenario
+  - Assets/Scripts
   m_LastFoldersGridSize: -1
   m_LastProjectPath: C:\Users\165036R\Desktop\360VRFYP\360VR_FYP\VRTest1
   m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 738}
-    m_SelectedIDs: 54390000
-    m_LastClickedID: 14676
+    m_SelectedIDs: 
+    m_LastClickedID: 0
     m_ExpandedIDs: 00000000d8250000862600000e270000e82700003e280000462800006c28000072280000cc28000010290000bc2b0000302c00003c2d000002300000c6330000d0330000d2350000d435000026360000dc360000343a00007e3a00000a3b00004a3c00005e3c0000e63c0000003d000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
