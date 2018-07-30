@@ -92,7 +92,7 @@ public class RayPointer : MonoBehaviour {
         if (lineRenderer != null) {
             testPoint.SetActive(true);
             lineRenderer.SetPosition(1, hitPosition);
-            testPoint.transform.position = hitPosition;
+            testPoint.transform.localPosition = hitPosition;
         }
     }
 
@@ -226,10 +226,11 @@ public class RayPointer : MonoBehaviour {
 
 #if UNITY_EDITOR
         if (Input.GetKeyDown(KeyCode.F11))
+        {
             //ScenarioHandler.instance.ScenarioFireSelect(false);
+            MainMenuCamera.isMoving = false;
             ScenarioHandler.instance.SelectScenarioType("sb");
-        //if (Input.GetKeyDown(KeyCode.F12))
-        //    ScenarioHandler.instance.RandomScenarioType();
+        }
 #endif
 
         //if (OVRInput.Get(OVRInput.Button.DpadUp, activeController) ||
@@ -242,18 +243,18 @@ public class RayPointer : MonoBehaviour {
         //}
 
         //bring up instruction menu
-        //if (OVRInput.Get(OVRInput.Button.DpadDown, activeController) ||
-        //    Input.GetKeyDown(KeyCode.LeftAlt))
-        //{
-        //    if (ScenarioHandler.instance.CurrScenario != null)
-        //    {
-        //        instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
-        //        //if (instructionMenu.activeSelf)
-        //        //    interactWithNonUIObjects = false;
-        //        //else
-        //        //    interactWithNonUIObjects = true;
-        //    }
-        //}
+        if (OVRInput.Get(OVRInput.Button.DpadDown, activeController) ||
+            Input.GetKeyDown(KeyCode.LeftAlt))
+        {
+            if (ScenarioHandler.instance.CurrScenario != null)
+            {
+                instructionMenu.GetComponent<InstructionMenu>().DisplayInstructionMenu();
+                //if (instructionMenu.activeSelf)
+                //    interactWithNonUIObjects = false;
+                //else
+                //    interactWithNonUIObjects = true;
+            }
+        }
 
         if (interactWithNonUIObjects) {
             ProcessNonUIInteractions(selectionRay);

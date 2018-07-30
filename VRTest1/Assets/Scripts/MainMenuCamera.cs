@@ -14,8 +14,8 @@ public class MainMenuCamera : MonoBehaviour
     void Start()
     {
         speed = 1;
-        isMoving = false;
-        choosen = true;
+        isMoving = true;
+        choosen = false;
         point = null;
         //ChooseScenario("");
 
