@@ -15,12 +15,19 @@ public class NonUIInteraction : MonoBehaviour {
     public Material pinkMat;
     public GameObject snap;
     public LineRenderer line;
+    private GameObject chef;
 
     public static GameObject
         firstObjSelected,
         secObjSelected;
 
     public static bool objectSelected = false;
+
+
+    public void Start()
+    {
+        chef = GameObject.Find("Chef");
+    }
 
     public void OnHoverEnter(Transform t) {
 
@@ -107,11 +114,11 @@ public class NonUIInteraction : MonoBehaviour {
                 //t.gameObject.transform.eulerAngles = new Vector3(0, 90, 0);
                 t.gameObject.transform.parent = playerController.transform;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                chef.GetComponent<BoxCollider>().enabled = false;
                 //line.enabled = false;
             }
             else
-            {
-              
+            {             
                 objectSelected = false;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 t.gameObject.transform.parent = null;
@@ -121,11 +128,13 @@ public class NonUIInteraction : MonoBehaviour {
                 if (t.gameObject.GetComponent<RotateToFront>() != null)
                     t.gameObject.GetComponent<RotateToFront>().enabled = false;
 
+
+                chef.GetComponent<BoxCollider>().enabled = true;
                 MedKitUI.Spawn = true;
-                //line.enabled = true;
             }
         }
 
+        //For chef to sink interaction
         if (ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>() != null &&
                 ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState == ScenarioBurn.STATE_SB.STATE_WASH_HANDS)
         {

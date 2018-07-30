@@ -61,9 +61,10 @@ public class MedKitUI : MonoBehaviour {
         NonUIInteraction.objectSelected = false;
         temp = Instantiate(inventory[selection].Object, previewPosition.transform.position, Quaternion.identity);
         temp.tag = "PickUp";
-        temp.AddComponent<BoxCollider>();
+        //temp.AddComponent<BoxCollider>();
         temp.AddComponent<Rigidbody>();
         temp.GetComponent<Rigidbody>().isKinematic = true;
+        //temp.GetComponent<BoxCollider>().isTrigger = false;
         Spawn = false;
         spawnedObjects.Add(temp);
     }
