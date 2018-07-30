@@ -183,7 +183,7 @@ public class ScenarioBurn : ScenarioBase
                 }
                 else 
                 {
-                    GreenParticle.enable = true;
+                    traineeChef.GetComponent<GreenParticle>().PlayGreenParticle();
                     traineeChef.transform.position = sinkLocal.transform.position;
                     traineeChef.transform.LookAt(sink.transform.position);
                     chefAnimController.SetBool("afterCutIdle", true);

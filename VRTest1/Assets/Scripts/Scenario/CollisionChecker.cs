@@ -7,7 +7,7 @@ public class CollisionChecker : MonoBehaviour {
 	// Use this for initialization
 	void Start () {
 
-      
+        correctOBJ  = false;
 	}
 	
     private void OnCollisionEnter(Collision collision)
@@ -77,7 +77,7 @@ public class CollisionChecker : MonoBehaviour {
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
                 }
             }
-            else if(gameObject.name == "Chef")
+            else if(gameObject.name == "Chef" && other.tag == "PickUp")
             {
                 correctOBJ = false;
                 Debug.Log(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioCut>().currState);
@@ -102,10 +102,15 @@ public class CollisionChecker : MonoBehaviour {
                 }
                 if (correctOBJ)
                 {
-                    GreenParticle.enable = true;
+                    gameObject.GetComponent<GreenParticle>().PlayGreenParticle();
                     other.gameObject.SetActive(false);
                     MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
+                }
+                else 
+                {
+                    gameObject.GetComponent<GreenParticle>().PlayRedParticle();
+                    other.gameObject.SetActive(false);
                 }
             }
         }
@@ -132,7 +137,7 @@ public class CollisionChecker : MonoBehaviour {
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
                 }
             }
-            else if (gameObject.name == "Chef")
+            else if (gameObject.name == "Chef" && other.tag =="PickUp")
             {
                 correctOBJ = false;
                 Debug.Log(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState);
@@ -153,10 +158,15 @@ public class CollisionChecker : MonoBehaviour {
                 }
                 if (correctOBJ)
                 {
-                    GreenParticle.enable = true;
+                    gameObject.GetComponent<GreenParticle>().PlayGreenParticle();
                     other.gameObject.SetActive(false);
                     MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
+                }
+                else 
+                {
+                    other.gameObject.SetActive(false);
+                    gameObject.GetComponent<GreenParticle>().PlayRedParticle();
                 }
             }
         }
