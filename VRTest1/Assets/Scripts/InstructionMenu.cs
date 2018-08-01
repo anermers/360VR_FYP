@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using UnityEngine.EventSystems;
+using UnityEngine.SceneManagement;
 
 public class InstructionMenu : MonoBehaviour {
 
@@ -23,6 +24,13 @@ public class InstructionMenu : MonoBehaviour {
 
     private bool isSelected = false;
     private Transform prevSelectedObj = null;
+
+    void Start()
+    {
+        gameObject.transform.position = uiCamera.transform.forward * 1.5f + uiCamera.transform.position;
+        gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1.5f, gameObject.transform.position.z);
+        gameObject.transform.rotation = Quaternion.LookRotation((gameObject.transform.position - player.transform.position).normalized);
+    }
 
     // Update is called once per frame
     void Update () {
@@ -167,5 +175,11 @@ public class InstructionMenu : MonoBehaviour {
     {
         isMenuEnabled = false;
         gameObject.SetActive(false);
+    }
+
+    public void ReturnToMainMenu()
+    {
+        Scene currScene = SceneManager.GetActiveScene();
+        SceneManager.LoadScene(currScene.name);
     }
 }

@@ -13,8 +13,8 @@ public class MenuHandler : MonoBehaviour {
 
 	void Update () {
 
-        if (!menuScreen.activeSelf && !tutorialScreen.activeSelf)
-            pointer.rayLength = 2;
+        //if (!menuScreen.activeSelf && !tutorialScreen.activeSelf)
+        //    pointer.rayLength = 2;
 
 
         if (ScenarioHandler.instance.CurrScenario == null)
