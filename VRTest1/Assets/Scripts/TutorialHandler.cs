@@ -23,7 +23,7 @@ public class TutorialHandler : MonoBehaviour {
         STAGE_COMPLETED,
         STAGE_TOTAL
     }
-
+    public GameObject menuScreen;
     public GameObject faExampleScreen;
     public GameObject completedScreen;
     public GameObject defaultScreen;
@@ -55,8 +55,11 @@ public class TutorialHandler : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (!isTutorial)
+        if (!isTutorial && !menuScreen.activeSelf)
+        {
             gameObject.SetActive(false);
+            menuScreen.SetActive(true);
+        }
 
         //Vector2 primaryAxis = OVRInput.Get(OVRInput.Axis2D.PrimaryThumbstick);
 
@@ -73,11 +76,17 @@ public class TutorialHandler : MonoBehaviour {
             SetTutorialInfo();
         }
 
-
-
-
         switch (currStage)
         {
+            case TUTORIAL_STAGE.STAGE_NAVIGATION:
+
+                break;
+            case TUTORIAL_STAGE.STAGE_INTERACTION:
+
+                break;
+            case TUTORIAL_STAGE.STAGE_OBJECTIVE:
+
+                break;
             case TUTORIAL_STAGE.STAGE_FIRSTAID_EXAMPLE:
                 completedScreen.SetActive(false);
                 defaultScreen.SetActive(false);
@@ -100,6 +109,7 @@ public class TutorialHandler : MonoBehaviour {
     {
         isTutorial = true;
         gameObject.SetActive(isTutorial);
+        menuScreen.SetActive(false);
         currStage = 0;
     }
 

@@ -13,6 +13,15 @@ public class MenuHandler : MonoBehaviour {
 
 	void Update () {
 
+#if UNITY_EDITOR
+        if (Input.GetKeyDown(KeyCode.P))
+        {
+            if (!tutorialScreen.activeSelf)
+                tutorialScreen.GetComponent<TutorialHandler>().DisplayTutorial();
+            else
+                tutorialScreen.GetComponent<TutorialHandler>().CloseTutorial();
+        }
+#endif
         //if (!menuScreen.activeSelf && !tutorialScreen.activeSelf)
         //    pointer.rayLength = 2;
 
@@ -25,6 +34,7 @@ public class MenuHandler : MonoBehaviour {
             instructionScreen.SetActive(true);
             instructionScreen.GetComponent<InstructionMenu>().DispayWinScreen();
         }
+
 
     }
 

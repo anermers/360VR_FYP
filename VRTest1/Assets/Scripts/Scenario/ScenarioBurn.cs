@@ -44,6 +44,7 @@ public class ScenarioBurn : ScenarioBase
 
     public List<SBInfo> sbInfoList;
     public bool chefToSink;
+    public ParticleSystem gParticle;
 
     public STATE_SB currState;
     private STATE_SB prevState;
@@ -198,7 +199,12 @@ public class ScenarioBurn : ScenarioBase
                 isEventCompleted = isInteracted;
                 Arrow.instance.objectToSnap = MedKit;
                 if (isEventCompleted)
+                {
+                    gParticle.transform.position = sbInfoContainer[currState].interactables[0].transform.position;
+                    gParticle.GetComponent<ParticleController>().PlayParticle();
                     SwitchState((int)STATE_SB.STATE_GET_MEDKIT_TO_LOCAL);
+                }
+
                 break;
             case STATE_SB.STATE_GET_MEDKIT_TO_LOCAL:
                 //Player brings the medkit to a certain location
@@ -213,6 +219,9 @@ public class ScenarioBurn : ScenarioBase
                     MedTriggerLocal.SetActive(false);
                     SwitchState((int)STATE_SB.STATE_PURIFIED_WATER);
                     Arrow.instance.gameObject.SetActive(false);
+
+                   gParticle.transform.position = sbInfoContainer[currState].interactables[0].transform.position;
+                    gParticle.GetComponent<ParticleController>().PlayParticle();
                 }
                 break;
             case STATE_SB.STATE_PURIFIED_WATER:

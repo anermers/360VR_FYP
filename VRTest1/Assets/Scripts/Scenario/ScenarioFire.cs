@@ -46,6 +46,7 @@ public class ScenarioFire : ScenarioBase
     public Animator doorAnim;
     public Animator extinguisherAnim;
     public List<SFInfo> sfInfoList;
+    public ParticleController gParticle;
 
     public STATE_SF currState;
     STATE_SF prevState;
@@ -190,13 +191,17 @@ public class ScenarioFire : ScenarioBase
             case STATE_SF.STATE_OFF_GAS:
                 isEventCompleted = isInteracted;
                 if(isEventCompleted)
+                {
+                    EnableGreenEffect();
                     SwitchState((int)STATE_SF.STATE_OFF_MAIN_GAS);
+                }
                 break;
             case STATE_SF.STATE_OFF_MAIN_GAS:
                 isEventCompleted = isInteracted;
                 if (isEventCompleted)
                 {
-                    if(isBigFire)
+                    EnableGreenEffect();
+                    if (isBigFire)
                         SwitchState((int)STATE_SF.STATE_PULL_ALARM);
                     else
                         SwitchState((int)STATE_SF.STATE_GET_FIRE_BLANKET);
@@ -207,6 +212,7 @@ public class ScenarioFire : ScenarioBase
                 if(isInteracted)
                 {
                     fireBlanket.SetActive(true);
+                    EnableGreenEffect();
 
                     if (InteractedGO == fireBlanket)
                         isEventCompleted = true;
@@ -225,6 +231,7 @@ public class ScenarioFire : ScenarioBase
 
                 if (isEventCompleted)
                 {
+                    EnableGreenEffect();
                     fireBlanket.GetComponent<Animator>().SetBool("openFireBlanket", true);
                     //smallFire.SetActive(false);
                     //largeFire.SetActive(false);
@@ -241,6 +248,7 @@ public class ScenarioFire : ScenarioBase
                 //sfInfoContainer[currState].interactables[0].transform.forward = Camera.main.transform.forward;
                 if (isEventCompleted)
                 {
+                    EnableGreenEffect();
                     //play animation 
                     extinguisherAnim.SetBool("isExtinguisher", true);
                     sprayParticle.SetActive(true);
@@ -252,12 +260,18 @@ public class ScenarioFire : ScenarioBase
             case STATE_SF.STATE_PULL_ALARM:
                 isEventCompleted = isInteracted;
                 if (isEventCompleted)
+                {
+                    EnableGreenEffect();
                     SwitchState((int)STATE_SF.STATE_EVACUATE);
+                }
                 break;
             case STATE_SF.STATE_EVACUATE:
                 isEventCompleted = isInteracted;
                 if (isEventCompleted)
+                {
+                    EnableGreenEffect();
                     isScenarioDone = true;
+                }
                 break;
             default:
                 break;
@@ -322,6 +336,12 @@ public class ScenarioFire : ScenarioBase
         extinguisherTriggerBox.SetActive(false);
         isEventCompleted = true;
         isScenarioDone = true;
+    }
+
+    void EnableGreenEffect()
+    {
+        gParticle.transform.position = sfInfoContainer[currState].interactables[0].transform.position;
+        gParticle.GetComponent<ParticleController>().PlayParticle();
     }
 }
 

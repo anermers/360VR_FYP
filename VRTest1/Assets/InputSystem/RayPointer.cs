@@ -235,7 +235,7 @@ public class RayPointer : MonoBehaviour {
         {
             MainMenuCamera.isMoving = false;
             ScenarioHandler.instance.ScenarioFireSelect(true);
-            //ScenarioHandler.instance.SelectScenarioType("sc");
+            //ScenarioHandler.instance.SelectScenarioType("sb");
         }
 #endif
 

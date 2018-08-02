@@ -163,6 +163,7 @@
     <Compile Include="Assets\Scripts\MedKitUI.cs" />
     <Compile Include="Assets\Scripts\MenuHandler.cs" />
     <Compile Include="Assets\Scripts\NonUIInteraction.cs" />
+    <Compile Include="Assets\Scripts\ParticleController.cs" />
     <Compile Include="Assets\Scripts\ProgressBar.cs" />
     <Compile Include="Assets\Scripts\RoomHandler.cs" />
     <Compile Include="Assets\Scripts\RotateToFront.cs" />

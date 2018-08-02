@@ -36,6 +36,7 @@ public class ScenarioCut : ScenarioBase {
     public GameObject progressBar;
 
     public List<SCInfo> scInfoList;
+    public ParticleSystem gParticle;
 
     public STATE_SC currState;
     STATE_SC prevState;
@@ -150,7 +151,10 @@ public class ScenarioCut : ScenarioBase {
                 isEventCompleted = isInteracted;
                 Arrow.instance.objectToSnap = MedKit;
                 if (isEventCompleted)
+                {
+                    EnableGreenEffect();
                     SwitchState((int)STATE_SC.STATE_GET_MEDKIT_TO_LOCAL);
+                }
                 break;
             case STATE_SC.STATE_GET_MEDKIT_TO_LOCAL:
                 //Player brings the medkit to a certain location
@@ -158,6 +162,7 @@ public class ScenarioCut : ScenarioBase {
                 MedTriggerLocal.SetActive(true);
                 if (isEventCompleted)
                 {
+                    EnableGreenEffect();
                     Arrow.instance.objectToSnap = null;
                     tempCollider.SetActive(true);
                     MedTriggerLocal.SetActive(false);
@@ -246,4 +251,9 @@ public class ScenarioCut : ScenarioBase {
         return AnimatorIsPlaying() && chefAnimController.GetCurrentAnimatorStateInfo(0).IsName(stateName);
     }
 
+    void EnableGreenEffect()
+    {
+        gParticle.transform.position = scInfoContainer[currState].interactables[0].transform.position;
+        gParticle.GetComponent<ParticleController>().PlayParticle();
+    }
 }
