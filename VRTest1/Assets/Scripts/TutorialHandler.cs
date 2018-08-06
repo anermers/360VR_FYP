@@ -55,7 +55,7 @@ public class TutorialHandler : MonoBehaviour {
     // Update is called once per frame
     void Update() {
 
-        if (!isTutorial && !menuScreen.activeSelf)
+        if (!isTutorial)//&& !  .activeSelf)
         {
             gameObject.SetActive(false);
             menuScreen.SetActive(true);
