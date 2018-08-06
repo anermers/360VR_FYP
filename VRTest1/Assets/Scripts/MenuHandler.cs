@@ -10,7 +10,7 @@ public class MenuHandler : MonoBehaviour {
     public GameObject menuScreen;
     public GameObject tutorialScreen;
     public RayPointer pointer;
-
+    
 	void Update () {
 
 #if UNITY_EDITOR

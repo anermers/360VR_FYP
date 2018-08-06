@@ -36,6 +36,10 @@ public class RayPointer : MonoBehaviour {
     public GameObject kitchenModel;
     public GameObject testPoint;
     public GameObject instructionMenu;
+
+    public GameObject mainMenu;
+    public GameObject tutorialMenu;
+
     public Camera CentreEyeCamera;
     public bool isController = false;
     [HideInInspector]
@@ -89,10 +93,11 @@ public class RayPointer : MonoBehaviour {
     }
 
     void RayHitSomething(Vector3 hitPosition, Vector3 hitNormal) {
+
         if (lineRenderer != null) {
             testPoint.SetActive(true);
             lineRenderer.SetPosition(1, hitPosition);
-            testPoint.transform.localPosition = hitPosition;
+            testPoint.transform.position = hitPosition;
         }
     }
 
@@ -194,6 +199,11 @@ public class RayPointer : MonoBehaviour {
         DisableLineRendererIfNeeded();
         Ray selectionRay = UpdateCastRayIfPossible();
 
+        //if (mainMenu.activeSelf || tutorialMenu.activeSelf)
+        //    interactWithNonUIObjects = false;
+        //else if (!mainMenu.activeSelf && !tutorialMenu.activeSelf)
+        //    interactWithNonUIObjects = true;
+
         //if (!isController && testPoint != null)
         if (testPoint != null && testPoint.activeSelf)
         {
@@ -234,8 +244,8 @@ public class RayPointer : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F11))
         {
             MainMenuCamera.isMoving = false;
-            ScenarioHandler.instance.ScenarioFireSelect(true);
-            //ScenarioHandler.instance.SelectScenarioType("sb");
+           // ScenarioHandler.instance.ScenarioFireSelect(true);
+            ScenarioHandler.instance.SelectScenarioType("sc");
         }
 #endif
 

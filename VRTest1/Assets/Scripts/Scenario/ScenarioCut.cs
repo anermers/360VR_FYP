@@ -253,6 +253,9 @@ public class ScenarioCut : ScenarioBase {
 
     void EnableGreenEffect()
     {
+        if (scInfoContainer[currState].interactables.Count <= 0)
+            return;
+
         gParticle.transform.position = scInfoContainer[currState].interactables[0].transform.position;
         gParticle.GetComponent<ParticleController>().PlayParticle();
     }

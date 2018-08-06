@@ -47,7 +47,7 @@ public class InstructionMenu : MonoBehaviour {
                 // user can move nad menu is disable
                 gameObject.transform.position = uiCamera.transform.forward * 1.5f + uiCamera.transform.position;
                 gameObject.transform.position = new Vector3(gameObject.transform.position.x, 1.5f, gameObject.transform.position.z);
-                gameObject.transform.rotation = Quaternion.LookRotation((gameObject.transform.position - player.transform.position).normalized);
+                gameObject.transform.rotation = Quaternion.LookRotation((gameObject.transform.position - player.transform.position));
             }
 
             //gameObject.transform.eulerAngles = new Vector3(gameObject.transform.eulerAngles.x, gameObject.transform.eulerAngles.y, 0);
