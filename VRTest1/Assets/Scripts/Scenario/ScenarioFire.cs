@@ -45,6 +45,7 @@ public class ScenarioFire : ScenarioBase
     public GameObject sprayParticle;
     public Animator doorAnim;
     public Animator extinguisherAnim;
+    public Animator fireAlarmAnim;
     public List<SFInfo> sfInfoList;
     public ParticleController gParticle;
 
@@ -261,6 +262,7 @@ public class ScenarioFire : ScenarioBase
                 isEventCompleted = isInteracted;
                 if (isEventCompleted)
                 {
+                    //fireAlarmAnim.SetBool("Play", true);
                     EnableGreenEffect();
                     SwitchState((int)STATE_SF.STATE_EVACUATE);
                 }
