@@ -23,7 +23,7 @@ public class MedKitUI : MonoBehaviour {
     private Vector3 originalScale;
 
 
-    private List<GameObject> spawnedObjects;
+    public List<GameObject> spawnedObjects;
     // Use this for initialization
     void Start () {
         selection = 0;
@@ -60,7 +60,8 @@ public class MedKitUI : MonoBehaviour {
     {
         NonUIInteraction.objectSelected = false;
         temp = Instantiate(inventory[selection].Object, previewPosition.transform.position, Quaternion.identity);
-        temp.tag = "PickUp";
+        temp.tag = "FirstAidItems";
+        temp.name = inventory[selection].Object.name;
         //temp.AddComponent<BoxCollider>();
         temp.AddComponent<Rigidbody>();
         temp.GetComponent<Rigidbody>().isKinematic = true;
@@ -86,7 +87,7 @@ public class MedKitUI : MonoBehaviour {
     {
         //Debug.Log("POINTER ENTERED " + t.name);
         originalScale = t.transform.localScale;
-        t.localScale = new Vector3(1.2f, 1.2f, 1);
+        t.localScale = new Vector3(0.7f,0.7f,0.7f);
     }
 
     public void OnPointerExit(Transform t)

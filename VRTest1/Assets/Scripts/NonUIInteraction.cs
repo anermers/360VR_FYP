@@ -114,7 +114,7 @@ public class NonUIInteraction : MonoBehaviour {
                 //t.gameObject.transform.eulerAngles = new Vector3(0, 90, 0);
                 t.gameObject.transform.parent = playerController.transform;
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
-                chef.GetComponent<BoxCollider>().enabled = false;
+                //chef.GetComponent<BoxCollider>().enabled = false;
                 //line.enabled = false;
             }
             else
@@ -123,15 +123,64 @@ public class NonUIInteraction : MonoBehaviour {
                 t.gameObject.GetComponent<Rigidbody>().isKinematic = false;
                 t.gameObject.transform.parent = null;
 
+               
+
                 if (t.gameObject.GetComponent<Renderer>() != null && t.gameObject.GetComponent<Outline>() != null)
                     t.gameObject.GetComponent<Outline>().color = 2;
                 if (t.gameObject.GetComponent<RotateToFront>() != null)
                     t.gameObject.GetComponent<RotateToFront>().enabled = false;
 
 
-                chef.GetComponent<BoxCollider>().enabled = true;
-                MedKitUI.Spawn = true;
+                //chef.GetComponent<BoxCollider>().enabled = true;
+                //MedKitUI.Spawn = true;
             }
+        }
+
+        if (t.gameObject.tag == "FirstAidItems")
+        {
+            infoText.text = "";
+            if (!objectSelected)
+            {
+                objectSelected = true;
+                if (t.gameObject.GetComponent<Renderer>() != null && t.gameObject.GetComponent<Outline>() != null)
+                    t.gameObject.GetComponent<Outline>().color = 3;
+                if (t.gameObject.GetComponent<RotateToFront>() != null)
+                {
+                    t.gameObject.GetComponent<RotateToFront>().enabled = true;
+                    t.gameObject.GetComponent<RotateToFront>().Init();
+                }
+
+                t.gameObject.transform.position = snap.transform.position;
+                //t.gameObject.transform.eulerAngles = new Vector3(0, 90, 0);
+                t.gameObject.transform.parent = playerController.transform;
+                t.gameObject.GetComponent<Rigidbody>().isKinematic = true;
+                chef.GetComponent<BoxCollider>().enabled = false;
+                MedKitUI.Spawn = false;
+                //line.enabled = false;
+            }
+            else
+            {
+                if(chef.GetComponent<BoxCollider>().enabled != true)
+                    if (Vector3.Distance(chef.transform.position, t.gameObject.transform.position) < 1.5f)
+                        chef.GetComponent<BoxCollider>().enabled = true;
+            }
+            //else
+            //{
+            //    //objectSelected = false;
+            //    //t.gameObject.GetComponent<Rigidbody>().isKinematic = false;
+            //    //t.gameObject.transform.parent = null;
+
+
+
+            //    //if (t.gameObject.GetComponent<Renderer>() != null && t.gameObject.GetComponent<Outline>() != null)
+            //    //    t.gameObject.GetComponent<Outline>().color = 2;
+            //    //if (t.gameObject.GetComponent<RotateToFront>() != null)
+            //    //    t.gameObject.GetComponent<RotateToFront>().enabled = false;
+
+
+            //    chef.GetComponent<BoxCollider>().enabled = true;
+            //    MedKitUI.Spawn = true;
+            //}
         }
 
         //For chef to sink interaction
