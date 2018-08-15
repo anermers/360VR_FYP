@@ -87,7 +87,7 @@ public class MedKitUI : MonoBehaviour {
     {
         //Debug.Log("POINTER ENTERED " + t.name);
         originalScale = t.transform.localScale;
-        t.localScale = new Vector3(1.1f, 1.1f, 1);
+        t.localScale = new Vector3(0.7f,0.7f,0.7f);
     }
 
     public void OnPointerExit(Transform t)
