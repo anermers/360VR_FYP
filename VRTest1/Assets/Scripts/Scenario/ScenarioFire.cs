@@ -48,6 +48,9 @@ public class ScenarioFire : ScenarioBase
     public Animator fireAlarmAnim;
     public List<SFInfo> sfInfoList;
     public ParticleController gParticle;
+    public AudioClip correctSound;
+    public AudioClip incorrectSound;
+    public AudioSource aSource;
 
     public STATE_SF currState;
     STATE_SF prevState;
@@ -193,6 +196,7 @@ public class ScenarioFire : ScenarioBase
                 isEventCompleted = isInteracted;
                 if(isEventCompleted)
                 {
+                    aSource.PlayOneShot(correctSound);
                     EnableGreenEffect();
                     SwitchState((int)STATE_SF.STATE_OFF_MAIN_GAS);
                 }
@@ -202,6 +206,7 @@ public class ScenarioFire : ScenarioBase
                 if (isEventCompleted)
                 {
                     EnableGreenEffect();
+                    aSource.PlayOneShot(correctSound);
                     if (isBigFire)
                         SwitchState((int)STATE_SF.STATE_PULL_ALARM);
                     else
@@ -214,13 +219,16 @@ public class ScenarioFire : ScenarioBase
                 {
                     fireBlanket.SetActive(true);
                     EnableGreenEffect();
-
+                    aSource.PlayOneShot(correctSound);
                     if (InteractedGO == fireBlanket)
                         isEventCompleted = true;
                 }
 
                 if (isEventCompleted)
+                {
+                    //aSource.PlayOneShot(correctSound);
                     SwitchState((int)STATE_SF.STATE_USE_FIRE_BLANKET);
+                }
                 break;
             case STATE_SF.STATE_USE_FIRE_BLANKET:
 
@@ -237,6 +245,7 @@ public class ScenarioFire : ScenarioBase
                     //smallFire.SetActive(false);
                     //largeFire.SetActive(false);
                     //isScenarioDone = true;
+                    aSource.PlayOneShot(correctSound);
                     SwitchState((int)STATE_SF.STATE_USE_FIRE_EXTINGUISHER);
                 }
 
@@ -253,6 +262,7 @@ public class ScenarioFire : ScenarioBase
                     //play animation 
                     extinguisherAnim.SetBool("isExtinguisher", true);
                     sprayParticle.SetActive(true);
+                    aSource.PlayOneShot(correctSound);
                     //particles??
                     StartCoroutine("FireExtinguish");
                 }
@@ -264,6 +274,7 @@ public class ScenarioFire : ScenarioBase
                 {
                     //fireAlarmAnim.SetBool("Play", true);
                     EnableGreenEffect();
+                    aSource.PlayOneShot(correctSound);
                     SwitchState((int)STATE_SF.STATE_EVACUATE);
                 }
                 break;
@@ -272,6 +283,7 @@ public class ScenarioFire : ScenarioBase
                 if (isEventCompleted)
                 {
                     EnableGreenEffect();
+                    aSource.PlayOneShot(correctSound);
                     isScenarioDone = true;
                 }
                 break;
@@ -331,7 +343,6 @@ public class ScenarioFire : ScenarioBase
     IEnumerator FireExtinguish()
     {
         yield return new WaitForSeconds(5f);
-
         smallFire.SetActive(false);
         largeFire.SetActive(false);
         sprayParticle.SetActive(false);
@@ -347,6 +358,11 @@ public class ScenarioFire : ScenarioBase
 
         gParticle.transform.position = sfInfoContainer[currState].interactables[0].transform.position;
         gParticle.GetComponent<ParticleController>().PlayParticle();
+    }
+
+    public void PlayIncorrectSound()
+    {
+        aSource.PlayOneShot(incorrectSound);
     }
 }
 

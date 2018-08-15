@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.Events;
 using UnityEngine.SceneManagement;
+using UnityEngine.EventSystems;
 
 public class RayPointer : MonoBehaviour {
     [System.Serializable]
@@ -196,7 +197,7 @@ public class RayPointer : MonoBehaviour {
 
 	void Update () {
         DetermineActiveController();
-        DisableLineRendererIfNeeded();
+        //DisableLineRendererIfNeeded();
         Ray selectionRay = UpdateCastRayIfPossible();
 
         //if (mainMenu.activeSelf || tutorialMenu.activeSelf)
@@ -244,7 +245,7 @@ public class RayPointer : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F11))
         {
             MainMenuCamera.isMoving = false;
-           ScenarioHandler.instance.ScenarioFireSelect(true);
+           ScenarioHandler.instance.ScenarioFireSelect(false);
             //ScenarioHandler.instance.SelectScenarioType("sc");
         }
 #endif
@@ -277,6 +278,16 @@ public class RayPointer : MonoBehaviour {
         }
         else
             testPoint.transform.localScale = new Vector3(1, 1, 1);
+
+        //if(EventSystem.current.currentSelectedGameObject != null)
+        //{
+        //    lineRenderer.SetPosition(1, EventSystem.current.currentSelectedGameObject.transform.position);
+        //    testPoint.transform.position = EventSystem.current.currentSelectedGameObject.transform.position;
+        //    Debug.Log("hit");
+        //}
+
+        
+        //Debug.Log(noUIcontrolsInUse);
     }
 
     void ProcessNonUIInteractions(Ray pointer) {

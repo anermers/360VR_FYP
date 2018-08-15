@@ -38,6 +38,10 @@ public class ScenarioCut : ScenarioBase {
     public List<SCInfo> scInfoList;
     public ParticleSystem gParticle;
 
+    public AudioClip correctSound;
+    public AudioClip incorrectSound;
+    public AudioSource aSource;
+
     public STATE_SC currState;
     STATE_SC prevState;
     //int instructionIndex;
@@ -167,6 +171,7 @@ public class ScenarioCut : ScenarioBase {
                     tempCollider.SetActive(true);
                     MedTriggerLocal.SetActive(false);
                     medKitCanvas.SetActive(true);
+                    aSource.PlayOneShot(correctSound);
                     SwitchState((int)STATE_SC.STATE_PURIFIED_WATER);
                 }
                 break;
@@ -175,18 +180,23 @@ public class ScenarioCut : ScenarioBase {
                 if (isEventCompleted)
                 {
                     progressBar.GetComponent<ProgressBar>().AddProgress(35f);
+                    aSource.PlayOneShot(correctSound);
                     SwitchState((int)STATE_SC.STATE_APPLY_GAUZE);
                 }
                 break;
             case STATE_SC.STATE_APPLY_GAUZE:
                 //Get gauze and apply pressure on traineeChef
                 if (isEventCompleted)
+                {
+                    aSource.PlayOneShot(correctSound);
                     SwitchState((int)STATE_SC.STATE_APPLY_YELLOW_ACRI);
+                }     
                 break;
             case STATE_SC.STATE_APPLY_YELLOW_ACRI:
                 //Apply yellow ACRI solution
                 if (isEventCompleted)
                 {
+                    aSource.PlayOneShot(correctSound);
                     progressBar.GetComponent<ProgressBar>().AddProgress(35f);
                     SwitchState((int)STATE_SC.STATE_APPLY_BANDANGE);
                 }
@@ -195,6 +205,7 @@ public class ScenarioCut : ScenarioBase {
                 //Get bandage and apply on traineeChef
                 if (isEventCompleted)
                 {
+                    aSource.PlayOneShot(correctSound);
                     progressBar.GetComponent<ProgressBar>().AddProgress(35f);
                     isScenarioDone = true;
                 }
@@ -258,5 +269,10 @@ public class ScenarioCut : ScenarioBase {
 
         gParticle.transform.position = scInfoContainer[currState].interactables[0].transform.position;
         gParticle.GetComponent<ParticleController>().PlayParticle();
+    }
+
+    public void PlayIncorrectSound()
+    {
+        aSource.PlayOneShot(incorrectSound);
     }
 }

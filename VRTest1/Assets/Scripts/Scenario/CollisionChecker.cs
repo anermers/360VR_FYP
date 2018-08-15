@@ -113,6 +113,7 @@ public class CollisionChecker : MonoBehaviour {
                 else 
                 {
                     gameObject.GetComponent<GreenParticle>().PlayRedParticle();
+                    ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioCut>().PlayIncorrectSound();
                     other.gameObject.SetActive(false);
                     wrongCount++;
                 }
@@ -172,6 +173,7 @@ public class CollisionChecker : MonoBehaviour {
                 {
                     other.gameObject.SetActive(false);
                     gameObject.GetComponent<GreenParticle>().PlayRedParticle();
+                    ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().PlayIncorrectSound();
                     wrongCount++;
                 }
             }

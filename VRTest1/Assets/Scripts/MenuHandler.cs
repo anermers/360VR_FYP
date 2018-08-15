@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.EventSystems;
 
 public class MenuHandler : MonoBehaviour {
 
@@ -25,6 +26,12 @@ public class MenuHandler : MonoBehaviour {
         //if (!menuScreen.activeSelf && !tutorialScreen.activeSelf)
         //    pointer.rayLength = 2;
 
+
+
+        //bool noUIcontrolsInUse = EventSystem.current.currentSelectedGameObject == null; EventSystems.EventSystem.IsPointerOverGameObject
+
+        //if (UnityEngine.EventSystems.EventSystem.current.IsPointerOverGameObject(-1))
+        //    Debug.Log(EventSystem.current.currentSelectedGameObject.name);
 
         if (ScenarioHandler.instance.CurrScenario == null)
             return;

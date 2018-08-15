@@ -45,6 +45,9 @@ public class ScenarioBurn : ScenarioBase
     public List<SBInfo> sbInfoList;
     public bool chefToSink;
     public ParticleSystem gParticle;
+    public AudioClip correctSound;
+    public AudioClip incorrectSound;
+    public AudioSource aSource;
 
     public STATE_SB currState;
     private STATE_SB prevState;
@@ -188,6 +191,7 @@ public class ScenarioBurn : ScenarioBase
                     traineeChef.transform.position = sinkLocal.transform.position;
                     traineeChef.transform.LookAt(sink.transform.position);
                     chefAnimController.SetBool("afterCutIdle", true);
+                    aSource.PlayOneShot(correctSound);
                     traineeChef.GetComponent<BoxCollider>().center = new Vector3(traineeChef.GetComponent<BoxCollider>().center.x, traineeChef.GetComponent<BoxCollider>().center.y, 0);
                     SwitchState((int)STATE_SB.STATE_GET_MEDKIT);
                     //play wash hand animation
@@ -219,25 +223,35 @@ public class ScenarioBurn : ScenarioBase
                     MedTriggerLocal.SetActive(false);
                     SwitchState((int)STATE_SB.STATE_PURIFIED_WATER);
                     Arrow.instance.gameObject.SetActive(false);
-
-                   gParticle.transform.position = sbInfoContainer[currState].interactables[0].transform.position;
+                    aSource.PlayOneShot(correctSound);
+                    gParticle.transform.position = sbInfoContainer[currState].interactables[0].transform.position;
                     gParticle.GetComponent<ParticleController>().PlayParticle();
                 }
                 break;
             case STATE_SB.STATE_PURIFIED_WATER:
                 //Get purified water and apply on traineeChef
                 if (isEventCompleted)
+                {
+                    aSource.PlayOneShot(correctSound);
                     SwitchState((int)STATE_SB.STATE_APPLY_CREAM);
+                }
+
                 break;
             case STATE_SB.STATE_APPLY_CREAM:
                 //Get cream and apply on traineeChef
                 if (isEventCompleted)
+                {
+                    aSource.PlayOneShot(correctSound);
                     SwitchState((int)STATE_SB.STATE_APPLY_BANDANGE);
+                }
                 break;
             case STATE_SB.STATE_APPLY_BANDANGE:
                 //Get bandage and apply on traineeChef
                 if (isEventCompleted)
+                {
+                    aSource.PlayOneShot(correctSound);
                     isScenarioDone = true;
+                }
                 break;
         }
 	}
@@ -297,5 +311,10 @@ public class ScenarioBurn : ScenarioBase
     bool AnimatorIsPlaying(string stateName)
     {
         return AnimatorIsPlaying() && chefAnimController.GetCurrentAnimatorStateInfo(0).IsName(stateName);
+    }
+
+    public void PlayIncorrectSound()
+    {
+        aSource.PlayOneShot(incorrectSound);
     }
 }

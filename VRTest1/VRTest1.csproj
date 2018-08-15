@@ -182,6 +182,7 @@
     <Compile Include="Assets\Scripts\UIInteraction.cs" />
   </ItemGroup>
   <ItemGroup>
+    <None Include="Assets\Audio\Source.txt" />
     <None Include="Assets\Models\objtextures.txt" />
     <None Include="Assets\OVR\Editor\AndroidManifest.OVRSubmission.xml" />
     <None Include="Assets\OVR\Plugins\placeholder.txt" />
