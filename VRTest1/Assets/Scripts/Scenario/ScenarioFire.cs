@@ -51,6 +51,7 @@ public class ScenarioFire : ScenarioBase
     public AudioClip correctSound;
     public AudioClip incorrectSound;
     public AudioSource aSource;
+    public AudioSource aInSource;
 
     public STATE_SF currState;
     STATE_SF prevState;
@@ -219,7 +220,7 @@ public class ScenarioFire : ScenarioBase
                 {
                     fireBlanket.SetActive(true);
                     EnableGreenEffect();
-                    aSource.PlayOneShot(correctSound);
+                    //aSource.PlayOneShot(correctSound);
                     if (InteractedGO == fireBlanket)
                         isEventCompleted = true;
                 }
@@ -262,7 +263,6 @@ public class ScenarioFire : ScenarioBase
                     //play animation 
                     extinguisherAnim.SetBool("isExtinguisher", true);
                     sprayParticle.SetActive(true);
-                    aSource.PlayOneShot(correctSound);
                     //particles??
                     StartCoroutine("FireExtinguish");
                 }
@@ -283,7 +283,8 @@ public class ScenarioFire : ScenarioBase
                 if (isEventCompleted)
                 {
                     EnableGreenEffect();
-                    aSource.PlayOneShot(correctSound);
+                    if (!isScenarioDone)
+                        aSource.PlayOneShot(correctSound);
                     isScenarioDone = true;
                 }
                 break;
@@ -349,6 +350,8 @@ public class ScenarioFire : ScenarioBase
         extinguisherTriggerBox.SetActive(false);
         isEventCompleted = true;
         isScenarioDone = true;
+        if (!isScenarioDone)
+            aSource.PlayOneShot(correctSound);
     }
 
     void EnableGreenEffect()
@@ -362,7 +365,7 @@ public class ScenarioFire : ScenarioBase
 
     public void PlayIncorrectSound()
     {
-        aSource.PlayOneShot(incorrectSound);
+        aInSource.PlayOneShot(incorrectSound);
     }
 }
 

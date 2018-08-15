@@ -61,7 +61,7 @@ public class NonUIInteraction : MonoBehaviour {
         infoText.transform.position = new Vector3(t.gameObject.transform.position.x, t.gameObject.transform.position.y, t.gameObject.transform.position.z);
         infoText.transform.rotation = Quaternion.LookRotation(infoText.transform.position - playerCam.transform.position);
         //Rotate Text to face the camera
-        if (t.gameObject.tag == "PickUp")
+        if (t.gameObject.tag == "PickUp" || t.gameObject.tag == "FirstAidItems")
             infoText.text = t.gameObject.name;
     }
 

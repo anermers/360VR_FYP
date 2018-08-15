@@ -41,6 +41,7 @@ public class ScenarioCut : ScenarioBase {
     public AudioClip correctSound;
     public AudioClip incorrectSound;
     public AudioSource aSource;
+    public AudioSource aInSource;
 
     public STATE_SC currState;
     STATE_SC prevState;
@@ -205,7 +206,8 @@ public class ScenarioCut : ScenarioBase {
                 //Get bandage and apply on traineeChef
                 if (isEventCompleted)
                 {
-                    aSource.PlayOneShot(correctSound);
+                    if(!isScenarioDone)
+                        aSource.PlayOneShot(correctSound);
                     progressBar.GetComponent<ProgressBar>().AddProgress(35f);
                     isScenarioDone = true;
                 }
@@ -273,6 +275,6 @@ public class ScenarioCut : ScenarioBase {
 
     public void PlayIncorrectSound()
     {
-        aSource.PlayOneShot(incorrectSound);
+        aSource.PlayOneShot(incorrectSound, 1);
     }
 }

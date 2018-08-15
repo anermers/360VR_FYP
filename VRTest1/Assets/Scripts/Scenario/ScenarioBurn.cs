@@ -48,6 +48,7 @@ public class ScenarioBurn : ScenarioBase
     public AudioClip correctSound;
     public AudioClip incorrectSound;
     public AudioSource aSource;
+    public AudioSource aInSource;
 
     public STATE_SB currState;
     private STATE_SB prevState;
@@ -249,7 +250,8 @@ public class ScenarioBurn : ScenarioBase
                 //Get bandage and apply on traineeChef
                 if (isEventCompleted)
                 {
-                    aSource.PlayOneShot(correctSound);
+                    if (!isScenarioDone)
+                        aSource.PlayOneShot(correctSound);
                     isScenarioDone = true;
                 }
                 break;
@@ -315,6 +317,6 @@ public class ScenarioBurn : ScenarioBase
 
     public void PlayIncorrectSound()
     {
-        aSource.PlayOneShot(incorrectSound);
+        aInSource.PlayOneShot(incorrectSound,1);
     }
 }

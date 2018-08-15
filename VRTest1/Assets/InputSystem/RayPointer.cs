@@ -197,7 +197,7 @@ public class RayPointer : MonoBehaviour {
 
 	void Update () {
         DetermineActiveController();
-        //DisableLineRendererIfNeeded();
+        DisableLineRendererIfNeeded();
         Ray selectionRay = UpdateCastRayIfPossible();
 
         //if (mainMenu.activeSelf || tutorialMenu.activeSelf)
@@ -245,8 +245,8 @@ public class RayPointer : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F11))
         {
             MainMenuCamera.isMoving = false;
-           ScenarioHandler.instance.ScenarioFireSelect(false);
-            //ScenarioHandler.instance.SelectScenarioType("sc");
+           //ScenarioHandler.instance.ScenarioFireSelect(false);
+            ScenarioHandler.instance.SelectScenarioType("sc");
         }
 #endif
 
