@@ -244,8 +244,8 @@ public class RayPointer : MonoBehaviour {
         if (Input.GetKeyDown(KeyCode.F11))
         {
             MainMenuCamera.isMoving = false;
-           ScenarioHandler.instance.ScenarioFireSelect(true);
-            //ScenarioHandler.instance.SelectScenarioType("sc");
+           //ScenarioHandler.instance.ScenarioFireSelect(true);
+            ScenarioHandler.instance.SelectScenarioType("sc");
         }
 #endif
 

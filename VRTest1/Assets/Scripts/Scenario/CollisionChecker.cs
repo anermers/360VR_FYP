@@ -79,26 +79,26 @@ public class CollisionChecker : MonoBehaviour {
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
                 }
             }
-            else if(gameObject.name == "Chef" && other.tag == "PickUp")
+            else if(gameObject.name == "Chef" && other.tag == "FirstAidItems")
             {
                 correctOBJ = false;
                 Debug.Log(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioCut>().currState);
                 switch (ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioCut>().currState)
                 {
                     case ScenarioCut.STATE_SC.STATE_PURIFIED_WATER:
-                        if (other.name == "EyeWash(Clone)")
+                        if (other.name == "EyeWash")
                             correctOBJ = true;
                         break;
                     case ScenarioCut.STATE_SC.STATE_APPLY_GAUZE:
-                        if (other.name == "Gauze(Clone)")
+                        if (other.name == "Gauze")
                             correctOBJ = true;
                         break;
                     case ScenarioCut.STATE_SC.STATE_APPLY_YELLOW_ACRI:
-                        if (other.name == "Acriflavine Solution(Clone)")
+                        if (other.name == "Acriflavine Solution")
                             correctOBJ = true;
                         break;
                     case ScenarioCut.STATE_SC.STATE_APPLY_BANDANGE:
-                        if (other.name == "OmniPlast(Clone)")
+                        if (other.name == "OmniPlast")
                             correctOBJ = true;
                         break;
                 }
@@ -108,6 +108,7 @@ public class CollisionChecker : MonoBehaviour {
                     other.gameObject.SetActive(false);
                     MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
+                    NonUIInteraction.objectSelected = false;
                     wrongCount = 0;
                 }
                 else 
@@ -115,6 +116,8 @@ public class CollisionChecker : MonoBehaviour {
                     gameObject.GetComponent<GreenParticle>().PlayRedParticle();
                     other.gameObject.SetActive(false);
                     wrongCount++;
+                    NonUIInteraction.objectSelected = false;
+                    MedKitUI.Spawn = true;
                 }
             }
         }
@@ -141,22 +144,22 @@ public class CollisionChecker : MonoBehaviour {
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
                 }
             }
-            else if (gameObject.name == "Chef" && other.tag =="PickUp")
+            else if (gameObject.name == "Chef" && other.tag =="FirstAidItems")
             {
                 correctOBJ = false;
                 Debug.Log(ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState);
                 switch (ScenarioHandler.instance.CurrScenario.GetComponent<ScenarioBurn>().currState)
                 {
                     case ScenarioBurn.STATE_SB.STATE_PURIFIED_WATER:
-                        if (other.name == "EyeWash(Clone)")
+                        if (other.name == "EyeWash")
                             correctOBJ = true;
                         break;
                     case ScenarioBurn.STATE_SB.STATE_APPLY_CREAM:
-                        if (other.name == "Bacidin(Clone)")
+                        if (other.name == "Bacidin")
                             correctOBJ = true;
                         break;
                     case ScenarioBurn.STATE_SB.STATE_APPLY_BANDANGE:
-                        if (other.name == "OmniPlast(Clone)")
+                        if (other.name == "OmniPlast")
                             correctOBJ = true;
                         break;
                 }
@@ -166,6 +169,7 @@ public class CollisionChecker : MonoBehaviour {
                     other.gameObject.SetActive(false);
                     MedKitUI.Spawn = true;
                     ScenarioHandler.instance.CurrScenario.IsEventCompleted = true;
+                    NonUIInteraction.objectSelected = false;
                     wrongCount = 0;
                 }
                 else 
@@ -173,6 +177,8 @@ public class CollisionChecker : MonoBehaviour {
                     other.gameObject.SetActive(false);
                     gameObject.GetComponent<GreenParticle>().PlayRedParticle();
                     wrongCount++;
+                    NonUIInteraction.objectSelected = false;
+                    MedKitUI.Spawn = true;
                 }
             }
         }
